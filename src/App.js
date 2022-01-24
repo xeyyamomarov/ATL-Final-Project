@@ -1,10 +1,10 @@
-import CustomSeparator from 'pages/Users/components/Searchbar';
+import SearchBar from 'pages/Users/components/SearchBar';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <CustomSeparator />
+      <SearchBar />
     </div>
   );
 }
