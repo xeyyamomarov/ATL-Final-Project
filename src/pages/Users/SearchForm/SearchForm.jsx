@@ -1,4 +1,4 @@
-import { TextField, Select, Box, MenuItem, Button, FormControl, InputLabel } from "@mui/material";
+import { TextField, Box, MenuItem, Button } from "@mui/material";
 
 
 const SearchForm = () => {
@@ -48,15 +48,17 @@ const SearchForm = () => {
         </Box >
 
         <Box
-        component="div"
-        textAlign="right"
-        sx={{
-          padding: '15px',
-        }}>
+          component="div"
+          textAlign="right"
+          sx={{
+            padding: '15px',
+          }}>
           <Button variant='text' color='inherit'>Təmizlə</Button>
           <Button variant='contained' color='primary' disableElevation sx={{
             marginLeft: '12px'
-          }}>Axtar</Button>
+          }}
+          >Axtar
+          </Button>
         </Box>
       </Box>
     </Box>

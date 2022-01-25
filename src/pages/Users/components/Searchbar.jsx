@@ -9,7 +9,7 @@ function handleClick(event) {
   console.info('You clicked a breadcrumb.');
 }
 
-export default function SearchBar({ clickState }) {
+export default function SearchBar({ searchState, addUserState }) {
   const breadcrumbs = [
     <Link key="1"
       underline='none'
@@ -36,14 +36,25 @@ export default function SearchBar({ clickState }) {
       </Breadcrumbs>
       <Box component="div" textAlign="right">
         <Button
-        variant='text'
-        color='inherit' 
-        startIcon={<Search />}
-        onClick={() => clickState.setClick(prev => !prev)}
-        >Axtarış</Button>
-        <Button variant='contained' color='primary' disableElevation sx={{
+          variant='text'
+          color='inherit'
+          startIcon={<Search />}
+          onClick={() => searchState.setSearch(prev => !prev)}
+        >
+          Axtarış
+        </Button>
+        <Button
+        variant='contained'
+        color='primary'
+        disableElevation
+        sx={{
           marginLeft: '12px'
-        }} startIcon={<Add />}>Əlavə et</Button>
+        }}
+        startIcon={<Add />}
+        onClick={() => addUserState.setAddUser(prev => !prev)}
+        >
+          Əlavə et
+          </Button>
       </Box>
     </Box >
   );

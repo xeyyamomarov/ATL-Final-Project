@@ -7,10 +7,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import { Edit, MoreHoriz } from '@mui/icons-material';
 
 const columns = [
-  { id: 'fullName', label: 'A.S.A.', minWidth: 170 },
-  { id: 'username', label: 'İstifadəçi adı', minWidth: 100 },
+  { id: 'fullName', label: 'A.S.A.', minWidth: 220 },
+  { id: 'username', label: 'İstifadəçi adı', minWidth: 120 },
   {
     id: 'email',
     label: 'Elektron poçt',
@@ -24,11 +25,6 @@ const columns = [
   {
     id: 'phone',
     label: 'Əlaqə nömrəsi',
-    minWidth: 170,
-  },
-  {
-    id: 'options',
-    label: '',
     minWidth: 170,
   },
 ];
@@ -82,29 +78,41 @@ export default function CustomTable() {
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
-                  align={column.align}
                   style={{ minWidth: column.minWidth, backgroundColor: '#F5F5F5' }}
                 >
                   {column.label}
                 </TableCell>
               ))}
+              <TableCell
+                  key='icons'
+                  style={{ minWidth: '100px', backgroundColor: '#F5F5F5' }}
+                >
+                </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => {
-                return (
-                  <TableRow hover role="checkbox" key={row.id}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id}>
-                          {value}
-                        </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
+              return (
+                <TableRow hover role="checkbox" key={row.id}>
+                  {columns.map((column) => {
+                    const value = row[column.id];
+                    return (
+                      <TableCell key={column.id}>
+                        {value}
+                      </TableCell>
+                    );
+                  })}
+                  <TableCell key='icons'
+                  sx={{
+                    textAlign: 'right',
+                  }}
+                  >
+                    <Edit />
+                    <MoreHoriz />
+                  </TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>
