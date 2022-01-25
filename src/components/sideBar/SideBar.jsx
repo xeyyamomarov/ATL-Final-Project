@@ -4,13 +4,9 @@ const SideBar = () => {
   return (
     <Box
       sx={{
-        width: 300,
-        height: 300,
+          width: 'auto',
+        height: '100vh',
         backgroundColor: "primary.dark",
-        "&:hover": {
-          backgroundColor: "primary.main",
-          opacity: [0.9, 0.8, 0.7],
-        },
       }}
     />
   );
