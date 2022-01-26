@@ -1,5 +1,7 @@
-import { DialogContent, DialogTitle, Button, Dialog, DialogActions, TextField, MenuItem, Box, Grid } from "@mui/material";
+import { DialogContent, DialogTitle, Dialog, DialogActions, TextField, MenuItem, Box, Grid } from "@mui/material";
 import { useState } from "react";
+import GreenButton from "../Buttons/GreenButton";
+import GreyButton from "../Buttons/GreyButton";
 
 const AddNewUserDialog = (props) => {
   const [name, setName] = useState('');
@@ -9,22 +11,17 @@ const AddNewUserDialog = (props) => {
   const [passwordRepeat, setPasswordRepeat] = useState('');
   const { open, close } = props;
 
+  const handleCreate = () => console.log(name, username, position, password, passwordRepeat)
+  const handleClose = () => close(prev => !prev);
+
   return (
     <Dialog open={open}>
 
-      <DialogTitle
-        sx={{
-          padding: '12px 16px',
-        }}
-      >
+      <DialogTitle sx={{ padding: '12px 16px' }}>
         Yeni İstifadəçi
       </DialogTitle>
 
-      <DialogContent
-        dividers
-        sx={{
-          padding: '16px !important',
-        }}
+      <DialogContent dividers sx={{ padding: '16px !important' }}
       >
         <Box
           component="form"
@@ -79,37 +76,9 @@ const AddNewUserDialog = (props) => {
         </Box>
       </DialogContent>
 
-      <DialogActions
-        sx={{
-          padding: '12px 16px',
-        }}
-      >
-        <Button
-          variant='contained'
-          color='secondary'
-          disableElevation
-          sx={{
-            fontWeight: 500,
-            fontSize: 14,
-            textTransform: 'none',
-          }}
-          onClick={() => close(prev => !prev)}
-        >
-          Bağla
-        </Button>
-        <Button
-          type="submit"
-          variant='contained'
-          color="success"
-          disableElevation
-          sx={{
-            marginLeft: '12px',
-            textTransform: 'none',
-          }}
-          onClick={() => console.log(name, username, position, password, passwordRepeat)}
-        >
-          Yarat
-        </Button>
+      <DialogActions sx={{ padding: '12px 16px' }}>
+        <GreyButton text="Bağla" onClick={handleClose} />
+        <GreenButton text="Yarat" onClick={handleCreate} />
       </DialogActions>
 
     </Dialog>

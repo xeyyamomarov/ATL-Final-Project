@@ -1,4 +1,6 @@
-import { TextField, Box, MenuItem, Button } from "@mui/material";
+import { TextField, Box, MenuItem } from "@mui/material";
+import GreyButton from "../components/Buttons/GreyButton";
+import PurpleButton from "../components/Buttons/PurpleButton";
 
 
 const SearchForm = () => {
@@ -53,12 +55,8 @@ const SearchForm = () => {
           sx={{
             padding: '15px',
           }}>
-          <Button variant='text' color='inherit'>Təmizlə</Button>
-          <Button variant='contained' color='primary' disableElevation sx={{
-            marginLeft: '12px'
-          }}
-          >Axtar
-          </Button>
+          <GreyButton text="Təmizlə" />
+          <PurpleButton text="Axtar"/>
         </Box>
       </Box>
     </Box>

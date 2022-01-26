@@ -29,34 +29,8 @@ const columns = [
   },
 ];
 
-const rows = [
-  {
-    id: 1,
-    fullName: 'Rüfət Səmədov S.',
-    username: 'rufatm',
-    email: 'rufatm@xezertv.az',
-    position: 'Aparıcı',
-    phone: '+15417543010'
-  },
-  {
-    id: 2,
-    fullName: 'Rüfət Səmədov S.',
-    username: 'rufatm',
-    email: 'rufatm@xezertv.az',
-    position: 'Aparıcı',
-    phone: '+15417543010'
-  },
-  {
-    id: 3,
-    fullName: 'Rüfət Səmədov S.',
-    username: 'rufatm',
-    email: 'rufatm@xezertv.az',
-    position: 'Aparıcı',
-    phone: '+15417543010'
-  }
-];
-
-export default function CustomTable() {
+export default function CustomTable( props ) {
+  const { data } = props;
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -91,7 +65,7 @@ export default function CustomTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => {
+            {data.map((row) => {
               return (
                 <TableRow hover role="checkbox" key={row.id}>
                   {columns.map((column) => {
@@ -119,7 +93,7 @@ export default function CustomTable() {
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={rows.length}
+        count={data.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

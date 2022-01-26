@@ -1,8 +1,9 @@
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import { Button, Box } from '@mui/material';
-import { Add, Search } from '@mui/icons-material';
+import { Box } from '@mui/material';
+import AddButton from './Buttons/AddButton';
+import SearchButton from './Buttons/SearchButton';
 
 function handleClick(event) {
   event.preventDefault();
@@ -23,6 +24,9 @@ export default function SearchBar({ searchState, addUserState }) {
     </Typography>,
   ];
 
+  const addUserHandleClick = () => addUserState.setAddUser(prev => !prev);
+  const searchHandleClick = () => searchState.setSearch(prev => !prev);
+
   return (
     <Box component="div" sx={{
       display: 'flex',
@@ -31,30 +35,14 @@ export default function SearchBar({ searchState, addUserState }) {
       border: "1px solid #E0E0E0",
       padding: "12px 16px"
     }} >
+      
       <Breadcrumbs separator="›" aria-label="breadcrumb">
         {breadcrumbs}
       </Breadcrumbs>
+
       <Box component="div" textAlign="right">
-        <Button
-          variant='text'
-          color='inherit'
-          startIcon={<Search />}
-          onClick={() => searchState.setSearch(prev => !prev)}
-        >
-          Axtarış
-        </Button>
-        <Button
-        variant='contained'
-        color='primary'
-        disableElevation
-        sx={{
-          marginLeft: '12px'
-        }}
-        startIcon={<Add />}
-        onClick={() => addUserState.setAddUser(prev => !prev)}
-        >
-          Əlavə et
-          </Button>
+        <SearchButton onClick={searchHandleClick} />
+        <AddButton onClick={addUserHandleClick} />
       </Box>
     </Box >
   );
