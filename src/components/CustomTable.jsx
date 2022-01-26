@@ -29,8 +29,7 @@ const columns = [
   },
 ];
 
-export default function CustomTable( props ) {
-  const { data } = props;
+export default function CustomTable( {data} ) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 

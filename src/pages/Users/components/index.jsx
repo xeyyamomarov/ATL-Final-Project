@@ -1,3 +1,3 @@
 import SearchBar from "./SearchBar";
-import CustomTable from "./CustomTable";
+import CustomTable from "../../../components/CustomTable";
 export { SearchBar, CustomTable };
