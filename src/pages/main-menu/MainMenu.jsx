@@ -1,5 +1,7 @@
-import {TableBody,Table,TableCell,TableContainer,TableHead,TableRow,Paper,Box,Card,CardContent,Typography} from '@mui/material';
+import {TableBody,TableCell,Table,TableContainer,TableHead,TableRow,Paper,Card,CardContent,Typography} from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
+import TableTab from 'components/Table/Table';
+
 
 function createData( name, type, date, status) {
     return {  name, type, date, status };
@@ -23,7 +25,7 @@ const MainMenu=()=>{
       <CardContent>
       <Card sx={{backgroundColor:"#F5F5F5",marginBottom:2}}>
         <CardContent sx={{display:"flex",justifyContent:"space-between"}}>  
-        <Typography  fontSize= "18px" position="relative" top="10px"  color="black" gutterBottom>
+        <Typography  variant='h6' position="relative" top="10px"  color="black" gutterBottom>
          Son sorğular
         </Typography>
         <Typography fontSize= "18px" position="relative" top="10px"  gutterBottom>
@@ -34,31 +36,7 @@ const MainMenu=()=>{
         </CardContent>
       </Card>
       <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead sx={{background:"#F5F5F5"}}>
-          <TableRow >
-            <TableCell style={style}>Adı</TableCell>
-            <TableCell  style={style} align="left">Tipi</TableCell>
-            <TableCell style={style} align="left">Tarixi</TableCell>
-            <TableCell style={style} align="left">Statusu</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {datas.map((data) => (
-            <TableRow
-              key={data.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {data.name}
-              </TableCell>
-              <TableCell align="left">{data.type}</TableCell>
-              <TableCell align="left">{data.date}</TableCell>
-              <TableCell align="left">{data.status}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+        <TableTab/>
     </TableContainer>
       </CardContent>
   
@@ -67,7 +45,7 @@ const MainMenu=()=>{
   <CardContent>
   <Card sx={{backgroundColor:"#F5F5F5",marginBottom:2}}>
     <CardContent sx={{display:"flex",justifyContent:"space-between"}}>  
-    <Typography fontSize= "18px" position="relative" top="10px"  color="black" gutterBottom>
+    <Typography variant='h6' position="relative" top="10px"  color="black" gutterBottom>
      Mənim sorğularım
     </Typography>
     <Typography fontSize= "18px" position="relative" top="10px" gutterBottom>
@@ -81,7 +59,6 @@ const MainMenu=()=>{
   <Table sx={{ minWidth: 650 }} aria-label="simple table">
     <TableHead sx={{background:"#F5F5F5"}}>
       <TableRow >
-        {/* <TableCell style={style}>Adı</TableCell> */}
         <TableCell  style={style} align="left">Tipi</TableCell>
         <TableCell style={style} align="left">Statusu</TableCell>
         <TableCell style={style} align="left">Tarixi</TableCell>
