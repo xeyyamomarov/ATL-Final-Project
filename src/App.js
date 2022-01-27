@@ -1,10 +1,14 @@
 import "./App.css";
-import Layout from "containers/MainLayout";
+
+import MainLayout from "containers/mainLayout";
+
 
 function App() {
   return (
     <div className="App">
-      <Layout />
+
+      <MainLayout />
+
     </div>
   );
 }
