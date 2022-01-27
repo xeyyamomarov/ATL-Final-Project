@@ -1,6 +1,6 @@
 import "./App.css";
 
-import MainLayout from "containers/mainLayout";
+import MainLayout from "containers/MainLayout";
 
 
 function App() {
