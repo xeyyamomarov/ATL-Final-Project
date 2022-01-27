@@ -1,55 +1,103 @@
-import {TableBody,TableCell,Table,TableHead,TableRow} from '@mui/material';
-function createData( name, type, date, status) {
-    return {  name, type, date, status };
-  }
+import { useState } from 'react';
+import Paper from '@mui/material/Paper';
+import {Table as ATable} from '@mui/material/';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
+import TableRow from '@mui/material/TableRow';
+import { Edit, MoreHoriz } from '@mui/icons-material';
 
-//   const header=[
-//       {
-//           name:"Adı",
-//           type:"Tipi",
-//           date:"Tarixi",
-//           status:"Statusu"
-//       }
-//   ]
+const columns = [
+  { id: 'fullName', label: 'A.S.A.', minWidth: 220 },
+  { id: 'username', label: 'İstifadəçi adı', minWidth: 120 },
+  {
+    id: 'email',
+    label: 'Elektron poçt',
+    minWidth: 170,
+  },
+  {
+    id: 'position',
+    label: 'Vəzifə',
+    minWidth: 170,
+  },
+  {
+    id: 'phone',
+    label: 'Əlaqə nömrəsi',
+    minWidth: 170,
+  },
+];
 
-  const datas = [
-    createData('Rüfət Məmmədov',"Day off","06/25/2020", "Ləğv edildi"),
-    createData('Hüseyn Lətifov İ', "Məzuniyyət", "06/20/2020","Gözləmədədir"),
-    createData('Sevda Bıyık C', "Ezamiyyət", "06/19/2020", "Təsdiqləndi" ),
-    createData('Əhəd Miriyev S', "Məzuniyyət", "05/10/2020","Təsdiqləndi" ),
-  ];
+export default function Table( {data} ) {
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  const style={
-    fontSize:"18px",
-    fontWeight:"bold"
-  }
-const TableTab=()=>{
-    return(
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead sx={{background:"#F5F5F5"}}>
-          <TableRow >
-            <TableCell style={style}>Adı</TableCell>
-            <TableCell  style={style} align="left">Tipi</TableCell>
-            <TableCell style={style} align="left">Tarixi</TableCell>
-            <TableCell style={style} align="left">Statusu</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {datas.map((data) => (
-            <TableRow
-              key={data.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {data.name}
-              </TableCell>
-              <TableCell align="left">{data.type}</TableCell>
-              <TableCell align="left">{data.date}</TableCell>
-              <TableCell align="left">{data.status}</TableCell>
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  return (
+    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+      <TableContainer sx={{ maxHeight: 440 }}>
+        <ATable stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  style={{ minWidth: column.minWidth, backgroundColor: '#F5F5F5' }}
+                >
+                  {column.label}
+                </TableCell>
+              ))}
+              <TableCell
+                  key='icons'
+                  style={{ minWidth: '100px', backgroundColor: '#F5F5F5' }}
+                >
+                </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    )
+          </TableHead>
+          <TableBody>
+            {data.map((row) => {
+              return (
+                <TableRow hover role="checkbox" key={row.id}>
+                  {columns.map((column) => {
+                    const value = row[column.id];
+                    return (
+                      <TableCell key={column.id}>
+                        {value}
+                      </TableCell>
+                    );
+                  })}
+                  <TableCell key='icons'
+                  sx={{
+                    textAlign: 'right',
+                  }}
+                  >
+                    <Edit />
+                    <MoreHoriz />
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </ATable>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 100]}
+        component="div"
+        count={data.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+    </Paper>
+  );
 }
-export default TableTab

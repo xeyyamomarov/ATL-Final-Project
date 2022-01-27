@@ -1,5 +1,5 @@
 import { Collapse, Container } from "@mui/material";
-import { SearchBar, CustomTable } from './components';
+import { SearchBar, Table } from './components';
 import SearchForm from 'pages/Users/SearchForm/SearchForm';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useEffect, useState } from "react";
@@ -58,7 +58,7 @@ const Users = () => {
           addUserState={{ addUser, setAddUser }}
         />
         <Collapse in={search}>{<SearchForm />}</Collapse>
-        <CustomTable data={users}/>
+        <Table data={users}/>
 
         {/* <AddNewUserDialog
         open={addUser}

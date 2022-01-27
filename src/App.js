@@ -1,4 +1,3 @@
-import Users from 'pages/Users/Users';
 import './App.css';
 import MainMenu from 'pages/main-menu/MainMenu';
 
@@ -7,7 +6,6 @@ function App() {
     <div className="App">
       <MainMenu/>
 
-      {/* <Users /> */}
     </div>
   );
 }
