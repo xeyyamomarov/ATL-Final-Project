@@ -1,13 +1,14 @@
 import { Collapse, Container } from "@mui/material";
-import { SearchBar, CustomTable } from './components';
+import { SearchBar } from './components';
+import { Table } from "components";
 import SearchForm from 'pages/Users/SearchForm/SearchForm';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import EditUserDialog from "./components/Dialogs/EditUserDialog";
 import { getUsers } from "store/Users/users.selectors";
-import axios from "axios";
 import { setUsers } from "store/Users/users.actions";
+import { getUserData } from "lib/api/users";
 
 const theme = createTheme({
   palette: {
@@ -37,12 +38,13 @@ const Users = () => {
   const [addUser, setAddUser] = useState(false);
   const [editUser, setEditUser] = useState(false);
   const dispatch = useDispatch();
-  const users = useSelector(getUsers);
+  const { users, thead } = useSelector(getUsers);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/Users")
-    .then(res => dispatch(setUsers(res.data)))
+    getUserData()
+    .then(data => dispatch(setUsers(data)))
   }, [dispatch])
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -58,7 +60,7 @@ const Users = () => {
           addUserState={{ addUser, setAddUser }}
         />
         <Collapse in={search}>{<SearchForm />}</Collapse>
-        <CustomTable data={users}/>
+        <Table tbody={users} thead={thead}/>
 
         {/* <AddNewUserDialog
         open={addUser}

@@ -1,15 +1,15 @@
+import { Button as AButton } from '@mui/material';
 import { Add } from '@mui/icons-material';
-import { Button } from '@mui/material';
 
 export const ButtonColors = {
   purple: "primary",
   green: "secondary",
 }
 
-const Button = ({onClick, text = 'Əlavə et', startIcon, endIcon, color = ButtonColors.purple}) => {
+const Button = ({ onClick, text="Əlavə et", startIcon=(<Add />), endIcon, color=ButtonColors.purple, variant='contained' }) => {
   return (
-    <Button
-      variant='contained'
+    <AButton
+      variant={variant}
       color={color}
       disableElevation
       sx={{
@@ -20,7 +20,7 @@ const Button = ({onClick, text = 'Əlavə et', startIcon, endIcon, color = Butto
       onClick={() => onClick()}
     >
       {text}
-    </Button>
+    </AButton>
   );
 }
 

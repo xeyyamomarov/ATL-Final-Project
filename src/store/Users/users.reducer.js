@@ -1,7 +1,7 @@
 import { USERS_ACTION_TYPES } from './users.action-types';
 
 const usersInit = {
-  users: []
+  data: {}
 };
 
 
@@ -10,7 +10,7 @@ export const usersReducer = (store = usersInit, action) => {
     case USERS_ACTION_TYPES.SET_USERS:
       return {
         ...store,
-        users: action.data
+        data: action.data
       };
 
     default: return store;
