@@ -2,10 +2,7 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Box } from '@mui/material';
-import AddButton from './Buttons/Button';
-import SearchButton from './Buttons/SearchButton';
-import Button from './Buttons/Button';
-import { Add, Search } from '@mui/icons-material';
+import { AddButton, SearchButton } from "../components/Buttons";
 
 function handleClick(event) {
   event.preventDefault();
@@ -45,8 +42,6 @@ export default function SearchBar({ searchState, addUserState }) {
       <Box component="div" textAlign="right">
         <SearchButton onClick={searchHandleClick} />
         <AddButton onClick={addUserHandleClick} />
-        {/* <Button startIcon={<Search />} color=''/> */}
-        {/* <Button /> */}
       </Box>
     </Box >
   );

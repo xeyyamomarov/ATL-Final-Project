@@ -1,6 +1,7 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { DialogContent, IconButton, DialogTitle, Button, Dialog, DialogActions, TextField, Box, Grid, InputAdornment, OutlinedInput } from "@mui/material";
+import { DialogContent, IconButton, DialogTitle, Dialog, DialogActions, TextField, Box, Grid, InputAdornment } from "@mui/material";
 import { useState } from "react";
+import { SubmitButton, CloseButton } from '../Buttons'
 
 const PasswordUpdateDialog = (props) => {
   const [hiddenPassword, setHiddenPassword] = useState(true);
@@ -88,37 +89,9 @@ const PasswordUpdateDialog = (props) => {
         </Box>
       </DialogContent>
 
-      <DialogActions
-        sx={{
-          padding: '12px 16px',
-        }}
-      >
-        <Button
-          variant='contained'
-          color='secondary'
-          disableElevation
-          sx={{
-            fontWeight: 500,
-            fontSize: 14,
-            textTransform: 'none',
-          }}
-          onClick={() => close(prev => !prev)}
-        >
-          Bağla
-        </Button>
-        <Button
-          type="submit"
-          variant='contained'
-          color="success"
-          disableElevation
-          sx={{
-            marginLeft: '12px',
-            textTransform: 'none',
-          }}
-          onClick={() => console.log(password, passwordRepeat)}
-        >
-          Yenilə
-        </Button>
+      <DialogActions sx={{padding: '12px 16px'}}>
+        <CloseButton onClick={() => close(prev => !prev)} />
+        <SubmitButton text="Yenilə" onClick={() => console.log(password, passwordRepeat)} />
       </DialogActions>
 
     </Dialog>

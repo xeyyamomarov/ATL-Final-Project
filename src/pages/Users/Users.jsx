@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import EditUserDialog from "./components/Dialogs/EditUserDialog";
 import { getUsers } from "store/Users/users.selectors";
-import { setUsers } from "store/Users/users.actions";
-import { getUserData } from "lib/api/users";
+import { USERS_ACTIONS } from "store/Users";
+import AddNewUserDialog from "./components/Dialogs/AddNewUserDialog";
 
 const theme = createTheme({
   palette: {
@@ -18,6 +18,9 @@ const theme = createTheme({
     },
     secondary: {
       main: '#EEEEEE'
+    },
+    transparent: {
+      main: "transparent"
     },
     tableHead: {
       main: '#F5F5F5'
@@ -41,8 +44,7 @@ const Users = () => {
   const { users, thead } = useSelector(getUsers);
 
   useEffect(() => {
-    getUserData()
-    .then(data => dispatch(setUsers(data)))
+    dispatch(USERS_ACTIONS.fetchUsers())
   }, [dispatch])
 
 
@@ -60,17 +62,17 @@ const Users = () => {
           addUserState={{ addUser, setAddUser }}
         />
         <Collapse in={search}>{<SearchForm />}</Collapse>
-        <Table tbody={users} thead={thead}/>
+        <Table tbody={users} thead={thead} />
 
-        {/* <AddNewUserDialog
-        open={addUser}
-        close={setAddUser} /> */}
+        <AddNewUserDialog
+          open={addUser}
+          close={setAddUser} />
 
         <EditUserDialog
-        // open={editUser}
-        // close={setEditUser}
-        open={addUser}
-        close={setAddUser}
+          open={editUser}
+          close={setEditUser}
+        // open={addUser}
+        // close={setAddUser}
         />
 
         {/* <PasswordUpdateDialog open={addUser} close={setAddUser}/> */}

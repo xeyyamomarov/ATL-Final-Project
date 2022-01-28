@@ -1,16 +1,16 @@
 import { Button } from '@mui/material';
 
-const GreyButton = ({text, onClick}) => {
+const CloseButton = ({text="Bağla", onClick}) => {
   return (
     <Button
       variant='contained'
       color='secondary'
       disableElevation
-      onClick={() => onClick()}
+      onClick={onClick}
     >
       {text}
     </Button>
   );
 }
 
-export default GreyButton;
+export default CloseButton;

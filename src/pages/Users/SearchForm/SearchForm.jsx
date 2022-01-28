@@ -1,9 +1,11 @@
 import { TextField, Box, MenuItem } from "@mui/material";
-import GreyButton from "../components/Buttons/GreyButton";
-import PurpleButton from "../components/Buttons/PurpleButton";
+import { CloseButton, Button } from "../components/Buttons";
+import { useState } from 'react';
 
 
 const SearchForm = () => {
+  const [position, setPosition] = useState('');
+
   return (
     <Box
       sx={{
@@ -41,10 +43,14 @@ const SearchForm = () => {
           <TextField
             label="Vəzifə"
           />
-          <TextField select label="Rollar">
-            <MenuItem>Test 1</MenuItem>
-            <MenuItem>Test 2</MenuItem>
-            <MenuItem>Test 3</MenuItem>
+          <TextField select label="Rollar" fullWidth
+            value={position}
+            onChange={e => setPosition(e.target.value)}
+          >
+            <MenuItem value='User'>User</MenuItem>
+            <MenuItem value='Reporter'>Reporter</MenuItem>
+            <MenuItem value='Admin'>Admin</MenuItem>
+            <MenuItem value='Manager'>Manager</MenuItem>
           </TextField>
 
         </Box >
@@ -55,8 +61,8 @@ const SearchForm = () => {
           sx={{
             padding: '15px',
           }}>
-          <GreyButton text="Təmizlə" />
-          <PurpleButton text="Axtar"/>
+          <CloseButton text="Təmizlə" />
+          <Button text="Axtar" />
         </Box>
       </Box>
     </Box>

@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 
-const GreenButton = ({text, onClick}) => {
+const SubmitButton = ({text = 'Yadda saxla', onClick}) => {
   return (
     <Button
       variant='contained'
@@ -10,11 +10,11 @@ const GreenButton = ({text, onClick}) => {
         color: 'white',
         marginLeft: '12px'
       }}
-      onClick={() => onClick()}
+      onClick={onClick}
     >
       {text}
     </Button>
   );
 }
 
-export default GreenButton;
+export default SubmitButton;

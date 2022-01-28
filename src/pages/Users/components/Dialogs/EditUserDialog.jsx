@@ -1,7 +1,6 @@
 import { DialogContent, Select, DialogTitle, Dialog, DialogActions, TextField, MenuItem, Box, Grid, InputLabel } from "@mui/material";
 import { useState } from "react";
-import GreenButton from "../Buttons/GreenButton";
-import GreyButton from "../Buttons/GreyButton";
+import { SubmitButton, CloseButton } from '../Buttons'
 
 const EditUserDialog = (props) => {
   const [name, setName] = useState('');
@@ -79,8 +78,8 @@ const EditUserDialog = (props) => {
       </DialogContent>
 
       <DialogActions sx={{ padding: '12px 16px' }}>
-        <GreyButton text="Bağla" onClick={handleClose} />
-        <GreenButton text="Yadda Saxla" onClick={handleSuccess} />
+        <CloseButton onClick={handleClose} />
+        <SubmitButton onClick={handleSuccess} />
       </DialogActions>
 
     </Dialog>

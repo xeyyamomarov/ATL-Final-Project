@@ -1,14 +1,23 @@
 import { Search } from '@mui/icons-material';
 import { Button } from '@mui/material';
+import { useState } from 'react';
 
 
 const SearchButton = ({onClick}) => {
+  const [active, setActive] = useState(false);
+
+  const handleClick = () => setActive(prev => !prev);
+
   return (
     <Button
-          variant='text'
-          color='inherit'
+          variant="contained"
+          disableElevation
           startIcon={<Search />}
-          onClick={() => onClick()}
+          color={active ? 'secondary' : "transparent"}
+          onClick={() => {
+            onClick();
+            handleClick()
+          }}
         >
           Axtarış
         </Button>

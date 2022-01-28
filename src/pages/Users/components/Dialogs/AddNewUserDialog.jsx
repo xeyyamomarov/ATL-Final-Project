@@ -1,7 +1,7 @@
 import { DialogContent, DialogTitle, Dialog, DialogActions, TextField, MenuItem, Box, Grid } from "@mui/material";
 import { useState } from "react";
-import GreenButton from "../Buttons/GreenButton";
-import GreyButton from "../Buttons/GreyButton";
+import { SubmitButton, CloseButton } from '../Buttons'
+
 
 const AddNewUserDialog = (props) => {
   const [name, setName] = useState('');
@@ -77,8 +77,8 @@ const AddNewUserDialog = (props) => {
       </DialogContent>
 
       <DialogActions sx={{ padding: '12px 16px' }}>
-        <GreyButton text="Bağla" onClick={handleClose} />
-        <GreenButton text="Yarat" onClick={handleCreate} />
+        <CloseButton onClick={handleClose} />
+        <SubmitButton text="Yarat" onClick={handleCreate} />
       </DialogActions>
 
     </Dialog>
