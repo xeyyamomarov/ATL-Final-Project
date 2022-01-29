@@ -6,8 +6,13 @@ import axios from "axios"
 
   const style={
     fontSize:"18px",
-    fontWeight:"bold"
+    fontWeight:"bold",
   }
+  const label=[
+    {id:1,label:"Tipi"},
+    {id:2,label:"Status"},
+    {id:3,label:"Tarix"},
+  ]
  const MyQuerises=()=>{
    const[datas,setDatas] = useState([])
    useEffect(()=>{
@@ -17,31 +22,36 @@ import axios from "axios"
    },[])
    return(
 
-<>
-<Card>
+
+<Card sx={{marginBottom:2}}>
 <Card sx={{backgroundColor:"#F5F5F5",marginBottom:2,boxShadow:"none"}}>
-  <CardContent sx={{display:"flex",justifyContent:"space-between"}}>  
-  <Typography variant='h6' position="relative" top="10px"  color="black" gutterBottom>
+  <CardContent sx={{display:"flex",justifyContent:"space-between",padding:0,height:"40px"}}>  
+  <Typography variant='h6' position="relative" top="15px" left="15px"  color="black" gutterBottom>
    Mənim sorğularım
   </Typography>
-  <Typography fontSize= "18px" position="relative" top="10px" gutterBottom>
+  <Typography fontSize= "18px" position="relative" top="18px" right="15px" gutterBottom>
     <Tooltip title="Refresh">
-    <RefreshIcon onClick={()=>{
+    <RefreshIcon sx={{cursor:"pointer"}} onClick={()=>{
       console.log("clicked")
     }}/>
     </Tooltip>
   </Typography>
   </CardContent>
 </Card>
-<Card sx={{ minWidth: 275,marginBottom:2 }}>
+<Card sx={{ minWidth: 275,marginBottom:2 ,boxShadow:"none"}}>
 <CardContent>
 <TableContainer component={Paper}>
 <Table sx={{ minWidth: 650 }} aria-label="simple table">
   <TableHead sx={{background:"#F5F5F5"}}>
     <TableRow >
-      <TableCell  style={style} align="left">Tipi</TableCell>
+      {/* <TableCell  style={style} align="left">Tipi</TableCell>
       <TableCell style={style} align="left">Statusu</TableCell>
-      <TableCell style={style} align="left">Tarixi</TableCell>
+      <TableCell style={style} align="left">Tarixi</TableCell> */}
+      {label.map(item=>{
+        return(
+          <TableCell  style={style} key={item.id}>{item.label}</TableCell>
+        )
+      })}
     </TableRow>
   </TableHead>
   <TableBody>
@@ -63,7 +73,6 @@ import axios from "axios"
 </CardContent>
 </Card>
 </Card>
-</>
    )
  }
  export default MyQuerises

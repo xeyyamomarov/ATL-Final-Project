@@ -1,39 +1,47 @@
 import {TableBody,TableCell,Table,TableContainer,TableHead,TableRow,Paper,Card,CardContent,Typography,Tooltip,Box,Avatar} from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { useEffect,useState } from 'react';
-import axios from "axios"
-
-
+import axios from 'axios';
 
 
   const style={
     fontSize:"18px",
-    fontWeight:"bold"
+    fontWeight:"bold",
+    width:"100px"
   }
+  const label=[
+    {id:1,label:"Adı"},
+    {id:2,label:"İl"},
+    {id:3,label:"Tarix"},
+  ]
+
 const Anniversary=()=>{
+  const[isActive,setIsActive]=useState(false)
   const [anniversary,setAnniversary] = useState([])
   useEffect(()=>{
     axios(" http://localhost:3000/anniversary")
     .then(data =>setAnniversary(data.data))
 
-  },[])
+  },[isActive])
     return(
-      <>
-       <Card sx={{backgroundColor:"#F5F5F5",marginBottom:2,boxShadow:"none"}}>
-        <CardContent sx={{display:"flex",justifyContent:"space-between"}}>  
-        <Typography  variant='h6' position="relative" top="10px"  color="black" gutterBottom>
+    
+      <Card sx={{marginBottom:2}}>
+       <Card sx={{backgroundColor:"#F5F5F5",boxShadow:"none"}}>
+        <CardContent sx={{display:"flex",justifyContent:"space-between",padding:0,height:"40px"}}>  
+        <Typography  variant='h6' position="relative" top="15px" left="15px" color="black" gutterBottom>
          Qarşıdan gələn il dönümü
         </Typography>
-        <Typography fontSize= "18px" position="relative" top="10px"  gutterBottom>
+        <Typography fontSize= "18px" position="relative" top="18px" right="15px"  gutterBottom>
           <Tooltip title="Refresh">
-          <RefreshIcon onClick={()=>{
-            console.log("clicked")
+          <RefreshIcon sx={{cursor:"pointer"}} onClick={()=>{
+            setIsActive(!isActive)
+            console.log("clicked");
           }}/>
           </Tooltip>
         </Typography>
         </CardContent>
       </Card>
-      <Card sx={{ minWidth: 275 ,marginBottom:2}}>
+      <Card sx={{ minWidth: 275 ,marginBottom:2,boxShadow:"none"}}>
       <CardContent>
       <TableContainer component={Paper}>
     </TableContainer>
@@ -43,9 +51,11 @@ const Anniversary=()=>{
     <TableRow
     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
   >
-    <TableCell  style={style} align="left">Adı</TableCell>
-      <TableCell  style={style} align="left">İl</TableCell>
-      <TableCell style={style} align="left">Tarix</TableCell>
+      {label.map(item=>{
+        return(
+          <TableCell style={style} key={item.id}>{item.label}</TableCell>
+        )
+      })}
     </TableRow>
   </TableHead>
   <TableBody>
@@ -55,8 +65,8 @@ const Anniversary=()=>{
         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
       >
         <TableCell component="th" scope="row">
-        <Box sx={{display:"flex",alignItems:"center" }}>
-          <Avatar sx={{marginRight:"10px"}} />
+        <Box sx={{display:"flex",alignItems:"center"}}>
+          <Avatar  sx={{marginRight:"10px"}}/>
            {data.name}
           </Box>
         </TableCell>
@@ -69,9 +79,8 @@ const Anniversary=()=>{
 </TableContainer>
 </CardContent>
   </Card>
- 
+  </Card>
 
-</>
     )
 }
 export default Anniversary

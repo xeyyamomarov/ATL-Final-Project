@@ -1,129 +1,9 @@
 {
-  "Users": [
-    {
-      "id": 1,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 2,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 3,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 4,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 5,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 6,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 7,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 8,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 9,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 10,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 11,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 12,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 13,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 14,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    },
-    {
-      "id": 15,
-      "fullName": "Rüfət Səmədov S.",
-      "username": "rufatm",
-      "email": "rufatm@xezertv.az",
-      "position": "Aparıcı",
-      "phone": "+15417543010"
-    }
-  ],
+  
    "datas":[
     {
       "id":1,
+      "label":"Adı",
       "name":"Rüfət Məmmədov",
       "type":"Day off",
       "date":"06/25/2020",
@@ -131,39 +11,76 @@
 
     {
       "id":2,
+      "label":"Tipi",
       "name":"Hüseyn Lətifov İ",
       "type":"Məzuniyyət",
       "date":"06/20/2020",
       "status":"Gözləmədədir"},
     {
       "id":3,
+      "label":"Statusu",
       "name":"Sevda Bıyık C",
       "type":"Ezamiyyət",
       "date":"06/19/2020",
       "status":"Təsdiqləndi"},
     {
       "id":4,
+      "label":"Tarixi",
       "name":"Əhəd Miriyev S",
       "type":"Məzuniyyət",
       "date":"05/10/2020",
       "status":"Təsdiqləndi"}
 ],
+"myDatas":[
+  {
+    "id":1,
+    "label":"Tipi",
+    "type":"Day off",
+    "date":"06/25/2020",
+    "status":"Gözləmədədir"},
+
+  {
+    "id":2,
+    "label":"Statusu",
+    "type":"Ezamiyyət",
+    "date":"06/19/2020",
+    "status":"Ləğv olundu"},
+  {
+    "id":3,
+    "label":"Tarixi",
+    "type":"Day offt",
+    "date":"05/10/2020",
+    "status":"Təsdiqləndi"},
+    {
+      "id":4,
+      "type":"Day off",
+      "date":"05/10/2020",
+      "status":"Təsdiqləndi"},
+      {
+        "id":5,
+        "type":"Day off",
+        "date":"05/10/2020",
+        "status":"Təsdiqləndi"}
+],
 
   "employees":[
     {
       "id":1,
+      "label":"Adı",
       "name":"Hüseyn Lətifov İ",
       "position":"Radio rəhbəri",
       "status":"Yeni əməkdaş"
     },
     {
       "id":2,
+      "label":"Vəzifə",
       "name":"Sevda Bıyık C",
       "position":"Baş mühəndis",
       "status":"Ayrılmış əməkdaş"
     },
     {
       "id":3,
+      "label":"Status",
       "name":"Əhəd Miriyev S",
       "position":"Aparıcı",
       "status":"Yeni əməkdaş"
@@ -184,18 +101,21 @@
   "anniversary":[
     {
       "id":1,
+      "label":"Adı",
       "name":"Hüseyn Lətifov İ",
       "year":3,
       "date":"06/25/2020"
     },
     {
       "id":2,
+      "label":"İl",
       "name":"Sevda Bıyık C",
       "year":4,
       "date":"06/25/2020"
     },
     {
       "id":3,
+      "label":"Tarixi",
       "name":"Əhəd Miriyev S",
       "year":2,
       "date":"06/25/2020"

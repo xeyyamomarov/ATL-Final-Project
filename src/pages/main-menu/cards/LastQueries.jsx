@@ -12,29 +12,31 @@ import axios from 'axios';
     fontWeight:"bold"
   }
 const LastQueries=()=>{
+  const[isActive,setIsActive]=useState(false)
   const [datas,setDatas] = useState([])
   useEffect(()=>{
     axios("  http://localhost:3000/datas")
     .then(data =>setDatas(data.data))
 
-  },[])
+  },[isActive])
     return(
-      <>
-       <Card sx={{backgroundColor:"#F5F5F5",marginBottom:2,boxShadow:"none"}}>
-        <CardContent sx={{display:"flex",justifyContent:"space-between"}}>  
-        <Typography  variant='h6' position="relative" top="10px"  color="black" gutterBottom>
+      <Card sx={{marginBottom:2}}>
+       <Card sx={{backgroundColor:"#F5F5F5",boxShadow:"none"}}>
+        <CardContent sx={{display:"flex",justifyContent:"space-between",padding:0,height:"40px"}}>  
+        <Typography  variant='h6' position="relative" top="15px" left="15px" color="black" gutterBottom>
          Son sorğular
         </Typography>
-        <Typography fontSize= "18px" position="relative" top="10px"  gutterBottom>
+        <Typography fontSize= "18px" position="relative" top="18px" right="15px"  gutterBottom>
           <Tooltip title="Refresh">
-          <RefreshIcon onClick={()=>{
+          <RefreshIcon sx={{cursor:"pointer"}} onClick={()=>{
+            setIsActive(!isActive)
             console.log("clicked")
           }}/>
           </Tooltip>
         </Typography>
         </CardContent>
       </Card>
-      <Card sx={{ minWidth: 275 ,marginBottom:2}}>
+      <Card sx={{ minWidth: 275 ,marginBottom:2,boxShadow:"none"}}>
       <CardContent>
       <TableContainer component={Paper}>
     </TableContainer>
@@ -44,10 +46,11 @@ const LastQueries=()=>{
     <TableRow
     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
   >
-    <TableCell  style={style} align="left">Adı</TableCell>
-      <TableCell  style={style} align="left">Tipi</TableCell>
-      <TableCell style={style} align="left">Statusu</TableCell>
-      <TableCell style={style} align="left">Tarixi</TableCell>
+      {datas.map(data=>{
+        return(
+        <TableCell style={style} key={data.id} >{data.label}</TableCell>
+        )
+      })}
     </TableRow>
   </TableHead>
   <TableBody>
@@ -59,7 +62,7 @@ const LastQueries=()=>{
        
         <TableCell component="th" scope="row">
         <Box sx={{display:"flex",alignItems:"center" }}>
-          <Avatar sx={{marginRight:"10px"}} />
+          <Avatar sx={{marginRight:"5px"}} />
            {data.name}
           </Box>
         </TableCell>
@@ -74,9 +77,8 @@ const LastQueries=()=>{
 </CardContent>
   
   </Card>
- 
+  </Card>
 
-</>
     )
 }
 export default LastQueries

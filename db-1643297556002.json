@@ -150,5 +150,69 @@
       "date": "05/10/2020",
       "status": "Təsdiqləndi"
     }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Hüseyn Lətifov İ",
+      "position": "Radio rəhbəri",
+      "status": "Yeni əməkdaş"
+    },
+    {
+      "id": 2,
+      "name": "Sevda Bıyık C",
+      "position": "Baş mühəndis",
+      "status": "Ayrılmış əməkdaş"
+    },
+    {
+      "id": 3,
+      "name": "Əhəd Miriyev S",
+      "position": "Aparıcı",
+      "status": "Yeni əməkdaş"
+    },
+    {
+      "id": 4,
+      "name": "Əhəd Miriyev S",
+      "position": "Aparıcı",
+      "status": "Yeni əməkdaş"
+    },
+    {
+      "id": 5,
+      "name": "Əhəd Miriyev S",
+      "position": "Aparıcı",
+      "status": "Yeni əməkdaş"
+    }
+  ],
+  "anniversary": [
+    {
+      "id": 1,
+      "name": "Hüseyn Lətifov İ",
+      "year": 3,
+      "date": "06/25/2020"
+    },
+    {
+      "id": 2,
+      "name": "Sevda Bıyık C",
+      "year": 4,
+      "date": "06/25/2020"
+    },
+    {
+      "id": 3,
+      "name": "Əhəd Miriyev S",
+      "year": 2,
+      "date": "06/25/2020"
+    },
+    {
+      "id": 4,
+      "name": "Əhəd Miriyev S",
+      "year": 2,
+      "date": "06/25/2020"
+    },
+    {
+      "id": 5,
+      "name": "Əhəd Miriyev S",
+      "year": 2,
+      "date": "06/25/2020"
+    }
   ]
 }
