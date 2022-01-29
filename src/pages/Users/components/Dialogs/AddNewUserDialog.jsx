@@ -3,7 +3,8 @@ import { SubmitButton, CloseButton } from '../Buttons'
 import { Formik, Form, Field } from 'formik';
 import { Autocomplete, TextField } from 'formik-mui';
 
-const positions = ["User", "Reporter", "Admin", "Manager"]
+const positions = [
+  { title: "User", id: 1 }, { title: "Reporter", id : 2 }, { name: "Admin", id: 3 },{title: "Manager", id: 4}]
 
 const AddNewUserDialog = (props) => {
 
@@ -65,7 +66,7 @@ const AddNewUserDialog = (props) => {
                       name="position"
                       component={Autocomplete}
                       options={positions}
-                      getOptionLabel={option => option}
+                      getOptionLabel={option => { console.log(option); return "" } }
                       style={{ width: 300 }}
                       filterSelectedOptions
                       renderInput={(params) => {

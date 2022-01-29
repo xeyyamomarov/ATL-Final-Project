@@ -5,8 +5,9 @@ import { USERS_ACTIONS } from '../../Users'
 
 function* fetchUsers(action){
     yield put(USERS_ACTIONS.setUsersLoading())
+    const { page, count } = action.data;
     try{
-        const users = yield call(getUserData)
+        const users = yield call(getUserData, page, count)
         yield put(USERS_ACTIONS.setUsers(users));
 
     }catch(error){

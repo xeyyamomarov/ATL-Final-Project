@@ -9,7 +9,7 @@ function handleClick(event) {
   console.info('You clicked a breadcrumb.');
 }
 
-export default function SearchBar({ searchState, addUserState }) {
+export const SearchBar = ({ searchState, addUserState }) => {
   const breadcrumbs = [
     <Link key="1"
       underline='none'
