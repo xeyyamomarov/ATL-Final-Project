@@ -158,5 +158,130 @@
         "minWidth": "170"
       }
     ]
-  }
+  },
+  
+   "datas":[
+    {
+      "id":1,
+      "label":"Adı",
+      "name":"Rüfət Məmmədov",
+      "type":"Day off",
+      "date":"06/25/2020",
+      "status":"Ləğv edildi"},
+
+    {
+      "id":2,
+      "label":"Tipi",
+      "name":"Hüseyn Lətifov İ",
+      "type":"Məzuniyyət",
+      "date":"06/20/2020",
+      "status":"Gözləmədədir"},
+    {
+      "id":3,
+      "label":"Tarixi",
+      "name":"Sevda Bıyık C",
+      "type":"Ezamiyyət",
+      "date":"06/19/2020",
+      "status":"Təsdiqləndi"},
+    {
+      "id":4,
+      "label":"Statusu",
+      "name":"Əhəd Miriyev S",
+      "type":"Məzuniyyət",
+      "date":"05/10/2020",
+      "status":"Təsdiqləndi"}
+],
+"myDatas":[
+  {
+    "id":1,
+    "type":"Day off",
+    "date":"06/25/2020",
+    "status":"Gözləmədədir"},
+
+  {
+    "id":2,
+    "type":"Ezamiyyət",
+    "date":"06/19/2020",
+    "status":"Ləğv olundu"},
+  {
+    "id":3,
+    "type":"Day off",
+    "date":"05/10/2020",
+    "status":"Təsdiqləndi"},
+    {
+      "id":4,
+      "type":"Day off",
+      "date":"05/10/2020",
+      "status":"Təsdiqləndi"},
+      {
+        "id":5,
+        "type":"Day off",
+        "date":"05/10/2020",
+        "status":"Təsdiqləndi"}
+],
+
+  "employees":[
+    {
+      "id":1,
+      "name":"Hüseyn Lətifov İ",
+      "position":"Radio rəhbəri",
+      "status":"Yeni əməkdaş"
+    },
+    {
+      "id":2,
+      "name":"Sevda Bıyık C",
+      "position":"Baş mühəndis",
+      "status":"Ayrılmış əməkdaş"
+    },
+    {
+      "id":3,
+      "name":"Əhəd Miriyev S",
+      "position":"Aparıcı",
+      "status":"Yeni əməkdaş"
+    },
+    {
+      "id":4,
+      "name":"Əhəd Miriyev S",
+      "position":"Aparıcı",
+      "status":"Yeni əməkdaş"
+    },
+    {
+      "id":5,
+      "name":"Əhəd Miriyev S",
+      "position":"Aparıcı",
+      "status":"Yeni əməkdaş"
+    }
+  ],
+  "anniversary":[
+    {
+      "id":1,
+      "name":"Hüseyn Lətifov İ",
+      "year":3,
+      "date":"06/25/2020"
+    },
+    {
+      "id":2,
+      "name":"Sevda Bıyık C",
+      "year":4,
+      "date":"06/25/2020"
+    },
+    {
+      "id":3,
+      "name":"Əhəd Miriyev S",
+      "year":2,
+      "date":"06/25/2020"
+    },
+    {
+      "id":4,
+      "name":"Əhəd Miriyev S",
+      "year":2,
+      "date":"06/25/2020"
+    },
+    {
+      "id":5,
+      "name":"Əhəd Miriyev S",
+      "year":2,
+      "date":"06/25/2020"
+    }
+  ]
 }
