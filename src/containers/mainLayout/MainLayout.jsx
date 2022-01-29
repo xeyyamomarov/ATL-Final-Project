@@ -1,6 +1,6 @@
-import Grid from "@material-ui/core/Grid";
-import SideBar from "components/sideBar";
-import NavBar from "components/navBar";
+import {Grid} from "@mui/material";
+import SideBar from "components/SideBar";
+import NavBar from "components/NavBar";
 
 const MainLayout = () => {
   return (
