@@ -40,7 +40,7 @@ const SideBar = () => {
               }}
             />
             {item.items.length > 0 && <ExpandMoreIcon sx={{ color: "#fff" }} />}
-          </ListItem>
+          </ListItem>   
         ))}
       </List>
     </Box>
