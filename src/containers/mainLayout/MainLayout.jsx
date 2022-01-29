@@ -2,14 +2,15 @@ import Grid from "@material-ui/core/Grid";
 import SideBar from "components/SideBar";
 import NavBar from "components/NavBar";
 
-const MainLayout = () => {
+const MainLayout = ({ children }) => {
   return (
     <Grid container spacing={0}>
-      <Grid item xs={12} md={3}>
+      <Grid item xs={12} sm={3}>
         <SideBar />
       </Grid>
-      <Grid item xs={12} md={9}>
+      <Grid item xs={12} sm={9}>
         <NavBar />
+        {children}
       </Grid>
     </Grid>
   );
