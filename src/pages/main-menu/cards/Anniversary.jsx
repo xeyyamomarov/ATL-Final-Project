@@ -12,7 +12,7 @@ import axios from 'axios';
   const label=[
     {id:1,label:"Adı"},
     {id:2,label:"İl"},
-    {id:3,label:"Tarix"},
+    {id:3,label:"Tarixi"},
   ]
 
 const Anniversary=()=>{
@@ -36,6 +36,7 @@ const Anniversary=()=>{
           <RefreshIcon sx={{cursor:"pointer"}} onClick={()=>{
             setIsActive(!isActive)
             console.log("clicked");
+            console.log(isActive);
           }}/>
           </Tooltip>
         </Typography>

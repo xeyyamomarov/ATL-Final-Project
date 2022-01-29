@@ -13,7 +13,6 @@
 //       id: 'email',
 //       label: 'Elektron poçt',
 //       minWidth: 170,
-//     },
 //     {
 //       id: 'position',
 //       label: 'Vəzifə',

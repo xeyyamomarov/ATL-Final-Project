@@ -11,13 +11,13 @@ import axios from "axios"
   const label=[
     {id:1,label:"Tipi"},
     {id:2,label:"Status"},
-    {id:3,label:"Tarix"},
+    {id:3,label:"Tarixi"},
   ]
  const MyQuerises=()=>{
-   const[datas,setDatas] = useState([])
+   const[myDatas,setMyDatas] = useState([])
    useEffect(()=>{
-     axios("  http://localhost:3000/datas")
-     .then(data =>setDatas(data.data))
+     axios("http://localhost:3000/myDatas")
+     .then(data =>setMyDatas(data.data))
 
    },[])
    return(
@@ -44,9 +44,6 @@ import axios from "axios"
 <Table sx={{ minWidth: 650 }} aria-label="simple table">
   <TableHead sx={{background:"#F5F5F5"}}>
     <TableRow >
-      {/* <TableCell  style={style} align="left">Tipi</TableCell>
-      <TableCell style={style} align="left">Statusu</TableCell>
-      <TableCell style={style} align="left">Tarixi</TableCell> */}
       {label.map(item=>{
         return(
           <TableCell  style={style} key={item.id}>{item.label}</TableCell>
@@ -55,9 +52,9 @@ import axios from "axios"
     </TableRow>
   </TableHead>
   <TableBody>
-    {datas.map((data) => (
+    {myDatas.map((data) => (
       <TableRow
-        key={data.name}
+        key={data.id}
         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
       >
         <TableCell component="th" scope="row">

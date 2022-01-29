@@ -7,7 +7,7 @@ import axios from 'axios';
   const style={
     fontSize:"18px",
     fontWeight:"bold",
-    width:"100px"
+    width:"100px",
   }
 
   const label=[
