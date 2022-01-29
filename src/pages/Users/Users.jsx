@@ -72,7 +72,7 @@ const Users = () => {
           open={editUser}
           close={setEditUser}
         // open={addUser}
-        // close={setAddUser}
+        // close={setAddUser}s
         />
 
         {/* <PasswordUpdateDialog open={addUser} close={setAddUser}/> */}
