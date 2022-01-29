@@ -2,7 +2,7 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Box } from '@mui/material';
-import { AddButton, SearchButton } from "../components/Buttons";
+import { AddButton, SearchButton } from "./Buttons";
 
 function handleClick(event) {
   event.preventDefault();
