@@ -1,87 +1,116 @@
-import { DialogContent, Select, DialogTitle, Dialog, DialogActions, TextField, MenuItem, Box, Grid, InputLabel } from "@mui/material";
-import { useState } from "react";
-import { SubmitButton, CloseButton } from '../Buttons'
+import {
+  DialogContent,
+  DialogTitle,
+  Dialog,
+  DialogActions,
+  Grid,
+  TextField as MuiTextField,
+} from "@mui/material";
+import { SubmitButton, CloseButton } from "../Buttons";
+import { Formik, Form, Field } from "formik";
+import { Autocomplete } from 'formik-mui'
+import * as Yup from "yup";
 
-const EditUserDialog = (props) => {
-  const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
-  const [position, setPosition] = useState([]);
-  const [chipData, setChipData] = useState([
-    { key: 0, label: 'User' },
-    { key: 1, label: 'Reporter' },
-    { key: 2, label: 'Admin' },
-    { key: 3, label: 'Manager' },
-  ]);
-  const { open, close } = props;
+const positions = [
+  "User",
+  "Reporter",
+  "Admin",
+  "Manager",
+];
 
-  const handleSuccess = () => console.log(name, username, position);
+const initialValues = {
+  fullName: "",
+  username: "",
+  position: [],
+}
+
+// const validationSchema = Yup.object({
+//   fullName: Yup.string().required("Required!"),
+//   username: Yup.string().required("Required!"),
+//   positions: Yup.string().required("Required!"),
+//   password: Yup.string().required("Required!"),
+//   passwordRepeat: Yup.string().required("Required!"),
+// });
+
+const onSubmit = (values, { resetForm }) => {
+  console.log(values);
+  resetForm()
+}
+
+const EditUserDialog = ({ open, close }) => {
+
   const handleClose = () => close(prev => !prev);
 
   return (
     <Dialog open={open}>
+      <Formik
+        initialValues={initialValues}
+        // validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        <Form>
+          <DialogTitle sx={{ padding: '12px 16px' }}>
+            İstifadəçinin redaktəsi
+          </DialogTitle>
 
-      <DialogTitle sx={{ padding: '12px 16px' }}>
-        İstifadəçinin redaktəsi
-      </DialogTitle>
+          <DialogContent dividers sx={{ padding: '16px !important' }}>
 
-      <DialogContent dividers sx={{ padding: '16px !important' }}>
-        <Box
-          component="form"
-          noValidate
-          autoComplete="off"
-        >
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField select fullWidth
-                label="Əməkdaş*"
-                disabled
-                value={name}
-                onChange={e => setName(e.target.value)}
-                sx={{
-                  minWidth: "263px",
-                  "& .MuiOutlinedInput-root": {
-                    "& > fieldset": {
-                      border: "2px dotted"
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <Field
+                  fullWidth
+                  as={MuiTextField}
+                  label="Əməkdaş*"
+                  name="fullName"
+                  disabled
+                  sx={{
+                    minWidth: "263px",
+                    "& .MuiOutlinedInput-root": {
+                      "& > fieldset": {
+                        border: "2px dotted"
+                      }
                     }
-                  }
-                }}
-              />
+                  }}
+                />
+              </Grid>
+
+              <Grid item xs={12} sm={6}>
+                <Field
+                  fullWidth
+                  as={MuiTextField}
+                  label="İstifadəçi adı*"
+                  name="username"
+                  sx={{
+                    minWidth: "263px",
+                  }}
+                />
+              </Grid>
+
+              <Grid item xs={12} sm={12}>
+                <Field
+                  fullWidth
+                  name="position"
+                  component={Autocomplete}
+                  label="position"
+                  options={positions}
+                  filterSelectedOptions
+                  getOptionLabel={option => option}
+                  multiple
+                  renderInput={(params) => {
+                    return <MuiTextField {...params} label="Rollar" />;
+                  }}
+                />
+              </Grid>
+
             </Grid>
+          </DialogContent>
 
-            <Grid item xs={12} sm={6}>
-              <TextField fullWidth
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-                label="İstifadəçi adı*"
-                sx={{
-                  minWidth: "263px",
-                }}
-              />
-            </Grid>
-
-            <Grid item xs={12} sm={12}>
-              <InputLabel id='rollar'>Rollar</InputLabel>
-              <Select multiple labelId="rollar" fullWidth
-                value={chipData}
-                onChange={e => setPosition(e.target.value)}
-              >
-                {chipData.map(item => {
-                  return (
-                    <MenuItem key={item.key} value={item.label}>{item.label}</MenuItem>
-                  )
-                })}
-              </Select>
-            </Grid>
-
-          </Grid>
-        </Box>
-      </DialogContent>
-
-      <DialogActions sx={{ padding: '12px 16px' }}>
-        <CloseButton onClick={handleClose} />
-        <SubmitButton onClick={handleSuccess} />
-      </DialogActions>
-
+          <DialogActions sx={{ padding: '12px 16px' }}>
+            <CloseButton onClick={handleClose} />
+            <SubmitButton text="Yadda saxla" />
+          </DialogActions>
+        </Form>
+      </Formik>
     </Dialog>
   );
 }

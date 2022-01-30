@@ -9,6 +9,7 @@ import EditUserDialog from "./components/Dialogs/EditUserDialog";
 import { getUsers } from "store/Users/users.selectors";
 import { USERS_ACTIONS } from "store/Users";
 import AddNewUserDialog from "./components/Dialogs/AddNewUserDialog";
+import PasswordUpdateDialog from "./components/Dialogs/PasswordUpdateDialog";
 
 const theme = createTheme({
   palette: {
@@ -68,12 +69,12 @@ const Users = () => {
           open={addUser}
           close={setAddUser} />
 
-        <EditUserDialog
+        {/* <EditUserDialog
           open={editUser}
           close={setEditUser}
-        // open={addUser}
-        // close={setAddUser}s
-        />
+        open={addUser}
+        close={setAddUser}
+        /> */}
 
         {/* <PasswordUpdateDialog open={addUser} close={setAddUser}/> */}
 

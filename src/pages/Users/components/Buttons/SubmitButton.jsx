@@ -1,8 +1,9 @@
 import { Button } from '@mui/material';
 
-const SubmitButton = ({text = 'Yadda saxla', onClick}) => {
+const SubmitButton = ({ text = 'Yadda saxla', onClick }) => {
   return (
     <Button
+      type="submit"
       variant='contained'
       color='formSubmit'
       disableElevation
