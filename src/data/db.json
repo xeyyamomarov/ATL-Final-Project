@@ -318,9 +318,16 @@
       
       "thead":[
         {
-          "name":"Adı",
-          "year":"İl",
-          "date":"Tarixi"
+          "id": "name",
+          "label": "Adı"
+        },
+        {
+          "id": "year",
+          "label": "İl"
+        },
+        {
+          "id": "date",
+          "label": "Tarixi"
         }
       ],
       "tbody": [
