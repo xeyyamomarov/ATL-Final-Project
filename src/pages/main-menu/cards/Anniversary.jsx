@@ -1,7 +1,11 @@
-import {TableBody,TableCell,Table,TableContainer,TableHead,TableRow,Paper,Card,CardContent,Typography,Tooltip,Box,Avatar} from '@mui/material';
+import {TableBody,TableCell,Table as ATable,TableContainer,TableHead,TableRow,Paper,Card,CardContent,Typography,Tooltip,Box,Avatar} from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { useEffect,useState } from 'react';
 import axios from 'axios';
+import Table from 'components/Table/Table';
+import { useSelector ,useDispatch} from 'react-redux';
+import { getUsers } from 'store/Users/users.selectors';
+import { USERS_ACTIONS } from 'store/Users';
 
 
   const style={
@@ -9,34 +13,42 @@ import axios from 'axios';
     fontWeight:"bold",
     width:"100px"
   }
-  const label=[
-    {id:1,label:"Adı"},
-    {id:2,label:"İl"},
-    {id:3,label:"Tarixi"},
-  ]
-
 const Anniversary=()=>{
-  const[isActive,setIsActive]=useState(false)
-  const [anniversary,setAnniversary] = useState([])
-  useEffect(()=>{
-    axios(" http://localhost:3000/anniversary")
-    .then(data =>setAnniversary(data.data))
+  const dispatch = useDispatch();
+//  const { datas, thead } = useSelector(getUsers);
+  const[isLoading,setIsLoading]=useState(false)
+  const [anniversary,setAnniversary] = useState({})
 
-  },[isActive])
+
+  useEffect(()=>{
+    axios(" http://localhost:3000/mainpage")
+    .then(data => {
+      setAnniversary(data.data.anniversary)
+      console.log(data.data.anniversary);
+    })
+    .catch(err=>console.log(err))
+
+  },[isLoading])
+
+  console.log(anniversary);
+
+ 
+  // useEffect(() => {
+  //   dispatch(USERS_ACTIONS.fetchCards())
+  // }, [dispatch])
+
     return(
     
       <Card sx={{marginBottom:2}}>
        <Card sx={{backgroundColor:"#F5F5F5",boxShadow:"none"}}>
         <CardContent sx={{display:"flex",justifyContent:"space-between",padding:0,height:"40px"}}>  
-        <Typography  variant='h6' position="relative" top="15px" left="15px" color="black" gutterBottom>
+        <Typography  variant='h6' position="relative" top="5px" left="15px" color="black" gutterBottom>
          Qarşıdan gələn il dönümü
         </Typography>
-        <Typography fontSize= "18px" position="relative" top="18px" right="15px"  gutterBottom>
+        <Typography fontSize= "18px" position="relative" top="8px" right="15px"  gutterBottom>
           <Tooltip title="Refresh">
           <RefreshIcon sx={{cursor:"pointer"}} onClick={()=>{
-            setIsActive(!isActive)
-            console.log("clicked");
-            console.log(isActive);
+            setIsLoading(!isLoading)
           }}/>
           </Tooltip>
         </Typography>
@@ -44,10 +56,10 @@ const Anniversary=()=>{
       </Card>
       <Card sx={{ minWidth: 275 ,marginBottom:2,boxShadow:"none"}}>
       <CardContent>
-      <TableContainer component={Paper}>
+      {/* <TableContainer component={Paper}>
     </TableContainer>
       <TableContainer component={Paper}>
-<Table sx={{ minWidth: 650 }} aria-label="simple table">
+<ATable sx={{ minWidth: 650 }} aria-label="simple table">
   <TableHead sx={{background:"#F5F5F5"}}>
     <TableRow
     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -76,8 +88,9 @@ const Anniversary=()=>{
       </TableRow>
     ))}
   </TableBody>
-</Table>
-</TableContainer>
+</ATable>
+</TableContainer> */}
+ <Table tbody={anniversary.tbody} thead={anniversary.thead} />
 </CardContent>
   </Card>
   </Card>

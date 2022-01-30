@@ -1,6 +1,6 @@
 import { Collapse, Container } from "@mui/material";
 import { SearchBar } from './components';
-import { Table } from "components";
+import { Table } from "components/Table";
 import SearchForm from 'pages/Users/SearchForm/SearchForm';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useEffect, useState } from "react";

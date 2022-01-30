@@ -7,30 +7,31 @@ import axios from 'axios';
 
 
 
+
   const style={
     fontSize:"18px",
     fontWeight:"bold"
   }
 const LastQueries=()=>{
-  const[isActive,setIsActive]=useState(false)
+  const[isLoading,setIsLoading]=useState(false)
   const [datas,setDatas] = useState([])
   useEffect(()=>{
     axios("  http://localhost:3000/datas")
     .then(data =>setDatas(data.data))
+    .catch(err=>console.log(err))
 
-  },[isActive])
+  },[isLoading])
     return(
       <Card sx={{marginBottom:2}}>
        <Card sx={{backgroundColor:"#F5F5F5",boxShadow:"none"}}>
         <CardContent sx={{display:"flex",justifyContent:"space-between",padding:0,height:"40px"}}>  
-        <Typography  variant='h6' position="relative" top="15px" left="15px" color="black" gutterBottom>
+        <Typography  variant='h6' position="relative" top="5px" left="15px" color="black" gutterBottom>
          Son sorğular
         </Typography>
-        <Typography fontSize= "18px" position="relative" top="18px" right="15px"  gutterBottom>
+        <Typography fontSize= "18px" position="relative" top="8px" right="15px"  gutterBottom>
           <Tooltip title="Refresh">
           <RefreshIcon sx={{cursor:"pointer"}} onClick={()=>{
-            setIsActive(!isActive)
-            console.log("clicked")
+            setIsLoading(!isLoading)
           }}/>
           </Tooltip>
         </Typography>

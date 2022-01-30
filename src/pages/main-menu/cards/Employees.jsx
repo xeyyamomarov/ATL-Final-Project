@@ -16,24 +16,26 @@ import axios from 'axios';
     {id:3,label:"Status"},
   ]
 const Employees=()=>{
+  const[isLoading,setIsLoading]=useState(false)
   const [employees,setEmployees] = useState([])
   useEffect(()=>{
     axios(" http://localhost:3000/employees")
     .then(data =>setEmployees(data.data))
+    .catch(err=>console.log(err))
 
-  },[])
+  },[isLoading])
     return(
 
       <Card sx={{marginBottom:2}}>
        <Card sx={{backgroundColor:"#F5F5F5",boxShadow:"none"}}>
         <CardContent sx={{display:"flex",justifyContent:"space-between", padding:0,height:"40px"}}>  
-        <Typography  variant='h6' position="relative" top="15px" left="15px" color="black" gutterBottom>
+        <Typography  variant='h6' position="relative" top="5px" left="15px" color="black" gutterBottom>
          Əməkdaşlar haqqında son məlumat
         </Typography>
-        <Typography fontSize= "18px" position="relative" top="18px" right="15px"  gutterBottom>
+        <Typography fontSize= "18px" position="relative"top="8px" right="15px"  gutterBottom>
           <Tooltip title="Refresh">
           <RefreshIcon sx={{cursor:"pointer"}} onClick={()=>{
-            console.log("clicked")
+            setIsLoading(!isLoading)
           }}/>
           </Tooltip>
         </Typography>

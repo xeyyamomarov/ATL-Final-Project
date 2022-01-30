@@ -14,25 +14,27 @@ import axios from "axios"
     {id:3,label:"Tarixi"},
   ]
  const MyQuerises=()=>{
+   const[isLoading,setIsLoading]=useState(false)
    const[myDatas,setMyDatas] = useState([])
    useEffect(()=>{
      axios("http://localhost:3000/myDatas")
      .then(data =>setMyDatas(data.data))
+     .catch(err=>console.log(err))
 
-   },[])
+   },[isLoading])
    return(
 
 
 <Card sx={{marginBottom:2}}>
 <Card sx={{backgroundColor:"#F5F5F5",marginBottom:2,boxShadow:"none"}}>
   <CardContent sx={{display:"flex",justifyContent:"space-between",padding:0,height:"40px"}}>  
-  <Typography variant='h6' position="relative" top="15px" left="15px"  color="black" gutterBottom>
+  <Typography variant='h6' position="relative" top="5px" left="15px"  color="black" gutterBottom>
    Mənim sorğularım
   </Typography>
-  <Typography fontSize= "18px" position="relative" top="18px" right="15px" gutterBottom>
+  <Typography fontSize= "18px" position="relative" top="8px" right="15px" gutterBottom>
     <Tooltip title="Refresh">
     <RefreshIcon sx={{cursor:"pointer"}} onClick={()=>{
-      console.log("clicked")
+      setIsLoading(!isLoading)
     }}/>
     </Tooltip>
   </Typography>
