@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { BrowserRouter } from "react-router-dom";
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider as ReduxProvider } from 'react-redux';
 import rootReducer from 'store/rootReducer';
@@ -23,9 +24,11 @@ sagaMiddleWare.run(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>
-    <ReduxProvider store={store}>
-      <App />
-    </ReduxProvider>
+    <BrowserRouter>
+      <ReduxProvider store={store}>
+        <App />
+      </ReduxProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
