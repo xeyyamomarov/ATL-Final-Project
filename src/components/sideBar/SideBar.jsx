@@ -31,11 +31,11 @@ const SideBar = () => {
         <Logo />
       </Toolbar>
       <List>
-        {sideBarMenuİtems.map(item => {
+        {sideBarMenuİtems.map( (item, index) => {
 
           return (
-            <>
-              <ListItem onClick={() => item.items?.length > 0 && setCollapse(old => ({ ...old, [item.key]: !old[item.key] }))} button key={item.key} component={item.path ? Link : <span></span>} to={item.path}>
+            <div key = {index}>
+              <ListItem onClick={() => item.items?.length > 0 && setCollapse(old => ({ ...old, [item.key]: !old[item.key] }))} button key={item.key} component={item.path && Link} to={item.path}>
                 <ListItemIcon sx={{ color: "#fff" }}>{item.icon}</ListItemIcon>
                 <ListItemText
                   primary={item.label}
@@ -49,8 +49,8 @@ const SideBar = () => {
               {
                 item.items?.length > 0 && (
                   
-                  <Collapse in={collapse[item.key]}>
-                    <List>
+                  <Collapse in={collapse[item.key]} key = {`${item.key}-collapse`}>
+                    <List key = {`${item.key}-sub-list`}>
                       {
                         item.items.map(subItem => (
                           <ListItem button key={subItem.key} component={Link} to={subItem.path}>
@@ -69,7 +69,7 @@ const SideBar = () => {
                   </Collapse>
                 )
               }
-            </>
+            </div>
           )
         }
         )}
