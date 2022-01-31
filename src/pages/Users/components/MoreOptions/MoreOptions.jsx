@@ -1,6 +1,4 @@
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import { IconButton, Menu, MenuItem, Tooltip } from '@mui/material';
 import { useState } from 'react';
 import { MoreHoriz } from '@mui/icons-material';
 import { TOGGLES_ACTIONS } from "store/Toggles";
@@ -18,11 +16,11 @@ export default function MoreOptions() {
 
   return (
     <div>
-      <IconButton
-        onClick={handleClick}
-      >
-        <MoreHoriz />
-      </IconButton>
+      <Tooltip title="Daha çox">
+        <IconButton onClick={handleClick}>
+          <MoreHoriz />
+        </IconButton>
+      </Tooltip>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -32,7 +30,7 @@ export default function MoreOptions() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={()=>console.log('User Deactivated')}>Deaktivləşdirin</MenuItem>
+        <MenuItem onClick={() => console.log('User Deactivated')}>Deaktivləşdirin</MenuItem>
         <MenuItem onClick={handleOpenClick}>Şifrəni yenilə</MenuItem>
       </Menu>
     </div>

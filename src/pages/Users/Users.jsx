@@ -1,4 +1,4 @@
-import { Collapse, Container } from "@mui/material";
+import { Collapse, Container, Box } from "@mui/material";
 import { SearchBar } from './components';
 import { Table } from "components/Table";
 import SearchForm from 'pages/Users/SearchForm/SearchForm';
@@ -52,25 +52,16 @@ const Users = () => {
 
   return (
     <ThemeProvider theme={theme}>
-
-      <Container sx={{
-        display: 'grid',
-        gridTemplateColumns: '1fr',
-        gap: 2
-      }}>
-
-        <SearchBar />
+      <SearchBar />
+      <Box>
         <Collapse in={search}>{<SearchForm />}</Collapse>
+      </Box>
+      <Box margin="16px">
         <Table tbody={users} thead={thead} />
-
         <AddNewUserDialog />
-
         <EditUserDialog />
-
         <PasswordUpdateDialog />
-
-      </Container>
-
+      </Box>
     </ThemeProvider>
   );
 }

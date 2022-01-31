@@ -14,6 +14,7 @@ const SearchForm = () => {
   return (
     <Box
       sx={{
+        margin: "0 16px",
         display: 'grid',
         gridTemplateColumns: { sm: '1fr' },
         border: '1px solid #E0E0E0',
