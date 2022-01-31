@@ -4,8 +4,8 @@ import { watchFetchCards } from "./fetch-cards.saga";
 
 function* cardsSaga(){
     yield all([
-        fork(watchDeleteCards),
-        fork(watchFetchCards)
+        fork(watchFetchCards),
+        fork(watchDeleteCards)
     ])
 }
 export {

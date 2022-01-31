@@ -8,7 +8,7 @@ function* fetchCards(action){
     try{
         const cards=yield call(getCardsData,action.payload)
         yield put(CARDS_ACTIONS.setCards(cards.data))
-        console.log(cards);
+        console.log(cards.lastQueries);
     }
     catch(error){
         yield put(CARDS_ACTIONS.setCardsError(error.message))

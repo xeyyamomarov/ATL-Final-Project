@@ -1,4 +1,5 @@
-import {LastQueries, MyQuerises,Employees ,Anniversary} from './cards';
+import {LastQueries, MyQuerises,Employees ,Anniversary,DayOff} from './cards';
+
 
 const MainMenu=()=>{
     return(
@@ -7,6 +8,7 @@ const MainMenu=()=>{
       <MyQuerises/>
       <Employees/>
       <Anniversary/>
+      <DayOff/>
         
       </>
 

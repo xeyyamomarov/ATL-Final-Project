@@ -188,13 +188,24 @@
     ]
   },
   "mainpage": {
-    "lastdata": {
-      "thead": [
+    "lastQueries": {
+
+      "thead":[
         {
-          "name": "Adı",
-          "type": "Tipi",
-          "date": "Tarixi",
-          "status": "Statusu"
+          "id": "name",
+          "label": "Adı"
+        },
+        {
+          "id": "type",
+          "label": "Tipi"
+        },
+        {
+          "id": "date",
+          "label": "Tarixi"
+        },
+        {
+          "id":"status",
+          "label":"Status"
         }
       ],
       "tbody": [
@@ -230,12 +241,19 @@
         }
       ]
     },
-    "myqueries": {
-      "thead": [
+    "myQueries": {
+      "thead":[
         {
-          "type": "Tipi",
-          "status": "Statusu",
-          "date": "Tarixi"
+          "id": "type",
+          "label": "Tipi"
+        },
+        {
+          "id": "status",
+          "label": "Status"
+        },
+        {
+          "id": "date",
+          "label": "Tarixi"
         }
       ],
       "tbody": [
@@ -276,9 +294,16 @@
 
       "thead":[
         {
-          "name":"Adı",
-          "position":"Vəzifə",
-          "status":"Status"
+          "id": "name",
+          "label": "Adı"
+        },
+        {
+          "id": "position",
+          "label": "Vəzifə"
+        },
+        {
+          "id": "status",
+          "label": "Status"
         }
       ],
       "tbody": [
@@ -362,6 +387,45 @@
           "date": "06/25/2020"
         }
       ]
-    }
+    },
+      "dayOff": {
+        "thead":[
+          {
+            "id": "name",
+            "label": "Adı"
+          },
+          {
+            "id": "type",
+            "label": "Tipi"
+          }
+        ],
+        "tbody": [
+          {
+            "id": 1,
+            "name": "Hüseyn Lətifov İ",
+            "type":"Tam gün"
+          },
+          {
+            "id": 2,
+            "name": "Sevda Bıyık C",
+            "type":"Nahardan sonra"
+          },
+          {
+            "id": 3,
+            "name": "Əhəd Miriyev S",
+            "type":"Tam gün"
+          },
+          {
+            "id": 4,
+            "name": "Əhəd Miriyev S",
+            "type":"Tam gün"
+          },
+          {
+            "id": 5,
+            "name": "Əhəd Miriyev S",
+            "type":"Tam gün"
+          }
+        ]
+      }
   }
 }

@@ -74,7 +74,7 @@ export default function Table({ tbody = [], thead = [] }) {
           </TableBody>
         </ATable>
       </TableContainer>
-      <TablePagination
+      {/* <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
         count={tbody.length}
@@ -82,7 +82,7 @@ export default function Table({ tbody = [], thead = [] }) {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
-      />
+      /> */}
     </Paper>
   );
 }

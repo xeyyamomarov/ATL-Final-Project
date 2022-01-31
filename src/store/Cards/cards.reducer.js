@@ -1,7 +1,7 @@
 import { CARDS_ACTION_TYPES } from "./cards.action-types";
 
 const cardsInit = {
-  data: [],
+  data: {},
   loading: false,
   error: "",
 };
@@ -12,7 +12,7 @@ export const cardsReducer = (store = cardsInit, action) => {
       return {
         ...store,
         ...cardsInit,
-        data: action.data,
+        data: action.payload,
       };
 
     case CARDS_ACTION_TYPES.SET_CARDS_LOADING:
@@ -25,7 +25,7 @@ export const cardsReducer = (store = cardsInit, action) => {
       return {
         ...store,
         ...cardsInit,
-        error: action.data,
+        error: action.payload,
       };
     default:
       return store;
