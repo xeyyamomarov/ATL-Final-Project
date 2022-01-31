@@ -2,7 +2,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Avatar from '@mui/material/Avatar';
-import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -10,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 export default function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "#fff", color: 'black', height: 56, justifyContent:'center' }}>
+      <AppBar position="static" sx={{ backgroundColor: "#fff", color: '#424242', height: 56, justifyContent:'center', boxShadow:'none', borderBottom:'1px solid #E0E0E0' }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Box >
             <IconButton
