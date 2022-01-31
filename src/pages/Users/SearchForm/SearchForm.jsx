@@ -1,10 +1,15 @@
 import { TextField, Box, MenuItem } from "@mui/material";
 import { CloseButton, Button } from "../components/Buttons";
 import { useState } from 'react';
+import { TOGGLES_ACTIONS } from 'store/Toggles';
+import { useDispatch } from 'react-redux';
 
 
 const SearchForm = () => {
+  const dispatch = useDispatch();
   const [position, setPosition] = useState('');
+
+  const close = () => dispatch(TOGGLES_ACTIONS.setSearchForm())
 
   return (
     <Box
@@ -61,7 +66,7 @@ const SearchForm = () => {
           sx={{
             padding: '15px',
           }}>
-          <CloseButton text="Təmizlə" />
+          <CloseButton text="Təmizlə" onClick={close} />
           <Button text="Axtar" />
         </Box>
       </Box>

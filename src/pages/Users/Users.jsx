@@ -9,6 +9,9 @@ import EditUserDialog from "./components/Dialogs/EditUserDialog";
 import { getUsers } from "store/Users/users.selectors";
 import { USERS_ACTIONS } from "store/Users";
 import AddNewUserDialog from "./components/Dialogs/AddNewUserDialog";
+import PasswordUpdateDialog from "./components/Dialogs/PasswordUpdateDialog";
+import { TOGGLES_SELECTORS } from "store/Toggles";
+
 
 const theme = createTheme({
   palette: {
@@ -37,10 +40,9 @@ const theme = createTheme({
 })
 
 const Users = () => {
-  const [search, setSearch] = useState(false);
-  const [addUser, setAddUser] = useState(false);
-  const [editUser, setEditUser] = useState(false);
+
   const dispatch = useDispatch();
+  const search = useSelector(TOGGLES_SELECTORS.getSearchForm)
   const { users, thead } = useSelector(getUsers);
 
   useEffect(() => {
@@ -57,25 +59,15 @@ const Users = () => {
         gap: 2
       }}>
 
-        <SearchBar
-          searchState={{ search, setSearch }}
-          addUserState={{ addUser, setAddUser }}
-        />
+        <SearchBar />
         <Collapse in={search}>{<SearchForm />}</Collapse>
         <Table tbody={users} thead={thead} />
 
-        <AddNewUserDialog
-          open={addUser}
-          close={setAddUser} />
+        <AddNewUserDialog />
 
-        <EditUserDialog
-          open={editUser}
-          close={setEditUser}
-        // open={addUser}
-        // close={setAddUser}s
-        />
+        <EditUserDialog />
 
-        {/* <PasswordUpdateDialog open={addUser} close={setAddUser}/> */}
+        <PasswordUpdateDialog />
 
       </Container>
 

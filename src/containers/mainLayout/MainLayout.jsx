@@ -1,6 +1,7 @@
 import {Grid} from "@mui/material";
 import SideBar from "components/SideBar";
 import NavBar from "components/NavBar";
+import Users from "pages/Users/Users";
 
 const MainLayout = ({ children }) => {
   return (
