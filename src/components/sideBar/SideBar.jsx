@@ -35,7 +35,7 @@ const SideBar = () => {
 
           return (
             <>
-              <ListItem onClick={() => item.items?.length > 0 && setCollapse(old => ({ ...old, [item.key]: !old[item.key] }))} button key={item.key} component={Link} to={item.path}>
+              <ListItem onClick={() => item.items?.length > 0 && setCollapse(old => ({ ...old, [item.key]: !old[item.key] }))} button key={item.key} component={item.path ? Link : <span></span>} to={item.path}>
                 <ListItemIcon sx={{ color: "#fff" }}>{item.icon}</ListItemIcon>
                 <ListItemText
                   primary={item.label}
@@ -65,7 +65,6 @@ const SideBar = () => {
                           </ListItem>
                         ))
                       }
-
                     </List>
                   </Collapse>
                 )

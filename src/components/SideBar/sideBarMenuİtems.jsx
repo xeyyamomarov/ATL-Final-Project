@@ -25,7 +25,6 @@ const sideBarMenuİtems = [
     key: "inquiries",
     label: "Sorğular",
     icon: <DriveFileRenameOutlineIcon />,
-    path: "/",
     items: [
       { key: "day-off", label: "Day off", path: "/day-off" },
       { key: "business-trip", label: "Ezamiyyət", path: "/business-trip" },
@@ -39,14 +38,12 @@ const sideBarMenuİtems = [
     key: "notifications",
     label: "Elanlar",
     icon: <CampaignIcon />,
-    path: "/",
     items: [{ key: "notification", label: "Elan", path: "/notifications" }],
   },
   {
     key: "settings",
     label: "Parametrlər",
     icon: <SettingsIcon />,
-    path: "/",
     items: [
       { key: "users", label: "Istifadəçilər", path: "/users" },
       { key: "user-roles", label: "İstifadəçi rolları", path: "user-roles" },
