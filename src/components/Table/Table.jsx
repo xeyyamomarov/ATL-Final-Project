@@ -69,7 +69,7 @@ export default function Table({ tbody = [], thead = [] }) {
                         alignItems: 'center'
                       }}
                     >
-                      <EditUser fontSize='small' />
+                      <EditUser fontSize='small' userId = {row.id} />
                       <MoreOptions />
                     </Box>
                   </TableCell>

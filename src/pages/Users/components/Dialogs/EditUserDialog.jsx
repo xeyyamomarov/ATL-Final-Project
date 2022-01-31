@@ -10,7 +10,7 @@ import { SubmitButton, CloseButton } from "../Buttons";
 import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui'
 import { useSelector, useDispatch } from 'react-redux';
-import * as Yup from "yup";
+// import * as Yup from "yup";
 import { TOGGLES_ACTIONS, TOGGLES_SELECTORS } from "store/Toggles";
 
 const positions = [
