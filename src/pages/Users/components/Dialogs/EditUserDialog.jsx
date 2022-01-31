@@ -9,7 +9,9 @@ import {
 import { SubmitButton, CloseButton } from "../Buttons";
 import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui'
+import { useSelector, useDispatch } from 'react-redux';
 import * as Yup from "yup";
+import { TOGGLES_ACTIONS, TOGGLES_SELECTORS } from "store/Toggles";
 
 const positions = [
   "User",
@@ -37,9 +39,11 @@ const onSubmit = (values, { resetForm }) => {
   resetForm()
 }
 
-const EditUserDialog = ({ open, close }) => {
+const EditUserDialog = () => {
 
-  const handleClose = () => close(prev => !prev);
+  const dispatch = useDispatch();
+  const open = useSelector(TOGGLES_SELECTORS.getEditUserDialogToggle)
+  const handleClose = () => dispatch(TOGGLES_ACTIONS.setEditUserDialog())
 
   return (
     <Dialog open={open}>

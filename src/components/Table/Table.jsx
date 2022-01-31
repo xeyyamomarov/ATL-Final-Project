@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Paper from '@mui/material/Paper';
 import { Avatar, Table as ATable, Typography, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Box, } from '@mui/material/';
-import { Edit } from '@mui/icons-material';
 import MoreOptions from 'pages/Users/components/MoreOptions/MoreOptions';
+import EditUser from 'pages/Users/components/EditUser/EditUser';
 
 export default function Table({ tbody = [], thead = [] }) {
   const [page, setPage] = useState(0);
@@ -69,7 +69,7 @@ export default function Table({ tbody = [], thead = [] }) {
                         alignItems: 'center'
                       }}
                     >
-                      <Edit fontSize='small' />
+                      <EditUser fontSize='small' />
                       <MoreOptions />
                     </Box>
                   </TableCell>
