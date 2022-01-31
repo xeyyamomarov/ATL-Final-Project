@@ -13,8 +13,11 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { SubmitButton, CloseButton } from "../Buttons";
 import { Formik, Form, Field } from "formik";
-import { Autocomplete } from 'formik-mui'
+import { Autocomplete } from 'formik-mui';
+import { useSelector, useDispatch } from 'react-redux';
+import { TOGGLES_SELECTORS, TOGGLES_ACTIONS } from "store/Toggles";
 import * as Yup from "yup";
+import { TOGGLES_ACTION_TYPES } from "store/Toggles/toggles.action-types";
 
 const positions = [
   "User",
@@ -44,19 +47,18 @@ const onSubmit = (values, { resetForm }) => {
 //   passwordRepeat: Yup.string().required("Required!"),
 // });
 
-const AddNewUserDialog = ({ open, close }) => {
+const AddNewUserDialog = () => {
 
-  const [hiddenPassword, setHiddenPassword] = useState(true);
-  const [hiddenPasswordRepeat, setHiddenPasswordRepeat] = useState(true);
+  const dispatch = useDispatch();
+  const passwordHidden = useSelector(TOGGLES_SELECTORS.getPasswordHidden);
+  const handlePasswordHidden = () => dispatch(TOGGLES_ACTIONS.setPasswordHidden());
+  const passwordRepeatHidden = useSelector(TOGGLES_SELECTORS.getPasswordRepeatHidden);
+  const handlePasswordRepeatHidden = () => dispatch(TOGGLES_ACTIONS.setPasswordRepeatHidden());
 
-  const handleShowPassword = () => {
-    setHiddenPassword(prev => !prev);
-  };
-  const handleShowPasswordRepeat = () => {
-    setHiddenPasswordRepeat(prev => !prev);
-  };
+  console.log(useSelector(store => store.toggles));
 
-  const handleClose = () => close((prev) => !prev);
+  const open = useSelector(TOGGLES_SELECTORS.getAddNewUserToggle)
+  const close = () => dispatch(TOGGLES_ACTIONS.setAddNewUserDialog())
 
   return (
     <Dialog open={open}>
@@ -109,7 +111,7 @@ const AddNewUserDialog = ({ open, close }) => {
 
                 <Grid item xs={12} sm={6}>
                   <Field fullWidth
-                    type={hiddenPassword ? 'password' : 'text'}
+                    type={passwordHidden ? 'password' : 'text'}
                     as={MuiTextField}
                     label="Şifrə*"
                     name="password"
@@ -118,10 +120,10 @@ const AddNewUserDialog = ({ open, close }) => {
                         <InputAdornment position="end">
                           <IconButton
                             aria-label="toggle password visibility"
-                            onClick={handleShowPassword}
+                            onClick={handlePasswordHidden}
                             edge="end"
                           >
-                            {hiddenPassword ? <Visibility /> : <VisibilityOff />}
+                            {passwordHidden ? <Visibility /> : <VisibilityOff />}
                           </IconButton>
                         </InputAdornment>
                       ),
@@ -131,7 +133,7 @@ const AddNewUserDialog = ({ open, close }) => {
 
                 <Grid item xs={12} sm={6}>
                   <Field fullWidth
-                    type={hiddenPasswordRepeat ? 'password' : 'text'}
+                    type={passwordRepeatHidden ? 'password' : 'text'}
                     as={MuiTextField}
                     label="Şifrənin təkrarı*"
                     name="passwordRepeat"
@@ -140,10 +142,10 @@ const AddNewUserDialog = ({ open, close }) => {
                         <InputAdornment position="end">
                           <IconButton
                             aria-label="toggle password visibility"
-                            onClick={handleShowPasswordRepeat}
+                            onClick={handlePasswordRepeatHidden}
                             edge="end"
                           >
-                            {hiddenPasswordRepeat ? <Visibility /> : <VisibilityOff />}
+                            {passwordRepeatHidden ? <Visibility /> : <VisibilityOff />}
                           </IconButton>
                         </InputAdornment>
                       ),
@@ -155,7 +157,7 @@ const AddNewUserDialog = ({ open, close }) => {
           </DialogContent>
 
           <DialogActions sx={{ padding: "12px 16px" }}>
-            <CloseButton onClick={handleClose} />
+            <CloseButton onClick={close} />
             <SubmitButton text="Yarat" />
           </DialogActions>
         </Form>

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Paper from '@mui/material/Paper';
 import { Avatar, Table as ATable, Typography, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Box, } from '@mui/material/';
-import { Edit, MoreHoriz } from '@mui/icons-material';
+import { Edit } from '@mui/icons-material';
+import MoreOptions from 'pages/Users/components/MoreOptions/MoreOptions';
 
 export default function Table({ tbody = [], thead = [] }) {
   const [page, setPage] = useState(0);
@@ -60,13 +61,17 @@ export default function Table({ tbody = [], thead = [] }) {
                       </TableCell>
                     );
                   })}
-                  <TableCell key='icons'
-                    sx={{
-                      textAlign: 'right',
-                    }}
-                  >
-                    <Edit fontSize='small' />
-                    <MoreHoriz sx={{ marginLeft: '10px', fontSize: 'medium' }} />
+                  <TableCell key='icons'>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        alignItems: 'center'
+                      }}
+                    >
+                      <Edit fontSize='small' />
+                      <MoreOptions />
+                    </Box>
                   </TableCell>
                 </TableRow>
               );

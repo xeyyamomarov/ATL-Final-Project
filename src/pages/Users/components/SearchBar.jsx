@@ -3,28 +3,35 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Box } from '@mui/material';
 import { AddButton, SearchButton } from "./Buttons";
+import { useDispatch } from 'react-redux';
+import { TOGGLES_ACTIONS } from 'store/Toggles';
+
 
 function handleClick(event) {
   event.preventDefault();
   console.info('You clicked a breadcrumb.');
 }
 
-export const SearchBar = ({ searchState, addUserState }) => {
-  const breadcrumbs = [
-    <Link key="1"
-      underline='none'
-      color="text.primary"
-      href="#"
-      onClick={handleClick}>
-      Parametrlər
-    </Link>,
-    <Typography key="2" color="text.primary">
-      İstifadəçilər
-    </Typography>,
-  ];
+const breadcrumbs = [
+  <Link key="1"
+    underline='none'
+    color="text.primary"
+    href="#"
+    onClick={handleClick}>
+    Parametrlər
+  </Link>,
+  <Typography key="2" color="text.primary">
+    İstifadəçilər
+  </Typography>,
+];
 
-  const addUserHandleClick = () => addUserState.setAddUser(prev => !prev);
-  const searchHandleClick = () => searchState.setSearch(prev => !prev);
+
+export const SearchBar = () => {
+  const dispatch = useDispatch();
+
+
+  const searchHandleClick = () => dispatch(TOGGLES_ACTIONS.setSearchForm())
+  const addUserHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewUserDialog())
 
   return (
     <Box component="div" sx={{
