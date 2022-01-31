@@ -38,8 +38,9 @@ export const SearchBar = () => {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      border: "1px solid #E0E0E0",
-      padding: "12px 16px"
+      borderBottom: "1px solid #E0E0E0",
+      padding: "12px 16px",
+      marginBottom: "16px"
     }} >
       
       <Breadcrumbs separator="›" aria-label="breadcrumb">

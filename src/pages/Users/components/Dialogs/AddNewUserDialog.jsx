@@ -55,8 +55,6 @@ const AddNewUserDialog = () => {
   const passwordRepeatHidden = useSelector(TOGGLES_SELECTORS.getPasswordRepeatHidden);
   const handlePasswordRepeatHidden = () => dispatch(TOGGLES_ACTIONS.setPasswordRepeatHidden());
 
-  console.log(useSelector(store => store.toggles));
-
   const open = useSelector(TOGGLES_SELECTORS.getAddNewUserToggle)
   const close = () => dispatch(TOGGLES_ACTIONS.setAddNewUserDialog())
 

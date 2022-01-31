@@ -19,7 +19,7 @@ export default function Table({ tbody = [], thead = [] }) {
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: 302 }}>
+      <TableContainer sx={{ maxHeight: 352 }}>
         <ATable stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
