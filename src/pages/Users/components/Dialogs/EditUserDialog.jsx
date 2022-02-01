@@ -45,7 +45,7 @@ const EditUserDialog = () => {
   const handleClose = () => dispatch(TOGGLES_ACTIONS.setEditUserDialog())
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onClose={handleClose}>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

@@ -57,11 +57,11 @@ const AddNewUserDialog = () => {
 
 
   const open = useSelector(TOGGLES_SELECTORS.getAddNewUserToggle)
-  const close = () => dispatch(TOGGLES_ACTIONS.setAddNewUserDialog())
+  const handleClose = () => dispatch(TOGGLES_ACTIONS.setAddNewUserDialog())
 
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onClose={handleClose} >
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -151,7 +151,7 @@ const AddNewUserDialog = () => {
           </DialogContent>
 
           <DialogActions sx={{ padding: "12px 16px" }}>
-            <CloseButton onClick={close} />
+            <CloseButton onClick={handleClose} />
             <SubmitButton text="Yarat" />
           </DialogActions>
         </Form>

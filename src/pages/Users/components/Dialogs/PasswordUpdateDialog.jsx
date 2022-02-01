@@ -35,7 +35,7 @@ const PasswordUpdateDialog = () => {
 
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onClose={handleClose}>
 
       <Formik
         initialValues={initialValues}
