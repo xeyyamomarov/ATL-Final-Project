@@ -41,7 +41,7 @@ const onSubmit = (values, { resetForm }) => {
 const validationSchema = Yup.object({
   fullName: Yup.string().required("Mütləq doldurulmalıdır!"),
   username: Yup.string().required("Mütləq doldurulmalıdır!"),
-  position: Yup.string().required("Mütləq doldurulmalıdır!"),
+  position: Yup.array().required("Mütləq doldurulmalıdır!"),
   password: Yup.string().required("Mütləq doldurulmalıdır!"),
   passwordRepeat: Yup.string().required("Mütləq doldurulmalıdır!"),
 });
@@ -58,6 +58,7 @@ const AddNewUserDialog = () => {
 
   const open = useSelector(TOGGLES_SELECTORS.getAddNewUserToggle)
   const close = () => dispatch(TOGGLES_ACTIONS.setAddNewUserDialog())
+
 
   return (
     <Dialog open={open}>
@@ -99,7 +100,6 @@ const AddNewUserDialog = () => {
                     getOptionLabel={option => option}
                     multiple
                     renderInput={(params) => {
-                      console.log(params);
                       return <MuiTextField {...params} label="Rollar*" />;
                     }}
                   />
