@@ -43,23 +43,41 @@ export default function Table({ tbody = [], thead = [] }) {
               return (
                 <TableRow hover role="checkbox" key={row.id}>
                   {thead.map((column) => {
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id}>
-                        <Box display='flex' alignItems='center'>
-                          {column.id === "fullName" && <Avatar
-                            alt={`${value}`}
-                            src={row.avatar}
+                    if (column === "icons") {
+                      return (
+                        <TableCell key={column}>
+                          <Box
                             sx={{
-                              width: 28, height: 28, display: 'flex', marginRight: '10px'
+                              display: 'flex',
+                              justifyContent: 'flex-end',
+                              alignItems: 'center'
                             }}
-                          />}
-                          <Typography>
-                            {value}
-                          </Typography>
-                        </Box>
-                      </TableCell>
-                    );
+                          >
+                            <EditUser fontSize='small' userId={row.id} />
+                            <MoreOptions />
+                          </Box>
+                        </TableCell>
+                      )
+                    }
+                    else {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id}>
+                          <Box display='flex' alignItems='center'>
+                            {column.id === "fullName" && <Avatar
+                              alt={`${value}`}
+                              src={row.avatar}
+                              sx={{
+                                width: 28, height: 28, display: 'flex', marginRight: '10px'
+                              }}
+                            />}
+                            <Typography>
+                              {value}
+                            </Typography>
+                          </Box>
+                        </TableCell>
+                      );
+                    }
                   })}
                   <TableCell key='icons'>
                     <Box
@@ -69,7 +87,7 @@ export default function Table({ tbody = [], thead = [] }) {
                         alignItems: 'center'
                       }}
                     >
-                      <EditUser fontSize='small' userId = {row.id} />
+                      <EditUser fontSize='small' userId={row.id} />
                       <MoreOptions />
                     </Box>
                   </TableCell>

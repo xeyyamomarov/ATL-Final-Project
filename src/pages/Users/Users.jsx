@@ -43,7 +43,39 @@ const Users = () => {
 
   const dispatch = useDispatch();
   const search = useSelector(TOGGLES_SELECTORS.getSearchForm)
-  const { users, thead } = useSelector(getUsers);
+  const { users } = useSelector(getUsers);
+  const thead = [
+    {
+      id: "fullName",
+      label: "A.S.A.",
+      minWidth: "220"
+    },
+    {
+      id: "username",
+      label: "İstifadəçi adı",
+      minWidth: "120"
+    },
+    {
+      id: "email",
+      label: "Elektron poçt",
+      minWidth: "170"
+    },
+    {
+      id: "position",
+      label: "Vəzifə",
+      minWidth: "170"
+    },
+    {
+      id: "phone",
+      label: "Əlaqə nömrəsi",
+      minWidth: "170"
+    },
+    {
+      id: "icons",
+      label: "",
+      minWidth: "170"
+    }
+  ]
 
   useEffect(() => {
     dispatch(USERS_ACTIONS.fetchUsers())

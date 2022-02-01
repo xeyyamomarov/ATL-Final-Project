@@ -130,33 +130,6 @@
         "position": "Aparıcı",
         "phone": "+15417543010"
       }
-    ],
-    "thead": [
-      {
-        "id": "fullName",
-        "label": "A.S.A.",
-        "minWidth": "220"
-      },
-      {
-        "id": "username",
-        "label": "İstifadəçi adı",
-        "minWidth": "120"
-      },
-      {
-        "id": "email",
-        "label": "Elektron poçt",
-        "minWidth": "170"
-      },
-      {
-        "id": "position",
-        "label": "Vəzifə",
-        "minWidth": "170"
-      },
-      {
-        "id": "phone",
-        "label": "Əlaqə nömrəsi",
-        "minWidth": "170"
-      }
     ]
   },
   
