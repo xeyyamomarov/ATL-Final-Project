@@ -5,7 +5,7 @@ export const ButtonColors = {
   green: "secondary",
 }
 
-const Button = ({ onClick, text, startIcon, endIcon, color=ButtonColors.purple, variant='contained' }) => {
+const Button = ({ onClick, type, text, startIcon, endIcon, color=ButtonColors.purple, variant='contained' }) => {
   return (
     <AButton
       variant={variant}
@@ -17,6 +17,7 @@ const Button = ({ onClick, text, startIcon, endIcon, color=ButtonColors.purple, 
       startIcon={startIcon}
       endIcon = {endIcon}
       onClick={onClick}
+      type={type}
     >
       {text}
     </AButton>

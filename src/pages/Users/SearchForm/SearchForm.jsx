@@ -1,76 +1,114 @@
-import { TextField, Box, MenuItem } from "@mui/material";
-import { CloseButton, Button } from "../components/Buttons";
-import { useState } from 'react';
-import { TOGGLES_ACTIONS } from 'store/Toggles';
+import { Divider, Grid, TextField as MuiTextField } from "@mui/material";
+import { Button, CloseButton } from "../components/Buttons";
+import { Formik, Form, Field } from "formik";
+import { Autocomplete } from 'formik-mui'
 import { useDispatch } from 'react-redux';
+// import * as Yup from "yup";
+import { TOGGLES_ACTIONS } from "store/Toggles";
+import { Box } from "@mui/system";
 
+const roles = [
+  "User",
+  "Reporter",
+  "Admin",
+  "Manager",
+];
+
+const initialValues = {
+  nameSurname: "",
+  username: "",
+  position: "",
+  roles: [],
+}
+
+// const validationSchema = Yup.object({
+//   fullName: Yup.string().required("Required!"),
+//   username: Yup.string().required("Required!"),
+//   positions: Yup.string().required("Required!"),
+//   password: Yup.string().required("Required!"),
+//   passwordRepeat: Yup.string().required("Required!"),
+// });
+
+const onSubmit = (values, { resetForm }) => {
+  console.log(values);
+  resetForm()
+}
 
 const SearchForm = () => {
+
   const dispatch = useDispatch();
-  const [position, setPosition] = useState('');
 
   const close = () => dispatch(TOGGLES_ACTIONS.setSearchForm())
 
   return (
     <Box
       sx={{
-        margin: "0 16px",
-        display: 'grid',
-        gridTemplateColumns: { sm: '1fr' },
+        marginBottom: "16px",
+        display: 'flex',
+        flexDirection: "column",
         border: '1px solid #E0E0E0',
         borderRadius: '4px',
       }}
     >
-      <Box
-        component="form"
-        noValidate
-        autoComplete="off"
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: { sm: '1fr' },
-          borderRadius: '4px',
-        }}
+      <Formik
+        initialValues={initialValues}
+        // validationSchema={validationSchema}
+        onSubmit={onSubmit}
       >
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: { sm: '1fr 1fr 1fr 1fr' },
-            borderBottom: '1px solid #E0E0E0',
-            padding: "15px",
-            gap: 2
-          }}
-        >
-          <TextField
-            label="Ad Soyad"
-          />
-          <TextField
-            label="İstifadəçi adı"
-          />
-          <TextField
-            label="Vəzifə"
-          />
-          <TextField select label="Rollar" fullWidth
-            value={position}
-            onChange={e => setPosition(e.target.value)}
-          >
-            <MenuItem value='User'>User</MenuItem>
-            <MenuItem value='Reporter'>Reporter</MenuItem>
-            <MenuItem value='Admin'>Admin</MenuItem>
-            <MenuItem value='Manager'>Manager</MenuItem>
-          </TextField>
+        <Form>
 
-        </Box >
+          <Box padding="16px">
+            <Grid container spacing={2}>
+              <Grid item sm={12} md={6} lg={3}>
+                <Field
+                  fullWidth
+                  as={MuiTextField}
+                  label="Ad Soyad"
+                  name="nameSurname"
+                />
+              </Grid>
+              <Grid item sm={12} md={6} lg={3}>
+                <Field
+                  fullWidth
+                  as={MuiTextField}
+                  label="İstifadəçi adı"
+                  name="username"
+                />
+              </Grid>
+              <Grid item sm={12} md={6} lg={3}>
+                <Field
+                  fullWidth
+                  as={MuiTextField}
+                  label="Vəzifə"
+                  name="position"
+                />
+              </Grid>
+              <Grid item sm={12} md={6} lg={3}>
+                <Field
+                  fullWidth
+                  name="roles"
+                  component={Autocomplete}
+                  options={roles}
+                  label="roles"
+                  filterSelectedOptions
+                  getOptionLabel={option => option}
+                  multiple
+                  renderInput={(params) => {
+                    return <MuiTextField {...params} label="Rollar" />;
+                  }}
+                />
+              </Grid>
+            </Grid>
+          </Box>
 
-        <Box
-          component="div"
-          textAlign="right"
-          sx={{
-            padding: '15px',
-          }}>
-          <CloseButton text="Təmizlə" onClick={close} />
-          <Button text="Axtar" />
-        </Box>
-      </Box>
+          <Divider />
+
+          <Box display="flex" justifyContent="flex-end" padding="16px">
+            <CloseButton onClick={close} />
+            <Button type="submit" text="Axtar" />
+          </Box>
+        </Form>
+      </Formik>
     </Box>
   );
 }

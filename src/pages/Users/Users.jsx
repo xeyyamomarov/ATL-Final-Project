@@ -1,9 +1,9 @@
-import { Collapse, Container, Box } from "@mui/material";
+import { Collapse, Box } from "@mui/material";
 import { SearchBar } from './components';
 import { Table } from "components/Table";
 import SearchForm from 'pages/Users/SearchForm/SearchForm';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import EditUserDialog from "./components/Dialogs/EditUserDialog";
 import { getUsers } from "store/Users/users.selectors";
@@ -53,10 +53,8 @@ const Users = () => {
   return (
     <ThemeProvider theme={theme}>
       <SearchBar />
-      <Box>
-        <Collapse in={search}>{<SearchForm />}</Collapse>
-      </Box>
       <Box margin="16px">
+        <Collapse in={search}>{<SearchForm />}</Collapse>
         <Table tbody={users} thead={thead} />
         <AddNewUserDialog />
         <EditUserDialog />
