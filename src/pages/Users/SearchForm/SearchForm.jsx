@@ -3,7 +3,6 @@ import { Button, CloseButton } from "../components/Buttons";
 import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui'
 import { useDispatch } from 'react-redux';
-// import * as Yup from "yup";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { Box } from "@mui/system";
 
@@ -20,14 +19,6 @@ const initialValues = {
   position: "",
   roles: [],
 }
-
-// const validationSchema = Yup.object({
-//   fullName: Yup.string().required("Required!"),
-//   username: Yup.string().required("Required!"),
-//   positions: Yup.string().required("Required!"),
-//   password: Yup.string().required("Required!"),
-//   passwordRepeat: Yup.string().required("Required!"),
-// });
 
 const onSubmit = (values, { resetForm }) => {
   console.log(values);
@@ -52,7 +43,6 @@ const SearchForm = () => {
     >
       <Formik
         initialValues={initialValues}
-        // validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
         <Form>

@@ -1,9 +1,11 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Formik, Form, Field } from "formik";
-import { DialogContent, DialogTitle, IconButton, Dialog, DialogActions, TextField as MuiTextField, Box, Grid, InputAdornment } from "@mui/material";
+import { Formik, Form } from "formik";
+import { DialogContent, DialogTitle, IconButton, Dialog, DialogActions, Box, Grid, InputAdornment } from "@mui/material";
 import { SubmitButton, CloseButton } from '../Buttons';
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLES_SELECTORS, TOGGLES_ACTIONS } from "store/Toggles";
+import * as Yup from "yup";
+import TextFieldWrapper from "./TextFieldWrapper/TextFieldWrapper";
 
 
 const initialValues = {
@@ -16,10 +18,10 @@ const onSubmit = (values, { resetForm }) => {
   resetForm()
 }
 
-// const validationSchema = Yup.object({
-//   password: Yup.string().required("Required!"),
-//   passwordRepeat: Yup.string().required("Required!"),
-// });
+const validationSchema = Yup.object({
+  password: Yup.string().required("Mütləq doldurulmalıdır!"),
+  passwordRepeat: Yup.string().required("Mütləq doldurulmalıdır!"),
+});
 
 const PasswordUpdateDialog = () => {
   const dispatch = useDispatch();
@@ -37,21 +39,20 @@ const PasswordUpdateDialog = () => {
 
       <Formik
         initialValues={initialValues}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
         <Form>
-          <DialogTitle sx={{ padding: "12px 16px" }}>
+          <DialogTitle sx={{ padding: "16px" }}>
             Şifrənin yenilənməsi
           </DialogTitle>
 
-          <DialogContent dividers sx={{ padding: "16px !important" }}>
+          <DialogContent dividers sx={{ padding: "16px" }}>
             <Box>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                  <Field fullWidth
+                  <TextFieldWrapper
                   type={passwordHidden ? 'password' : 'text'}
-                  as={MuiTextField}
                   label="Şifrə*"
                   name="password"
                   InputProps={{
@@ -71,9 +72,8 @@ const PasswordUpdateDialog = () => {
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
-                  <Field fullWidth
+                  <TextFieldWrapper
                   type={passwordRepeatHidden ? 'password' : 'text'}
-                  as={MuiTextField}
                   label="Şifrənin təkrarı*"
                   name="passwordRepeat" 
                   InputProps={{
@@ -95,7 +95,7 @@ const PasswordUpdateDialog = () => {
             </Box>
           </DialogContent>
 
-          <DialogActions sx={{ padding: "12px 16px" }}>
+          <DialogActions sx={{ padding: "16px" }}>
             <CloseButton onClick={handleClose} />
             <SubmitButton text="Yenilə" />
           </DialogActions>
