@@ -212,7 +212,7 @@
         {
           "id": 1,
           "avatar": "https://picsum.photos/200",
-          "name": "Rüfət Məmmədov",
+          "name": "Rüfət Məmmədov.",
           "type": "Day off",
           "date": "06/25/2020",
           "status": "Ləğv edildi"
@@ -220,21 +220,21 @@
 
         {
           "id": 2,
-          "name": "Hüseyn Lətifov İ",
+          "name": "Hüseyn Lətifov İ.",
           "type": "Məzuniyyət",
           "date": "06/20/2020",
           "status": "Gözləmədədir"
         },
         {
           "id": 3,
-          "name": "Sevda Bıyık C",
+          "name": "Sevda Bıyık C.",
           "type": "Ezamiyyət",
           "date": "06/19/2020",
           "status": "Təsdiqləndi"
         },
         {
           "id": 4,
-          "name": "Əhəd Miriyev S",
+          "name": "Əhəd Miriyev S.",
           "type": "Məzuniyyət",
           "date": "05/10/2020",
           "status": "Təsdiqləndi"
@@ -309,31 +309,31 @@
       "tbody": [
         {
           "id": 1,
-          "name": "Hüseyn Lətifov İ",
+          "name": "Hüseyn Lətifov İ.",
           "position": "Radio rəhbəri",
           "status": "Yeni əməkdaş"
         },
         {
           "id": 2,
-          "name": "Sevda Bıyık C",
+          "name": "Sevda Bıyık C.",
           "position": "Baş mühəndis",
           "status": "Ayrılmış əməkdaş"
         },
         {
           "id": 3,
-          "name": "Əhəd Miriyev S",
+          "name": "Əhəd Miriyev S.",
           "position": "Aparıcı",
           "status": "Yeni əməkdaş"
         },
         {
           "id": 4,
-          "name": "Əhəd Miriyev S",
+          "name": "Əhəd Miriyev S.",
           "position": "Aparıcı",
           "status": "Yeni əməkdaş"
         },
         {
           "id": 5,
-          "name": "Əhəd Miriyev S",
+          "name": "Əhəd Miriyev S.",
           "position": "Aparıcı",
           "status": "Yeni əməkdaş"
         }
@@ -358,31 +358,31 @@
       "tbody": [
         {
           "id": 1,
-          "name": "Hüseyn Lətifov İ",
+          "name": "Hüseyn Lətifov İ.",
           "year": 3,
           "date": "06/25/2020"
         },
         {
           "id": 2,
-          "name": "Sevda Bıyık C",
+          "name": "Sevda Bıyık C.",
           "year": 4,
           "date": "06/25/2020"
         },
         {
           "id": 3,
-          "name": "Əhəd Miriyev S",
+          "name": "Əhəd Miriyev S.",
           "year": 2,
           "date": "06/25/2020"
         },
         {
           "id": 4,
-          "name": "Əhəd Miriyev S",
+          "name": "Əhəd Miriyev S.",
           "year": 2,
           "date": "06/25/2020"
         },
         {
           "id": 5,
-          "name": "Əhəd Miriyev S",
+          "name": "Əhəd Miriyev S.",
           "year": 2,
           "date": "06/25/2020"
         }
@@ -402,30 +402,163 @@
         "tbody": [
           {
             "id": 1,
-            "name": "Hüseyn Lətifov İ",
+            "name": "Hüseyn Lətifov İ.",
             "type":"Tam gün"
           },
           {
             "id": 2,
-            "name": "Sevda Bıyık C",
+            "name": "Sevda Bıyık C.",
             "type":"Nahardan sonra"
           },
           {
             "id": 3,
-            "name": "Əhəd Miriyev S",
+            "name": "Əhəd Miriyev S.",
             "type":"Tam gün"
           },
           {
             "id": 4,
-            "name": "Əhəd Miriyev S",
+            "name": "Əhəd Miriyev S.",
             "type":"Tam gün"
           },
           {
             "id": 5,
-            "name": "Əhəd Miriyev S",
+            "name": "Əhəd Miriyev S.",
             "type":"Tam gün"
           }
         ]
+      },
+      "vacation":{
+        "thead":[
+          {
+            "id": "name",
+            "label": "Adı"
+          },
+          {
+            "id": "date",
+            "label": "Tarixi"
+          },
+          {
+            "id":"substitute",
+            "label":"Əvəzedici şəxs"
+          }
+        ],
+        "tbody": [
+          {
+            "id": 1,
+            "name": "Hüseyn Lətifov İ.",
+            "date":"03/20/2021~03/24/2021",
+            "substitute":"Sevda Bıyık C"
+
+          },
+          {
+            "id": 2,
+            "name": "Sevda Bıyık C.",
+            "date":"03/20/2021~03/24/2021",
+            "substitute":"Əhəd Miriyev S."
+
+          },
+          {
+            "id": 3,
+            "name": "Sevda Bıyık C.",
+            "date":"03/20/2021~03/24/2021",
+            "substitute":"Hüseyn Lətifov İ."
+
+          },
+          {
+            "id": 4,
+            "name": "Sevda Bıyık C.",
+            "date":"03/20/2021~03/24/2021",
+            "substitute":"Əhəd Miriyev S."
+
+          },
+          {
+            "id": 5,
+            "name": "Əhəd Miriyev S.",
+            "date":"03/20/2021~03/24/2021",
+            "substitute":"Hüseyn Lətifov İ."
+
+          }
+        ]
+      },
+      "birthday":{
+
+        "thead":[
+          {
+            "id": "name",
+            "label": "Adı"
+          },
+          {
+            "id": "date",
+            "label": "Tarixi"
+          }
+        ],
+        "tbody": [
+          {
+            "id": 1,
+            "name": "Hüseyn Lətifov İ.",
+            "date":"06/25/2020"
+          },
+          {
+            "id": 2,
+            "name": "Sevda Bıyık C.",
+            "date":"06/25/2020"
+          },
+          {
+            "id": 3,
+            "name": "Əhəd Miriyev S.",
+            "date":"06/25/2020"
+          },
+          {
+            "id": 4,
+            "name": "Əhəd Miriyev S.",
+            "date":"06/25/2020"
+          },
+          {
+            "id": 5,
+            "name": "Əhəd Miriyev S.",
+            "date":"06/25/2020"
+          }
+        ]
+      },
+      "trip":{
+        "thead":[
+          {
+            "id": "name",
+            "label": "Adı"
+          },
+          {
+            "id": "date",
+            "label": "Tarixi"
+          }
+        ],
+        "tbody": [
+          {
+            "id": 1,
+            "name": "Hüseyn Lətifov İ.",
+            "date":"03/20/2021~03/24/2021"
+          },
+          {
+            "id": 2,
+            "name": "Sevda Bıyık C.",
+            "date":"03/20/2021~03/24/2021"
+          },
+          {
+            "id": 3,
+            "name": "Əhəd Miriyev S.",
+            "date":"03/20/2021~03/24/2021"
+          },
+          {
+            "id": 4,
+            "name": "Əhəd Miriyev S.",
+            "date":"03/20/2021~03/24/2021"
+          },
+          {
+            "id": 5,
+            "name": "Əhəd Miriyev S.",
+            "date":"03/20/2021~03/24/2021"
+          }
+        ]
       }
+
   }
 }
