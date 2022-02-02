@@ -7,6 +7,10 @@ import { DayOffPage, BusinessTripPage, GuestPage, ITSupplyPage, PurchasePage, Va
 import NotificationsPage from "pages/NotificationsPage";
 import Users from "pages/Users/Users";
 
+// import MainLayout from "containers/mainLayout";
+// import MainMenu from "pages/main-menu/MainMenu";
+
+
 function App() {
   return (
     <div className="App">
@@ -23,8 +27,13 @@ function App() {
           <Route path="/notifications" element={<NotificationsPage />} />
           <Route path="/users" element={<Users />} />
           <Route path="/user-roles" element={<Users />} />
+          {/* <Route path="mainpage" element={<MainMenu/>} />  */}
         </Routes>
       </MainLayout>
+
+      {/* <MainLayout /> */}
+      {/* <MainMenu/> */}
+
     </div>
   );
 }
