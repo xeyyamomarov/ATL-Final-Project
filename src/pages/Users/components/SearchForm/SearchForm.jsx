@@ -3,9 +3,31 @@ import { Button, CloseButton } from "../Buttons";
 import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui'
 import { useDispatch } from 'react-redux';
-// import * as Yup from "yup";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { Box } from "@mui/system";
+import { makeStyles } from '@mui/styles';
+
+
+const useStyles = makeStyles({
+  container: {
+    marginBottom: "16px",
+    display: 'flex',
+    flexDirection: "column",
+    border: '1px solid #E0E0E0',
+    borderRadius: '4px'
+  },
+  upBox: {
+    padding: "16px"
+  },
+  btnBox: {
+    display: "flex",
+    justifyContent: "flex-end",
+    padding: "12px 16px"
+  },
+  btn: {
+    
+  }
+})
 
 const roles = [
   "User",
@@ -21,43 +43,27 @@ const initialValues = {
   roles: [],
 }
 
-// const validationSchema = Yup.object({
-//   fullName: Yup.string().required("Required!"),
-//   username: Yup.string().required("Required!"),
-//   positions: Yup.string().required("Required!"),
-//   password: Yup.string().required("Required!"),
-//   passwordRepeat: Yup.string().required("Required!"),
-// });
-
 const onSubmit = (values, { resetForm }) => {
   console.log(values);
   resetForm()
 }
 
 export const SearchForm = () => {
+  const classes = useStyles();
 
   const dispatch = useDispatch();
 
   const close = () => dispatch(TOGGLES_ACTIONS.setSearchForm())
 
   return (
-    <Box
-      sx={{
-        marginBottom: "16px",
-        display: 'flex',
-        flexDirection: "column",
-        border: '1px solid #E0E0E0',
-        borderRadius: '4px',
-      }}
-    >
+    <Box className={classes.container}>
       <Formik
         initialValues={initialValues}
-        // validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
         <Form>
 
-          <Box padding="16px">
+          <Box className={classes.upBox}>
             <Grid container spacing={2}>
               <Grid item sm={12} md={6} lg={3}>
                 <Field
@@ -103,7 +109,7 @@ export const SearchForm = () => {
 
           <Divider />
 
-          <Box display="flex" justifyContent="flex-end" padding="16px">
+          <Box className={classes.btnBox}>
             <CloseButton onClick={close} />
             <Button type="submit" text="Axtar" />
           </Box>

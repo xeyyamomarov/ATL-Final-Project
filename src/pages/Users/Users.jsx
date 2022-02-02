@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Collapse, Box } from "@mui/material";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SearchBar } from './components/SearchBar';
-import { Table, Table1 } from "components/Table";
+import { Table } from "components/Table";
 import { SearchForm } from 'pages/Users/components/SearchForm';
 import { USERS_ACTIONS, USERS_SELECTORS } from "store/Users";
 import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "./components/Dialogs";
@@ -84,7 +84,7 @@ const Users = () => {
       <SearchBar />
       <Box margin="16px">
         <Collapse in={search}>{<SearchForm />}</Collapse>
-        <Table tbody={users} thead={thead} pagination avatar />
+        <Table tbody={users} thead={thead} pagination />
         <AddNewUserDialog />
         <EditUserDialog />
         <PasswordUpdateDialog />

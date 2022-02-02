@@ -11,9 +11,6 @@ const useStyles = makeStyles({
     boxShadow: "none",
     border: "1px solid #E0E0E0"
   },
-  tcontainer: {
-    // maxHeight: 240,
-  },
   thead: {
     backgroundColor: '#F5F5F5',
     height: "48px",
@@ -35,16 +32,22 @@ const useStyles = makeStyles({
     fontSize: "14px",
     fontWeight: "400"
   },
-  root: {
+  iconsBox: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+  pagination: {
     fontSize: "12px",
     fontWeight: 400
-  }
+  },
+
 })
 
 export default function Table({ tbody = [], thead = [], pagination, avatar }) {
   const classes = useStyles();
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(4);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -74,47 +77,41 @@ export default function Table({ tbody = [], thead = [], pagination, avatar }) {
           </TableHead>
           <TableBody>
             {tbody.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map((row) => {
-              return (
-                <TableRow hover key={row.id}>
-                  {thead.map((column) => {
-                    if (column.id === "icons") {
-                      return (
-                        <TableCell key={column.id} sx={{ height: "48px", padding: "0 16px", fontSize: "12px", fontWeight: "700" }}>
-                          <Box
-                            sx={{
-                              display: 'flex',
-                              justifyContent: 'flex-end',
-                              alignItems: 'center'
-                            }}
-                          >
-                            <EditUser fontSize='small' userId={row.id} />
-                            <MoreOptions userId={row.id} />
-                          </Box>
-                        </TableCell>
-                      )
-                    }
-                    else {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} className={classes.tbody}>
-                          <Box display='flex' alignItems='center'>
-                            {(column.id === "fullName" || "name") && <Avatar
-                              className={classes.avatar}
-                              alt={`${value}`}
-                              src={row.avatar}
-                            />}
-                            <Typography className={classes.data}>
-                              {value}
-                            </Typography>
-                          </Box>
-                        </TableCell>
-                      );
-                    }
-                  })}
-                </TableRow>
-              );
-            })}
+              .map((row) => {
+                return (
+                  <TableRow hover key={row.id}>
+                    {thead.map((column) => {
+                      if (column.id === "icons") {
+                        return (
+                          <TableCell key={column.id} className={classes.tbody}>
+                            <Box className={classes.iconsBox}>
+                              <EditUser fontSize='small' userId={row.id} />
+                              <MoreOptions userId={row.id} />
+                            </Box>
+                          </TableCell>
+                        )
+                      }
+                      else {
+                        const value = row[column.id];
+                        return (
+                          <TableCell key={column.id} className={classes.tbody}>
+                            <Box display='flex' alignItems='center'>
+                              {(column.id === "fullName") && <Avatar
+                                className={classes.avatar}
+                                alt={`${value}`}
+                                src={row.avatar}
+                              />}
+                              <Typography className={classes.data}>
+                                {value}
+                              </Typography>
+                            </Box>
+                          </TableCell>
+                        );
+                      }
+                    })}
+                  </TableRow>
+                );
+              })}
           </TableBody>
         </ATable>
       </TableContainer>
