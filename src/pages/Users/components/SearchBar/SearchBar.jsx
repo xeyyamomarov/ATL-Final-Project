@@ -2,7 +2,7 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Box } from '@mui/material';
-import { AddButton, SearchButton } from "./Buttons";
+import { AddButton, SearchButton } from "../Buttons";
 import { useDispatch } from 'react-redux';
 import { TOGGLES_ACTIONS } from 'store/Toggles';
 

@@ -1,15 +1,12 @@
-import { Collapse, Box } from "@mui/material";
-import { SearchBar } from './components';
-import { Table } from "components/Table";
-import SearchForm from 'pages/Users/SearchForm/SearchForm';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import EditUserDialog from "./components/Dialogs/EditUserDialog";
-import { getUsers } from "store/Users/users.selectors";
-import { USERS_ACTIONS } from "store/Users";
-import AddNewUserDialog from "./components/Dialogs/AddNewUserDialog";
-import PasswordUpdateDialog from "./components/Dialogs/PasswordUpdateDialog";
+import { Collapse, Box } from "@mui/material";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { SearchBar } from './components/SearchBar';
+import { Table } from "components/Table";
+import { SearchForm } from 'pages/Users/components/SearchForm';
+import { USERS_ACTIONS, USERS_SELECTORS } from "store/Users";
+import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "./components/Dialogs";
 import { TOGGLES_SELECTORS } from "store/Toggles";
 
 
@@ -43,7 +40,7 @@ const Users = () => {
 
   const dispatch = useDispatch();
   const search = useSelector(TOGGLES_SELECTORS.getSearchForm)
-  const { users } = useSelector(getUsers);
+  const { users } = useSelector(USERS_SELECTORS.getUsers);
   const thead = [
     {
       id: "fullName",
@@ -73,7 +70,7 @@ const Users = () => {
     {
       id: "icons",
       label: "",
-      minWidth: "170"
+      minWidth: "12px"
     }
   ]
 

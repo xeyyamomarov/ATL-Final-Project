@@ -5,7 +5,7 @@ import { TOGGLES_ACTIONS } from 'store/Toggles';
 // import { USERS_SELECTORS } from 'store/Users';
 
 
-export default function EditUser({ fontSize = 'small', userId }) {
+export function EditUser({ fontSize = 'small', userId }) {
   const dispatch = useDispatch();
   // const { users } = useSelector(USERS_SELECTORS.getUsers)
   // const user = users.filter(user => user.id = userId)

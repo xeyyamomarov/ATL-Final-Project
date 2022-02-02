@@ -5,7 +5,7 @@ import { TOGGLES_ACTIONS } from "store/Toggles";
 import { useDispatch } from 'react-redux';
 
 
-export default function MoreOptions() {
+export function MoreOptions({ userId }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export default function MoreOptions() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={() => console.log('User Deactivated')}>Deaktivləşdirin</MenuItem>
+        <MenuItem onClick={() => console.log(`User ${userId} Deactivated`)}>Deaktivləşdirin</MenuItem>
         <MenuItem onClick={handleOpenClick}>Şifrəni yenilə</MenuItem>
       </Menu>
     </div>

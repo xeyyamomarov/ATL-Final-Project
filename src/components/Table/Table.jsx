@@ -1,10 +1,21 @@
 import { useState } from 'react';
-import Paper from '@mui/material/Paper';
-import { Avatar, Table as ATable, Typography, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Box, } from '@mui/material/';
-import MoreOptions from 'pages/Users/components/MoreOptions/MoreOptions';
-import EditUser from 'pages/Users/components/EditUser/EditUser';
+import { Avatar, Table as ATable, Typography, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Box, Paper } from '@mui/material/';
+import { MoreOptions } from 'pages/Users/components/MoreOptions';
+import { EditUser } from 'pages/Users/components/EditUser';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles({
+  thead: {
+    backgroundColor: '#F5F5F5',
+    height: "48px",
+    padding: "0 16px",
+    fontSize: "12px",
+    fontWeight: "700"
+  }
+})
 
 export default function Table({ tbody = [], thead = [] }) {
+  const classes = useStyles();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -18,24 +29,20 @@ export default function Table({ tbody = [], thead = [] }) {
   };
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: 352 }}>
+    <Paper sx={{ width: '100%', overflow: 'hidden', boxShadow: 0, border: "1px solid #E0E0E0" }}>
+      <TableContainer sx={{ maxHeight: 240 }}>
         <ATable stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               {thead.map((column) => (
-                <TableCell
+                <TableCell sx={{backgroundColor: '#F5F5F5', height: "48px", padding: "0 16px", fontSize: "12px", fontWeight: "700"}}
+                  // className={classes}
                   key={column.id}
-                  style={{ minWidth: column.minWidth, backgroundColor: '#F5F5F5' }}
+                  style={{ minWidth: column.minWidth }}
                 >
                   {column.label}
                 </TableCell>
               ))}
-              <TableCell
-                key='icons'
-                style={{ minWidth: '100px', backgroundColor: '#F5F5F5' }}
-              >
-              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -43,9 +50,9 @@ export default function Table({ tbody = [], thead = [] }) {
               return (
                 <TableRow hover role="checkbox" key={row.id}>
                   {thead.map((column) => {
-                    if (column === "icons") {
+                    if (column.id === "icons") {
                       return (
-                        <TableCell key={column}>
+                        <TableCell key={column.id} sx={{ height: "48px", padding: "0 16px", fontSize: "12px", fontWeight: "700" }}>
                           <Box
                             sx={{
                               display: 'flex',
@@ -54,7 +61,7 @@ export default function Table({ tbody = [], thead = [] }) {
                             }}
                           >
                             <EditUser fontSize='small' userId={row.id} />
-                            <MoreOptions />
+                            <MoreOptions userId={row.id} />
                           </Box>
                         </TableCell>
                       )
@@ -62,7 +69,7 @@ export default function Table({ tbody = [], thead = [] }) {
                     else {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id}>
+                        <TableCell key={column.id} sx={{ height: "48px", padding: "0 16px" }}>
                           <Box display='flex' alignItems='center'>
                             {column.id === "fullName" && <Avatar
                               alt={`${value}`}
@@ -71,7 +78,7 @@ export default function Table({ tbody = [], thead = [] }) {
                                 width: 28, height: 28, display: 'flex', marginRight: '10px'
                               }}
                             />}
-                            <Typography>
+                            <Typography sx={{ fontSize: "14px", fontWeight: "400" }}>
                               {value}
                             </Typography>
                           </Box>
@@ -79,18 +86,6 @@ export default function Table({ tbody = [], thead = [] }) {
                       );
                     }
                   })}
-                  <TableCell key='icons'>
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        justifyContent: 'flex-end',
-                        alignItems: 'center'
-                      }}
-                    >
-                      <EditUser fontSize='small' userId={row.id} />
-                      <MoreOptions />
-                    </Box>
-                  </TableCell>
                 </TableRow>
               );
             })}
