@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   DialogContent,
   DialogTitle,
@@ -16,8 +15,6 @@ import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui';
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLES_SELECTORS, TOGGLES_ACTIONS } from "store/Toggles";
-import * as Yup from "yup";
-import { TOGGLES_ACTION_TYPES } from "store/Toggles/toggles.action-types";
 
 const positions = [
   "User",
@@ -39,14 +36,6 @@ const onSubmit = (values, { resetForm }) => {
   resetForm()
 }
 
-// const validationSchema = Yup.object({
-//   fullName: Yup.string().required("Required!"),
-//   username: Yup.string().required("Required!"),
-//   positions: Yup.string().required("Required!"),
-//   password: Yup.string().required("Required!"),
-//   passwordRepeat: Yup.string().required("Required!"),
-// });
-
 const AddNewUserDialog = () => {
 
   const dispatch = useDispatch();
@@ -62,7 +51,6 @@ const AddNewUserDialog = () => {
     <Dialog open={open}>
       <Formik
         initialValues={initialValues}
-        // validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
         <Form>
