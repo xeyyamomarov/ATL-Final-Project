@@ -10,21 +10,21 @@ const sideBarMenuİtems = [
   {
     key: "home",
     label: "Əsas səhifə",
-    icon: <ViewCompactIcon />,
+    icon: <ViewCompactIcon fontSize='large'/>,
     path: "/",
     items: [],
   },
   {
     key: "employees",
     label: "Əməkdaşlar",
-    icon: <GroupsIcon />,
+    icon: <GroupsIcon fontSize='large' />,
     path: "/employees",
     items: [],
   },
   {
     key: "inquiries",
     label: "Sorğular",
-    icon: <DriveFileRenameOutlineIcon />,
+    icon: <DriveFileRenameOutlineIcon fontSize='large' />,
     items: [
       { key: "day-off", label: "Day off", path: "/day-off" },
       { key: "business-trip", label: "Ezamiyyət", path: "/business-trip" },
@@ -37,13 +37,13 @@ const sideBarMenuİtems = [
   {
     key: "notifications",
     label: "Elanlar",
-    icon: <CampaignIcon />,
+    icon: <CampaignIcon fontSize='large' />,
     items: [{ key: "notification", label: "Elan", path: "/notifications" }],
   },
   {
     key: "settings",
     label: "Parametrlər",
-    icon: <SettingsIcon />,
+    icon: <SettingsIcon fontSize='large' />,
     items: [
       { key: "users", label: "Istifadəçilər", path: "/users" },
       { key: "user-roles", label: "İstifadəçi rolları", path: "user-roles" },

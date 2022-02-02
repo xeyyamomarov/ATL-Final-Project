@@ -1,5 +1,5 @@
 import { ReactComponent as Logo } from "assets/logo/logo.svg";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
@@ -12,56 +12,59 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { Collapse } from '@mui/material';
 import { useState } from "react";
 
-const SideBar = () => {
+const SideBar = ({ open }) => {
   const [collapse, setCollapse] = useState({});
+  const location = useLocation();
+  const collapseHandler = (item) => item.items?.length > 0 && setCollapse(old => ({ ...old, [item.key]: !old[item.key] }));
   return (
     <Box
       sx={{
-        width: "auto",
         minHeight: "100vh",
+        padding: 2,
         backgroundColor: "#9B5AE1",
       }}
+
     >
+      <Collapse orientation="horizontal" in={open} collapsedSize={70}>
       <Toolbar
         sx={{
-          width: 118,
-          height: 16,
+          width: 180,
+          height: 16
         }}
       >
-        <Logo />
+        {open && <Logo />}
       </Toolbar>
       <List>
-        {sideBarMenuİtems.map( (item, index) => {
+        {sideBarMenuİtems.map((item, index) => {
 
           return (
-            <div key = {index}>
-              <ListItem onClick={() => item.items?.length > 0 && setCollapse(old => ({ ...old, [item.key]: !old[item.key] }))} button key={item.key} component={item.path && Link} to={item.path}>
-                <ListItemIcon sx={{ color: "#fff" }}>{item.icon}</ListItemIcon>
-                <ListItemText
+            <div key={index}>
+              <ListItem onClick={() => collapseHandler(item)} button key={item.key} component={item.path && NavLink} to={item.path} activeClassName={location.pathname !== item.path ? null : 'selected'} >
+                <ListItemIcon width={{ sm: 48, md: 96, lg: 192, xl: 384 }} sx={{ color: "#fff" }}>{item.icon}</ListItemIcon>
+                {open && <ListItemText
                   primary={item.label}
                   primaryTypographyProps={{
                     color: "#fff",
                     fontSize: 14,
                   }}
-                />
-                {item.items?.length > 0 && (collapse[item.key] ? <ExpandLessIcon sx={{ color: "#fff" }}/> : <ExpandMoreIcon sx={{ color: "#fff" }}/>)}
+                />}
+                {open && (item.items?.length > 0 && (collapse[item.key] ? <ExpandLessIcon sx={{ color: "#fff", marginLeft:7 }} /> : <ExpandMoreIcon sx={{ color: "#fff", marginLeft:7}} />))}
               </ListItem>
               {
-                item.items?.length > 0 && (
-                  
-                  <Collapse in={collapse[item.key]} key = {`${item.key}-collapse`}>
-                    <List key = {`${item.key}-sub-list`}>
+                open && item.items?.length > 0 && (
+                  <Collapse in={collapse[item.key]} key={`${item.key}-collapse`}>
+                    <List key={`${item.key}-sub-list`}>
                       {
                         item.items.map(subItem => (
-                          <ListItem button key={subItem.key} component={Link} to={subItem.path}>
+                          <ListItem button key={subItem.key} component={NavLink} to={subItem.path} activeClassName={location.pathname !== subItem.path ? null : "selected"}>
                             <ListItemIcon sx={{ color: "#fff" }}>{subItem.icon}</ListItemIcon>
-                            <ListItemText
+                            {open && <ListItemText
                               primary={subItem.label}
                               primaryTypographyProps={{
                                 color: "#fff",
                                 fontSize: 14,
                               }}
-                            />
+                            />}
                           </ListItem>
                         ))
                       }
@@ -74,6 +77,7 @@ const SideBar = () => {
         }
         )}
       </List>
+      </Collapse>
     </Box>
   );
 };

@@ -1,19 +1,23 @@
-import {Grid} from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import SideBar from "components/SideBar";
 import NavBar from "components/NavBar";
-import Users from "pages/Users/Users";
+import { useState } from 'react';
+
+  
 
 const MainLayout = ({ children }) => {
+  const [open, setOpen] = useState(true);
   return (
-    <Grid container spacing={0}>
-      <Grid item xs={12} sm={4} md={3} lg={2}>
-        <SideBar />
-      </Grid>
-      <Grid item xs={12} sm={8} md={9} lg={10}>
-        <NavBar />
+    <Stack
+      direction="row"
+      spacing={0}
+    >
+      <SideBar open={open} />
+      <Box sx={{ flexGrow: 1 }}>
+        <NavBar open={open} setOpen={setOpen}/>
         {children}
-      </Grid>
-    </Grid>
+      </Box>
+    </Stack>
   );
 };
 

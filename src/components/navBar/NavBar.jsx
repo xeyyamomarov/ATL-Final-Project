@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar({open,setOpen}) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: "#fff", color: '#424242', height: 56, justifyContent:'center', boxShadow:'none', borderBottom:'1px solid #E0E0E0' }}>
@@ -19,7 +19,7 @@ export default function ButtonAppBar() {
               aria-label="menu"
               sx={{ mr: 2 }}
             >
-              <MenuIcon />
+              <MenuIcon onClick={()=> setOpen(!open)}/>
             </IconButton>
           </Box>
           <Box sx={{ display: 'flex', alignItems:'center' }} >
