@@ -1,2 +1,3 @@
 import Table from "./Table";
-export { Table };
+import Table1 from "./Table1";
+export { Table, Table1 };
