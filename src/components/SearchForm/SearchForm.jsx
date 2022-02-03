@@ -59,7 +59,6 @@ export const SearchForm = () => {
         onSubmit={onSubmit}
       >
         <Form>
-
           <Box className={classes.upBox}>
             <Grid container spacing={2}>
               <Grid item sm={12} md={6} lg={3}>
@@ -103,11 +102,9 @@ export const SearchForm = () => {
               </Grid>
             </Grid>
           </Box>
-
           <Divider />
-
           <Box className={classes.btnBox}>
-            <CloseButton onClick={close} />
+            <CloseButton onClick={close} text="Təmizlə"/>
             <Button type="submit" text="Axtar" />
           </Box>
         </Form>

@@ -8,10 +8,10 @@ const DeleteRoleDialog = () => {
   const dispatch = useDispatch();
 
   const open = useSelector(TOGGLES_SELECTORS.getDeleteRoleDialogToggle)
-  const handleClose = () => dispatch(TOGGLES_ACTIONS.setDeleteRoleDialog())
+  const close = () => dispatch(TOGGLES_ACTIONS.setDeleteRoleDialog())
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onClose={close}>
 
           <DialogTitle sx={{ padding: "12px 16px" }}>
             Rolun silinməsi
@@ -23,7 +23,7 @@ const DeleteRoleDialog = () => {
             </Typography>
           </DialogContent>
           <DialogActions sx={{ padding: "12px 16px" }}>
-            <CloseButton onClick={handleClose} text="İmtina et"/>
+            <CloseButton onClick={close} text="İmtina et"/>
             <Button color="error" text="Sil" />
           </DialogActions>
 

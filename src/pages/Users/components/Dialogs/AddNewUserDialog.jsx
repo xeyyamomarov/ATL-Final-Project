@@ -59,7 +59,7 @@ const AddNewUserDialog = () => {
   const close = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
 
   return (
-    <Dialog open={open} onClose={close} >
+    <Dialog open={open} onClose={close}>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

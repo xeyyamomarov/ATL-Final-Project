@@ -6,12 +6,28 @@ import {
   Box,
   Grid,
   TextField as MuiTextField,
+  RadioGroup,
+  Radio,
+  FormLabel,
+  FormControlLabel
 } from "@mui/material";
 import { SubmitButton, CloseButton } from "components/Buttons";
 import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui';
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLES_SELECTORS, TOGGLES_ACTIONS } from "store/Toggles";
+import { makeStyles } from "@mui/styles";
+
+const useStyle = makeStyles({
+  dialogTitle: {
+    padding: "16px 20px",
+    fontWeight: 400,
+  },
+  dialogContent: {
+    padding: "16px",
+  },
+  
+})
 
 const positions = [
   "User",
@@ -21,7 +37,8 @@ const positions = [
 ];
 
 const initialValues = {
-  fullName: "",
+  isStatic: "",
+  name: "",
   power: "",
   authority: [],
   description: ""
@@ -32,7 +49,8 @@ const onSubmit = (values, { resetForm }) => {
   resetForm()
 }
 
-const NewRoleDialog = () => {
+const EditRoleDialog = () => {
+  const classes = useStyle();
 
   const dispatch = useDispatch();
 
@@ -40,26 +58,36 @@ const NewRoleDialog = () => {
   const close = () => dispatch(TOGGLES_ACTIONS.setEditDialog())
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onClose={close}>
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
       >
         <Form>
-          <DialogTitle sx={{ padding: "12px 16px" }}>
-            Yeni Rol
+          <DialogTitle className={classes.dialogTitle}>
+            Rolun redaktəsi
           </DialogTitle>
 
-          <DialogContent dividers sx={{ padding: "16px !important" }}>
+          <DialogContent dividers className={classes.dialogContent}>
             <Box>
               <Grid container spacing={2}>
+                <Grid item xs={12}>
+                <FormLabel id="isStatic">Rol statikdir?</FormLabel>
+                  <Field as={RadioGroup}
+                    row
+                    name="isStatic"
+                  >
+                    <FormControlLabel value="Hə" control={<Radio />} label="Hə" />
+                    <FormControlLabel value="Yox" control={<Radio />} label="Yox" />
+                  </Field>
+                </Grid>
 
                 <Grid item xs={12}>
                   <Field
                     fullWidth
                     as={MuiTextField}
                     label="Adı"
-                    name="Name"
+                    name="name"
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -76,7 +104,6 @@ const NewRoleDialog = () => {
                     fullWidth
                     name="authority"
                     component={Autocomplete}
-                    // label="position"
                     options={positions}
                     filterSelectedOptions
                     getOptionLabel={option => option}
@@ -95,14 +122,14 @@ const NewRoleDialog = () => {
                     name="description"
                   />
                 </Grid>
-                
+
               </Grid>
             </Box>
           </DialogContent>
 
-          <DialogActions sx={{ padding: "12px 16px" }}>
+          <DialogActions className={classes.dialogTitle}>
             <CloseButton onClick={close} />
-            <SubmitButton text="Yarat" />
+            <SubmitButton text="Yadda saxla" />
           </DialogActions>
         </Form>
 
@@ -111,4 +138,4 @@ const NewRoleDialog = () => {
   );
 };
 
-export default NewRoleDialog;
+export default EditRoleDialog;
