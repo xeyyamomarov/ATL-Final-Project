@@ -10,7 +10,7 @@ import {
   TextField as MuiTextField,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { SubmitButton, CloseButton } from "../Buttons";
+import { SubmitButton, CloseButton } from "../../../../components/Buttons";
 import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui';
 import { useSelector, useDispatch } from 'react-redux';
@@ -44,8 +44,8 @@ const AddNewUserDialog = () => {
   const passwordRepeatHidden = useSelector(TOGGLES_SELECTORS.getPasswordRepeatHidden);
   const handlePasswordRepeatHidden = () => dispatch(TOGGLES_ACTIONS.setPasswordRepeatHidden());
 
-  const open = useSelector(TOGGLES_SELECTORS.getAddNewUserToggle)
-  const close = () => dispatch(TOGGLES_ACTIONS.setAddNewUserDialog())
+  const open = useSelector(TOGGLES_SELECTORS.getAddNewToggle)
+  const close = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
 
   return (
     <Dialog open={open}>

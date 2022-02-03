@@ -1,7 +1,7 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Formik, Form, Field } from "formik";
 import { DialogContent, DialogTitle, IconButton, Dialog, DialogActions, TextField as MuiTextField, Box, Grid, InputAdornment } from "@mui/material";
-import { SubmitButton, CloseButton } from '../Buttons';
+import { SubmitButton, CloseButton } from '../../../../components/Buttons';
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLES_SELECTORS, TOGGLES_ACTIONS } from "store/Toggles";
 

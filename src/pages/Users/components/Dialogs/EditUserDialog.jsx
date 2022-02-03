@@ -6,7 +6,7 @@ import {
   Grid,
   TextField as MuiTextField,
 } from "@mui/material";
-import { SubmitButton, CloseButton } from "../Buttons";
+import { SubmitButton, CloseButton } from "components/Buttons";
 import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui'
 import { useSelector, useDispatch } from 'react-redux';
@@ -42,8 +42,8 @@ const onSubmit = (values, { resetForm }) => {
 const EditUserDialog = () => {
 
   const dispatch = useDispatch();
-  const open = useSelector(TOGGLES_SELECTORS.getEditUserDialogToggle)
-  const handleClose = () => dispatch(TOGGLES_ACTIONS.setEditUserDialog())
+  const open = useSelector(TOGGLES_SELECTORS.getEditDialogToggle)
+  const handleClose = () => dispatch(TOGGLES_ACTIONS.setEditDialog())
 
   return (
     <Dialog open={open}>

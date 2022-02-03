@@ -10,11 +10,11 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   container: {
-    marginBottom: "16px",
     display: 'flex',
     flexDirection: "column",
     border: '1px solid #E0E0E0',
-    borderRadius: '4px'
+    borderRadius: '4px',
+    marginBottom: "16px"
   },
   upBox: {
     padding: "16px"
@@ -24,9 +24,6 @@ const useStyles = makeStyles({
     justifyContent: "flex-end",
     padding: "12px 16px"
   },
-  btn: {
-    
-  }
 })
 
 const roles = [
