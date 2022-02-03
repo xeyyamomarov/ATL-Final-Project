@@ -10,7 +10,7 @@ import {
   TextField as MuiTextField,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { SubmitButton, CloseButton } from "../../../../components/Buttons";
+import { SubmitButton, CloseButton } from "components/Buttons";
 import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui';
 import { useSelector, useDispatch } from 'react-redux';

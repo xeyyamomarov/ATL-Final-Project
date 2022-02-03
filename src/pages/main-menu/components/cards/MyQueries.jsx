@@ -7,7 +7,7 @@ const MyQuerises = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <Card sx={{ margin: 2 }}>
+    <Card>
       <Card
         sx={{ backgroundColor: "#F5F5F5", marginBottom: 2, boxShadow: "none" }}
       >

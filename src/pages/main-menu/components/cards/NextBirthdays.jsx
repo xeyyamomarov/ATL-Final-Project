@@ -7,7 +7,7 @@ const NextBirthdays = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <Card sx={{ margin: 2 }}>
+    <Card>
       <Card sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}>
         <CardContent
           sx={{
