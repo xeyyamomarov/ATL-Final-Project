@@ -136,61 +136,16 @@
         "position": "CEO",
         "phone": "+1026554758"
       }
-    ],
-    "xthead": [
-      {
-        "id": "fullName",
-        "label": "A.S.A.",
-        "minWidth": "220"
-      },
-      {
-        "id": "username",
-        "label": "İstifadəçi adı",
-        "minWidth": "120"
-      },
-      {
-        "id": "email",
-        "label": "Elektron poçt",
-        "minWidth": "170"
-      },
-      {
-        "id": "position",
-        "label": "Vəzifə",
-        "minWidth": "170"
-      },
-      {
-        "id": "phone",
-        "label": "Əlaqə nömrəsi",
-        "minWidth": "170"
-      }
     ]
   },
   "mainpage": {
     "lastQueries": {
 
-      "thead":[
-        {
-          "id": "name",
-          "label": "Adı"
-        },
-        {
-          "id": "type",
-          "label": "Tipi"
-        },
-        {
-          "id": "date",
-          "label": "Tarixi"
-        },
-        {
-          "id":"status",
-          "label":"Status"
-        }
-      ],
       "tbody": [
         {
           "id": 1,
           "avatar": "https://picsum.photos/200",
-          "name": "Rüfət Məmmədov.",
+          "fullName": "Rüfət Məmmədov.",
           "type": "Day off",
           "date": "06/25/2020",
           "status": "Ləğv edildi"
@@ -198,21 +153,24 @@
 
         {
           "id": 2,
-          "name": "Hüseyn Lətifov İ.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Hüseyn Lətifov İ.",
           "type": "Məzuniyyət",
           "date": "06/20/2020",
           "status": "Gözləmədədir"
         },
         {
           "id": 3,
-          "name": "Sevda Bıyık C.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Sevda Bıyık C.",
           "type": "Ezamiyyət",
           "date": "06/19/2020",
           "status": "Təsdiqləndi"
         },
         {
           "id": 4,
-          "name": "Əhəd Miriyev S.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Əhəd Miriyev S.",
           "type": "Məzuniyyət",
           "date": "05/10/2020",
           "status": "Təsdiqləndi"
@@ -220,20 +178,7 @@
       ]
     },
     "myQueries": {
-      "thead":[
-        {
-          "id": "type",
-          "label": "Tipi"
-        },
-        {
-          "id": "status",
-          "label": "Status"
-        },
-        {
-          "id": "date",
-          "label": "Tarixi"
-        }
-      ],
+      
       "tbody": [
         {
           "id": 1,
@@ -270,48 +215,39 @@
     },
     "employees":{
 
-      "thead":[
-        {
-          "id": "name",
-          "label": "Adı"
-        },
-        {
-          "id": "position",
-          "label": "Vəzifə"
-        },
-        {
-          "id": "status",
-          "label": "Status"
-        }
-      ],
       "tbody": [
         {
           "id": 1,
-          "name": "Hüseyn Lətifov İ.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Hüseyn Lətifov İ.",
           "position": "Radio rəhbəri",
           "status": "Yeni əməkdaş"
         },
         {
           "id": 2,
-          "name": "Sevda Bıyık C.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Sevda Bıyık C.",
           "position": "Baş mühəndis",
           "status": "Ayrılmış əməkdaş"
         },
         {
           "id": 3,
-          "name": "Əhəd Miriyev S.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Əhəd Miriyev S.",
           "position": "Aparıcı",
           "status": "Yeni əməkdaş"
         },
         {
           "id": 4,
-          "name": "Əhəd Miriyev S.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Əhəd Miriyev S.",
           "position": "Aparıcı",
           "status": "Yeni əməkdaş"
         },
         {
           "id": 5,
-          "name": "Əhəd Miriyev S.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Əhəd Miriyev S.",
           "position": "Aparıcı",
           "status": "Yeni əməkdaş"
         }
@@ -319,139 +255,117 @@
     },
     "anniversary":{
       
-      "thead":[
-        {
-          "id": "name",
-          "label": "Adı"
-        },
-        {
-          "id": "year",
-          "label": "İl"
-        },
-        {
-          "id": "date",
-          "label": "Tarixi"
-        }
-      ],
       "tbody": [
         {
           "id": 1,
-          "name": "Hüseyn Lətifov İ.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Hüseyn Lətifov İ.",
           "year": 3,
           "date": "06/25/2020"
         },
         {
           "id": 2,
-          "name": "Sevda Bıyık C.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Sevda Bıyık C.",
           "year": 4,
           "date": "06/25/2020"
         },
         {
           "id": 3,
-          "name": "Əhəd Miriyev S.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Əhəd Miriyev S.",
           "year": 2,
           "date": "06/25/2020"
         },
         {
           "id": 4,
-          "name": "Əhəd Miriyev S.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Əhəd Miriyev S.",
           "year": 2,
           "date": "06/25/2020"
         },
         {
           "id": 5,
-          "name": "Əhəd Miriyev S.",
+          "avatar": "https://picsum.photos/200",
+          "fullName": "Əhəd Miriyev S.",
           "year": 2,
           "date": "06/25/2020"
         }
       ]
     },
       "dayOff": {
-        "thead":[
-          {
-            "id": "name",
-            "label": "Adı"
-          },
-          {
-            "id": "type",
-            "label": "Tipi"
-          }
-        ],
         "tbody": [
           {
             "id": 1,
-            "name": "Hüseyn Lətifov İ.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Hüseyn Lətifov İ.",
             "type":"Tam gün"
           },
           {
             "id": 2,
-            "name": "Sevda Bıyık C.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Sevda Bıyık C.",
             "type":"Nahardan sonra"
           },
           {
             "id": 3,
-            "name": "Əhəd Miriyev S.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Əhəd Miriyev S.",
             "type":"Tam gün"
           },
           {
             "id": 4,
-            "name": "Əhəd Miriyev S.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Əhəd Miriyev S.",
             "type":"Tam gün"
           },
           {
             "id": 5,
-            "name": "Əhəd Miriyev S.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Əhəd Miriyev S.",
             "type":"Tam gün"
           }
         ]
       },
       "vacation":{
-        "thead":[
-          {
-            "id": "name",
-            "label": "Adı"
-          },
-          {
-            "id": "date",
-            "label": "Tarixi"
-          },
-          {
-            "id":"substitute",
-            "label":"Əvəzedici şəxs"
-          }
-        ],
+
         "tbody": [
           {
             "id": 1,
-            "name": "Hüseyn Lətifov İ.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Hüseyn Lətifov İ.",
             "date":"03/20/2021~03/24/2021",
             "substitute":"Sevda Bıyık C"
 
           },
           {
             "id": 2,
-            "name": "Sevda Bıyık C.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Sevda Bıyık C.",
             "date":"03/20/2021~03/24/2021",
             "substitute":"Əhəd Miriyev S."
 
           },
           {
             "id": 3,
-            "name": "Sevda Bıyık C.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Sevda Bıyık C.",
             "date":"03/20/2021~03/24/2021",
             "substitute":"Hüseyn Lətifov İ."
 
           },
           {
             "id": 4,
-            "name": "Sevda Bıyık C.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Sevda Bıyık C.",
             "date":"03/20/2021~03/24/2021",
             "substitute":"Əhəd Miriyev S."
 
           },
           {
             "id": 5,
-            "name": "Əhəd Miriyev S.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Əhəd Miriyev S.",
             "date":"03/20/2021~03/24/2021",
             "substitute":"Hüseyn Lətifov İ."
 
@@ -460,79 +374,69 @@
       },
       "birthday":{
 
-        "thead":[
-          {
-            "id": "name",
-            "label": "Adı"
-          },
-          {
-            "id": "date",
-            "label": "Tarixi"
-          }
-        ],
         "tbody": [
           {
             "id": 1,
-            "name": "Hüseyn Lətifov İ.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Hüseyn Lətifov İ.",
             "date":"06/25/2020"
           },
           {
             "id": 2,
-            "name": "Sevda Bıyık C.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Sevda Bıyık C.",
             "date":"06/25/2020"
           },
           {
             "id": 3,
-            "name": "Əhəd Miriyev S.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Əhəd Miriyev S.",
             "date":"06/25/2020"
           },
           {
             "id": 4,
-            "name": "Əhəd Miriyev S.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Əhəd Miriyev S.",
             "date":"06/25/2020"
           },
           {
             "id": 5,
-            "name": "Əhəd Miriyev S.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Əhəd Miriyev S.",
             "date":"06/25/2020"
           }
         ]
       },
       "trip":{
-        "thead":[
-          {
-            "id": "name",
-            "label": "Adı"
-          },
-          {
-            "id": "date",
-            "label": "Tarixi"
-          }
-        ],
         "tbody": [
           {
             "id": 1,
-            "name": "Hüseyn Lətifov İ.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Hüseyn Lətifov İ.",
             "date":"03/20/2021~03/24/2021"
           },
           {
             "id": 2,
-            "name": "Sevda Bıyık C.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Sevda Bıyık C.",
             "date":"03/20/2021~03/24/2021"
           },
           {
             "id": 3,
-            "name": "Əhəd Miriyev S.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Əhəd Miriyev S.",
             "date":"03/20/2021~03/24/2021"
           },
           {
             "id": 4,
-            "name": "Əhəd Miriyev S.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Əhəd Miriyev S.",
             "date":"03/20/2021~03/24/2021"
           },
           {
             "id": 5,
-            "name": "Əhəd Miriyev S.",
+            "avatar": "https://picsum.photos/200",
+            "fullName": "Əhəd Miriyev S.",
             "date":"03/20/2021~03/24/2021"
           }
         ]

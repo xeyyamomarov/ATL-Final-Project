@@ -5,9 +5,24 @@ import Table from "components/Table/Table";
 
 const Anniversary = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
+  
+  const thead=[
+    {
+      id: "fullName",
+      label: "Adı",
+    },
+    {
+      id: "year",
+      label: "İl"
+    },
+    {
+      id: "date",
+      label: "Tarixi"
+    }
+  ]
 
   return (
-    <Card sx={{ margin: 2 }}>
+    <Card >
       <Card sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}>
         <CardContent
           sx={{
@@ -47,7 +62,7 @@ const Anniversary = ({ data }) => {
       </Card>
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
-          <Table tbody={data?.tbody} thead={data?.thead} />
+          <Table tbody={data?.tbody} thead={thead} />
         </CardContent>
       </Card>
     </Card>

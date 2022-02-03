@@ -5,9 +5,23 @@ import { useState } from "react";
 
 const Employees = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const thead=[
+    {
+      id: "fullName",
+      label: "Adı"
+    },
+    {
+      id: "position",
+      label: "Vəzifə"
+    },
+    {
+      id: "status",
+      label: "Status"
+    }
+  ]
 
   return (
-    <Card sx={{ margin: 2 }}>
+    <Card >
       <Card sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}>
         <CardContent
           sx={{
@@ -47,7 +61,7 @@ const Employees = ({ data }) => {
       </Card>
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
-          <Table thead={data?.thead} tbody={data?.tbody} />
+          <Table thead={thead} tbody={data?.tbody} />
         </CardContent>
       </Card>
     </Card>

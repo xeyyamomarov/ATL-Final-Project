@@ -1,13 +1,30 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import Table from "components/Table/Table";
-import { useState } from "react";
 
-const LastQueries = ({ data }) => {
-  const [isLoading, setIsLoading] = useState(false);
+const LastQueries = ({data}) => {
+
+   const thead =[
+    {
+      id: "fullName",
+      label: "Adı",
+    },
+    {
+      id: "type",
+      label: "Tipi"
+    },
+    {
+      id: "date",
+      label: "Tarixi"
+    },
+    {
+      id:"status",
+      label:"Status"
+    }
+  ]
 
   return (
-    <Card sx={{ margin: 2 }}>
+    <Card >
       <Card sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}>
         <CardContent
           sx={{
@@ -38,7 +55,7 @@ const LastQueries = ({ data }) => {
               <RefreshIcon
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
-                  setIsLoading(!isLoading);
+                  console.log("hello");
                 }}
               />
             </Tooltip>
@@ -47,7 +64,8 @@ const LastQueries = ({ data }) => {
       </Card>
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
-          <Table tbody={data?.tbody} thead={data?.thead} />
+          <Table tbody={data?.tbody} thead={thead} />
+          {console.log(thead)}
         </CardContent>
       </Card>
     </Card>

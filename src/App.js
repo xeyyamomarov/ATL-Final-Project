@@ -6,9 +6,7 @@ import EmployeesPage from "pages/EmployeesPage";
 import { DayOffPage, BusinessTripPage, GuestPage, ITSupplyPage, PurchasePage, VacationPage } from 'pages/InquiriesInquiriesPage';
 import NotificationsPage from "pages/NotificationsPage";
 import Users from "pages/Users/Users";
-
-// import MainLayout from "containers/mainLayout";
-// import MainMenu from "pages/main-menu/MainMenu";
+import MainMenu from "pages/main-menu/MainMenu";
 
 
 function App() {
@@ -27,12 +25,11 @@ function App() {
           <Route path="/notifications" element={<NotificationsPage />} />
           <Route path="/users" element={<Users />} />
           <Route path="/user-roles" element={<Users />} />
-          {/* <Route path="mainpage" element={<MainMenu/>} />  */}
+          <Route path="/main-page" element={<MainMenu />} />
         </Routes>
       </MainLayout>
 
-      {/* <MainLayout /> */}
-      {/* <MainMenu/> */}
+
 
     </div>
   );
