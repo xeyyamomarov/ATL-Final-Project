@@ -7,6 +7,6 @@ import { cardsReducer } from './Cards/cards.reducer';
 export default combineReducers({
   users: usersReducer,
   userRoles: userRolesReducer,
+  cards:cardsReducer,
   toggles: togglesReducer,
-  cards: cardsReducer
 })

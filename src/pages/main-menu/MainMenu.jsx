@@ -15,7 +15,7 @@ import { CARDS_ACTIONS, CARDS_SELECTORS } from "store/Cards";
 
 
 const MainMenu = () => {
-  const data = useSelector(CARDS_SELECTORS.getCards);
+  const  data = useSelector(CARDS_SELECTORS.getCards);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(CARDS_ACTIONS.fetchCards());

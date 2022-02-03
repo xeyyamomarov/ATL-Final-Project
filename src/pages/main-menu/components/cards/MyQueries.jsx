@@ -5,9 +5,23 @@ import { useState } from "react";
 
 const MyQuerises = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const thead=[
+    {
+      id: "type",
+      label: "Tipi"
+    },
+    {
+      id: "status",
+      label: "Status"
+    },
+    {
+      id: "date",
+      label: "Tarixi"
+    }
+  ]
 
   return (
-    <Card>
+    <Card sx={{marginBottom:2}}>
       <Card
         sx={{ backgroundColor: "#F5F5F5", marginBottom: 2, boxShadow: "none" }}
       >
@@ -49,7 +63,7 @@ const MyQuerises = ({ data }) => {
       </Card>
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
-          <Table tbody={data?.tbody} thead={data?.thead} />
+          <Table tbody={data?.tbody} thead={thead} />
         </CardContent>
       </Card>
     </Card>

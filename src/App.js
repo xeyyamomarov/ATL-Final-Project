@@ -28,12 +28,10 @@ function App() {
           <Route path="/notifications" element={<NotificationsPage />} />
           <Route path="/users" element={<Users />} />
           <Route path="/user-roles" element={<UserRoles />} />
-          {/* <Route path="mainpage" element={<MainMenu/>} />  */}
         </Routes>
       </MainLayout>
 
-      {/* <MainLayout /> */}
-      {/* <MainMenu/> */}
+
 
     </div>
   );
