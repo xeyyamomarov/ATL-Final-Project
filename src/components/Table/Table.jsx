@@ -3,6 +3,8 @@ import { Avatar, Table as ATable, Typography, TableBody, TableCell, TableContain
 import { MoreOptions } from 'pages/Users/components/MoreOptions';
 import { EditUser } from 'pages/Users/components/EditUser';
 import { makeStyles } from '@mui/styles';
+import { EditUserRoles } from 'pages/UserRoles/EditUserRoles';
+import { RoleMoreOptions } from 'pages/UserRoles/RoleMoreOptions';
 
 const useStyles = makeStyles({
   paper: {
@@ -91,6 +93,16 @@ export default function Table({ tbody = [], thead = [], pagination, avatar }) {
                           </TableCell>
                         )
                       }
+                      else if (column.id === "roleIcons") {
+                        return (
+                          <TableCell key={column.id} className={classes.tbody}>
+                            <Box className={classes.iconsBox}>
+                              <EditUserRoles fontSize='small' userRoleId={row.id} />
+                              <RoleMoreOptions userRoleId={row.id} />
+                            </Box>
+                          </TableCell>
+                        )
+                      }
                       else {
                         const value = row[column.id];
                         return (
@@ -116,11 +128,11 @@ export default function Table({ tbody = [], thead = [], pagination, avatar }) {
         </ATable>
       </TableContainer>
       {pagination && <TablePagination
-        className={{
-          // toolbar: classes.toolbar,
-          // caption: classes.caption
-          root: classes.root
-        }}
+        // className={{
+        //   toolbar: classes.toolbar,
+        //   caption: classes.caption,
+        //   root: classes.root
+        // }}
         rowsPerPageOptions={[4, 10, 25, 100]}
         component="div"
         count={tbody.length}

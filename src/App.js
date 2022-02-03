@@ -5,7 +5,8 @@ import EmployeesPage from "pages/EmployeesPage";
 import MainMenu from "pages/main-menu/MainMenu";
 import { DayOffPage, BusinessTripPage, GuestPage, ITSupplyPage, PurchasePage, VacationPage } from 'pages/InquiriesInquiriesPage';
 import NotificationsPage from "pages/NotificationsPage";
-import Users from "pages/Users/Users";
+import Users from "pages/Users";
+import UserRoles from "pages/UserRoles";
 
 // import MainLayout from "containers/mainLayout";
 // import MainMenu from "pages/main-menu/MainMenu";
@@ -26,7 +27,7 @@ function App() {
           <Route path="/purchase" element={<PurchasePage />} />
           <Route path="/notifications" element={<NotificationsPage />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/user-roles" element={<Users />} />
+          <Route path="/user-roles" element={<UserRoles />} />
           {/* <Route path="mainpage" element={<MainMenu/>} />  */}
         </Routes>
       </MainLayout>

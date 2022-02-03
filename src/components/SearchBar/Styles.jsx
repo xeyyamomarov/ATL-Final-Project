@@ -6,12 +6,6 @@ export const useStyles = makeStyles({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderBottom: "1px solid #E0E0E0",
-    padding: "12px 16px",
-    marginBottom: "16px",
-  },
-  breadcrumbs: {
-    fontSize: "14px",
-    fontWeight: 500,
-    textDecoration: 'none',
-  },
+    padding: "12px 16px"
+  }
 })

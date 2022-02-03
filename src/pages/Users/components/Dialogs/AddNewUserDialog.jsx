@@ -10,11 +10,13 @@ import {
   TextField as MuiTextField,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { SubmitButton, CloseButton } from "../Buttons";
+import { SubmitButton, CloseButton } from "../../../../components/Buttons";
 import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui';
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLES_SELECTORS, TOGGLES_ACTIONS } from "store/Toggles";
+import * as Yup from "yup";
+import TextFieldWrapper from "./TextFieldWrapper/TextFieldWrapper";
 
 const positions = [
   "User",
@@ -36,21 +38,31 @@ const onSubmit = (values, { resetForm }) => {
   resetForm()
 }
 
-const AddNewUserDialog = () => {
+const validationSchema = Yup.object({
+  fullName: Yup.string().required("Mütləq doldurulmalıdır!"),
+  username: Yup.string().required("Mütləq doldurulmalıdır!"),
+  position: Yup.array().required("Mütləq doldurulmalıdır!"),
+  password: Yup.string().required("Mütləq doldurulmalıdır!"),
+  passwordRepeat: Yup.string().required("Mütləq doldurulmalıdır!"),
+});
 
+
+const AddNewUserDialog = () => {
+  
   const dispatch = useDispatch();
   const passwordHidden = useSelector(TOGGLES_SELECTORS.getPasswordHidden);
   const handlePasswordHidden = () => dispatch(TOGGLES_ACTIONS.setPasswordHidden());
   const passwordRepeatHidden = useSelector(TOGGLES_SELECTORS.getPasswordRepeatHidden);
   const handlePasswordRepeatHidden = () => dispatch(TOGGLES_ACTIONS.setPasswordRepeatHidden());
 
-  const open = useSelector(TOGGLES_SELECTORS.getAddNewUserToggle)
-  const close = () => dispatch(TOGGLES_ACTIONS.setAddNewUserDialog())
+  const open = useSelector(TOGGLES_SELECTORS.getAddNewToggle)
+  const close = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onClose={close}>
       <Formik
         initialValues={initialValues}
+        validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
         <Form>
@@ -63,17 +75,13 @@ const AddNewUserDialog = () => {
               <Grid container spacing={2}>
 
                 <Grid item xs={12} sm={6}>
-                  <Field
-                    fullWidth
-                    as={MuiTextField}
+                  <TextFieldWrapper
                     label="Əməkdaş*"
                     name="fullName"
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <Field
-                    fullWidth
-                    as={MuiTextField}
+                  <TextFieldWrapper
                     label="İstifadəçi adı*"
                     name="username"
                   />
@@ -90,15 +98,14 @@ const AddNewUserDialog = () => {
                     getOptionLabel={option => option}
                     multiple
                     renderInput={(params) => {
-                      return <MuiTextField {...params} label="Rollar" />;
+                      return <MuiTextField {...params} label="Rollar*" />;
                     }}
                   />
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
-                  <Field fullWidth
+                  <TextFieldWrapper
                     type={passwordHidden ? 'password' : 'text'}
-                    as={MuiTextField}
                     label="Şifrə*"
                     name="password"
                     InputProps={{
@@ -118,9 +125,8 @@ const AddNewUserDialog = () => {
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
-                  <Field fullWidth
+                  <TextFieldWrapper
                     type={passwordRepeatHidden ? 'password' : 'text'}
-                    as={MuiTextField}
                     label="Şifrənin təkrarı*"
                     name="passwordRepeat"
                     InputProps={{

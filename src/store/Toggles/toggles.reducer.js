@@ -1,27 +1,29 @@
 import { TOGGLES_ACTION_TYPES } from './toggles.action-types';
 
 const togglesInit = {
-  AddNewUserDialog: false,
-  EditUserDialog: false,
+  AddNewDialog: false,
+  EditDialog: false,
   PasswordUpdateDialog: false,
   DeactivateUser: false,
   SearchForm: false,
   PasswordHidden: true,
   PasswordRepeatHidden: true,
+  EditRoleDialog: false,
+  DeleteRoleDialog: false,
 }
 
 
 export const togglesReducer = (store = togglesInit, action) => {
   switch (action.type) {
-    case TOGGLES_ACTION_TYPES.ADD_NEW_USER_DIALOG:
+    case TOGGLES_ACTION_TYPES.ADD_NEW_DIALOG:
       return {
         ...store,
-        AddNewUserDialog: !store.AddNewUserDialog
+        AddNewDialog: !store.AddNewDialog
       };
-    case TOGGLES_ACTION_TYPES.EDIT_USER_DIALOG:
+    case TOGGLES_ACTION_TYPES.EDIT_DIALOG:
       return {
         ...store,
-        EditUserDialog: !store.EditUserDialog
+        EditDialog: !store.EditDialog
       };
     case TOGGLES_ACTION_TYPES.PASSWORD_UPDATE_DIALOG:
       return {
@@ -47,6 +49,11 @@ export const togglesReducer = (store = togglesInit, action) => {
       return {
         ...store,
         PasswordRepeatHidden: !store.PasswordRepeatHidden
+      };
+    case TOGGLES_ACTION_TYPES.DELETE_ROLE_DIALOG:
+      return {
+        ...store,
+        DeleteRoleDialog: !store.DeleteRoleDialog
       };
 
     default: return store;
