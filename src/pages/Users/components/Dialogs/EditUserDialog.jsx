@@ -10,8 +10,9 @@ import { SubmitButton, CloseButton } from "components/Buttons";
 import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui'
 import { useSelector, useDispatch } from 'react-redux';
-// import * as Yup from "yup";
+import * as Yup from "yup";
 import { TOGGLES_ACTIONS, TOGGLES_SELECTORS } from "store/Toggles";
+import TextFieldWrapper from "./TextFieldWrapper/TextFieldWrapper";
 
 const positions = [
   "User",
@@ -26,13 +27,11 @@ const initialValues = {
   position: [],
 }
 
-// const validationSchema = Yup.object({
-//   fullName: Yup.string().required("Required!"),
-//   username: Yup.string().required("Required!"),
-//   positions: Yup.string().required("Required!"),
-//   password: Yup.string().required("Required!"),
-//   passwordRepeat: Yup.string().required("Required!"),
-// });
+const validationSchema = Yup.object({
+  fullName: Yup.string().required("Mütləq doldurulmalıdır!"),
+  username: Yup.string().required("Mütləq doldurulmalıdır!"),
+  position: Yup.array().required("Mütləq doldurulmalıdır!"),
+});
 
 const onSubmit = (values, { resetForm }) => {
   console.log(values);
@@ -46,10 +45,10 @@ const EditUserDialog = () => {
   const handleClose = () => dispatch(TOGGLES_ACTIONS.setEditDialog())
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onClose={handleClose}>
       <Formik
         initialValues={initialValues}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
         <Form>
@@ -79,9 +78,7 @@ const EditUserDialog = () => {
               </Grid>
 
               <Grid item xs={12} sm={6}>
-                <Field
-                  fullWidth
-                  as={MuiTextField}
+                <TextFieldWrapper
                   label="İstifadəçi adı*"
                   name="username"
                   sx={{
@@ -101,7 +98,7 @@ const EditUserDialog = () => {
                   getOptionLabel={option => option}
                   multiple
                   renderInput={(params) => {
-                    return <MuiTextField {...params} label="Rollar" />;
+                    return <MuiTextField {...params} label="Rollar*" />;
                   }}
                 />
               </Grid>
