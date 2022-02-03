@@ -1,8 +1,8 @@
 import "./App.css";
 import MainLayout from "containers/mainLayout";
 import { Routes, Route } from "react-router-dom";
-import HomePage from "pages/HomePage";
 import EmployeesPage from "pages/EmployeesPage";
+import MainMenu from "pages/main-menu/MainMenu";
 import { DayOffPage, BusinessTripPage, GuestPage, ITSupplyPage, PurchasePage, VacationPage } from 'pages/InquiriesInquiriesPage';
 import NotificationsPage from "pages/NotificationsPage";
 import Users from "pages/Users/Users";
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <MainLayout>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<MainMenu />} />
           <Route path="/employees" element={<EmployeesPage />} />
           <Route path="/day-off" element={<DayOffPage />} />
           <Route path="/business-trip" element={<BusinessTripPage />} />
