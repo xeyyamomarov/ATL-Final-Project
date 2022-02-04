@@ -471,6 +471,34 @@
             "date":"03/20/2021~03/24/2021"
           }
         ]
+      },
+      "advertisements":{
+        "tbody":[
+          {
+            "id":1,
+            "bname":"Bayram",
+            "describe":"Qurban bayramı dövlət qaydasına əsasən 2 gün sonraya çəkildi.",
+            "creater":"Rüfət Məmmədov",
+            "date":"06/25/2021,13:34"
+
+          },
+          {
+            "id":2,
+            "bname":"Bayram",
+            "describe":"Qurban bayramı dövlət qaydasına əsasən 2 gün sonraya çəkildi.",
+            "creater":"Rüfət Məmmədov",
+            "date":"06/25/2021,13:34"
+
+          },
+          {
+            "id":3,
+            "bname":"Bayram",
+            "describe":"Qurban bayramı dövlət qaydasına əsasən 2 gün sonraya çəkildi.",
+            "creater":"Rüfət Məmmədov",
+            "date":"06/25/2021,13:34"
+
+          }
+        ]
       }
 
   }

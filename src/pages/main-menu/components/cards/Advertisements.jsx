@@ -1,26 +1,28 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import { useState } from "react";
 import Table from "components/Table/Table";
 
-const LastQueries = ({data}) => {
-
-   const thead =[
+const Advertisements = ({ data }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const thead=[
     {
-      id: "fullName",
+      id: "bname",
       label: "Adı",
     },
     {
-      id: "type",
-      label: "Tipi"
+      id: "describe",
+      label: "Təsviri"
     },
     {
-      id: "date",
-      label: "Tarixi"
+      id: "creater",
+      label: "Yaradan şəxs"
     },
     {
-      id:"status",
-      label:"Status"
-    }
+        id: "date",
+        label: "Yaradılma tarixi"
+      },
   ]
 
   return (
@@ -31,21 +33,21 @@ const LastQueries = ({data}) => {
             display: "flex",
             justifyContent: "space-between",
             padding: 0,
-            height: "60px",
+            height: "50px",
           }}
         >
           <Typography
             variant="h6"
             position="relative"
-            top="15px"
+            top="10px"
             left="15px"
             color="black"
             gutterBottom
           >
-            Son sorğular
+            Elanlar
           </Typography>
           <Typography
-            fontSize="28px"
+            fontSize="18px"
             position="relative"
             top="12px"
             right="15px"
@@ -55,7 +57,7 @@ const LastQueries = ({data}) => {
               <RefreshIcon
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
-                  console.log("hello");
+                  setIsLoading(!isLoading);
                 }}
               />
             </Tooltip>
@@ -70,4 +72,4 @@ const LastQueries = ({data}) => {
     </Card>
   );
 };
-export default LastQueries;
+export default Advertisements;

@@ -54,6 +54,7 @@ const Anniversary = ({ data }) => {
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
                   setIsLoading(!isLoading);
+                  console.log("first");
                 }}
               />
             </Tooltip>

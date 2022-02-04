@@ -6,7 +6,8 @@ import {
   DayOff,
   Vacation,
   NextBirthdays,
-  Trip
+  Trip,
+  Advertisements
 } from "./components/cards";
 
 import { useEffect } from "react";
@@ -30,6 +31,7 @@ const MainMenu = () => {
       <Vacation data={data.vacation}/>
       <NextBirthdays data={data.birthday}/>
       <Trip data={data.trip}/>
+      <Advertisements data={data.advertisements}/>
     </>
   );
 };
