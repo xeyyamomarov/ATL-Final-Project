@@ -7,5 +7,6 @@ import Vacation from "./Holiday";
 import NextBirthdays from "./NextBirthdays";
 import Trip from "./Trip";
 import Advertisements from "./Advertisements"
+import VacationBalance from "./VacationBalance";
 
-export {LastQueries,MyQuerises,Employees,Anniversary,DayOff,Vacation,NextBirthdays,Trip,Advertisements}
+export {LastQueries,MyQuerises,Employees,Anniversary,DayOff,Vacation,NextBirthdays,Trip,Advertisements,VacationBalance}

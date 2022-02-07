@@ -7,7 +7,8 @@ import {
   Vacation,
   NextBirthdays,
   Trip,
-  Advertisements
+  Advertisements,
+  VacationBalance
 } from "./components/cards";
 
 import { useEffect } from "react";
@@ -17,13 +18,15 @@ import { CARDS_ACTIONS, CARDS_SELECTORS } from "store/Cards";
 
 const MainMenu = () => {
   const  data = useSelector(CARDS_SELECTORS.getCards);
+  const dataLoading=useSelector(CARDS_SELECTORS.getCardsLoading);
+  console.log(dataLoading);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(CARDS_ACTIONS.fetchCards());
   }, [dispatch]);
   return (
     <>
-      <LastQueries data={data.lastQueries} />
+      <LastQueries  dataLoading  data={data.lastQueries} />
       <MyQuerises data={data.myQueries} />
       <Employees data={data.employees} />
       <Anniversary data={data.anniversary} />
@@ -32,6 +35,7 @@ const MainMenu = () => {
       <NextBirthdays data={data.birthday}/>
       <Trip data={data.trip}/>
       <Advertisements data={data.advertisements}/>
+      <VacationBalance data={data.vacationbalance}/>
     </>
   );
 };

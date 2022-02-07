@@ -1,27 +1,28 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import { useState } from "react";
 import Table from "components/Table/Table";
 
-
-const LastQueries = ({data,dataLoading}) => {
-
-   const thead =[
-    {
-      id: "fullName",
-      label: "Adı",
-    },
-    {
-      id: "type",
-      label: "Tipi"
-    },
+const VacationBalance = ({ data }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const thead=[
     {
       id: "date",
-      label: "Tarixi"
+      label: "İş ili",
     },
     {
-      id:"status",
-      label:"Status"
-    }
+      id: "basic",
+      label: "Əsas"
+    },
+    {
+      id: "addition",
+      label: "Əlavə"
+    },
+    {
+        id: "used",
+        label: "İstifadə edilmiş"
+      }
   ]
 
   return (
@@ -32,21 +33,21 @@ const LastQueries = ({data,dataLoading}) => {
             display: "flex",
             justifyContent: "space-between",
             padding: 0,
-            height: "60px",
+            height: "50px",
           }}
         >
           <Typography
             variant="h6"
             position="relative"
-            top="15px"
+            top="10px"
             left="15px"
             color="black"
             gutterBottom
           >
-            Son sorğular
+            Məzuniyyət balansı
           </Typography>
           <Typography
-            fontSize="28px"
+            fontSize="18px"
             position="relative"
             top="12px"
             right="15px"
@@ -55,6 +56,10 @@ const LastQueries = ({data,dataLoading}) => {
             <Tooltip title="Refresh">
               <RefreshIcon
                 sx={{ cursor: "pointer" }}
+                onClick={() => {
+                  setIsLoading(!isLoading);
+                  console.log("first");
+                }}
               />
             </Tooltip>
           </Typography>
@@ -68,4 +73,4 @@ const LastQueries = ({data,dataLoading}) => {
     </Card>
   );
 };
-export default LastQueries;
+export default VacationBalance;

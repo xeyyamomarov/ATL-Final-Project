@@ -499,6 +499,39 @@
 
           }
         ]
+      },
+      "vacationbalance":{
+        "tbody":[
+          {
+            "id":1,
+            "date":"25/06/2020-25/06/2021",
+            "basic":"30",
+            "addition":"5",
+            "used":"2"
+          },
+          {
+            "id":2,
+            "date":"25/06/2020-25/06/2021",
+            "basic":"30",
+            "addition":"5",
+            "used":"10"
+          },
+          {
+            "id":3,
+            "date":"25/06/2020-25/06/2021",
+            "basic":"30",
+            "addition":"5",
+            "used":"10"
+          },
+          {
+            "id":4,
+            "date":"Toplam",
+            "basic":"90",
+            "addition":"15",
+            "used":"22"
+          }
+          
+        ]
       }
 
   }
