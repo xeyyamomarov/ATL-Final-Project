@@ -14,7 +14,7 @@ import { useState } from "react";
 import { useStyles} from './Styles';
 
 
-const SideBar = ({ open }) => {
+const SideBar = ({open,setOpen}) => {
   const classes = useStyles();
   const [collapse, setCollapse] = useState({});
   const collapseHandler = (item) => item.items?.length > 0 && setCollapse(old => ({ ...old, [item.key]: !old[item.key] }));
@@ -29,7 +29,7 @@ const SideBar = ({ open }) => {
           return (
             <Box key={index}>
               <ListItem className={classes.navLink} onClick={() => collapseHandler(item)} button key={item.key} component={item.path && NavLink} to={item.path} >
-                <ListItemIcon className={classes.navLinkIcon}>{item.icon}</ListItemIcon>
+                <ListItemIcon className={classes.navLinkIcon} onClick={() => (!open && item.items?.length > 0 ) && setOpen(!open)}>{item.icon}</ListItemIcon>
                 {open && <ListItemText className={classes.navLinkText} primary={item.label}/>}
                 {open && (item.items?.length > 0 && (collapse[item.key] ? <ExpandLessIcon className={classes.arrow} /> : <ExpandMoreIcon className={classes.arrow} />))}
               </ListItem>
@@ -39,7 +39,7 @@ const SideBar = ({ open }) => {
                     <List key={`${item.key}-sub-list`}>
                       {
                         item.items.map(subItem => (
-                          <ListItem  className={classes.navLink} button key={subItem.key} component={NavLink} to={subItem.path} > 
+                          <ListItem  className={classes.navLink} button key={subItem.key} component={NavLink} to={subItem.path}> 
                             <ListItemIcon className={classes.navLinkIcon}>{subItem.icon}</ListItemIcon>
                             {open && <ListItemText primary={subItem.label} className={classes.navLinkText} />}
                           </ListItem>

@@ -4,8 +4,6 @@ import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutli
 import CampaignIcon from '@mui/icons-material/Campaign';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-
-
 const sideBarMenuİtems = [
   {
     key: "home",
