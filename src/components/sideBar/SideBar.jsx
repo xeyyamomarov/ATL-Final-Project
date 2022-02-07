@@ -1,5 +1,5 @@
 import { ReactComponent as Logo } from "assets/logo/logo.svg";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
@@ -11,44 +11,27 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { Collapse } from '@mui/material';
 import { useState } from "react";
+import { useStyles} from './Styles';
 
-const SideBar = ({ open }) => {
+
+const SideBar = ({open,setOpen}) => {
+  const classes = useStyles();
   const [collapse, setCollapse] = useState({});
-  const location = useLocation();
   const collapseHandler = (item) => item.items?.length > 0 && setCollapse(old => ({ ...old, [item.key]: !old[item.key] }));
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        padding: 2,
-        backgroundColor: "#9B5AE1",
-      }}
-
-    >
+    <Box className={classes.sidebarContainer}>
       <Collapse orientation="horizontal" in={open} collapsedSize={70}>
-      <Toolbar
-        sx={{
-          width: 180,
-          height: 16
-        }}
-      >
+      <Toolbar className={classes.logoWrapper}>
         {open && <Logo />}
       </Toolbar>
       <List>
         {sideBarMenuİtems.map((item, index) => {
-
           return (
-            <div key={index}>
-              <ListItem onClick={() => collapseHandler(item)} button key={item.key} component={item.path && NavLink} to={item.path} activeClassName={location.pathname !== item.path ? null : 'selected'} >
-                <ListItemIcon width={{ sm: 48, md: 96, lg: 192, xl: 384 }} sx={{ color: "#fff" }}>{item.icon}</ListItemIcon>
-                {open && <ListItemText
-                  primary={item.label}
-                  primaryTypographyProps={{
-                    color: "#fff",
-                    fontSize: 14,
-                  }}
-                />}
-                {open && (item.items?.length > 0 && (collapse[item.key] ? <ExpandLessIcon sx={{ color: "#fff", marginLeft:7 }} /> : <ExpandMoreIcon sx={{ color: "#fff", marginLeft:7}} />))}
+            <Box key={index}>
+              <ListItem className={classes.navLink} onClick={() => collapseHandler(item)} button key={item.key} component={item.path && NavLink} to={item.path} >
+                <ListItemIcon className={classes.navLinkIcon} onClick={() => (!open && item.items?.length > 0 ) && setOpen(!open)}>{item.icon}</ListItemIcon>
+                {open && <ListItemText className={classes.navLinkText} primary={item.label}/>}
+                {open && (item.items?.length > 0 && (collapse[item.key] ? <ExpandLessIcon className={classes.arrow} /> : <ExpandMoreIcon className={classes.arrow} />))}
               </ListItem>
               {
                 open && item.items?.length > 0 && (
@@ -56,15 +39,9 @@ const SideBar = ({ open }) => {
                     <List key={`${item.key}-sub-list`}>
                       {
                         item.items.map(subItem => (
-                          <ListItem button key={subItem.key} component={NavLink} to={subItem.path} activeClassName={location.pathname !== subItem.path ? null : "selected"}>
-                            <ListItemIcon sx={{ color: "#fff" }}>{subItem.icon}</ListItemIcon>
-                            {open && <ListItemText
-                              primary={subItem.label}
-                              primaryTypographyProps={{
-                                color: "#fff",
-                                fontSize: 14,
-                              }}
-                            />}
+                          <ListItem  className={classes.navLink} button key={subItem.key} component={NavLink} to={subItem.path}> 
+                            <ListItemIcon className={classes.navLinkIcon}>{subItem.icon}</ListItemIcon>
+                            {open && <ListItemText primary={subItem.label} className={classes.navLinkText} />}
                           </ListItem>
                         ))
                       }
@@ -72,7 +49,7 @@ const SideBar = ({ open }) => {
                   </Collapse>
                 )
               }
-            </div>
+            </Box>
           )
         }
         )}
