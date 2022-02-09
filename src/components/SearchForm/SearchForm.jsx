@@ -46,10 +46,9 @@ const onSubmit = (values, { resetForm }) => {
 }
 
 export const SearchForm = () => {
+  
   const classes = useStyles();
-
   const dispatch = useDispatch();
-
   const close = () => dispatch(TOGGLES_ACTIONS.setSearchForm())
 
   return (

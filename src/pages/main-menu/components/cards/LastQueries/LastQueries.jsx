@@ -50,7 +50,6 @@ export const LastQueries = ({data}) => {
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
           <Table tbody={data?.tbody} thead={thead} />
-          {console.log(thead)}
         </CardContent>
       </Card>
     </Card>

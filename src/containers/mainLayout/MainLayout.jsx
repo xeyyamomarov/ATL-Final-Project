@@ -43,9 +43,7 @@ const MainLayout = ({ children }) => {
       <Box sx={{ flexGrow: 1 }}>
         <ThemeProvider theme={theme}>
           <NavBar open={open} setOpen={setOpen} />
-          <Box padding="16px">
             {children}
-          </Box>
         </ThemeProvider>
       </Box>
     </Stack>

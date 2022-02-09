@@ -1,22 +1,18 @@
-import { IconButton, Menu, MenuItem, Tooltip } from '@mui/material';
+import { IconButton, Menu, Tooltip } from '@mui/material';
 import { useState } from 'react';
 import { MoreHoriz } from '@mui/icons-material';
-import { TOGGLES_ACTIONS } from "store/Toggles";
-import { useDispatch } from 'react-redux';
 
 
-export function MoreOptions({ userId }) {
+export function MoreOptions({ tooltip="Daha çox", children}) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const dispatch = useDispatch();
 
   const handleClick = e => setAnchorEl(e.currentTarget);
   const handleClose = () => setAnchorEl(null);
-  const handleOpenClick = () => dispatch(TOGGLES_ACTIONS.setPasswordUpdateDialog())
 
   return (
     <div>
-      <Tooltip title="Daha çox">
+      <Tooltip title={tooltip}>
         <IconButton onClick={handleClick}>
           <MoreHoriz />
         </IconButton>
@@ -30,8 +26,7 @@ export function MoreOptions({ userId }) {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={() => console.log(`User ${userId} Deactivated`)}>Deaktivləşdirin</MenuItem>
-        <MenuItem onClick={handleOpenClick}>Şifrəni yenilə</MenuItem>
+        {children}
       </Menu>
     </div>
   );

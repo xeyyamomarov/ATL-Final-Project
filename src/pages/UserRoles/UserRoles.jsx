@@ -1,33 +1,41 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Table } from "components/Table";
 import { USER_ROLES_ACTIONS, USER_ROLES_SELECTORS } from "store/UserRoles";
 import { NewRoleDialog, EditRoleDialog, DeleteRoleDialog } from "./Dialogs";
+import { SearchBar } from "components/SearchBar/SearchBar";
+import { SearchButton } from "components/Buttons";
+import { AddButton } from "components/Buttons";
+import { TOGGLES_ACTIONS } from "store/Toggles";
+import { Box, Collapse } from "@mui/material";
+import { SearchForm } from "components/SearchForm/SearchForm";
 
 
 const UserRoles = () => {
-
   const dispatch = useDispatch();
+  const [searchOpen, setSearchOpen] = useState(false);
   const { userroles } = useSelector(USER_ROLES_SELECTORS.getUserRoles);
-  
+  const addNewHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
+
+
   const thead = [
     {
-      id: "name",
+      key: "name",
       label: "Adı",
       minWidth: "220"
     },
     {
-      id: "isStatic",
+      key: "isStatic",
       label: "Statikdir?",
       minWidth: "120"
     },
     {
-      id: "description",
+      key: "description",
       label: "Təsviri",
       minWidth: "170"
     },
     {
-      id: "roleIcons",
+      key: "roleIcons",
       label: "",
       minWidth: "170"
     },
@@ -40,10 +48,21 @@ const UserRoles = () => {
 
   return (
     <>
-      <Table thead={thead} tbody={userroles} pagination />
-      <NewRoleDialog />
-      <EditRoleDialog />
-      <DeleteRoleDialog />
+      <SearchBar buttons={
+        <>
+          <SearchButton onClick={() => {
+            setSearchOpen(!searchOpen);
+          }} />
+          <AddButton onClick={addNewHandleClick} />
+        </>
+      } />
+      <Box padding="16px">
+        <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
+        <Table thead={thead} tbody={userroles} pagination />
+        <NewRoleDialog />
+        <EditRoleDialog />
+        <DeleteRoleDialog />
+      </Box>
     </>
   );
 }

@@ -3,12 +3,8 @@ import { useStyles } from '.';
 import Breadcrumbs from 'components/Breadcrumbs';
 
 
-export const SearchBar = ({searchHandleClick, addNewHandleClick, buttons = (<></>)}) => {
+export const SearchBar = ({ buttons = (<></>) }) => {
   const classes = useStyles();
-  // const dispatch = useDispatch();
-
-  // const searchHandleClick = () => dispatch(TOGGLES_ACTIONS.setSearchForm())
-  // const addNewHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
 
   return (
     <Box display="flex" flexDirection="column">
