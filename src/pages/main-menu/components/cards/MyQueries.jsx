@@ -7,15 +7,15 @@ const MyQuerises = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
   const thead=[
     {
-      id: "type",
+      key: "type",
       label: "Tipi"
     },
     {
-      id: "status",
+      key: "status",
       label: "Status"
     },
     {
-      id: "date",
+      key: "date",
       label: "Tarixi"
     }
   ]

@@ -25,5 +25,6 @@ export const useStyles = makeStyles({
     fontSize: "14px",
     fontWeight: 500,
     color: '#424242',
+    padding: "8px 0"
   }
-})
+});

@@ -8,15 +8,15 @@ const Anniversary = ({ data }) => {
   
   const thead=[
     {
-      id: "fullName",
+      key: "fullName",
       label: "Adı",
     },
     {
-      id: "year",
+      key: "year",
       label: "İl"
     },
     {
-      id: "date",
+      key: "date",
       label: "Tarixi"
     }
   ]

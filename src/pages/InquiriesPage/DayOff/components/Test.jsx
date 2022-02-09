@@ -12,7 +12,7 @@ import {
   // DatePicker 
 } from "@mui/lab";
 import { SubmitButton } from "components/Buttons";
-import DateInput from "pages/InquiriesPage/components/DateInput";
+// import DateInput from "pages/InquiriesPage/components/DateInput";
 import { useState } from "react";
 
 
@@ -47,11 +47,11 @@ const resultDatas = [
   { value: "Confirmed", label: "Təsdiqləndi" }
 ]
 
-const tabs = [
-  { value: "one", label: "Sorğunun formalaşdırılması" },
-  { value: "two", label: "Departament rəhbərin göndərməsi" },
-  { value: "three", label: "HR göndərməsi" },
-]
+// const tabs = [
+//   { value: "one", label: "Sorğunun formalaşdırılması" },
+//   { value: "two", label: "Departament rəhbərin göndərməsi" },
+//   { value: "three", label: "HR göndərməsi" },
+// ]
 
 const initialValues = {
   date: "",
@@ -65,10 +65,10 @@ const onSubmit = (values, { resetForm }) => {
 }
 
 export const Testquery = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  // const [selectedDate, setSelectedDate] = useState(new Date());
   const classes = useStyles();
   const dispatch = useDispatch();
-  const close = () => dispatch(TOGGLES_ACTIONS.setSearchForm())
+  // const close = () => dispatch(TOGGLES_ACTIONS.setSearchForm())
 
   return (
     <Box className={classes.container}>

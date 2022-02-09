@@ -5,7 +5,7 @@ import { Box, Collapse } from "@mui/material";
 import { USERS_ACTIONS, USERS_SELECTORS } from "store/Users";
 import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "./components/Dialogs";
 import { SearchBar } from "components/SearchBar";
-import { SearchForm } from 'components/SearchForm';
+import { SearchForm } from './components/SearchForm';
 import { AddButton, SearchButton } from "components/Buttons";
 import { UsersTableHeader } from "./UsersTableHeader";
 import { TOGGLES_ACTIONS } from "store/Toggles";

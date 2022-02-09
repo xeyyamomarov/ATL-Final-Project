@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Table } from "components/Table";
 import { USER_ROLES_ACTIONS, USER_ROLES_SELECTORS } from "store/UserRoles";
-import { NewRoleDialog, EditRoleDialog, DeleteRoleDialog } from "./Dialogs";
+import { NewRoleDialog, EditRoleDialog, DeleteRoleDialog } from "./components/Dialogs";
 import { SearchBar } from "components/SearchBar/SearchBar";
 import { SearchButton } from "components/Buttons";
 import { AddButton } from "components/Buttons";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { Box, Collapse } from "@mui/material";
-import { SearchForm } from "components/SearchForm/SearchForm";
+import { SearchForm } from "./components/SearchForm";
 
 
 const UserRoles = () => {

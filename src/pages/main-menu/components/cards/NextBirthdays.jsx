@@ -7,11 +7,11 @@ const NextBirthdays = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
   const thead=[
     {
-      id: "fullName",
+      key: "fullName",
       label: "Adı"
     },
     {
-      id: "date",
+      key: "date",
       label: "Tarixi"
     }
   ]

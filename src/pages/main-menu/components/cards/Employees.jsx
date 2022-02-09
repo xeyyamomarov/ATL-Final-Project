@@ -7,15 +7,15 @@ const Employees = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
   const thead=[
     {
-      id: "fullName",
+      key: "fullName",
       label: "Adı"
     },
     {
-      id: "position",
+      key: "position",
       label: "Vəzifə"
     },
     {
-      id: "status",
+      key: "status",
       label: "Status"
     }
   ]
