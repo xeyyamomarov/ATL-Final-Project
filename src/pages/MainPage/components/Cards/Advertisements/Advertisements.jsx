@@ -1,30 +1,15 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
-import Table from "components/Table/Table";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import { useState } from "react";
+import Table from "components/Table/Table";
+import { AdvertisementsTableHeader } from "./AdvertisementsTableHeader";
 
-const MyQuerises = ({ data }) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const thead=[
-    {
-      id: "type",
-      label: "Tipi"
-    },
-    {
-      id: "status",
-      label: "Status"
-    },
-    {
-      id: "date",
-      label: "Tarixi"
-    }
-  ]
+export const Advertisements = ({ data }) => {
+  
+  const thead= AdvertisementsTableHeader()
 
   return (
     <Card sx={{marginBottom:2}}>
-      <Card
-        sx={{ backgroundColor: "#F5F5F5", marginBottom: 2, boxShadow: "none" }}
-      >
+      <Card sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}>
         <CardContent
           sx={{
             display: "flex",
@@ -41,7 +26,7 @@ const MyQuerises = ({ data }) => {
             color="black"
             gutterBottom
           >
-            Mənim sorğularım
+            Elanlar
           </Typography>
           <Typography
             fontSize="18px"
@@ -54,7 +39,6 @@ const MyQuerises = ({ data }) => {
               <RefreshIcon
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
-                  setIsLoading(!isLoading);
                 }}
               />
             </Tooltip>
@@ -69,4 +53,3 @@ const MyQuerises = ({ data }) => {
     </Card>
   );
 };
-export default MyQuerises;

@@ -1,18 +1,18 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import Table from "components/Table/Table";
 import { useState } from "react";
+import Table from "components/Table/Table";
 
-const DayOff = ({ data }) => {
+export const Trip = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
   const thead=[
     {
-      id: "fullName",
+      key: "fullName",
       label: "Adı"
     },
     {
-      id: "type",
-      label: "Tipi"
+      key: "date",
+      label: "Tarixi"
     }
   ]
 
@@ -35,7 +35,7 @@ const DayOff = ({ data }) => {
             color="black"
             gutterBottom
           >
-            Bu gün ki Day off-lar
+            Ezamiyyət
           </Typography>
           <Typography
             fontSize="18px"
@@ -63,4 +63,3 @@ const DayOff = ({ data }) => {
     </Card>
   );
 };
-export default DayOff;

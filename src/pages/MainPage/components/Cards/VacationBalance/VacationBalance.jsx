@@ -2,23 +2,12 @@ import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState } from "react";
 import Table from "components/Table/Table";
+import {VacationBalanceTableHeader} from "./VacationBalanceTableHeader"
 
-const Vacation = ({ data }) => {
+export const VacationBalance = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const thead=[
-    {
-      id: "fullName",
-      label: "Adı"
-    },
-    {
-      id: "date",
-      label: "Tarixi"
-    },
-    {
-      id:"substitute",
-      label:"Əvəzedici şəxs"
-    }
-  ]
+  
+  const thead=VacationBalanceTableHeader()
 
   return (
     <Card sx={{marginBottom:2}}>
@@ -39,7 +28,7 @@ const Vacation = ({ data }) => {
             color="black"
             gutterBottom
           >
-           Məzuniyyət məlumatı
+            Məzuniyyət balansı
           </Typography>
           <Typography
             fontSize="18px"
@@ -53,6 +42,7 @@ const Vacation = ({ data }) => {
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
                   setIsLoading(!isLoading);
+                  console.log("first");
                 }}
               />
             </Tooltip>
@@ -67,4 +57,3 @@ const Vacation = ({ data }) => {
     </Card>
   );
 };
-export default Vacation;

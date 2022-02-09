@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 
-const CloseButton = ({text="Bağla", onClick}) => {
+export const CloseButton = ({text="Bağla", onClick}) => {
   return (
     <Button
       variant='contained'
@@ -12,5 +12,3 @@ const CloseButton = ({text="Bağla", onClick}) => {
     </Button>
   );
 }
-
-export default CloseButton;

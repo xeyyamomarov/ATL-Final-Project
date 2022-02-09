@@ -1,18 +1,18 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import { useState } from "react";
 import Table from "components/Table/Table";
+import { useState } from "react";
 
-const NextBirthdays = ({ data }) => {
+export const DayOff = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
   const thead=[
     {
-      id: "fullName",
+      key: "fullName",
       label: "Adı"
     },
     {
-      id: "date",
-      label: "Tarixi"
+      key: "type",
+      label: "Tipi"
     }
   ]
 
@@ -35,7 +35,7 @@ const NextBirthdays = ({ data }) => {
             color="black"
             gutterBottom
           >
-            Növbəti ad günləri
+            Bu gün ki Day off-lar
           </Typography>
           <Typography
             fontSize="18px"
@@ -63,4 +63,3 @@ const NextBirthdays = ({ data }) => {
     </Card>
   );
 };
-export default NextBirthdays;

@@ -1,26 +1,18 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import { useState } from "react";
 import Table from "components/Table/Table";
 
-
-const LastQueries = ({data,dataLoading}) => {
-
-   const thead =[
+export const NextBirthdays = ({ data }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const thead=[
     {
-      id: "fullName",
-      label: "Adı",
+      key: "fullName",
+      label: "Adı"
     },
     {
-      id: "type",
-      label: "Tipi"
-    },
-    {
-      id: "date",
+      key: "date",
       label: "Tarixi"
-    },
-    {
-      id:"status",
-      label:"Status"
     }
   ]
 
@@ -32,21 +24,21 @@ const LastQueries = ({data,dataLoading}) => {
             display: "flex",
             justifyContent: "space-between",
             padding: 0,
-            height: "60px",
+            height: "50px",
           }}
         >
           <Typography
             variant="h6"
             position="relative"
-            top="15px"
+            top="10px"
             left="15px"
             color="black"
             gutterBottom
           >
-            Son sorğular
+            Növbəti ad günləri
           </Typography>
           <Typography
-            fontSize="28px"
+            fontSize="18px"
             position="relative"
             top="12px"
             right="15px"
@@ -55,6 +47,9 @@ const LastQueries = ({data,dataLoading}) => {
             <Tooltip title="Refresh">
               <RefreshIcon
                 sx={{ cursor: "pointer" }}
+                onClick={() => {
+                  setIsLoading(!isLoading);
+                }}
               />
             </Tooltip>
           </Typography>
@@ -68,4 +63,3 @@ const LastQueries = ({data,dataLoading}) => {
     </Card>
   );
 };
-export default LastQueries;

@@ -9,7 +9,7 @@ import {
   Trip,
   Advertisements,
   VacationBalance
-} from "./components/cards";
+} from "./components/Cards";
 
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -18,8 +18,6 @@ import { CARDS_ACTIONS, CARDS_SELECTORS } from "store/Cards";
 
 const MainMenu = () => {
   const  data = useSelector(CARDS_SELECTORS.getCards);
-  const dataLoading=useSelector(CARDS_SELECTORS.getCardsLoading);
-  console.log(dataLoading);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(CARDS_ACTIONS.fetchCards());

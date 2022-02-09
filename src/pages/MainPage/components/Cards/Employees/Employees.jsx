@@ -1,20 +1,12 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
+import Table from "components/Table/Table";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState } from "react";
-import Table from "components/Table/Table";
+import { EmployeesTableHeader } from "./EmployeesTableHeader";
 
-const Trip = ({ data }) => {
+export const Employees = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const thead=[
-    {
-      id: "fullName",
-      label: "Adı"
-    },
-    {
-      id: "date",
-      label: "Tarixi"
-    }
-  ]
+  const thead= EmployeesTableHeader()
 
   return (
     <Card sx={{marginBottom:2}}>
@@ -35,7 +27,7 @@ const Trip = ({ data }) => {
             color="black"
             gutterBottom
           >
-            Ezamiyyət
+            Əməkdaşlar haqqında son məlumat
           </Typography>
           <Typography
             fontSize="18px"
@@ -57,10 +49,9 @@ const Trip = ({ data }) => {
       </Card>
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
-          <Table tbody={data?.tbody} thead={thead} />
+          <Table thead={thead} tbody={data?.tbody} />
         </CardContent>
       </Card>
     </Card>
   );
 };
-export default Trip;

@@ -1,24 +1,13 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
-import Table from "components/Table/Table";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState } from "react";
+import Table from "components/Table/Table";
+import { AnniversaryTableHeader } from "./AnniversaryTableHeader";
 
-const Employees = ({ data }) => {
+export const Anniversary = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const thead=[
-    {
-      id: "fullName",
-      label: "Adı"
-    },
-    {
-      id: "position",
-      label: "Vəzifə"
-    },
-    {
-      id: "status",
-      label: "Status"
-    }
-  ]
+  
+  const thead= AnniversaryTableHeader()
 
   return (
     <Card sx={{marginBottom:2}}>
@@ -39,7 +28,7 @@ const Employees = ({ data }) => {
             color="black"
             gutterBottom
           >
-            Əməkdaşlar haqqında son məlumat
+            Qarşıdan gələn il dönümü
           </Typography>
           <Typography
             fontSize="18px"
@@ -53,6 +42,7 @@ const Employees = ({ data }) => {
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
                   setIsLoading(!isLoading);
+                  console.log("first");
                 }}
               />
             </Tooltip>
@@ -61,10 +51,9 @@ const Employees = ({ data }) => {
       </Card>
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
-          <Table thead={thead} tbody={data?.tbody} />
+          <Table tbody={data?.tbody} thead={thead} />
         </CardContent>
       </Card>
     </Card>
   );
 };
-export default Employees;

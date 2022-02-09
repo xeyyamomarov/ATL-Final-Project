@@ -2,24 +2,11 @@ import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState } from "react";
 import Table from "components/Table/Table";
+import { HolidayTableHeader } from "./HolidayTableHeader";
 
-const Anniversary = ({ data }) => {
+export const Vacation = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
-  
-  const thead=[
-    {
-      id: "fullName",
-      label: "Adı",
-    },
-    {
-      id: "year",
-      label: "İl"
-    },
-    {
-      id: "date",
-      label: "Tarixi"
-    }
-  ]
+  const thead= HolidayTableHeader()
 
   return (
     <Card sx={{marginBottom:2}}>
@@ -40,7 +27,7 @@ const Anniversary = ({ data }) => {
             color="black"
             gutterBottom
           >
-            Qarşıdan gələn il dönümü
+           Məzuniyyət məlumatı
           </Typography>
           <Typography
             fontSize="18px"
@@ -54,7 +41,6 @@ const Anniversary = ({ data }) => {
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
                   setIsLoading(!isLoading);
-                  console.log("first");
                 }}
               />
             </Tooltip>
@@ -69,4 +55,3 @@ const Anniversary = ({ data }) => {
     </Card>
   );
 };
-export default Anniversary;
