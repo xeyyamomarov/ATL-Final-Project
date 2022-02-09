@@ -3,7 +3,7 @@ import MainLayout from "containers/mainLayout";
 import { Routes, Route } from "react-router-dom";
 import EmployeesPage from "pages/EmployeesPage";
 import MainMenu from "pages/main-menu/MainMenu";
-import { DayOffPage, BusinessTripPage, GuestPage, ITSupplyPage, PurchasePage, VacationPage } from 'pages/InquiriesInquiriesPage';
+import { DayOffPage, BusinessTripPage, GuestPage, ITSupplyPage, PurchasePage, VacationPage } from 'pages/InquiriesPage';
 import NotificationsPage from "pages/NotificationsPage";
 import Users from "pages/Users";
 import UserRoles from "pages/UserRoles";

@@ -8,7 +8,6 @@ import { SearchForm } from 'components/SearchForm';
 import { TOGGLES_SELECTORS } from 'store/Toggles';
 import { useSelector } from 'react-redux';
 
-
 const theme = createTheme({
   palette: {
     primary: {
@@ -35,6 +34,7 @@ const theme = createTheme({
   }
 })
 
+
 const MainLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
   const search = useSelector(TOGGLES_SELECTORS.getSearchForm)
@@ -44,13 +44,13 @@ const MainLayout = ({ children }) => {
       direction="row"
       spacing={0}
     >
-      <SideBar open={open} setOpen={setOpen} />
+        <SideBar open={open} setOpen={setOpen} />
       <Box sx={{ flexGrow: 1 }}>
         <ThemeProvider theme={theme}>
           <NavBar open={open} setOpen={setOpen} />
           <SearchBar />
-          <Box padding= "16px">
-          <Collapse in={search}>{<SearchForm />}</Collapse>
+          <Box padding="16px">
+            <Collapse in={search}>{<SearchForm />}</Collapse>
             {children}
           </Box>
         </ThemeProvider>
