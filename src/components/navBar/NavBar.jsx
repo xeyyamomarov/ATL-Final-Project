@@ -12,14 +12,14 @@ export default function ButtonAppBar({open,setOpen}) {
       <AppBar position="static" sx={{ backgroundColor: "#fff", color: '#424242', height: 56, justifyContent:'center', boxShadow:'none', borderBottom:'1px solid #E0E0E0' }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Box >
-            <IconButton
+            <IconButton onClick={()=> setOpen(!open)}
               size="large"
               edge="start"
               color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
             >
-              <MenuIcon onClick={()=> setOpen(!open)}/>
+              <MenuIcon/>
             </IconButton>
           </Box>
           <Box sx={{ display: 'flex', alignItems:'center' }} >

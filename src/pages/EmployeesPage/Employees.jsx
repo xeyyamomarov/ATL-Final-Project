@@ -1,21 +1,83 @@
-import { SearchBar } from "components/SearchBar";
-import { Box } from '@mui/material';
-import { AddButton } from "components/Buttons";
+//<section key="employees-page">
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { Table } from "components/Table";
+import { USERS_ACTIONS, USERS_SELECTORS } from "store/Users";
+//import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "./components/Dialogs";
+//import { SearchBar } from "components/SearchBar";
+import { SearchForm } from 'components/SearchForm';
+import { Box, Collapse } from '@mui/material';
+//import { AddButton, SearchButton } from "components/Buttons";
 
 const EmployeesPage = () => {
 
-  const addNewHandleClick = () => console.log("some function");
+    const dispatch = useDispatch();
+    const { users } = useSelector(USERS_SELECTORS.getUsers);
+    const [searchOpen, setSearchOpen] = useState(false);
+    const thead = [
+        {
+            id: "fullName",
+            label: "A.S.A.",
+            minWidth: "220"
+        },
+        {
+            id: "username",
+            label: "İstifadəçi adı",
+            minWidth: "120"
+        },
+        {
+            id: "email",
+            label: "Elektron poçt",
+            minWidth: "170"
+        },
+        {
+            id: "position",
+            label: "Vəzifə",
+            minWidth: "170"
+        },
+        {
+            id: "department",
+            label: "Şöbə",
+            minWidth: "170"
+        },
+        {
+            id: "phone",
+            label: "Əlaqə nömrəsi",
+            minWidth: "170"
+        },
+        {
+            id: "icons",
+            label: "",
+            minWidth: "12px"
+        }
+    ]
 
+    useEffect(() => {
+        dispatch(USERS_ACTIONS.fetchUsers())
+    }, [dispatch])
+
+    console.log('employees:', users)
     return (
         <>
-          <SearchBar buttons={
-              <AddButton onClick={addNewHandleClick} />
-          } />
-          <Box padding="16px">
-            {/* Emekdaslar component body */}
-          </Box>
+            {/* <SearchBar buttons={
+                <>
+                    <SearchButton onClick={() => {
+                        setSearchOpen(!searchOpen);
+                    }} />
+                    <AddButton onClick={() => {
+
+                    }} />
+                </>
+            } /> */}
+            <Box padding="16px">
+                <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
+                <Table thead={thead} tbody={users} pagination />
+            </Box>
+            {/* <AddNewUserDialog />
+            <EditUserDialog />
+            <PasswordUpdateDialog /> */}
         </>
-      );
-    }
+    );
+}
 
 export default EmployeesPage;
