@@ -3,26 +3,17 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState } from "react";
 import Table from "components/Table/Table";
 
-const VacationBalance = ({ data }) => {
+export const NextBirthdays = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
-  
   const thead=[
     {
-      id: "date",
-      label: "İş ili",
+      key: "fullName",
+      label: "Adı"
     },
     {
-      id: "basic",
-      label: "Əsas"
-    },
-    {
-      id: "addition",
-      label: "Əlavə"
-    },
-    {
-        id: "used",
-        label: "İstifadə edilmiş"
-      }
+      key: "date",
+      label: "Tarixi"
+    }
   ]
 
   return (
@@ -44,7 +35,7 @@ const VacationBalance = ({ data }) => {
             color="black"
             gutterBottom
           >
-            Məzuniyyət balansı
+            Növbəti ad günləri
           </Typography>
           <Typography
             fontSize="18px"
@@ -58,7 +49,6 @@ const VacationBalance = ({ data }) => {
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
                   setIsLoading(!isLoading);
-                  console.log("first");
                 }}
               />
             </Tooltip>
@@ -73,4 +63,3 @@ const VacationBalance = ({ data }) => {
     </Card>
   );
 };
-export default VacationBalance;

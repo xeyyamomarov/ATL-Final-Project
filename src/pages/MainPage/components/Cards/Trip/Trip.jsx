@@ -1,36 +1,44 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import { useState } from "react";
 import Table from "components/Table/Table";
-import { LastQueriesTableHeader } from './LastQueriesTableHeader';
 
-
-export const LastQueries = ({data}) => {
-
-  const thead = LastQueriesTableHeader();
+export const Trip = ({ data }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const thead=[
+    {
+      key: "fullName",
+      label: "Adı"
+    },
+    {
+      key: "date",
+      label: "Tarixi"
+    }
+  ]
 
   return (
-    <Card sx={{ marginBottom: 2 }}>
+    <Card sx={{marginBottom:2}}>
       <Card sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}>
         <CardContent
           sx={{
             display: "flex",
             justifyContent: "space-between",
             padding: 0,
-            height: "60px",
+            height: "50px",
           }}
         >
           <Typography
             variant="h6"
             position="relative"
-            top="15px"
+            top="10px"
             left="15px"
             color="black"
             gutterBottom
           >
-            Son sorğular
+            Ezamiyyət
           </Typography>
           <Typography
-            fontSize="28px"
+            fontSize="18px"
             position="relative"
             top="12px"
             right="15px"
@@ -39,6 +47,9 @@ export const LastQueries = ({data}) => {
             <Tooltip title="Refresh">
               <RefreshIcon
                 sx={{ cursor: "pointer" }}
+                onClick={() => {
+                  setIsLoading(!isLoading);
+                }}
               />
             </Tooltip>
           </Typography>

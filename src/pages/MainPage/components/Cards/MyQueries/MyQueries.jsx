@@ -1,29 +1,28 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
-import RefreshIcon from "@mui/icons-material/Refresh";
-import { useState } from "react";
 import Table from "components/Table/Table";
+import RefreshIcon from "@mui/icons-material/Refresh";
 
-const Anniversary = ({ data }) => {
-  const [isLoading, setIsLoading] = useState(false);
-  
+export const MyQuerises = ({ data }) => {
   const thead=[
     {
-      id: "fullName",
-      label: "Adı",
+      key: "type",
+      label: "Tipi"
     },
     {
-      id: "year",
-      label: "İl"
+      key: "status",
+      label: "Status"
     },
     {
-      id: "date",
+      key: "date",
       label: "Tarixi"
     }
   ]
 
   return (
     <Card sx={{marginBottom:2}}>
-      <Card sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}>
+      <Card
+        sx={{ backgroundColor: "#F5F5F5", marginBottom: 2, boxShadow: "none" }}
+      >
         <CardContent
           sx={{
             display: "flex",
@@ -40,7 +39,7 @@ const Anniversary = ({ data }) => {
             color="black"
             gutterBottom
           >
-            Qarşıdan gələn il dönümü
+            Mənim sorğularım
           </Typography>
           <Typography
             fontSize="18px"
@@ -53,8 +52,6 @@ const Anniversary = ({ data }) => {
               <RefreshIcon
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
-                  setIsLoading(!isLoading);
-                  console.log("first");
                 }}
               />
             </Tooltip>
@@ -69,4 +66,4 @@ const Anniversary = ({ data }) => {
     </Card>
   );
 };
-export default Anniversary;
+

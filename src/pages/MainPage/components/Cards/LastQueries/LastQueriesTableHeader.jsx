@@ -1,4 +1,4 @@
-import { Typography, Avatar, Button } from "@mui/material";
+import { Typography, Avatar} from "@mui/material";
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
@@ -51,14 +51,8 @@ const useStyles = makeStyles({
       {
         key: "status",
         label: "Status"
-      },
-      {
-        key: "actions",
-        label: "Əməliyyatlar",
-        render: (record)=> {
-          return <Button>Edit</Button>
-        }
       }
+
     ]
 
 }

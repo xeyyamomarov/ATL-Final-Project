@@ -1,20 +1,11 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import Table from "components/Table/Table";
-import { useState } from "react";
+import { AdvertisementsTableHeader } from "./AdvertisementsTableHeader";
 
-const DayOff = ({ data }) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const thead=[
-    {
-      id: "fullName",
-      label: "Adı"
-    },
-    {
-      id: "type",
-      label: "Tipi"
-    }
-  ]
+export const Advertisements = ({ data }) => {
+  
+  const thead= AdvertisementsTableHeader()
 
   return (
     <Card sx={{marginBottom:2}}>
@@ -35,7 +26,7 @@ const DayOff = ({ data }) => {
             color="black"
             gutterBottom
           >
-            Bu gün ki Day off-lar
+            Elanlar
           </Typography>
           <Typography
             fontSize="18px"
@@ -48,7 +39,6 @@ const DayOff = ({ data }) => {
               <RefreshIcon
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
-                  setIsLoading(!isLoading);
                 }}
               />
             </Tooltip>
@@ -63,4 +53,3 @@ const DayOff = ({ data }) => {
     </Card>
   );
 };
-export default DayOff;

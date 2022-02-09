@@ -2,7 +2,7 @@ import "./App.css";
 import MainLayout from "containers/mainLayout";
 import { Routes, Route } from "react-router-dom";
 import EmployeesPage from "pages/EmployeesPage";
-import MainMenu from "pages/main-menu/MainMenu";
+import MainMenu from "pages/MainPage/MainMenu";
 import { DayOffPage, BusinessTripPage, GuestPage, ITSupplyPage, PurchasePage, VacationPage } from 'pages/InquiriesInquiriesPage';
 import NotificationsPage from "pages/NotificationsPage";
 import Users from "pages/Users";

@@ -2,28 +2,11 @@ import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState } from "react";
 import Table from "components/Table/Table";
+import { HolidayTableHeader } from "./HolidayTableHeader";
 
-const Advertisements = ({ data }) => {
+export const Vacation = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
-  
-  const thead=[
-    {
-      id: "bname",
-      label: "Adı",
-    },
-    {
-      id: "describe",
-      label: "Təsviri"
-    },
-    {
-      id: "creater",
-      label: "Yaradan şəxs"
-    },
-    {
-        id: "date",
-        label: "Yaradılma tarixi"
-      },
-  ]
+  const thead= HolidayTableHeader()
 
   return (
     <Card sx={{marginBottom:2}}>
@@ -44,7 +27,7 @@ const Advertisements = ({ data }) => {
             color="black"
             gutterBottom
           >
-            Elanlar
+           Məzuniyyət məlumatı
           </Typography>
           <Typography
             fontSize="18px"
@@ -72,4 +55,3 @@ const Advertisements = ({ data }) => {
     </Card>
   );
 };
-export default Advertisements;
