@@ -1,54 +1,54 @@
 //<section key="employees-page">
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Table } from "components/Table";
 import { USERS_ACTIONS, USERS_SELECTORS } from "store/Users";
 //import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "./components/Dialogs";
 //import { SearchBar } from "components/SearchBar";
-import { SearchForm } from 'components/SearchForm';
-import { Box, Collapse } from '@mui/material';
+import { Box } from '@mui/material';
+// import { SearchForm } from "pages/Users/components/SearchForm";
 //import { AddButton, SearchButton } from "components/Buttons";
 
 const EmployeesPage = () => {
 
     const dispatch = useDispatch();
     const { users } = useSelector(USERS_SELECTORS.getUsers);
-    const [searchOpen, setSearchOpen] = useState(false);
+    // const [searchOpen, setSearchOpen] = useState(false);
     const thead = [
         {
-            id: "fullName",
+            key: "fullName",
             label: "A.S.A.",
-            minWidth: "220"
+            style: { minWidth: 220}
         },
         {
-            id: "username",
+            key: "username",
             label: "İstifadəçi adı",
-            minWidth: "120"
+            minWidth: { minWidth: 120}
         },
         {
-            id: "email",
+            key: "email",
             label: "Elektron poçt",
-            minWidth: "170"
+            minWidth: { minWidth: 170}
         },
         {
-            id: "position",
+            key: "position",
             label: "Vəzifə",
-            minWidth: "170"
+            minWidth: { minWidth: 170}
         },
         {
-            id: "department",
+            key: "department",
             label: "Şöbə",
-            minWidth: "170"
+            minWidth: { minWidth: 170}
         },
         {
-            id: "phone",
+            key: "phone",
             label: "Əlaqə nömrəsi",
-            minWidth: "170"
+            minWidth: { minWidth: 170}
         },
         {
-            id: "icons",
+            key: "icons",
             label: "",
-            minWidth: "12px"
+            minWidth: { minWidth: 12}
         }
     ]
 
@@ -56,7 +56,6 @@ const EmployeesPage = () => {
         dispatch(USERS_ACTIONS.fetchUsers())
     }, [dispatch])
 
-    console.log('employees:', users)
     return (
         <>
             {/* <SearchBar buttons={
@@ -70,7 +69,7 @@ const EmployeesPage = () => {
                 </>
             } /> */}
             <Box padding="16px">
-                <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
+                {/* <Collapse in={searchOpen}>{<SearchForm />}</Collapse> */}
                 <Table thead={thead} tbody={users} pagination />
             </Box>
             {/* <AddNewUserDialog />

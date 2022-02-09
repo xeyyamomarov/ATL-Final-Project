@@ -77,7 +77,7 @@ export default function Table({ tbody, thead = [], pagination }) {
               <TableCell
                 className={classes.thead}
                 key={column.key}
-                minWidth={column.minWidth}
+                style={column.style}
               >
                 {column.label}
               </TableCell>

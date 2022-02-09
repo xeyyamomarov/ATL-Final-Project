@@ -5,6 +5,7 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
+import { breadcrumbTranslations } from 'constants';
 
 const Breadcrumbs = props => {
   const classes = useStyles();
@@ -14,25 +15,10 @@ const Breadcrumbs = props => {
   const pathnames = pathname.split("/").filter(x => x)
 
   const breadcrumbTranslation = arr => {
-    const translations = [
-      { "/": "Əsas səhifə" },
-      { "employees": "Əməkdaşlar" },
-      { "inquiries": "Sorğular" },
-      { "day-off": "Day off" },
-      { "business-trip": "Ezamiyyət" },
-      { "vacation": "Məzuniyyət" },
-      { "guest": "Qonaq" },
-      { "it-supply": "IT təchizat" },
-      { "purchase": "Satınalma" },
-      { "notifications": "Elanlar" },
-      { "notification": "Elan" },
-      { "settings": "Parametrlər" },
-      { "users": "İstifadəçilər" },
-      { "user-roles": "İstifadəçi rolları" }
-    ]
+    
     const array = [];
     arr.map(item => {
-      return translations.forEach(obj => {
+      return breadcrumbTranslations.forEach(obj => {
         if (obj[item]) {
           array.push(obj[item])
         }
@@ -51,8 +37,8 @@ const Breadcrumbs = props => {
         const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
         const isLast = index === translatedPathNames.length - 1;
 
-        return isLast ? (<Typography className={classes.text}> {name} </Typography>) :
-         (<Link className={classes.links} onClick={() => navigate(routeTo)}> {name} </Link>)
+        return isLast ? (<Typography key={index} className={classes.text}> {name} </Typography>) :
+         (<Link key={index} className={classes.links} onClick={() => navigate(routeTo)}> {name} </Link>)
       })}
 
     </MuiBreadcrumbs>

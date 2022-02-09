@@ -50,32 +50,32 @@ export const UsersTableHeader = () => {
     {
       key: "username",
       label: "İstifadəçi adı",
-      minWidth: "120px"
+      style: { minWidth: 120}
     },
     {
       key: "email",
       label: "Elektron poçt",
-      minWidth: "170px"
+      style: { minWidth: 170}
     },
     {
       key: "position",
       label: "Vəzifə",
-      minWidth: "170px"
+      style: { minWidth: 170}
     },
     {
       key: "phone",
       label: "Əlaqə nömrəsi",
-      minWidth: "170px"
+      style: { minWidth: 170}
     },
     {
       key: "actions",
       label: "",
-      minWidth: "12px",
+      style: { minWidth: 12},
       render(row) {
         return (
           <Box display='flex' width='100%' justifyContent='flex-end' alignItems='center'>
             <EditUser userId={row.id} />
-            <MoreOptions userId={row.id}>
+            <MoreOptions>
               <MenuItem onClick={() => console.log(`User ${row.id} Deactivated`)}>Deaktivləşdirin</MenuItem>
               <MenuItem onClick={() => dispatch(TOGGLES_ACTIONS.setPasswordUpdateDialog())}>Şifrəni yenilə</MenuItem>
             </MoreOptions>

@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { InquiriesSearchForm } from "../components/InquiriesSearchForm";
-import Inquiries from "../InquiriesPage";
+// import Inquiries from "../InquiriesPage";
 // import { Testquery } from "./components/Test";
 
 
@@ -31,7 +31,7 @@ const DayOff = () => {
 
       <Box padding="16px">
         <Collapse in={searchOpen}>{<InquiriesSearchForm />}</Collapse>
-        <Inquiries />
+        {/* <Inquiries /> */}
       </Box>
     </>
   );
