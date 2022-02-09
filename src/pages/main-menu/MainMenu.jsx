@@ -7,8 +7,8 @@ import {
   Vacation,
   NextBirthdays,
   Trip,
-  Advertisements,
-  VacationBalance
+  // Advertisements,
+  // VacationBalance
 } from "./components/cards";
 
 import { useEffect } from "react";
@@ -34,8 +34,8 @@ const MainMenu = () => {
       <Vacation data={data.vacation}/>
       <NextBirthdays data={data.birthday}/>
       <Trip data={data.trip}/>
-      <Advertisements data={data.advertisements}/>
-      <VacationBalance data={data.vacationbalance}/>
+      {/* <Advertisements data={data.advertisements}/>
+      <VacationBalance data={data.vacationbalance}/> */}
     </>
   );
 };

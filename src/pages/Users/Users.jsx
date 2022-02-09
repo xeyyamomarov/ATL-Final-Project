@@ -1,14 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Table } from "components/Table";
 import { USERS_ACTIONS, USERS_SELECTORS } from "store/Users";
 import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "./components/Dialogs";
-
+import { SearchBar } from "components/SearchBar";
+import { SearchForm } from 'components/SearchForm';
+import { Collapse } from '@mui/material';
+import { AddButton, SearchButton } from "components/Buttons";
 
 const Users = () => {
 
   const dispatch = useDispatch();
   const { users } = useSelector(USERS_SELECTORS.getUsers);
+  const [searchOpen, setSearchOpen] = useState(false);
   const thead = [
     {
       id: "fullName",
@@ -49,6 +53,17 @@ const Users = () => {
 
   return (
     <>
+      <SearchBar buttons={
+        <>
+          <SearchButton onClick={() => {
+            setSearchOpen(!searchOpen);
+          }} />
+          <AddButton onClick={() => {
+
+          }} />
+        </>
+      } />
+      <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
       <Table thead={thead} tbody={users} pagination />
       <AddNewUserDialog />
       <EditUserDialog />

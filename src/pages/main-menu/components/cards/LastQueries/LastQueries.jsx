@@ -1,31 +1,15 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import Table from "components/Table/Table";
+import { LastQueriesTableHeader } from './LastQueriesTableHeader';
 
 
-const LastQueries = ({data,dataLoading}) => {
+export const LastQueries = ({data}) => {
 
-   const thead =[
-    {
-      id: "fullName",
-      label: "Adı",
-    },
-    {
-      id: "type",
-      label: "Tipi"
-    },
-    {
-      id: "date",
-      label: "Tarixi"
-    },
-    {
-      id:"status",
-      label:"Status"
-    }
-  ]
+  const thead = LastQueriesTableHeader();
 
   return (
-    <Card sx={{marginBottom:2}}>
+    <Card sx={{ marginBottom: 2 }}>
       <Card sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}>
         <CardContent
           sx={{
@@ -68,4 +52,3 @@ const LastQueries = ({data,dataLoading}) => {
     </Card>
   );
 };
-export default LastQueries;

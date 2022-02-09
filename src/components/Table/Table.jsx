@@ -24,19 +24,12 @@ const useStyles = makeStyles({
     height: "48px",
     padding: "0 16px",
   },
-  avatar: {
-    width: 28,
-    height: 28,
-    display: 'flex',
-    marginRight: '10px',
-  },
   data: {
     fontSize: "14px",
     fontWeight: "400"
   },
   iconsBox: {
     display: 'flex',
-    justifyContent: 'flex-end',
     alignItems: 'center'
   },
   pagination: {
@@ -69,7 +62,7 @@ export default function Table({ tbody = [], thead = [], pagination, avatar }) {
               {thead.map((column) => (
                 <TableCell
                   className={classes.thead}
-                  key={column.id}
+                  key={column.key}
                   minWidth={column.minWidth}
                 >
                   {column.label}
@@ -83,42 +76,26 @@ export default function Table({ tbody = [], thead = [], pagination, avatar }) {
                 return (
                   <TableRow hover key={row.id}>
                     {thead.map((column) => {
-                      if (column.id === "icons") {
+
+                      if (column.render) {
                         return (
-                          <TableCell key={column.id} className={classes.tbody}>
+                          <TableCell key={column.key} className={classes.tbody}>
                             <Box className={classes.iconsBox}>
-                              <EditUser fontSize='small' userId={row.id} />
-                              <MoreOptions userId={row.id} />
+                              {column.render(row)}
                             </Box>
                           </TableCell>
                         )
-                      }
-                      else if (column.id === "roleIcons") {
+                      } else {
+                        const value = row[column.key];
                         return (
-                          <TableCell key={column.id} className={classes.tbody}>
+                          <TableCell key={column.key} className={classes.tbody}>
                             <Box className={classes.iconsBox}>
-                              <EditUserRoles fontSize='small' userRoleId={row.id} />
-                              <RoleMoreOptions userRoleId={row.id} />
-                            </Box>
-                          </TableCell>
-                        )
-                      }
-                      else {
-                        const value = row[column.id];
-                        return (
-                          <TableCell key={column.id} className={classes.tbody}>
-                            <Box display='flex' alignItems='center'>
-                              {(column.id === "fullName") && <Avatar
-                                className={classes.avatar}
-                                alt={`${value}`}
-                                src={row.avatar}
-                              />}
                               <Typography className={classes.data}>
                                 {value}
                               </Typography>
                             </Box>
                           </TableCell>
-                        );
+                        )
                       }
                     })}
                   </TableRow>
