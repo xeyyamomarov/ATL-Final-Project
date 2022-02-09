@@ -3,6 +3,7 @@ import MainLayout from "containers/mainLayout";
 import { Routes, Route } from "react-router-dom";
 import EmployeesPage from "pages/EmployeesPage";
 import MainMenu from "pages/main-menu/MainMenu";
+import { DayOffPage, BusinessTripPage, GuestPage, ITSupplyPage, PurchasePage, VacationPage } from 'pages/InquiriesPage';
 import NotificationsPage from "pages/NotificationsPage";
 import Users from "pages/Users";
 import UserRoles from "pages/UserRoles";
@@ -19,15 +20,15 @@ function App() {
         <Routes>
           <Route path="/" element={<MainMenu />} />
           <Route path="/employees" element={<EmployeesPage />} />
-          <Route path="/day-off" element={<DayOffPage />} />
-          {/* <Route path="/business-trip" element={<BusinessTripPage />} />
-          <Route path="/vacation" element={<VacationPage />} />
-          <Route path="/guest" element={<GuestPage />} />
-          <Route path="/it-supply" element={<ITSupplyPage />} />
-          <Route path="/purchase" element={<PurchasePage />} /> */}
-          <Route path="/notifications" element={<NotificationsPage />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/user-roles" element={<UserRoles />} />
+          <Route path="/inquiries/day-off" element={<DayOffPage />} />
+          <Route path="/inquiries/business-trip" element={<BusinessTripPage />} />
+          <Route path="/inquiries/vacation" element={<VacationPage />} />
+          <Route path="/inquiries/guest" element={<GuestPage />} />
+          <Route path="/inquiries/it-supply" element={<ITSupplyPage />} />
+          <Route path="/inquiries/purchase" element={<PurchasePage />} />
+          <Route path="/notifications/notification" element={<NotificationsPage />} />
+          <Route path="/settings/users" element={<Users />} />
+          <Route path="/settings/user-roles" element={<UserRoles />} />
         </Routes>
       </MainLayout>
 
