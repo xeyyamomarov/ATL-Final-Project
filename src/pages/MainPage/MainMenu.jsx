@@ -36,6 +36,8 @@ const MainMenu = () => {
         <Vacation data={data.vacation} />
         <NextBirthdays data={data.birthday} />
         <Trip data={data.trip} />
+        <Advertisements data={data.advertisements} />
+        <VacationBalance data = {data.vacationbalance} />
       </Box>
     </>
   );
