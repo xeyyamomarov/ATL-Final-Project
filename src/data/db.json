@@ -8,6 +8,7 @@
         "username": "rufatm",
         "email": "rufatm@xezertv.az",
         "position": "Aparıcı",
+        "department": "Xəzər TV",
         "phone": "+15417543010"
       },
       {
@@ -17,6 +18,7 @@
         "username": "bernardl",
         "email": "blowe@mail.ru",
         "position": "COO",
+        "department": "Xəzər TV",
         "phone": "+15478543010"
       },
       {
@@ -26,6 +28,7 @@
         "username": "sevaB",
         "email": "sevaB@gmail.com",
         "position": "COO",
+        "department": "Xəzər TV",
         "phone": "+1986423010"
       },
       {
@@ -35,6 +38,7 @@
         "username": "robins",
         "email": "fatb@hoho.az",
         "position": "CEO",
+        "department": "Xəzər TV",
         "phone": "+1026554758"
       },
       {
@@ -44,6 +48,7 @@
         "username": "turalM",
         "email": "tuttim@yahoo.az",
         "position": "Operator",
+        "department": "Xəzər TV",
         "phone": "+1894523412"
       },
       {
@@ -53,6 +58,7 @@
         "username": "shiki",
         "email": "dued@tv.az",
         "position": "Aparıcı",
+        "department": "Xəzər TV",
         "phone": "+17463198310"
       },
       {
@@ -62,6 +68,7 @@
         "username": "rufatm",
         "email": "rufatm@xezertv.az",
         "position": "Aparıcı",
+        "department": "Xəzər TV",
         "phone": "+15417543010"
       },
       {
@@ -71,6 +78,7 @@
         "username": "bernardl",
         "email": "blowe@mail.ru",
         "position": "COO",
+        "department": "Xəzər TV",
         "phone": "+15478543010"
       },
       {
@@ -80,6 +88,7 @@
         "username": "sevaB",
         "email": "sevaB@gmail.com",
         "position": "COO",
+        "department": "Xəzər TV",
         "phone": "+1986423010"
       },
       {
@@ -89,6 +98,7 @@
         "username": "robins",
         "email": "fatb@hoho.az",
         "position": "CEO",
+        "department": "Xəzər TV",
         "phone": "+1026554758"
       },
       {
@@ -98,6 +108,7 @@
         "username": "turalM",
         "email": "tuttim@yahoo.az",
         "position": "Operator",
+        "department": "Xəzər TV",
         "phone": "+1894523412"
       },
       {
@@ -107,6 +118,7 @@
         "username": "shiki",
         "email": "dued@tv.az",
         "position": "Aparıcı",
+        "department": "Xəzər TV",
         "phone": "+17463198310"
       },
       {
@@ -116,6 +128,7 @@
         "username": "bernardl",
         "email": "blowe@mail.ru",
         "position": "COO",
+        "department": "Xəzər TV",
         "phone": "+15478543010"
       },
       {
@@ -125,6 +138,7 @@
         "username": "sevaB",
         "email": "sevaB@gmail.com",
         "position": "COO",
+        "department": "Xəzər TV",
         "phone": "+1986423010"
       },
       {
@@ -134,6 +148,7 @@
         "username": "robins",
         "email": "fatb@hoho.az",
         "position": "CEO",
+        "department": "Xəzər TV",
         "phone": "+1026554758"
       }
     ]
@@ -169,6 +184,115 @@
         "name": "azernerji_admin4",
         "isStatic": "Yox",
         "description": "test-role"
+      }
+    ]
+  },
+  "queries": {
+    "queries": [
+      {
+        "id": 1,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Rüfət Səmədov S.",
+        "date": "25/05/2021",
+        "status": "Təsdiqləndi"
+      },
+      {
+        "id": 2,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Hüesyn Lətifov İ.",
+        "date": "25/05/2021",
+        "status": "Ləğv olundu"
+      },
+      {
+        "id": 3,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Sevda Bıyık C.",
+        "date": "25/05/2021",
+        "status": "Təsdiqləndi"
+      },
+      {
+        "id": 4,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Əhəd Miriyev S.",
+        "date": "25/05/2021",
+        "status": "Gözləmədədir"
+      },
+      {
+        "id": 5,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Tural Maqsud",
+        "date": "25/05/2021",
+        "status": "Ləğv olundu"
+      },
+      {
+        "id": 6,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Shikhi Qasimli S.",
+        "date": "25/05/2021",
+        "status": "Ləğv olundu"
+      },
+      {
+        "id": 7,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Rüfət Səmədov S.",
+        "date": "25/05/2021",
+        "status": "Gözləmədədir"
+      },
+      {
+        "id": 8,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Hüesyn Lətifov İ.",
+        "date": "25/05/2021",
+        "status": "Ləğv olundu"
+      },
+      {
+        "id": 9,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Sevda Bıyık C.",
+        "date": "25/05/2021",
+        "status": "Təsdiqləndi"
+      },
+      {
+        "id": 10,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Əhəd Miriyev S.",
+        "date": "25/05/2021",
+        "status": "Gözləmədədir"
+      },
+      {
+        "id": 11,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Tural Maqsud",
+        "date": "25/05/2021",
+        "status": "Təsdiqləndi"
+      },
+      {
+        "id": 12,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Shikhi Qasimli S.",
+        "date": "25/05/2021",
+        "status": "Ləğv olundu"
+      },
+      {
+        "id": 13,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Hüesyn Lətifov İ.",
+        "date": "25/05/2021",
+        "status": "Təsdiqləndi"
+      },
+      {
+        "id": 14,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Sevda Bıyık C.",
+        "date": "25/05/2021",
+        "status": "Təsdiqləndi"
+      },
+      {
+        "id": 15,
+        "avatar": "https://picsum.photos/200",
+        "fullName": "Əhəd Miriyev S.",
+        "date": "25/05/2021",
+        "status": "Təsdiqləndi"
       }
     ]
   },
@@ -533,6 +657,5 @@
           
         ]
       }
-
   }
 }

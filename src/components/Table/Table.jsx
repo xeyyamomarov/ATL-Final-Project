@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { Avatar, Table as ATable, Typography, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Box, Paper } from '@mui/material/';
-import { MoreOptions } from 'pages/Users/components/MoreOptions';
-import { EditUser } from 'pages/Users/components/EditUser';
+import { Table as MuiTable, Typography, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Box, Paper } from '@mui/material/';
+import { Description } from '@mui/icons-material'
 import { makeStyles } from '@mui/styles';
-import { EditUserRoles } from 'pages/UserRoles/EditUserRoles';
-import { RoleMoreOptions } from 'pages/UserRoles/RoleMoreOptions';
+
 
 const useStyles = makeStyles({
   paper: {
@@ -36,10 +34,24 @@ const useStyles = makeStyles({
     fontSize: "12px",
     fontWeight: 400
   },
-
+  noDataContainer: {
+    width: '100%',
+    height: '126px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  noDataIcon: {
+    fontSize: '35px',
+    color: "#9B5AE1"
+  },
+  noDataText: {
+    color: "#9B5AE1"
+  }
 })
 
-export default function Table({ tbody = [], thead = [], pagination, avatar }) {
+export default function Table({ tbody, thead = [], pagination }) {
   const classes = useStyles();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(4);
@@ -54,70 +66,72 @@ export default function Table({ tbody = [], thead = [], pagination, avatar }) {
   };
 
   return (
+    <>
+    {tbody ? 
     <Paper className={classes.paper}>
-      <TableContainer className={classes.tcontainer}>
-        <ATable stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {thead.map((column) => (
-                <TableCell
-                  className={classes.thead}
-                  key={column.key}
-                  minWidth={column.minWidth}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {tbody.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                  <TableRow hover key={row.id}>
-                    {thead.map((column) => {
-
-                      if (column.render) {
-                        return (
-                          <TableCell key={column.key} className={classes.tbody}>
-                            <Box className={classes.iconsBox}>
-                              {column.render(row)}
-                            </Box>
-                          </TableCell>
-                        )
-                      } else {
-                        const value = row[column.key];
-                        return (
-                          <TableCell key={column.key} className={classes.tbody}>
-                            <Box className={classes.iconsBox}>
-                              <Typography className={classes.data}>
-                                {value}
-                              </Typography>
-                            </Box>
-                          </TableCell>
-                        )
-                      }
-                    })}
-                  </TableRow>
-                );
-              })}
-          </TableBody>
-        </ATable>
-      </TableContainer>
-      {pagination && <TablePagination
-        // className={{
-        //   toolbar: classes.toolbar,
-        //   caption: classes.caption,
-        //   root: classes.root
-        // }}
-        rowsPerPageOptions={[4, 10, 25, 100]}
-        component="div"
-        count={tbody.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />}
-    </Paper>
+    <TableContainer>
+      <MuiTable>
+        <TableHead>
+          <TableRow>
+            {thead.map((column) => (
+              <TableCell
+                className={classes.thead}
+                key={column.key}
+                style={column.style}
+              >
+                {column.label}
+              </TableCell>
+            ))}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {tbody.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            .map((row) => {
+              return (
+                <TableRow hover key={row.id}>
+                  {thead.map((column) => {
+                    if (column.render) {
+                      return (
+                        <TableCell key={column.key} className={classes.tbody}>
+                          <Box className={classes.iconsBox}>
+                            {column.render(row)}
+                          </Box>
+                        </TableCell>
+                      )
+                    } else {
+                      const value = row[column.key];
+                      return (
+                        <TableCell key={column.key} className={classes.tbody}>
+                          <Box className={classes.iconsBox}>
+                            <Typography className={classes.data}>
+                              {value}
+                            </Typography>
+                          </Box>
+                        </TableCell>
+                      )
+                    }
+                  })}
+                </TableRow>
+              );
+            })}
+        </TableBody>
+      </MuiTable>
+    </TableContainer>
+    {pagination && <TablePagination
+      rowsPerPageOptions={[4, 10, 25, 100]}
+      component="div"
+      count={tbody.length}
+      rowsPerPage={rowsPerPage}
+      page={page}
+      onPageChange={handleChangePage}
+      onRowsPerPageChange={handleChangeRowsPerPage}
+    />}
+  </Paper> :
+  <Box className={classes.noDataContainer}>
+    <Description className={classes.noDataIcon}/>
+    <Typography className={classes.noDataText}>Sənəd mövcud deyil</Typography>
+  </Box>
+  }
+    </>
   );
 }

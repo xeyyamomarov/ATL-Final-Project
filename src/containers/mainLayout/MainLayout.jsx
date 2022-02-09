@@ -4,7 +4,6 @@ import NavBar from "components/NavBar";
 import { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
 const theme = createTheme({
   palette: {
     primary: {
@@ -31,6 +30,7 @@ const theme = createTheme({
   }
 })
 
+
 const MainLayout = ({ children }) => {
   const [open, setOpen] = useState(true);
 
@@ -39,13 +39,11 @@ const MainLayout = ({ children }) => {
       direction="row"
       spacing={0}
     >
-      <SideBar open={open} setOpen={setOpen} />
+        <SideBar open={open} setOpen={setOpen} />
       <Box sx={{ flexGrow: 1 }}>
         <ThemeProvider theme={theme}>
           <NavBar open={open} setOpen={setOpen} />
-          <Box padding="16px">
             {children}
-          </Box>
         </ThemeProvider>
       </Box>
     </Stack>
