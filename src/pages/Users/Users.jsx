@@ -16,6 +16,7 @@ const Users = () => {
 
   const dispatch = useDispatch();
   const { users } = useSelector(USERS_SELECTORS.getUsers);
+  const loading = useSelector(USERS_SELECTORS.getUsersLoading);
   const [searchOpen, setSearchOpen] = useState(false);
   const thead = UsersTableHeader();
   const addNewHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
@@ -37,7 +38,7 @@ const Users = () => {
       } />
       <Box padding="16px">
         <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
-        <Table thead={thead} tbody={users} pagination />
+        <Table thead={thead} tbody={users} loading={loading} pagination />
         <AddNewUserDialog />
         <EditUserDialog />
         <PasswordUpdateDialog />
