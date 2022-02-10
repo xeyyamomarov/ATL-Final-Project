@@ -4,8 +4,8 @@ import NavBar from "components/NavBar";
 import { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SearchForm } from "components/SearchForm/SearchForm";
-import { SearchBar } from "components/SearchBar/SearchBar";
 import { Collapse } from "@mui/material";
+import { SearchBar } from "components/SearchBar/SearchBar";
 
 const theme = createTheme({
   palette: {
@@ -46,7 +46,7 @@ const MainLayout = ({ children }) => {
       <Box sx={{ flexGrow: 1 }}>
         <ThemeProvider theme={theme}>
           <NavBar open={open} setOpen={setOpen} />
-          <SearchBar />
+          <SearchBar/>
           <Box padding="16px">
              <Collapse 
              //in={search}

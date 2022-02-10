@@ -1,4 +1,4 @@
-import { ReactComponent as Logo } from "assets/logo/logo.svg";
+import { ReactComponent as Logo } from "assets";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useStyles } from './Styles';

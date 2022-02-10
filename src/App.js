@@ -1,4 +1,3 @@
-import "./App.css";
 import MainLayout from "containers/mainLayout";
 import { Routes, Route } from "react-router-dom";
 import EmployeesPage from "pages/EmployeesPage";
