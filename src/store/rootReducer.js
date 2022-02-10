@@ -4,6 +4,7 @@ import { userRolesReducer } from './UserRoles/userRoles.reducer';
 import { usersReducer } from './Users/users.reducer';
 import { cardsReducer } from './Cards/cards.reducer';
 import { queriesReducer } from './Queries/queries.reducer';
+import { employeesReducer } from './Employees/employees.reducer';
 
 export default combineReducers({
   users: usersReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   cards:cardsReducer,
   toggles: togglesReducer,
   queries: queriesReducer,
+  employees: employeesReducer,
 })

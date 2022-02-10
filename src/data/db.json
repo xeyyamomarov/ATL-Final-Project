@@ -1,4 +1,50 @@
-{
+{ "employees": {"employees": [
+  {
+    "id": 1,
+    "avatar": "https://picsum.photos/200",
+    "fullName": "Rüfət Səmədov S.",
+    "position": "Aparıcı",
+    "department": "Xəzər TV",
+    "email": "rufatm@xezertv.az",
+    "phone": "+15417543010"
+  },
+  {
+    "id": 2,
+    "avatar": "https://picsum.photos/200",
+    "fullName": "Rüfət Səmədov S.",
+    "position": "Usta",
+    "department": "Xəzər TV",
+    "email": "rufatm@xezertv.az",
+    "phone": "+15417543010"
+  },
+  {
+    "id": 3,
+    "avatar": "https://picsum.photos/200",
+    "fullName": "Rüfət Səmədov S.",
+    "position": "Muhasib",
+    "department": "Xəzər TV",
+    "email": "rufatm@xezertv.az",
+    "phone": "+15417543010"
+  },
+  {
+    "id": 4,
+    "avatar": "https://picsum.photos/200",
+    "fullName": "Rüfət Səmədov S.",
+    "position": "Satici",
+    "department": "Xəzər TV",
+    "email": "rufatm@xezertv.az",
+    "phone": "+15417543010"
+  },
+  {
+    "id": 5,
+    "avatar": "https://picsum.photos/200",
+    "fullName": "Rüfət Səmədov S.",
+    "position": "Kamera",
+    "department": "Xəzər TV",
+    "email": "rufatm@xezertv.az",
+    "phone": "+15417543010"
+  }
+]},
   "users": {
     "users": [
       {
@@ -8,7 +54,6 @@
         "username": "rufatm",
         "email": "rufatm@xezertv.az",
         "position": "Aparıcı",
-        "department": "Xəzər TV",
         "phone": "+15417543010"
       },
       {
@@ -18,7 +63,6 @@
         "username": "bernardl",
         "email": "blowe@mail.ru",
         "position": "COO",
-        "department": "Xəzər TV",
         "phone": "+15478543010"
       },
       {
@@ -28,7 +72,6 @@
         "username": "sevaB",
         "email": "sevaB@gmail.com",
         "position": "COO",
-        "department": "Xəzər TV",
         "phone": "+1986423010"
       },
       {
@@ -38,7 +81,6 @@
         "username": "robins",
         "email": "fatb@hoho.az",
         "position": "CEO",
-        "department": "Xəzər TV",
         "phone": "+1026554758"
       },
       {
@@ -48,7 +90,6 @@
         "username": "turalM",
         "email": "tuttim@yahoo.az",
         "position": "Operator",
-        "department": "Xəzər TV",
         "phone": "+1894523412"
       },
       {
@@ -58,7 +99,6 @@
         "username": "shiki",
         "email": "dued@tv.az",
         "position": "Aparıcı",
-        "department": "Xəzər TV",
         "phone": "+17463198310"
       },
       {
@@ -68,7 +108,6 @@
         "username": "rufatm",
         "email": "rufatm@xezertv.az",
         "position": "Aparıcı",
-        "department": "Xəzər TV",
         "phone": "+15417543010"
       },
       {
@@ -78,7 +117,6 @@
         "username": "bernardl",
         "email": "blowe@mail.ru",
         "position": "COO",
-        "department": "Xəzər TV",
         "phone": "+15478543010"
       },
       {
@@ -88,7 +126,6 @@
         "username": "sevaB",
         "email": "sevaB@gmail.com",
         "position": "COO",
-        "department": "Xəzər TV",
         "phone": "+1986423010"
       },
       {
@@ -98,7 +135,6 @@
         "username": "robins",
         "email": "fatb@hoho.az",
         "position": "CEO",
-        "department": "Xəzər TV",
         "phone": "+1026554758"
       },
       {
@@ -108,7 +144,6 @@
         "username": "turalM",
         "email": "tuttim@yahoo.az",
         "position": "Operator",
-        "department": "Xəzər TV",
         "phone": "+1894523412"
       },
       {
@@ -118,7 +153,6 @@
         "username": "shiki",
         "email": "dued@tv.az",
         "position": "Aparıcı",
-        "department": "Xəzər TV",
         "phone": "+17463198310"
       },
       {
@@ -128,7 +162,6 @@
         "username": "bernardl",
         "email": "blowe@mail.ru",
         "position": "COO",
-        "department": "Xəzər TV",
         "phone": "+15478543010"
       },
       {
@@ -138,7 +171,6 @@
         "username": "sevaB",
         "email": "sevaB@gmail.com",
         "position": "COO",
-        "department": "Xəzər TV",
         "phone": "+1986423010"
       },
       {
@@ -148,7 +180,6 @@
         "username": "robins",
         "email": "fatb@hoho.az",
         "position": "CEO",
-        "department": "Xəzər TV",
         "phone": "+1026554758"
       }
     ]
