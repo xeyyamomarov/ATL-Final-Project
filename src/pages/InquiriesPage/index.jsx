@@ -1,7 +1,7 @@
-import DayOffPage from './dayOff';
-import BusinessTripPage from './businessTrip';
-import GuestPage from './guest';
-import ITSupplyPage from './ITSupply';
-import PurchasePage from './purchase';
-import VacationPage from './vacation';
-export { DayOffPage, BusinessTripPage, GuestPage, ITSupplyPage, PurchasePage, VacationPage };
+import DayOff from './DayOff';
+import BusinessTrip from './BusinessTrip';
+import Guest from './Guest';
+import ITSupply from './IT-Supply';
+import Purchase from './Purchase';
+import Vacation from './Vacation';
+export { DayOff, BusinessTrip, Guest, ITSupply, Purchase, Vacation };

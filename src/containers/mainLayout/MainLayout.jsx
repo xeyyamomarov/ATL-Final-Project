@@ -3,9 +3,12 @@ import SideBar from "components/SideBar";
 import NavBar from "components/NavBar";
 import { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+<<<<<<< HEAD
 import { SearchForm } from "components/SearchForm/SearchForm";
 import { Collapse } from "@mui/material";
 import { SearchBar } from "components/SearchBar/SearchBar";
+=======
+>>>>>>> 4f8f4a5ef1003b419cac289a8979b49a31a24874
 
 const theme = createTheme({
   palette: {
@@ -46,13 +49,15 @@ const MainLayout = ({ children }) => {
       <Box sx={{ flexGrow: 1 }}>
         <ThemeProvider theme={theme}>
           <NavBar open={open} setOpen={setOpen} />
+<<<<<<< HEAD
           <SearchBar/>
           <Box padding="16px">
              <Collapse 
              //in={search}
              >{<SearchForm />}</Collapse>
+=======
+>>>>>>> 4f8f4a5ef1003b419cac289a8979b49a31a24874
             {children}
-          </Box>
         </ThemeProvider>
       </Box>
     </Stack>
