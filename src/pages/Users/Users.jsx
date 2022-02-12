@@ -9,6 +9,7 @@ import { SearchForm } from './components/SearchForm';
 import { AddButton, SearchButton } from "components/Buttons";
 import { UsersTableHeader } from "./UsersTableHeader";
 import { TOGGLES_ACTIONS } from "store/Toggles";
+import { DeleteUserDialog } from "./components/Dialogs/DeleteUserDialog";
 
 
 
@@ -41,6 +42,7 @@ export const Users = () => {
         <Table thead={thead} tbody={users} loading={loading} pagination />
         <AddNewUserDialog />
         <EditUserDialog />
+        <DeleteUserDialog />
         <PasswordUpdateDialog />
       </Box>
     </>

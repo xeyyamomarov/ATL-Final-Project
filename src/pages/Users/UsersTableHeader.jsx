@@ -76,7 +76,7 @@ export const UsersTableHeader = () => {
           <Box display='flex' width='100%' justifyContent='flex-end' alignItems='center'>
             <EditUser userId={row.id} />
             <MoreOptions>
-              <MenuItem onClick={() => console.log(`User ${row.id} Deactivated`)}>Deaktivləşdirin</MenuItem>
+              <MenuItem onClick={() => dispatch(TOGGLES_ACTIONS.setDeactivateUser())}>Deaktivləşdirin</MenuItem>
               <MenuItem onClick={() => dispatch(TOGGLES_ACTIONS.setPasswordUpdateDialog())}>Şifrəni yenilə</MenuItem>
             </MoreOptions>
           </Box>

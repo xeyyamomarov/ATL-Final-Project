@@ -25,10 +25,7 @@ export function Table({ tbody = [], thead = [], pagination, loading }) {
     >
 
       <MuiTable stickyHeader aria-label="sticky table"
-        sx={{
-          minWidth: 900,
-          border: "1px solid blue"
-        }}
+        className={classes.table}
       >
         <TableHead>
           <TableRow>

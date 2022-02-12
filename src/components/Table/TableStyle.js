@@ -5,8 +5,7 @@ export const useStyles = makeStyles({
     width: '100%',
     overflow: 'hidden',
     boxShadow: "none",
-    // border: "1px solid #E0E0E0"
-    border: "1px solid red"
+    border: "1px solid #E0E0E0"
   },
   thead: {
     backgroundColor: '#F5F5F5',
@@ -15,8 +14,8 @@ export const useStyles = makeStyles({
     fontSize: "12px",
     fontWeight: "700",
   },
-  tableBody: {
-    // width: "90vh",
+  table: {
+    minWidth: 900
   },
   tcell: {
     height: "48px",
