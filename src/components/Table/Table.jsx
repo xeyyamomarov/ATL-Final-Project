@@ -21,11 +21,14 @@ export function Table({ tbody = [], thead = [], pagination, loading }) {
   return (
     <TableContainer
       component={Paper}
-      className={classes.paper}
+      className={classes.tcontainer}
     >
 
       <MuiTable stickyHeader aria-label="sticky table"
-        sx={{ minWidth: 900, border: "1px solid blue" }}
+        sx={{
+          minWidth: 900,
+          border: "1px solid blue"
+        }}
       >
         <TableHead>
           <TableRow>
@@ -33,7 +36,7 @@ export function Table({ tbody = [], thead = [], pagination, loading }) {
               <TableCell
                 className={classes.thead}
                 key={column.key}
-              style={column.style}
+                style={column.style}
               >
                 {column.label}
               </TableCell>
@@ -51,7 +54,7 @@ export function Table({ tbody = [], thead = [], pagination, loading }) {
                       if (column.render) {
                         return (
                           <TableCell key={column.key}
-                          className={classes.tcell}
+                            className={classes.tcell}
                           >
                             <Box className={classes.iconsBox}>
                               {column.render(row)}
@@ -62,7 +65,7 @@ export function Table({ tbody = [], thead = [], pagination, loading }) {
                         const value = row[column.key];
                         return (
                           <TableCell key={column.key}
-                          className={classes.tcell}
+                            className={classes.tcell}
                           >
                             <Box className={classes.iconsBox}>
                               <Typography className={classes.data}>

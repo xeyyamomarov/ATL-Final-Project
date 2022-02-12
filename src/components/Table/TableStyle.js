@@ -1,7 +1,7 @@
 import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles({
-  paper: {
+  tcontainer: {
     width: '100%',
     overflow: 'hidden',
     boxShadow: "none",
