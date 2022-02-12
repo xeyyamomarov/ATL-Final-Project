@@ -1,6 +1,6 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import Table from "components/Table/Table";
+import {Table} from "components/Table";
 import { AdvertisementsTableHeader } from "./AdvertisementsTableHeader";
 
 export const Advertisements = ({ data }) => {

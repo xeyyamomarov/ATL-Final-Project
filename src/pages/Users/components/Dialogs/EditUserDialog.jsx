@@ -12,7 +12,7 @@ import { Autocomplete } from 'formik-mui'
 import { useSelector, useDispatch } from 'react-redux';
 import * as Yup from "yup";
 import { TOGGLES_ACTIONS, TOGGLES_SELECTORS } from "store/Toggles";
-import TextFieldWrapper from "./TextFieldWrapper/TextFieldWrapper";
+import { TextFieldWrapper } from "./TextFieldWrapper";
 
 const positions = [
   "User",
@@ -38,7 +38,7 @@ const onSubmit = (values, { resetForm }) => {
   resetForm()
 }
 
-const EditUserDialog = () => {
+export const EditUserDialog = () => {
 
   const dispatch = useDispatch();
   const open = useSelector(TOGGLES_SELECTORS.getEditDialogToggle)
@@ -114,6 +114,4 @@ const EditUserDialog = () => {
       </Formik>
     </Dialog>
   );
-}
-
-export default EditUserDialog;
+};

@@ -16,7 +16,7 @@ import { Autocomplete } from 'formik-mui';
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLES_SELECTORS, TOGGLES_ACTIONS } from "store/Toggles";
 import * as Yup from "yup";
-import TextFieldWrapper from "./TextFieldWrapper/TextFieldWrapper";
+import { TextFieldWrapper } from "./TextFieldWrapper";
 
 const positions = [
   "User",
@@ -47,7 +47,7 @@ const validationSchema = Yup.object({
 });
 
 
-const AddNewUserDialog = () => {
+export const AddNewUserDialog = () => {
   
   const dispatch = useDispatch();
   const passwordHidden = useSelector(TOGGLES_SELECTORS.getPasswordHidden);
@@ -158,5 +158,3 @@ const AddNewUserDialog = () => {
     </Dialog>
   );
 };
-
-export default AddNewUserDialog;

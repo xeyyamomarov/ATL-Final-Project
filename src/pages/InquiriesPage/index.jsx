@@ -1,7 +1,6 @@
-import DayOff from './DayOff';
-import BusinessTrip from './BusinessTrip';
-import Guest from './Guest';
-import ITSupply from './IT-Supply';
-import Purchase from './Purchase';
-import Vacation from './Vacation';
-export { DayOff, BusinessTrip, Guest, ITSupply, Purchase, Vacation };
+export * from './DayOff';
+export * from './BusinessTrip';
+export * from './Guest';
+export * from './IT-Supply';
+export * from './Purchase';
+export * from './Vacation';

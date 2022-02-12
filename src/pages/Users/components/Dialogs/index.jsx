@@ -1,4 +1,4 @@
-import AddNewUserDialog from "./AddNewUserDialog";
-import EditUserDialog from "./EditUserDialog";
-import PasswordUpdateDialog from "./PasswordUpdateDialog";
-export { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog };
+export * from "./AddNewUserDialog";
+export * from "./EditUserDialog";
+export * from "./PasswordUpdateDialog";
+export * from "./DeleteUserDialog";

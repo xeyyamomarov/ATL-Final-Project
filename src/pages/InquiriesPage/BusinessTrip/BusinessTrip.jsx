@@ -4,7 +4,7 @@ import { AddButton } from "components/Buttons";
 import { SearchButton } from "components/Buttons";
 import { useState } from "react";
 
-const BusinessTrip = () => {
+export const BusinessTrip = () => {
   const [searchOpen, setSearchOpen] = useState(false);
 
   const addNewHandleClick = () => console.log("some function");
@@ -19,11 +19,10 @@ const BusinessTrip = () => {
           <AddButton onClick={addNewHandleClick} />
         </>
       } />
+      
       <Box padding="16px">
         {/* Business trip component body */}
       </Box>
     </>
   );
-}
-
-export default BusinessTrip;
+};

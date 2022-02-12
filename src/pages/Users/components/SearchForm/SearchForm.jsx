@@ -110,4 +110,4 @@ export const SearchForm = () => {
       </Formik>
     </Box>
   );
-}
+};

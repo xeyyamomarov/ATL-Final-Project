@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
-import Table from "components/Table/Table";
+import { Table } from "components/Table";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState } from "react";
 import { EmployeesTableHeader } from "./EmployeesTableHeader";

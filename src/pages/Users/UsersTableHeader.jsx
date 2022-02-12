@@ -29,7 +29,7 @@ export const UsersTableHeader = () => {
     {
       key: "fullName",
       label: "A.S.A.",
-      minWidth: "220px",
+      style: {minWidth: 220},
       render: (row) => {
         return (
           <>
@@ -76,7 +76,7 @@ export const UsersTableHeader = () => {
           <Box display='flex' width='100%' justifyContent='flex-end' alignItems='center'>
             <EditUser userId={row.id} />
             <MoreOptions>
-              <MenuItem onClick={() => console.log(`User ${row.id} Deactivated`)}>Deaktivləşdirin</MenuItem>
+              <MenuItem onClick={() => dispatch(TOGGLES_ACTIONS.setDeactivateUser())}>Deaktivləşdirin</MenuItem>
               <MenuItem onClick={() => dispatch(TOGGLES_ACTIONS.setPasswordUpdateDialog())}>Şifrəni yenilə</MenuItem>
             </MoreOptions>
           </Box>

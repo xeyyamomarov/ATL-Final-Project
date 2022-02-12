@@ -1,2 +1,1 @@
-import BusinessTripPage from "./BusinessTrip";
-export default BusinessTripPage;
+export * from "./BusinessTrip";

@@ -1,10 +1,10 @@
 import { TextField } from "@mui/material";
 import { useField } from "formik";
 
-function TextFieldWrapper({
+export const TextFieldWrapper = ({
   name,
   ...otherProps
-}) {
+}) => {
 
   const [field, meta] = useField(name)
 
@@ -22,6 +22,4 @@ function TextFieldWrapper({
   return (
     <TextField {...configTextField}/>
   );
-}
-
-export default TextFieldWrapper;
+};

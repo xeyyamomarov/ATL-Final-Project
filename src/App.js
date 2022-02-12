@@ -1,6 +1,5 @@
 import MainLayout from "containers/mainLayout";
 import { Routing } from "routing";
-import { Login } from "pages/Login";
 
 function App() {
   return (

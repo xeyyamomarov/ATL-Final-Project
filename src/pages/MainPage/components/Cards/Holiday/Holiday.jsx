@@ -1,8 +1,8 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState } from "react";
-import Table from "components/Table/Table";
 import { HolidayTableHeader } from "./HolidayTableHeader";
+import { Table } from "components/Table";
 
 export const Vacation = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);

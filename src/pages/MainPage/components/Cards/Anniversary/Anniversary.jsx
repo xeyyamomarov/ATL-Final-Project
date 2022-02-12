@@ -1,8 +1,8 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState } from "react";
-import Table from "components/Table/Table";
 import { AnniversaryTableHeader } from "./AnniversaryTableHeader";
+import { Table } from "components/Table";
 
 export const Anniversary = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);

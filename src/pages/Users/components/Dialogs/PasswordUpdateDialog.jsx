@@ -5,7 +5,7 @@ import { SubmitButton, CloseButton } from 'components/Buttons';
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLES_SELECTORS, TOGGLES_ACTIONS } from "store/Toggles";
 import * as Yup from "yup";
-import TextFieldWrapper from "./TextFieldWrapper/TextFieldWrapper";
+import { TextFieldWrapper } from "./TextFieldWrapper";
 
 
 const initialValues = {
@@ -23,7 +23,7 @@ const validationSchema = Yup.object({
   passwordRepeat: Yup.string().required("Mütləq doldurulmalıdır!"),
 });
 
-const PasswordUpdateDialog = () => {
+export const PasswordUpdateDialog = () => {
   const dispatch = useDispatch();
   const passwordHidden = useSelector(TOGGLES_SELECTORS.getPasswordHidden);
   const handlePasswordHidden = () => dispatch(TOGGLES_ACTIONS.setPasswordHidden());
@@ -105,6 +105,4 @@ const PasswordUpdateDialog = () => {
 
     </Dialog>
   );
-}
-
-export default PasswordUpdateDialog;
+};

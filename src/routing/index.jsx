@@ -10,8 +10,8 @@ import {
     Vacation
 } from 'pages/InquiriesPage';
 import NotificationsPage from "pages/NotificationsPage";
-import Users from "pages/Users";
-import UserRoles from "pages/UserRoles";
+import {Users} from "pages/Users";
+import {UserRoles} from "pages/UserRoles";
 
 export const Routing = () => {
     return (

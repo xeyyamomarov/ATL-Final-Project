@@ -124,4 +124,4 @@ export const InquiriesSearchForm = () => {
       </Formik>
     </Box>
   );
-}
+};

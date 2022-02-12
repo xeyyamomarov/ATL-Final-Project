@@ -1,4 +1,3 @@
-import NewRoleDialog from "./NewRoleDialog";
-import EditRoleDialog from "./EditRoleDialog";
-import DeleteRoleDialog from "./DeleteRoleDialog";
-export { NewRoleDialog, EditRoleDialog, DeleteRoleDialog };
+export * from "./NewRoleDialog";
+export * from "./EditRoleDialog";
+export * from "./DeleteRoleDialog";

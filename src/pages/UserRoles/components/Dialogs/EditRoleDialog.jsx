@@ -49,7 +49,7 @@ const onSubmit = (values, { resetForm }) => {
   resetForm()
 }
 
-const EditRoleDialog = () => {
+export const EditRoleDialog = () => {
   const classes = useStyle();
 
   const dispatch = useDispatch();
@@ -137,5 +137,3 @@ const EditRoleDialog = () => {
     </Dialog>
   );
 };
-
-export default EditRoleDialog;

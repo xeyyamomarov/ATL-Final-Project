@@ -9,11 +9,13 @@ import { DatePicker } from "formik-mui-lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import {
   LocalizationProvider,
-  // DatePicker 
+  // DatePicker
 } from "@mui/lab";
 import { SubmitButton } from "components/Buttons";
 // import DateInput from "pages/InquiriesPage/components/DateInput";
 import { useState } from "react";
+import DateInput from "pages/InquiriesPage/components/DateInput";
+import { EDatePicker } from "pages/InquiriesPage/components/EDatePicker";
 
 
 
@@ -47,16 +49,12 @@ const resultDatas = [
   { value: "Confirmed", label: "Təsdiqləndi" }
 ]
 
-// const tabs = [
-//   { value: "one", label: "Sorğunun formalaşdırılması" },
-//   { value: "two", label: "Departament rəhbərin göndərməsi" },
-//   { value: "three", label: "HR göndərməsi" },
-// ]
 
 const initialValues = {
-  date: "",
+  date: null,
   type: "",
-  result: ""
+  result: "",
+  text: ""
 }
 
 const onSubmit = (values, { resetForm }) => {
@@ -65,9 +63,9 @@ const onSubmit = (values, { resetForm }) => {
 }
 
 export const Testquery = () => {
+  const dispatch = useDispatch();
   // const [selectedDate, setSelectedDate] = useState(new Date());
   const classes = useStyles();
-  const dispatch = useDispatch();
   // const close = () => dispatch(TOGGLES_ACTIONS.setSearchForm())
 
   return (
@@ -83,23 +81,33 @@ export const Testquery = () => {
               <Grid item sm={12}>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   {/* <Field
+                    fullWidth
                     component={DatePicker}
                     label="Day Off tarixi"
                     name="date"
                     inputFormat="dd/MM/yyyy"
                     InputAdornmentProps={{ position: "start" }}
                   /> */}
-                  <Field
+
+                  {/* <Field
                     name="date"
-                    component={DatePicker}
+                    component={EDatePicker}
                     label="Day Off tarixi"
-                    // renderInput={props => {
-                    //   return <MuiTextField fullWidth {...props} />
-                    // }}
+                    renderInput={props => {
+                      return <MuiTextField fullWidth {...props} />
+                    }}
                     inputFormat="dd/MM/yyyy"
                     InputAdornmentProps={{ position: "start" }}
-                  />
+                  /> */}
                 </LocalizationProvider>
+              </Grid>
+
+              <Grid item sm={12}>
+                {/* <Field component={EDatePicker} name="date" label="Day Off" /> */}
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  {/* <Field component={DatePicker} fullWidth name="date" label="Dayoff"/> */}
+                </LocalizationProvider>
+                <EDatePicker name="date" label="Day Off" />
               </Grid>
 
               <Grid item sm={12}>

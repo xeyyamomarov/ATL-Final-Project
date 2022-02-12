@@ -11,10 +11,11 @@ import { Box, Collapse } from "@mui/material";
 import { SearchForm } from "./components/SearchForm";
 
 
-const UserRoles = () => {
+export const UserRoles = () => {
   const dispatch = useDispatch();
   const [searchOpen, setSearchOpen] = useState(false);
   const { userroles } = useSelector(USER_ROLES_SELECTORS.getUserRoles);
+  const loading = useSelector(USER_ROLES_SELECTORS.getUserRolesLoading);
   const addNewHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
 
 
@@ -58,13 +59,11 @@ const UserRoles = () => {
       } />
       <Box padding="16px">
         <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
-        <Table thead={thead} tbody={userroles} pagination />
+        <Table thead={thead} tbody={userroles} loading={loading} pagination />
         <NewRoleDialog />
         <EditRoleDialog />
         <DeleteRoleDialog />
       </Box>
     </>
   );
-}
-
-export default UserRoles;
+};

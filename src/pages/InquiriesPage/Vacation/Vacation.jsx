@@ -4,7 +4,7 @@ import { AddButton } from "components/Buttons";
 import { SearchButton } from "components/Buttons";
 import { useState } from "react";
 
-const Vacation = () => {
+export const Vacation = () => {
   const [searchOpen, setSearchOpen] = useState(false);
 
   const addNewHandleClick = () => console.log("some function");
@@ -24,6 +24,4 @@ const Vacation = () => {
       </Box>
     </>
   );
-}
-
-export default Vacation;
+};

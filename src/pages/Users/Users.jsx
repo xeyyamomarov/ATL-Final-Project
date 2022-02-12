@@ -9,13 +9,15 @@ import { SearchForm } from './components/SearchForm';
 import { AddButton, SearchButton } from "components/Buttons";
 import { UsersTableHeader } from "./UsersTableHeader";
 import { TOGGLES_ACTIONS } from "store/Toggles";
+import { DeleteUserDialog } from "./components/Dialogs/DeleteUserDialog";
 
 
 
-const Users = () => {
+export const Users = () => {
 
   const dispatch = useDispatch();
   const { users } = useSelector(USERS_SELECTORS.getUsers);
+  const loading = useSelector(USERS_SELECTORS.getUsersLoading);
   const [searchOpen, setSearchOpen] = useState(false);
   const thead = UsersTableHeader();
   const addNewHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
@@ -37,13 +39,12 @@ const Users = () => {
       } />
       <Box padding="16px">
         <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
-        <Table thead={thead} tbody={users} pagination />
+        <Table thead={thead} tbody={users} loading={loading} pagination />
         <AddNewUserDialog />
         <EditUserDialog />
+        <DeleteUserDialog />
         <PasswordUpdateDialog />
       </Box>
     </>
   );
-}
-
-export default Users;
+};
