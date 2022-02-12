@@ -2,15 +2,18 @@ import { InfoRounded } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material';
 
 
-const InfoSection = () => {
+export const InfoSection = ({ name }) => {
   return (
-    <Box>
+    <Box sx={{
+      display: 'flex',
+      padding: "12px 16px",
+      gap: 1
+    }}>
       <InfoRounded />
-      <Typography sx={{ fontSize: "16px", fontWeight: "700" }}>
-        <strong>Sorğunu yaradan şəxs: </strong>Lamiə Səyidova Əliağa
+      <Typography sx={{ fontSize: "16px", fontWeight: "400" }}>
+        <strong>Sorğunu yaradan şəxs: </strong>
+        {name}
       </Typography>
     </Box>
   );
-}
-
-export default InfoSection;
+};

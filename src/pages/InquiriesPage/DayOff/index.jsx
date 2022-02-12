@@ -1,2 +1,1 @@
-import DayOff from "./DayOff";
-export default DayOff;
+export * from "./DayOff";

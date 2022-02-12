@@ -1,9 +1,12 @@
 import { Box } from "@mui/material";
-import DialogHead from "pages/InquiriesPage/components/DialogHead";
+import DialogHead from "pages/InquiriesPage/components/FormHead";
 import { InputSelect } from "pages/InquiriesPage/components/InputSelect";
 import SubmitButton from "components/Buttons/SubmitButton";
-import DateInput from "pages/InquiriesPage/components/DateInput";
-import QueryTabs from "pages/InquiriesPage/components/QueryTabs";
+import { DateInput } from "pages/InquiriesPage/components/DateInput";
+import { QueryTabs } from "pages/InquiriesPage/components/QueryTabs";
+import Breadcrumbs from "components/Breadcrumbs";
+import { FormHead } from "pages/InquiriesPage/components";
+import { Testquery } from "./Test";
 
 // import { DatePicker, DesktopDatePicker } from "formik-mui-lab";
 // import { Field } from "formik";
@@ -26,21 +29,34 @@ const tabs = [
   { value: "three", label: "HR göndərməsi" },
 ]
 
-const QueryForming = () => {
+export const DayOffForm = () => {
 
 
   return (
     <Box>
+      <Box 
+      sx={{
+        // display: 'flex',
+        // justifyContent: 'space-between',
+        // alignItems: 'center',
+        borderBottom: "1px solid #E0E0E0",
+        padding: "12px 16px"
+      }}
+      >
+        <Breadcrumbs />
+      </Box>
       <QueryTabs tabs={tabs} />
       <Box padding="16px 93px" textAlign="end">
         <Box display="flex" gap="16px" flexDirection="column">
           <Box sx={{ border: "1px solid #E0E0E0", borderRadius: "4px" }}>
-            <DialogHead text="Sorğunun formalaşdırılması" />
+            <FormHead text="Sorğunun formalaşdırılması" />
             <Box padding="16px" display="flex" gap="14px" flexDirection="column">
               <DateInput label="Day Off tarixi" />
               <InputSelect label="Növü" data={dayOffTypes} />
               <InputSelect label="Nəticə" data={resultDatas} />
             </Box>
+
+            {/* <Testquery /> */}
           </Box>
           <Box>
             <SubmitButton text="Yadda saxla və yönləndir" />
@@ -49,6 +65,4 @@ const QueryForming = () => {
       </Box>
     </Box>
   );
-}
-
-export default QueryForming;
+};

@@ -12,7 +12,7 @@ import { TOGGLES_ACTIONS } from "store/Toggles";
 
 
 
-const Users = () => {
+export const Users = () => {
 
   const dispatch = useDispatch();
   const { users } = useSelector(USERS_SELECTORS.getUsers);
@@ -45,6 +45,4 @@ const Users = () => {
       </Box>
     </>
   );
-}
-
-export default Users;
+};

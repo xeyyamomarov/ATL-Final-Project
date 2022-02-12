@@ -1,10 +1,9 @@
-
 import { DialogContent, DialogTitle, Dialog, DialogActions, Typography} from "@mui/material";
 import { Button, CloseButton } from 'components/Buttons';
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLES_SELECTORS, TOGGLES_ACTIONS } from "store/Toggles";
 
-const DeleteRoleDialog = () => {
+export const DeleteRoleDialog = () => {
   const dispatch = useDispatch();
 
   const open = useSelector(TOGGLES_SELECTORS.getDeleteRoleDialogToggle)
@@ -29,6 +28,4 @@ const DeleteRoleDialog = () => {
 
     </Dialog>
   );
-}
-
-export default DeleteRoleDialog;
+};

@@ -11,7 +11,7 @@ import { Box, Collapse } from "@mui/material";
 import { SearchForm } from "./components/SearchForm";
 
 
-const UserRoles = () => {
+export const UserRoles = () => {
   const dispatch = useDispatch();
   const [searchOpen, setSearchOpen] = useState(false);
   const { userroles } = useSelector(USER_ROLES_SELECTORS.getUserRoles);
@@ -66,6 +66,4 @@ const UserRoles = () => {
       </Box>
     </>
   );
-}
-
-export default UserRoles;
+};

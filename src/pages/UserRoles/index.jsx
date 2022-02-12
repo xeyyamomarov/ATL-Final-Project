@@ -1,2 +1,1 @@
-import UserRoles from "./UserRoles";
-export default UserRoles;
+export * from "./UserRoles";

@@ -19,4 +19,4 @@ export const InputSelect = ({ value, label, name, data, onChange}) => {
         ))}
       </Select>
   );
-}
+};

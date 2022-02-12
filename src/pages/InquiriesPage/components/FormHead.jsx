@@ -2,7 +2,7 @@ import { Download, Edit, InfoRounded } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material';
 
 
-const DialogHead = ({ text }) => {
+export const FormHead = ({ text, actions=<></> }) => {
   return (
     <Box display="flex" justifyContent="space-between" sx={{ backgroundColor: "#F5F5F5", padding: "16px", borderBottom: "1px solid #E0E0E0" }}>
       <Box>
@@ -11,12 +11,12 @@ const DialogHead = ({ text }) => {
         </Typography>
       </Box>
       <Box>
-        <Edit />
-        <InfoRounded />
-        <Download />
+       {actions}
       </Box>
     </Box>
   );
 }
 
-export default DialogHead;
+{/* <Edit />
+<InfoRounded />
+<Download /> */}

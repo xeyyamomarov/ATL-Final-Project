@@ -1,8 +1,7 @@
 import { TextField } from "@mui/material";
 import { useField } from "formik";
-import { DatePicker } from "formik-mui-lab";
 
-const EDatePicker = ({ name, ...otherProps }) => {
+export const EDatePicker = ({ name, ...otherProps }) => {
 
   const [field, meta] = useField(name);
 
@@ -24,10 +23,8 @@ const EDatePicker = ({ name, ...otherProps }) => {
 
 
   return (
-    <DatePicker
+    <TextField
       {...configDatePicker}
     />
   );
-}
-
-export default EDatePicker;
+};

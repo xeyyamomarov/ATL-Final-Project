@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { MoreHoriz } from '@mui/icons-material';
 
 
-export function MoreOptions({ tooltip="Daha çox", children}) {
+export const MoreOptions = ({ tooltip="Daha çox", children}) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -30,4 +30,4 @@ export function MoreOptions({ tooltip="Daha çox", children}) {
       </Menu>
     </div>
   );
-}
+};

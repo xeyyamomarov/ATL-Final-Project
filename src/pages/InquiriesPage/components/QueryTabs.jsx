@@ -2,7 +2,7 @@ import { Box, Tabs, Tab } from '@mui/material';
 import { useState } from 'react';
 
 
-const QueryTabs = ({tabs}) => {
+export const QueryTabs = ({tabs}) => {
 
   const [value, setValue] = useState('one');
 
@@ -22,6 +22,4 @@ const QueryTabs = ({tabs}) => {
         </Tabs>
       </Box>
    );
-}
- 
-export default QueryTabs;
+};

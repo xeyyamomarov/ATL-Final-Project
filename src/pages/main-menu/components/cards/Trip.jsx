@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState } from "react";
-import Table from "components/Table/Table";
+import { Table } from "components/Table";
 
 const Trip = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);

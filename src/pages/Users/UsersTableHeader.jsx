@@ -29,7 +29,7 @@ export const UsersTableHeader = () => {
     {
       key: "fullName",
       label: "A.S.A.",
-      minWidth: "220px",
+      style: {minWidth: 220},
       render: (row) => {
         return (
           <>
