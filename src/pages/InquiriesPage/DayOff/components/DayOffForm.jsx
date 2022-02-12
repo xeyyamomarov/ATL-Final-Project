@@ -1,15 +1,11 @@
 import { Box } from "@mui/material";
-import DialogHead from "pages/InquiriesPage/components/FormHead";
 import { InputSelect } from "pages/InquiriesPage/components/InputSelect";
 import SubmitButton from "components/Buttons/SubmitButton";
 import { DateInput } from "pages/InquiriesPage/components/DateInput";
 import { QueryTabs } from "pages/InquiriesPage/components/QueryTabs";
 import Breadcrumbs from "components/Breadcrumbs";
 import { FormHead } from "pages/InquiriesPage/components";
-import { Testquery } from "./Test";
 
-// import { DatePicker, DesktopDatePicker } from "formik-mui-lab";
-// import { Field } from "formik";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },

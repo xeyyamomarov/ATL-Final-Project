@@ -1,4 +1,4 @@
-import { Download, Edit, InfoRounded } from '@mui/icons-material';
+// import { Download, Edit, InfoRounded } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material';
 
 
@@ -16,7 +16,3 @@ export const FormHead = ({ text, actions=<></> }) => {
     </Box>
   );
 }
-
-{/* <Edit />
-<InfoRounded />
-<Download /> */}

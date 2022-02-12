@@ -15,7 +15,7 @@ import NotificationsPage from "pages/NotificationsPage";
 import { Users } from "pages/Users";
 import { UserRoles } from "pages/UserRoles";
 import { DayOffForm } from "pages/InquiriesPage/DayOff/components/DayOffForm";
-import { DayOffSaved } from "pages/InquiriesPage/DayOff/components/DayOffSaved";
+// import { DayOffSaved } from "pages/InquiriesPage/DayOff/components/DayOffSaved";
 
 // import MainLayout from "containers/mainLayout";
 // import MainMenu from "pages/main-menu/MainMenu";
@@ -29,8 +29,8 @@ function App() {
           <Route path="/" element={<MainMenu />} />
           <Route path="/employees" element={<EmployeesPage />} />
           <Route path="/inquiries/day-off" element={<DayOff />} />
-          {/* <Route path="/inquiries/day-off/new" element={<DayOffForm />} /> */}
-          <Route path="/inquiries/day-off/new" element={<DayOffSaved />} />
+          <Route path="/inquiries/day-off/new" element={<DayOffForm />} />
+          {/* <Route path="/inquiries/day-off/new" element={<DayOffSaved />} /> */}
           <Route path="/inquiries/business-trip" element={<BusinessTrip />} />
           <Route path="/inquiries/vacation" element={<Vacation />} />
           <Route path="/inquiries/guest" element={<Guest />} />
