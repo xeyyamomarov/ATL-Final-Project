@@ -16,7 +16,8 @@ const SideBar = ({ open, setOpen }) => {
     <Box className={classes.sidebarContainer}>
       <Collapse orientation="horizontal" in={open} collapsedSize={70}>
         <Toolbar className={classes.logoWrapper}>
-          {open && <Logo />}
+          {open && <Logo /> }
+          {/* <img alt="logo" src={require('assets/xezer.png')} sx={{innerHeight: 10, innerWidth:10}} /> */}
         </Toolbar>
         <List>
           {sideBarMenuİtems.map((item, index) => {

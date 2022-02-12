@@ -3,9 +3,6 @@ import SideBar from "components/SideBar";
 import NavBar from "components/NavBar";
 import { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import { SearchForm } from "components/SearchForm/SearchForm";
-// import { Collapse } from "@mui/material";
-// import { SearchBar } from "components/SearchBar/SearchBar";
 
 const theme = createTheme({
   palette: {
