@@ -2,14 +2,14 @@ import { combineReducers } from 'redux';
 import { togglesReducer } from './Toggles/toggles.reducer';
 import { userRolesReducer } from './UserRoles/userRoles.reducer';
 import { usersReducer } from './Users/users.reducer';
-import { cardsReducer } from './Cards/cards.reducer';
+import { mainPageReducers } from './MainPage/mainPage.reducer';
 import { queriesReducer } from './Queries/queries.reducer';
 import { employeesReducer } from './Employees/employees.reducer';
 
 export default combineReducers({
   users: usersReducer,
   userRoles: userRolesReducer,
-  cards:cardsReducer,
+  mainPage:mainPageReducers,
   toggles: togglesReducer,
   queries: queriesReducer,
   employees: employeesReducer,
