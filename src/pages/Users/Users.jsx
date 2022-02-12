@@ -21,7 +21,6 @@ export const Users = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const thead = UsersTableHeader();
   const addNewHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
-  console.log(useSelector(store => store.users.data))
 
   useEffect(() => {
     dispatch(USERS_ACTIONS.fetchUsers())
