@@ -1,6 +1,6 @@
 import {
   LastQueries,
-  MyQuerises,
+  MyQueries,
   Employees,
   Anniversary,
   DayOff,
@@ -20,7 +20,7 @@ const MainMenu = () => {
       <SearchBar />
       <Box padding="16px">
         <LastQueries />
-        <MyQuerises />
+        <MyQueries />
         <Employees />
         <Anniversary />
         <DayOff/>

@@ -1,1 +1,1 @@
-export * from "./LastQuereisTable"
+export * from "./LastQueriesTable"

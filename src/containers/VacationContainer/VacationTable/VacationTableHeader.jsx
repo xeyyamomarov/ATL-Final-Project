@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   
   })
   
-  export const HolidayTableHeader = () => {
+  export const VacationTableHeader = () => {
   
     const classes = useStyles();
   

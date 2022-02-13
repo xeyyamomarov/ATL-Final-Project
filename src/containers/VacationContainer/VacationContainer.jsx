@@ -1,14 +1,12 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import {Table} from "components/Table";
 import { MAINPAGE_ACTIONS,MAINPAGE_SELECTORS } from "store/MainPage";
 import { useSelector,useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { VacationTable } from "./VacationTable";
 
-import { HolidayTableHeader } from "./HolidayTableHeader";
-
-export const Vacation = () => {
-  const thead= HolidayTableHeader()
+export const VacationContainer=()=>{
+   
   const dispatch=useDispatch()
   const vacationData=useSelector(MAINPAGE_SELECTORS.getVacationData)
   const handleClick=()=>dispatch(MAINPAGE_ACTIONS.fetchVacation())
@@ -57,9 +55,9 @@ export const Vacation = () => {
       </Card>
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
-         { <Table tbody={vacationData} thead={thead} />}
+            <VacationTable data={vacationData}/>
         </CardContent>
       </Card>
     </Card>
   );
-};
+}
