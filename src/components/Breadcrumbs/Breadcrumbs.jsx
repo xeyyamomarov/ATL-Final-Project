@@ -1,13 +1,10 @@
 // import { ExpandMore } from '@mui/icons-material';
 import { Breadcrumbs as MuiBreadcrumbs, Link, Typography } from '@mui/material';
 import { useStyles } from 'components/Breadcrumbs/BreadcrumbsStyle';
-import {
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { breadcrumbTranslations } from 'constants';
 
-const Breadcrumbs = props => {
+export const Breadcrumbs = props => {
   const classes = useStyles();
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -15,7 +12,6 @@ const Breadcrumbs = props => {
   const pathnames = pathname.split("/").filter(x => x)
 
   const breadcrumbTranslation = arr => {
-    
     const array = [];
     arr.map(item => {
       return breadcrumbTranslations.forEach(obj => {
@@ -44,5 +40,3 @@ const Breadcrumbs = props => {
     </MuiBreadcrumbs>
   )
 };
-
-export default Breadcrumbs;

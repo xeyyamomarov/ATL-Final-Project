@@ -1,20 +1,20 @@
 //<section key="employees-page">
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Table } from "components/Table";
 import { EMPLOYEES_ACTIONS, EMPLOYEES_SELECTORS } from "store/Employees";
 //import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "./components/Dialogs";
-//import { SearchBar } from "components/SearchBar";
-import { Box } from '@mui/material';
-// import { SearchForm } from "pages/Users/components/SearchForm";
-//import { AddButton, SearchButton } from "components/Buttons";
+import { SearchBar } from "components/SearchBar";
+import { Box, Collapse } from '@mui/material';
+import { SearchForm } from "pages/Users/components/SearchForm";
+import { AddButton, SearchButton } from "components/Buttons";
 import { thead } from "./constants";
 
 const EmployeesPage = () => {
 
     const dispatch = useDispatch();
-    const { employees } = useSelector(EMPLOYEES_SELECTORS.getEmployees);
-    // const [searchOpen, setSearchOpen] = useState(false);
+    const employees = useSelector(EMPLOYEES_SELECTORS.getEmployees);
+    const [searchOpen, setSearchOpen] = useState(false);
 
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const EmployeesPage = () => {
 
     return (
         <>
-            {/* <SearchBar buttons={
+            <SearchBar buttons={
                 <>
                     <SearchButton onClick={() => {
                         setSearchOpen(!searchOpen);
@@ -32,9 +32,9 @@ const EmployeesPage = () => {
 
                     }} />
                 </>
-            } /> */}
+            } />
             <Box padding="16px">
-                {/* <Collapse in={searchOpen}>{<SearchForm />}</Collapse> */}
+                <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
                 <Table thead={thead} tbody={employees} pagination />
             </Box>
             {/* <AddNewUserDialog />
