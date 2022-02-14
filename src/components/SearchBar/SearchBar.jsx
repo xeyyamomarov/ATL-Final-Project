@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { useStyles } from '.';
-import Breadcrumbs from 'components/Breadcrumbs';
+import { Breadcrumbs } from 'components/Breadcrumbs';
 
 
 export const SearchBar = ({ buttons = (<></>) }) => {

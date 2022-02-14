@@ -10,23 +10,25 @@ import {
     Vacation
 } from 'pages/InquiriesPage';
 import NotificationsPage from "pages/NotificationsPage";
-import {Users} from "pages/Users";
-import {UserRoles} from "pages/UserRoles";
+import { UserRolesContainer } from "containers/UserRolesContainer";
+import { Users } from "./Users";
 
 export const Routing = () => {
     return (
         <Routes>
             <Route path="/" element={<MainMenu />} />
             <Route path="/employees" element={<EmployeesPage />} />
-            <Route path="/inquiries/day-off" element={<DayOff />} />
-            <Route path="/inquiries/business-trip" element={<BusinessTrip />} />
-            <Route path="/inquiries/vacation" element={<Vacation />} />
-            <Route path="/inquiries/guest" element={<Guest />} />
-            <Route path="/inquiries/it-supply" element={<ITSupply />} />
-            <Route path="/inquiries/purchase" element={<Purchase />} />
-            <Route path="/notifications/notification" element={<NotificationsPage />} />
-            <Route path="/settings/users" element={<Users />} />
-            <Route path="/settings/user-roles" element={<UserRoles />} />
+            <Route path="/day-off" element={<DayOff />} />
+            <Route path="/business-trip" element={<BusinessTrip />} />
+            <Route path="/vacation" element={<Vacation />} />
+            <Route path="/guest" element={<Guest />} />
+            <Route path="/it-supply" element={<ITSupply />} />
+            <Route path="/purchase" element={<Purchase />} />
+            {
+                Users()
+            }
+            <Route path="/notification" element={<NotificationsPage />} />
+            <Route path="/user-roles" element={<UserRolesContainer />} />
         </Routes>
     )
 }       

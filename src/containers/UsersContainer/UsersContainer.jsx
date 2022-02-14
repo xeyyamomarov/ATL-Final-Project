@@ -1,25 +1,23 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { Table } from "components/Table";
 import { Box, Collapse } from "@mui/material";
 import { USERS_ACTIONS, USERS_SELECTORS } from "store/Users";
-import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "./components/Dialogs";
+import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "containers/UsersContainer/components/Dialogs"
 import { SearchBar } from "components/SearchBar";
-import { SearchForm } from './components/SearchForm';
+import { SearchForm } from "containers/UsersContainer/components/SearchForm";
 import { AddButton, SearchButton } from "components/Buttons";
-import { UsersTableHeader } from "./UsersTableHeader";
 import { TOGGLES_ACTIONS } from "store/Toggles";
-import { DeleteUserDialog } from "./components/Dialogs/DeleteUserDialog";
+import { DeleteUserDialog } from "containers/UsersContainer/components/Dialogs/DeleteUserDialog";
+import { UsersTable } from "./UsersTable/UsersTable";
 
 
 
-export const Users = () => {
+export const UsersContainer = () => {
 
   const dispatch = useDispatch();
   const { users } = useSelector(USERS_SELECTORS.getUsers);
   const loading = useSelector(USERS_SELECTORS.getUsersLoading);
   const [searchOpen, setSearchOpen] = useState(false);
-  const thead = UsersTableHeader();
   const addNewHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
 
   useEffect(() => {
@@ -39,7 +37,7 @@ export const Users = () => {
       } />
       <Box padding="16px">
         <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
-        <Table thead={thead} tbody={users} loading={loading} pagination />
+        <UsersTable data={users} loading={loading} pagination/>
         <AddNewUserDialog />
         <EditUserDialog />
         <DeleteUserDialog />
