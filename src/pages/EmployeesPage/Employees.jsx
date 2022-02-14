@@ -6,7 +6,7 @@ import { EMPLOYEES_ACTIONS, EMPLOYEES_SELECTORS } from "store/Employees";
 //import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "./components/Dialogs";
 import { SearchBar } from "components/SearchBar";
 import { Box, Collapse } from '@mui/material';
-import { SearchForm } from "pages/Users/components/SearchForm";
+import { SearchForm } from "containers/UsersContainer/components/SearchForm";
 import { AddButton, SearchButton } from "components/Buttons";
 import { thead } from "./constants";
 

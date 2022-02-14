@@ -10,8 +10,8 @@ import {
     Vacation
 } from 'pages/InquiriesPage';
 import NotificationsPage from "pages/NotificationsPage";
-import { UsersContainer } from "containers/UsersContainer";
 import { UserRolesContainer } from "containers/UserRolesContainer";
+import { Users } from "./Users";
 
 export const Routing = () => {
     return (
@@ -24,8 +24,10 @@ export const Routing = () => {
             <Route path="/guest" element={<Guest />} />
             <Route path="/it-supply" element={<ITSupply />} />
             <Route path="/purchase" element={<Purchase />} />
+            {
+                Users()
+            }
             <Route path="/notification" element={<NotificationsPage />} />
-            <Route path="/users" element={<UsersContainer />} />
             <Route path="/user-roles" element={<UserRolesContainer />} />
         </Routes>
     )

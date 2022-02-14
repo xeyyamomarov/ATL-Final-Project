@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Collapse } from "@mui/material";
 import { USERS_ACTIONS, USERS_SELECTORS } from "store/Users";
-import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "pages/Users/components/Dialogs"
+import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "containers/UsersContainer/components/Dialogs"
 import { SearchBar } from "components/SearchBar";
-import { SearchForm } from "pages/Users/components/SearchForm";
+import { SearchForm } from "containers/UsersContainer/components/SearchForm";
 import { AddButton, SearchButton } from "components/Buttons";
 import { TOGGLES_ACTIONS } from "store/Toggles";
-import { DeleteUserDialog } from "pages/Users/components/Dialogs/DeleteUserDialog";
+import { DeleteUserDialog } from "containers/UsersContainer/components/Dialogs/DeleteUserDialog";
 import { UsersTable } from "./UsersTable/UsersTable";
 
 

@@ -15,7 +15,7 @@ export const DayOff = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const { queries } = useSelector(QUERIES_SELECTORS.getQueries);
 
-  const addNewHandleClick = () => navigate("/inquiries/day-off/new")
+  const addNewHandleClick = () => navigate("/day-off/new")
 
   const thead = [
     {

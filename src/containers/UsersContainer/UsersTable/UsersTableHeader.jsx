@@ -1,7 +1,7 @@
 import { Typography, Avatar, Box, MenuItem } from "@mui/material";
 import { makeStyles } from '@mui/styles';
-import { EditUser } from 'pages/Users/components/EditUser';
-import { MoreOptions } from 'pages/Users/components/MoreOptions';
+import { EditUser } from 'containers/UsersContainer/components/EditUser';
+import { MoreOptions } from 'containers/UsersContainer/components/MoreOptions';
 import { useDispatch } from "react-redux";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 
