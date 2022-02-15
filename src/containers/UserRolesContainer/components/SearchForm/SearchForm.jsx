@@ -1,7 +1,7 @@
 import { Box, Divider, Grid, TextField as MuiTextField } from "@mui/material";
 import { Button, CloseButton } from "components/Buttons";
 import { Formik, Form, Field } from "formik";
-import { Autocomplete } from 'formik-mui'
+import { Autocomplete } from 'formik-mui';
 import { makeStyles } from '@mui/styles';
 
 
@@ -105,4 +105,4 @@ export const SearchForm = () => {
       </Formik>
     </Box>
   );
-};
+}

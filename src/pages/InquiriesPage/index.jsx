@@ -1,4 +1,4 @@
-export * from './DayOff';
+export * from './DayOffPage';
 export * from './BusinessTrip';
 export * from './Guest';
 export * from './IT-Supply';

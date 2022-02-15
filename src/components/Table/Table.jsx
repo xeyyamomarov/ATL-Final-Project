@@ -41,55 +41,51 @@ export function Table({ tbody = [], thead = [], pagination, loading }) {
           </TableRow>
         </TableHead>
 
-        {!loading && !_.isEmpty(tbody) &&
-          <TableBody>
-            {tbody.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                  <TableRow hover key={row.id}>
-                    {thead.map((column) => {
-                      if (column.render) {
-                        return (
-                          <TableCell key={column.key}
-                            className={classes.tcell}
-                          >
-                            <Box className={classes.iconsBox}>
-                              {column.render(row)}
-                            </Box>
-                          </TableCell>
-                        )
-                      } else {
-                        const value = row[column.key];
-                        return (
-                          <TableCell key={column.key}
-                            className={classes.tcell}
-                          >
-                            <Box className={classes.iconsBox}>
-                              <Typography className={classes.data}>
-                                {value}
-                              </Typography>
-                            </Box>
-                          </TableCell>
-                        )
-                      }
-                    })}
-                  </TableRow>
-                );
-              })}
-          </TableBody>
-        }
+        <TableBody>
+          {!loading && !_.isEmpty(tbody) && tbody.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            .map((row) => {
+              return (
+                <TableRow hover key={row.id}>
+                  {thead.map((column) => {
+                    if (column.render) {
+                      return (
+                        <TableCell key={column.key}
+                          className={classes.tcell}
+                        >
+                          <Box className={classes.iconsBox}>
+                            {column.render(row)}
+                          </Box>
+                        </TableCell>
+                      )
+                    } else {
+                      const value = row[column.key];
+                      return (
+                        <TableCell key={column.key}
+                          className={classes.tcell}
+                        >
+                          <Box className={classes.iconsBox}>
+                            <Typography className={classes.data}>
+                              {value}
+                            </Typography>
+                          </Box>
+                        </TableCell>
+                      )
+                    }
+                  })}
+                </TableRow>
+              );
+            })}
+        </TableBody>
       </MuiTable>
 
-      {loading ?
+      {loading &&
         <Box className={classes.noDataContainer}>
-          <CircularProgress />
-        </Box>
-        :
-        _.isEmpty(tbody) &&
-
-        <Box className={classes.noDataContainer}>
-          <Description className={classes.noDataIcon} />
-          <Typography className={classes.noDataText}>Sənəd mövcud deyil</Typography>
+          {loading ? <CircularProgress /> :
+            _.isEmpty(tbody) &&
+            <>
+              <Description className={classes.noDataIcon} />
+              <Typography className={classes.noDataText}>Sənəd mövcud deyil</Typography>
+            </>}
         </Box>
       }
 
