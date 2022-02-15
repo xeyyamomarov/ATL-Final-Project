@@ -23,7 +23,7 @@ const EmployeesPage = () => {
 
     return (
         <>
-            <SearchBar buttons={
+            {/* <SearchBar buttons={
                 <>
                     <SearchButton onClick={() => {
                         setSearchOpen(!searchOpen);
@@ -32,7 +32,7 @@ const EmployeesPage = () => {
 
                     }} />
                 </>
-            } />
+            } /> */}
             <Box padding="16px">
                 <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
                 <Table thead={thead} tbody={employees} pagination />
