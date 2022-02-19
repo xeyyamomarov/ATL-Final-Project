@@ -15,7 +15,7 @@ export const DayOffContainer = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const { queries } = useSelector(QUERIES_SELECTORS.getQueries);
   const loading = useSelector(QUERIES_SELECTORS.getQueriesLoading);
-  const addNewHandleClick = () => navigate("/day-off/new")
+  const addNewHandleClick = () => navigate("/day-off/worker/new")
 
 
   useEffect(() => {

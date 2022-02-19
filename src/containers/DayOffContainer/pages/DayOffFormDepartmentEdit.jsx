@@ -1,4 +1,7 @@
-import { Box, Grid, MenuItem, TextField as MuiTextField } from "@mui/material";
+import {
+  Box, Grid, MenuItem,
+  TextField as MuiTextField
+} from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
@@ -6,7 +9,10 @@ import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
 import { makeStyles } from "@mui/styles";
 import { TextField } from "formik-mui";
-import { LocalizationProvider } from "@mui/lab";
+import {
+  LocalizationProvider,
+  // DatePicker as MuiDatePicker
+} from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 
@@ -17,7 +23,6 @@ const useStyles = makeStyles({
   },
   container: {
     padding: "16px 93px",
-    textAlign: "end"
   },
   dataContainer: {
     display: "flex",
@@ -27,7 +32,9 @@ const useStyles = makeStyles({
   formBox: {
     border: "1px solid #E0E0E0",
     borderRadius: "4px",
-
+  },
+  button: {
+    textAlign: "end"
   }
 })
 
@@ -60,7 +67,7 @@ const onSubmit = (values, { resetForm }) => {
   resetForm()
 }
 
-export const DayOffFormWorker = () => {
+export const DayOffFormDepartmentEdit = () => {
   const classes = useStyles();
 
   return (
@@ -73,7 +80,7 @@ export const DayOffFormWorker = () => {
           <Box className={classes.breadcrumbBar}>
             <Breadcrumbs />
           </Box>
-          <QueryTabs tabs={tabs} />
+          <QueryTabs tabs={tabs} value="two" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
               <Box className={classes.formBox}>
@@ -91,7 +98,7 @@ export const DayOffFormWorker = () => {
                         InputAdornmentProps={{ position: "start" }}
                       /> */}
 
-                      <Field
+                      {/* <Field
                         name="date"
                         component={DatePicker}
                         label="Day Off tarixi"
@@ -100,13 +107,39 @@ export const DayOffFormWorker = () => {
                         }}
                         inputFormat="dd/MM/yyyy"
                         InputAdornmentProps={{ position: "start" }}
+                      /> */}
+
+                      <Field
+                        disabled
+                        sx={{
+                          width: "100%",
+                          "& .MuiOutlinedInput-root": {
+                            "& > fieldset": {
+                              border: "2px dotted"
+                            }
+                          }
+                        }}
+                        name="date"
+                        fullWidth
+                        component={DatePicker}
+                        label="Day Off tarixi"
+                        inputFormat="dd/MM/yyyy"
+                        InputAdornmentProps={{ position: "start" }}
                       />
                     </LocalizationProvider>
                   </Grid>
 
                   <Grid item sm={12}>
                     <Field
+                      sx={{
+                        "& .MuiOutlinedInput-root": {
+                          "& > fieldset": {
+                            border: "2px dotted"
+                          }
+                        }
+                      }}
                       fullWidth
+                      disabled
                       name="type"
                       select
                       component={TextField}
@@ -139,7 +172,7 @@ export const DayOffFormWorker = () => {
                 </Grid>
               </Box>
 
-              <Box>
+              <Box className={classes.button}>
                 <SubmitButton text="Yadda saxla və yönləndir" />
               </Box>
 

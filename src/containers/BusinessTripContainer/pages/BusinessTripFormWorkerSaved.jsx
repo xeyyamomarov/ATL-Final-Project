@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   }
 })
 
-export const DayOffFormWorkerSaved = () => {
+export const BusinessTripFormWorkerSaved = () => {
   const classes = useStyles();
 
   const rows = [

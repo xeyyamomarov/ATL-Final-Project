@@ -24,9 +24,7 @@ export function Table({ tbody = [], thead = [], pagination, loading }) {
       className={classes.tcontainer}
     >
 
-      <MuiTable stickyHeader aria-label="sticky table"
-        className={classes.table}
-      >
+      <MuiTable stickyHeader aria-label="sticky table">
         <TableHead>
           <TableRow>
             {thead.map((column) => (

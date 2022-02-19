@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import {
   Box, Grid, MenuItem,
   // TextField as MuiTextField
@@ -63,16 +62,13 @@ const initialValues = {
   result: "",
 }
 
+const onSubmit = (values, { resetForm }) => {
+  console.log(values);
+  resetForm()
+}
 
-export const DayOffFormWorker = () => {
+export const BusinessTripFormHrEdit = () => {
   const classes = useStyles();
-  const navigate = useNavigate();
-
-  const onSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm()
-    navigate("/day-off/worker/saved")
-  }
 
   return (
     <Box>
@@ -84,7 +80,7 @@ export const DayOffFormWorker = () => {
           <Box className={classes.breadcrumbBar}>
             <Breadcrumbs />
           </Box>
-          <QueryTabs tabs={tabs} value="one"/>
+          <QueryTabs tabs={tabs} value="three" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
               <Box className={classes.formBox}>
@@ -115,6 +111,7 @@ export const DayOffFormWorker = () => {
 
                       <Field
                         name="date"
+                        disabled
                         fullWidth
                         component={DatePicker}
                         label="Day Off tarixi"
@@ -126,11 +123,19 @@ export const DayOffFormWorker = () => {
 
                   <Grid item sm={12}>
                     <Field
+                      disabled
                       fullWidth
                       name="type"
                       select
                       component={TextField}
                       label="Növü"
+                      sx={{
+                        "& .MuiOutlinedInput-root": {
+                          "& > fieldset": {
+                            border: "2px dotted"
+                          }
+                        }
+                      }}
                     >
                       {dayOffTypes.map(option => (
                         <MenuItem key={option.value} value={option.value}>

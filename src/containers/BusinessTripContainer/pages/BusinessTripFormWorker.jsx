@@ -58,21 +58,20 @@ const tabs = [
 ]
 
 const initialValues = {
-  date: "",
-  type: "",
+  start: "",
+  end: "",
+  note: "",
   result: "",
 }
 
+const onSubmit = (values, { resetForm }) => {
+  console.log(values);
+  resetForm()
+}
 
-export const DayOffFormWorker = () => {
+export const BusinessTripFormWorker = () => {
   const classes = useStyles();
   const navigate = useNavigate();
-
-  const onSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm()
-    navigate("/day-off/worker/saved")
-  }
 
   return (
     <Box>
@@ -84,14 +83,14 @@ export const DayOffFormWorker = () => {
           <Box className={classes.breadcrumbBar}>
             <Breadcrumbs />
           </Box>
-          <QueryTabs tabs={tabs} value="one"/>
+          <QueryTabs tabs={tabs} value="one" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
               <Box className={classes.formBox}>
                 <FormHead text="Sorğunun formalaşdırılması" />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={12}>
+                  <Grid item sm={6}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                       {/* <Field
                         fullWidth
@@ -114,10 +113,23 @@ export const DayOffFormWorker = () => {
                       /> */}
 
                       <Field
-                        name="date"
+                        name="start"
                         fullWidth
                         component={DatePicker}
-                        label="Day Off tarixi"
+                        label="Başlama tarixi"
+                        inputFormat="dd/MM/yyyy"
+                        InputAdornmentProps={{ position: "start" }}
+                      />
+                    </LocalizationProvider>
+                  </Grid>
+
+                  <Grid item sm={6}>
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                      <Field
+                        name="end"
+                        fullWidth
+                        component={DatePicker}
+                        label="Bitmə tarixi"
                         inputFormat="dd/MM/yyyy"
                         InputAdornmentProps={{ position: "start" }}
                       />
@@ -127,10 +139,10 @@ export const DayOffFormWorker = () => {
                   <Grid item sm={12}>
                     <Field
                       fullWidth
-                      name="type"
+                      name="note"
                       select
                       component={TextField}
-                      label="Növü"
+                      label="Qeyd"
                     >
                       {dayOffTypes.map(option => (
                         <MenuItem key={option.value} value={option.value}>
@@ -160,7 +172,7 @@ export const DayOffFormWorker = () => {
               </Box>
 
               <Box className={classes.button}>
-                <SubmitButton text="Yadda saxla və yönləndir" />
+                <SubmitButton onClick={() => navigate("/business-trip/worker/saved")} text="Yadda saxla və yönləndir" />
               </Box>
 
             </Box>

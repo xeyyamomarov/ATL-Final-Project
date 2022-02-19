@@ -6,6 +6,7 @@ import { InfoSection } from "containers/components/InfoSection";
 import { makeStyles } from "@mui/styles";
 import { EditIcon } from "containers/components/EditIcon";
 import { InfoIcon } from "containers/components/InfoIcon";
+import { useNavigate } from "react-router-dom";
 
 const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },
@@ -35,7 +36,8 @@ const useStyles = makeStyles({
   }
 })
 
-export const DayOffFormWorkerSaved = () => {
+export const DayOffFormHr = () => {
+  const navigate = useNavigate();
   const classes = useStyles();
 
   const rows = [
@@ -48,7 +50,7 @@ export const DayOffFormWorkerSaved = () => {
       <Box className={classes.breadcrumbBar}>
         <Breadcrumbs />
       </Box>
-      <QueryTabs tabs={tabs} />
+      <QueryTabs tabs={tabs} value="three"/>
       <Box className={classes.container}>
         <Box className={classes.dataContainer}>
           <InfoSection name="Lamiə Səyidova Əliağa" />
@@ -57,7 +59,7 @@ export const DayOffFormWorkerSaved = () => {
               text="Sorğunun formalaşdırılması"
               actions={
                 <>
-                  <EditIcon />
+                  <EditIcon onClick={() => navigate("/day-off/hr/edit")}/>
                   <InfoIcon sx={{ opacity: 0.54 }} />
                 </>
               }

@@ -11,7 +11,7 @@ import NotificationsPage from "pages/NotificationsPage";
 import { UserRolesContainer } from "containers/UserRolesContainer";
 import { Users } from "./Users";
 import { DayOff } from "./DayOff";
-import { BusinessTripPage } from "pages/InquiriesPage/BusinessTrip";
+import { BusinessTrip } from "./BusinessTrip";
 
 export const Routing = () => {
     return (
@@ -19,8 +19,7 @@ export const Routing = () => {
             <Route path="/" element={<MainMenu />} />
             <Route path="/employees" element={<EmployeesPage />} />
             { DayOff() }
-            <Route path="/business-trip" element={<BusinessTripPage />} />
-            {/* <Route path="/business-trip/new" element={<BusinessTrip />} /> */}
+            { BusinessTrip() }
             <Route path="/vacation" element={<Vacation />} />
             <Route path="/guest" element={<Guest />} />
             <Route path="/it-supply" element={<ITSupply />} />

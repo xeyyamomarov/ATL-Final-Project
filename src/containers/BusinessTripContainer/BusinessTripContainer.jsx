@@ -15,7 +15,7 @@ export const BusinessTripContainer = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const { queries } = useSelector(QUERIES_SELECTORS.getQueries);
   const loading = useSelector(QUERIES_SELECTORS.getQueriesLoading);
-  const addNewHandleClick = () => navigate("/business-trip/new")
+  const addNewHandleClick = () => navigate("/business-trip/worker/new")
 
 
   useEffect(() => {

@@ -1,7 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import {
   Box, Grid, MenuItem,
-  // TextField as MuiTextField
+  TextField as MuiTextField
 } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
@@ -63,16 +62,13 @@ const initialValues = {
   result: "",
 }
 
+const onSubmit = (values, { resetForm }) => {
+  console.log(values);
+  resetForm()
+}
 
-export const DayOffFormWorker = () => {
+export const BusinessTripFormDepartmentEdit = () => {
   const classes = useStyles();
-  const navigate = useNavigate();
-
-  const onSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm()
-    navigate("/day-off/worker/saved")
-  }
 
   return (
     <Box>
@@ -84,7 +80,7 @@ export const DayOffFormWorker = () => {
           <Box className={classes.breadcrumbBar}>
             <Breadcrumbs />
           </Box>
-          <QueryTabs tabs={tabs} value="one"/>
+          <QueryTabs tabs={tabs} value="two" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
               <Box className={classes.formBox}>
@@ -114,6 +110,15 @@ export const DayOffFormWorker = () => {
                       /> */}
 
                       <Field
+                        disabled
+                        sx={{
+                          width: "100%",
+                          "& .MuiOutlinedInput-root": {
+                            "& > fieldset": {
+                              border: "2px dotted"
+                            }
+                          }
+                        }}
                         name="date"
                         fullWidth
                         component={DatePicker}
@@ -126,7 +131,15 @@ export const DayOffFormWorker = () => {
 
                   <Grid item sm={12}>
                     <Field
+                      sx={{
+                        "& .MuiOutlinedInput-root": {
+                          "& > fieldset": {
+                            border: "2px dotted"
+                          }
+                        }
+                      }}
                       fullWidth
+                      disabled
                       name="type"
                       select
                       component={TextField}
