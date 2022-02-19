@@ -8,7 +8,6 @@ import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
-import { makeStyles } from "@mui/styles";
 import { TextField } from "formik-mui";
 import {
   LocalizationProvider,
@@ -16,28 +15,7 @@ import {
 } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
-
-const useStyles = makeStyles({
-  breadcrumbBar: {
-    borderBottom: "1px solid #E0E0E0",
-    padding: "12px 16px"
-  },
-  container: {
-    padding: "16px 93px",
-  },
-  dataContainer: {
-    display: "flex",
-    gap: "16px",
-    flexDirection: "column"
-  },
-  formBox: {
-    border: "1px solid #E0E0E0",
-    borderRadius: "4px",
-  },
-  button: {
-    textAlign: "end"
-  }
-})
+import { useStyles } from "../../Styles/Styles";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },
@@ -64,14 +42,15 @@ const initialValues = {
   result: "",
 }
 
-const onSubmit = (values, { resetForm }) => {
-  console.log(values);
-  resetForm()
-}
-
 export const BusinessTripFormWorker = () => {
   const classes = useStyles();
   const navigate = useNavigate();
+
+  const onSubmit = (values, { resetForm }) => {
+    console.log(values);
+    resetForm()
+    navigate("/business-trip/worker/saved")
+  }
 
   return (
     <Box>
@@ -87,7 +66,7 @@ export const BusinessTripFormWorker = () => {
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
               <Box className={classes.formBox}>
-                <FormHead text="Sorğunun formalaşdırılması" />
+                <FormHead header="Sorğunun formalaşdırılması" />
                 <Grid container spacing={2} padding="16px">
 
                   <Grid item sm={6}>
@@ -172,7 +151,7 @@ export const BusinessTripFormWorker = () => {
               </Box>
 
               <Box className={classes.button}>
-                <SubmitButton onClick={() => navigate("/business-trip/worker/saved")} text="Yadda saxla və yönləndir" />
+                <SubmitButton text="Yadda saxla və yönləndir" />
               </Box>
 
             </Box>

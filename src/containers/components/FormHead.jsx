@@ -12,22 +12,23 @@ const useStyles = makeStyles({
   },
   header: {
     fontSize: "18px",
-    fontWeight: "500"
+    fontWeight: "500",
+    color: "rgba(66, 66, 66, 1)"
   },
   iconsBox: {
     display: "flex",
     alignItems: "center",
-    gap: 2
+    gap: 2,
   }
 })
 
-export const FormHead = ({ text, actions = <></> }) => {
+export const FormHead = ({ header, actions = <></> }) => {
   const classes = useStyles();
 
   return (
     <Box className={classes.container}>
       <Typography className={classes.header}>
-        {text}
+        {header}
       </Typography>
       <Box className={classes.iconsBox}>
         {actions}

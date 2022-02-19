@@ -7,6 +7,9 @@ export function InfoIcon({ fontSize, onClick }) {
   return (
     <Tooltip title="Məlumat">
       <IconButton
+        sx={{
+          padding: "0 8px"
+        }}
         onClick={onClick}
       >
         <InfoOutlined fontSize={fontSize} />

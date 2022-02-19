@@ -1,13 +1,12 @@
 import {
   Box, Grid, MenuItem,
-  TextField as MuiTextField
+  // TextField as MuiTextField
 } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
-import { makeStyles } from "@mui/styles";
 import { TextField } from "formik-mui";
 import {
   LocalizationProvider,
@@ -15,28 +14,7 @@ import {
 } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
-
-const useStyles = makeStyles({
-  breadcrumbBar: {
-    borderBottom: "1px solid #E0E0E0",
-    padding: "12px 16px"
-  },
-  container: {
-    padding: "16px 93px",
-  },
-  dataContainer: {
-    display: "flex",
-    gap: "16px",
-    flexDirection: "column"
-  },
-  formBox: {
-    border: "1px solid #E0E0E0",
-    borderRadius: "4px",
-  },
-  button: {
-    textAlign: "end"
-  }
-})
+import { useStyles } from "../../Styles/Styles";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },
@@ -84,7 +62,7 @@ export const BusinessTripFormDepartmentEdit = () => {
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
               <Box className={classes.formBox}>
-                <FormHead text="Sorğunun formalaşdırılması" />
+                <FormHead header="Sorğunun formalaşdırılması" />
                 <Grid container spacing={2} padding="16px">
 
                   <Grid item sm={12}>

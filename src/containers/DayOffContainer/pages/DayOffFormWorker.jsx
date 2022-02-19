@@ -88,7 +88,7 @@ export const DayOffFormWorker = () => {
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
               <Box className={classes.formBox}>
-                <FormHead text="Sorğunun formalaşdırılması" />
+                <FormHead header="Sorğunun formalaşdırılması" />
                 <Grid container spacing={2} padding="16px">
 
                   <Grid item sm={12}>
