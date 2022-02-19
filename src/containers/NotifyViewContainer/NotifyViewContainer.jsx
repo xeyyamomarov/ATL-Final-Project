@@ -96,12 +96,16 @@ export const NotifyViewContainer = () => {
                   as={MuiTextField}
                   label="Adı "
                   name="name"
+                  variant="standard"
                 />
-                <Field 
+                <Field sx={{display:"flex"}}
                   fullWidth
                   as={MuiTextField}
                   label="Təsviri"
                   name="description"
+                  variant="standard"
+                  multiline
+                  rows={4}
                 />
           </Box>
           <Divider />

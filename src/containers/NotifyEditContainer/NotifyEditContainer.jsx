@@ -76,7 +76,7 @@ export const NotifyEditContainer = () => {
             color="black"
             gutterBottom
           >
-            Son sorğular
+            Elanın formalaşdırılması
           </Typography>
           <Typography
             fontSize="28px"
@@ -96,18 +96,21 @@ export const NotifyEditContainer = () => {
           <Box className={classes.upBox}>
                 <Field sx={{marginBottom:"8px"}}
                   fullWidth
+                  disabled
                   as={MuiTextField}
                   label="Ad "
                   name="name"
                 />
                 <Field sx={{marginBottom:"8px"}}
                   fullWidth
+                  disabled
                   as={MuiTextField}
                   label="Təsviri"
                   name="description"
                 />
                 <Field 
                   fullWidth
+                  disabled
                   name="operation"
                   select
                   component={TextField}

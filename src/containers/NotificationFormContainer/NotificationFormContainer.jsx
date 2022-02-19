@@ -61,6 +61,7 @@ export const NotificationFormContainer = () => {
   const navigate= useNavigate()
 
   const handleClick=()=> navigate("/notificationView")
+  const saveClick =()=> navigate("/notification")
 
 
   return (
@@ -138,7 +139,7 @@ export const NotificationFormContainer = () => {
     </Card>
     </Card>
      <Box className={classes.btnBox}>
-     <AButton  className={classes.btn}>Yadda Saxla</AButton>
+     <AButton  onClick={saveClick} className={classes.btn}>Yadda Saxla</AButton>
      <Button  onClick={handleClick} color="success" type="submit" text="Sonlandır" />
    </Box>
    </Box>

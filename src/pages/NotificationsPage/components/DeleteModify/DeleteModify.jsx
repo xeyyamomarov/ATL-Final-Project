@@ -4,12 +4,11 @@ import { useDispatch} from 'react-redux';
 import { TOGGLES_ACTIONS} from 'store/Toggles';
 
 
-export function DeleteModify() {
+export const DeleteModify=()=> {
 
     const dispatch = useDispatch()
 
     const handleClick=() => dispatch(TOGGLES_ACTIONS.setDeleteNotify())
- 
 
   return (
     

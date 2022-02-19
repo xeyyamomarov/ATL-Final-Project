@@ -23,7 +23,6 @@ export const NotificationsPageTableHeader = () => {
   const editNavigate = useNavigate()
   const viewNavigate = useNavigate()
 
-
   const editHandleClick = ()=> editNavigate("/notificationEdit")
 
   const viewHandleClick= () => viewNavigate("/notificationView")
@@ -62,9 +61,7 @@ export const NotificationsPageTableHeader = () => {
                   <Tooltip title="Redaktə et">
                   <CreateIcon onClick={editHandleClick} className={classes.icon}/>
                   </Tooltip>
-                  <Tooltip >
-                  <DeleteModify/>
-                  </Tooltip>
+                    <DeleteModify/>
               </>
             )
           }
