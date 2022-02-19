@@ -1,4 +1,4 @@
-import { LastQueriesContainer } from "containers/LastQueriesContainer";
+import { LastQueriesContainer } from "containers/MainPageContainer/LastQueriesContainer";
 
 
 export const LastQueries = () => {

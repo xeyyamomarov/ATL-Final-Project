@@ -3,7 +3,7 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 import { MAINPAGE_ACTIONS,MAINPAGE_SELECTORS } from "store/MainPage";
 import { useSelector,useDispatch } from "react-redux";
 import {useEffect} from "react"
-import { AnniversaryTable } from "containers/AnniversaryContainer/AnniversaryTable";
+import { AnniversaryTable } from "./AnniversaryTable/AnniversaryTable";
 
 
 export const AnniversaryContainer=()=>{
