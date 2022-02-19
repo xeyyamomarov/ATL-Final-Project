@@ -1,4 +1,5 @@
-{ "employees": {"employees": [
+ {
+   "employees": [
   {
     "id": 1,
     "avatar": "https://picsum.photos/200",
@@ -44,7 +45,7 @@
     "email": "rufatm@xezertv.az",
     "phone": "+15417543010"
   }
-]},
+],
   "users": {
     "users": [
       {
@@ -606,21 +607,24 @@
         "bname": "Bayram",
         "describe": "Qurban bayramı dövlət qaydasına əsasən 2 gün sonraya çəkildi.",
         "creater": "Rüfət Məmmədov",
-        "date": "06/25/2021,13:34"
+        "date": "06/25/2021,13:34",
+        "notification":"Bayram"
       },
       {
         "id": 2,
         "bname": "Bayram",
         "describe": "Qurban bayramı dövlət qaydasına əsasən 2 gün sonraya çəkildi.",
         "creater": "Rüfət Məmmədov",
-        "date": "06/25/2021,13:34"
+        "date": "06/25/2021,13:34",
+        "notification":"Qurban bayramı"
       },
       {
         "id": 3,
         "bname": "Bayram",
         "describe": "Qurban bayramı dövlət qaydasına əsasən 2 gün sonraya çəkildi.",
         "creater": "Rüfət Məmmədov",
-        "date": "06/25/2021,13:34"
+        "date": "06/25/2021,13:34",
+        "notification":"Paylaş"
       }
     ],
   "vacationbalance": [
