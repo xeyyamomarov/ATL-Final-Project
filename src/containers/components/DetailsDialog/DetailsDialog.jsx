@@ -5,38 +5,17 @@ import {
   DialogActions,
   Grid,
   TextField as MuiTextField,
+  TableContainer,
+  TableBody,
+  TableRow,
+  TableCell,
 } from "@mui/material";
-import { SubmitButton, CloseButton } from "components/Buttons";
-import { Formik, Form, Field } from "formik";
-import { Autocomplete } from 'formik-mui'
+import { CloseButton } from "components/Buttons";
 import { useSelector, useDispatch } from 'react-redux';
 import * as Yup from "yup";
 import { TOGGLES_ACTIONS, TOGGLES_SELECTORS } from "store/Toggles";
 import { TextFieldWrapper } from "./TextFieldWrapper";
-
-const positions = [
-  "User",
-  "Reporter",
-  "Admin",
-  "Manager",
-];
-
-const initialValues = {
-  fullName: "",
-  username: "",
-  position: [],
-}
-
-const validationSchema = Yup.object({
-  fullName: Yup.string().required("Mütləq doldurulmalıdır!"),
-  username: Yup.string().required("Mütləq doldurulmalıdır!"),
-  position: Yup.array().required("Mütləq doldurulmalıdır!"),
-});
-
-const onSubmit = (values, { resetForm }) => {
-  console.log(values);
-  resetForm()
-}
+import { Table } from "components/Table/Table";
 
 export const EditUserDialog = () => {
 
@@ -52,7 +31,26 @@ export const EditUserDialog = () => {
       </DialogTitle>
 
       <DialogContent dividers sx={{ padding: '16px' }}>
+        <TableContainer>
+          <Table>
+            <TableBody>
+              {rows.map(row => (
+                <TableRow
+                  key={row.name}
+                >
+                  <TableCell>
+                    {row.name}
+                  </TableCell>
 
+                  <TableCell>
+                    {row.value}
+                  </TableCell>
+
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
 
       </DialogContent>
 
