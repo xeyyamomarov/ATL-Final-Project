@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import EmployeesPage from "pages/EmployeesPage";
-import MainMenu from "pages/MainPage/MainMenu";
 import {
     DayOff,
     BusinessTrip,
@@ -9,14 +8,20 @@ import {
     Purchase,
     Vacation
 } from 'pages/InquiriesPage';
-import NotificationsPage from "pages/NotificationsPage";
+import { NotificationsPage } from "pages/NotificationsPage/components/Notification";
+import { NotificationForm } from "pages/NotificationsPage/components/NotificationForm";
 import { UserRolesContainer } from "containers/UserRolesContainer";
 import { Users } from "./Users";
+import { MainPage } from "./MainPage";
+import { NotifyEdit } from "pages/NotificationsPage/components/NotifyEdit";
+import {NotifyView} from "pages/NotificationsPage/components/NotifyView";
 
 export const Routing = () => {
     return (
         <Routes>
-            <Route path="/" element={<MainMenu />} />
+            {
+                MainPage()
+            }
             <Route path="/employees" element={<EmployeesPage />} />
             <Route path="/day-off" element={<DayOff />} />
             <Route path="/business-trip" element={<BusinessTrip />} />
@@ -28,6 +33,9 @@ export const Routing = () => {
                 Users()
             }
             <Route path="/notification" element={<NotificationsPage />} />
+            <Route path="/notificationForm" element={<NotificationForm/>}/>
+            <Route path="/notificationEdit" element={<NotifyEdit/>}/>
+            <Route  path="/notificationView" element={<NotifyView/>}/>
             <Route path="/user-roles" element={<UserRolesContainer />} />
         </Routes>
     )

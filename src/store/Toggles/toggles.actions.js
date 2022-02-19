@@ -8,3 +8,4 @@ export const setSearchForm = () => ({type: TOGGLES_ACTION_TYPES.SEARCH_FORM });
 export const setPasswordHidden = () => ({type: TOGGLES_ACTION_TYPES.PASSWORD_HIDDEN });
 export const setPasswordRepeatHidden = () => ({type: TOGGLES_ACTION_TYPES.PASSWORD_REPEAT_HIDDEN });
 export const setDeleteRoleDialog = () => ({type: TOGGLES_ACTION_TYPES.DELETE_ROLE_DIALOG });
+export const setDeleteNotify = () => ({type:TOGGLES_ACTION_TYPES.DELETE_NOTIFY})
