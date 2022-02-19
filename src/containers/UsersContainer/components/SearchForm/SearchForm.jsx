@@ -1,10 +1,7 @@
-import { Divider, Grid, TextField as MuiTextField } from "@mui/material";
+import { Box, Divider, Grid, TextField as MuiTextField } from "@mui/material";
 import { Button, CloseButton } from "components/Buttons";
 import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui'
-import { useDispatch } from 'react-redux';
-import { TOGGLES_ACTIONS } from "store/Toggles";
-import { Box } from "@mui/system";
 import { makeStyles } from '@mui/styles';
 
 
@@ -48,8 +45,6 @@ const onSubmit = (values, { resetForm }) => {
 export const SearchForm = () => {
   
   const classes = useStyles();
-  const dispatch = useDispatch();
-  const close = () => dispatch(TOGGLES_ACTIONS.setSearchForm())
 
   return (
     <Box className={classes.container}>
@@ -103,7 +98,7 @@ export const SearchForm = () => {
           </Box>
           <Divider />
           <Box className={classes.btnBox}>
-            <CloseButton onClick={close} text="Təmizlə"/>
+            <CloseButton type="reset" text="Təmizlə"/>
             <Button type="submit" text="Axtar" />
           </Box>
         </Form>

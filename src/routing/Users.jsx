@@ -1,5 +1,5 @@
-import { UsersPage } from "pages/UsersPage"
-import { Route } from "react-router-dom"
+import { UsersPage } from "pages/SettingsPage/UsersPage";
+import { Route } from "react-router-dom";
 
 export const Users = () => {
   return <>

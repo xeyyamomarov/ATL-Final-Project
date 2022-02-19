@@ -1,25 +1,45 @@
+import { Box, MenuItem } from "@mui/material";
+import { MoreOptions } from "components/MoreOptions";
+import { useDispatch } from "react-redux";
+import { TOGGLES_ACTIONS } from "store/Toggles";
+import { EditUserRoles } from "../components/EditUserRoles";
+
+
+
 export const UserRolesTableHeader = () => {
+  const dispatch = useDispatch();
+  const handleOpenClick = () => dispatch(TOGGLES_ACTIONS.setDeleteRoleDialog())
 
   return [
     {
       key: "name",
       label: "Adı",
-      minWidth: "220"
+      style: { minWidth: 220 },
     },
     {
       key: "isStatic",
       label: "Statikdir?",
-      minWidth: "120"
+      style: { minWidth: 120 },
     },
     {
       key: "description",
       label: "Təsviri",
-      minWidth: "170"
+      style: { minWidth: 170 },
     },
     {
-      key: "roleIcons",
+      key: "actions",
       label: "",
-      minWidth: "170"
+      style: { minWidth: 170 },
+      render(row) {
+        return (
+          <Box display='flex' width='100%' justifyContent='flex-end' alignItems='center'>
+            <EditUserRoles userId={row.id} />
+            <MoreOptions>
+              <MenuItem onClick={handleOpenClick}>Sil</MenuItem>
+            </MoreOptions>
+          </Box>
+        )
+      }
     },
   ]
 };
