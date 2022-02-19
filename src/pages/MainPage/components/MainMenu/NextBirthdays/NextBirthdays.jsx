@@ -1,4 +1,4 @@
-import { NextBirthdaysContainer } from "containers/NextBirthdaysContainer";
+import { NextBirthdaysContainer } from "containers/MainPageContainer/NextBirthdaysContainer";
 export const NextBirthdays = () => {
   return (
     <NextBirthdaysContainer/>

@@ -1,4 +1,4 @@
-import { AnniversaryContainer } from "containers/AnniversaryContainer";
+import { AnniversaryContainer } from "containers/MainPageContainer/AnniversaryContainer";
 
 export const Anniversary = () => {
   return(

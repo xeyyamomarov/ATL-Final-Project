@@ -1,4 +1,4 @@
-import { TripContainer } from "containers/TripContainer";
+import { TripContainer } from "containers/MainPageContainer/TripContainer";
 export const Trip = () => {
   return(
   <TripContainer/>
