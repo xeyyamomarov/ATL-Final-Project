@@ -1,8 +1,8 @@
-import { Divider, TextField as MuiTextField ,Card,CardContent,Typography, Tooltip} from "@mui/material";
-import { Formik, Form, Field } from "formik";
+import {  TextField as MuiTextField ,Card,CardContent,Typography, Tooltip,Divider} from "@mui/material";
 import { Box } from "@mui/system";
 import { makeStyles } from '@mui/styles';
 import EditIcon from '@mui/icons-material/Edit';
+
 
 const useStyles = makeStyles({
   container: {
@@ -35,15 +35,7 @@ const useStyles = makeStyles({
 })
 
 
-const initialValues = {
-  name: "",
-  description: "",
-  operation: "",
-}
 
-const onSubmit = (values, { resetForm }) => {
-  resetForm()
-}
 
 export const NotifyViewContainer = () => {
   const classes = useStyles();
@@ -85,33 +77,25 @@ export const NotifyViewContainer = () => {
           </Typography>
         </CardContent>
       </Card>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={onSubmit}
+      <Box sx={{display:"flex", flexDirection:"column"}}>
+      <MuiTextField 
+       id="standard-basic"
+       label="Adı"
+       variant="standard"
       >
-        <Form>
-          <Box className={classes.upBox}>
-                <Field 
-                  fullWidth
-                  as={MuiTextField}
-                  label="Adı "
-                  name="name"
-                  variant="standard"
-                />
-                <Field sx={{display:"flex"}}
-                  fullWidth
-                  as={MuiTextField}
-                  label="Təsviri"
-                  name="description"
-                  variant="standard"
-                  multiline
-                  rows={4}
-                />
+          
+          </MuiTextField>
+          <MuiTextField
+          id="standard-basic"
+          label="Təsviri"
+          variant="standard"
+          multiline
+          rows={4}
+          >
+          
+          </MuiTextField>
           </Box>
-          <Divider />
-         
-        </Form>
-      </Formik>
+          <Divider/>
     </Card>
     </Card>
    </Box>
