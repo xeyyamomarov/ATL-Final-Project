@@ -1,17 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 import EmployeesPage from "pages/EmployeesPage";
 import MainMenu from "pages/MainPage/MainMenu";
-import {
-    Guest,
-    ITSupply,
-    Purchase,
-    Vacation
-} from 'pages/InquiriesPage';
 import NotificationsPage from "pages/NotificationsPage";
-import { UserRolesContainer } from "containers/UserRolesContainer";
 import { Users } from "./Users";
+import { UserRoles } from "./UserRoles";
 import { DayOff } from "./DayOff";
 import { BusinessTrip } from "./BusinessTrip";
+import { Vacation } from "./Vacation";
+import { ITSupply } from "./ITSupply";
+import { Guest } from "./Guest";
+import { Purchase } from "./Purchase";
 
 export const Routing = () => {
     return (
@@ -20,13 +18,13 @@ export const Routing = () => {
             <Route path="/employees" element={<EmployeesPage />} />
             { DayOff() }
             { BusinessTrip() }
-            <Route path="/vacation" element={<Vacation />} />
-            <Route path="/guest" element={<Guest />} />
-            <Route path="/it-supply" element={<ITSupply />} />
-            <Route path="/purchase" element={<Purchase />} />
+            { Vacation() }
+            { Guest() }
+            { ITSupply() }
+            { Purchase() }
             { Users() }
             <Route path="/notification" element={<NotificationsPage />} />
-            <Route path="/user-roles" element={<UserRolesContainer />} />
+            { UserRoles() }
         </Routes>
     )
 }       

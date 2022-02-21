@@ -8,7 +8,7 @@ export function EditIcon({ fontSize, onClick }) {
     <Tooltip title="Redaktə et">
       <IconButton
         sx={{
-          padding: "0 8px"
+          padding: "0"
         }}
         onClick={onClick}
       >

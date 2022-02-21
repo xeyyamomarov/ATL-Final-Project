@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   iconsBox: {
     display: "flex",
     alignItems: "center",
-    gap: 2,
+    gap: 10,
   }
 })
 

@@ -18,6 +18,7 @@ export const ResultTable = ({ data }) => {
               <TableCell
                 variant="head"
                 sx={{
+                  width: "244px",
                   color: "gray",
                   padding: "0"
                 }}

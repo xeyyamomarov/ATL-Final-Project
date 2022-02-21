@@ -21,6 +21,4 @@ export const BusinessTrip = () => {
       <Route path="/business-trip/hr" element={<BusinessTripFormHr />} />
     </>
   );
-}
-
-export default BusinessTrip;
+};

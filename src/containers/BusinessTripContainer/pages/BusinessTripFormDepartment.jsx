@@ -18,8 +18,10 @@ export const BusinessTripFormDepartment = () => {
   const classes = useStyles();
 
   const rows = [
-    { name: "Day Off tarixi", value: "25/05/2021" },
-    { name: "Növü", value: "Tam iş günü" },
+    { name: "Başlama tarixi", value: "25/05/2021" },
+    { name: "Bitmə tarixi", value: "21/06/2021" },
+    { name: "Skan edilmiş sənədlər", value: "-" },
+    { name: "Qeyd", value: "Sadə qeyd" },
     { name: "Nəticə", value: "Departament rəhbərin göndərməsi" },
   ]
   return (
@@ -31,7 +33,7 @@ export const BusinessTripFormDepartment = () => {
       <Box className={classes.container}>
         <ShowDetails
           name="Lamiə Səyidova Əliağa"
-          header="Sorğunun formalaşdırılması"
+          header="Departament rəhbərin göndərməsi"
           data={rows}
           actions={
             <>

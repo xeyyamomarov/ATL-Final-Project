@@ -18,6 +18,7 @@ import { useDispatch } from "react-redux";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { BusinessTripDetailsModal } from "./BusinessTripDetailsModal";
 import { useStyles } from "../../Styles/Styles";
+import { InputFile } from "containers/components/InputFile/InputFile";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },
@@ -68,11 +69,11 @@ export const BusinessTripFormHrEdit = () => {
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
               <Box className={classes.formBox}>
-                <FormHead header="Sorğunun formalaşdırılması" />
+                <FormHead header="HR göndərməsı" />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={12}>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Grid item sm={6}>
                       {/* <Field
                         fullWidth
                         component={DatePicker}
@@ -94,25 +95,52 @@ export const BusinessTripFormHrEdit = () => {
                       /> */}
 
                       <Field
-                        name="date"
                         disabled
+                        sx={{
+                          width: "100%",
+                          "& .MuiOutlinedInput-root": {
+                            "& > fieldset": {
+                              border: "2px dotted"
+                            }
+                          }
+                        }}
+                        name="start"
                         fullWidth
                         component={DatePicker}
-                        label="Day Off tarixi"
+                        label="Başlama tarixi"
                         inputFormat="dd/MM/yyyy"
                         InputAdornmentProps={{ position: "start" }}
                       />
-                    </LocalizationProvider>
+
+                    </Grid>
+
+                    <Grid item sm={6}>
+                      <Field
+                        disabled
+                        sx={{
+                          width: "100%",
+                          "& .MuiOutlinedInput-root": {
+                            "& > fieldset": {
+                              border: "2px dotted"
+                            }
+                          }
+                        }}
+                        name="start"
+                        fullWidth
+                        component={DatePicker}
+                        label="Başlama tarixi"
+                        inputFormat="dd/MM/yyyy"
+                        InputAdornmentProps={{ position: "start" }}
+                      />
+                    </Grid>
+                  </LocalizationProvider>
+
+                  <Grid item sm={12}>
+                    <InputFile />
                   </Grid>
 
                   <Grid item sm={12}>
                     <Field
-                      disabled
-                      fullWidth
-                      name="type"
-                      select
-                      component={TextField}
-                      label="Növü"
                       sx={{
                         "& .MuiOutlinedInput-root": {
                           "& > fieldset": {
@@ -120,6 +148,12 @@ export const BusinessTripFormHrEdit = () => {
                           }
                         }
                       }}
+                      fullWidth
+                      disabled
+                      name="note"
+                      select
+                      component={TextField}
+                      label="Qeyd"
                     >
                       {dayOffTypes.map(option => (
                         <MenuItem key={option.value} value={option.value}>

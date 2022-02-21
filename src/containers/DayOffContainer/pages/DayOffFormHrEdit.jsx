@@ -71,7 +71,7 @@ export const DayOffFormHrEdit = () => {
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
               <Box className={classes.formBox}>
-                <FormHead header="Sorğunun formalaşdırılması" />
+                <FormHead header="HR göndərməsi" />
                 <Grid container spacing={2} padding="16px">
 
                   <Grid item sm={12}>
