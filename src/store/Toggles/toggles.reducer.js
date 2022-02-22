@@ -10,6 +10,8 @@ const togglesInit = {
   PasswordRepeatHidden: true,
   EditRoleDialog: false,
   DeleteRoleDialog: false,
+  DetailsDialog: false,
+  DeleteNotify:false
 }
 
 
@@ -55,6 +57,16 @@ export const togglesReducer = (store = togglesInit, action) => {
         ...store,
         DeleteRoleDialog: !store.DeleteRoleDialog
       };
+    case TOGGLES_ACTION_TYPES.DETAILS_DIALOG:
+      return {
+        ...store,
+        DetailsDialog: !store.DetailsDialog
+      };
+      case TOGGLES_ACTION_TYPES.DELETE_NOTIFY:
+        return {
+          ...store,
+          DeleteNotify: !store.DeleteNotify
+        }
 
     default: return store;
   }

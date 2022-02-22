@@ -2,8 +2,7 @@ import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles({
   tcontainer: {
-    width: '100%',
-    overflow: 'hidden',
+    width: "100%",
     boxShadow: "none",
     border: "1px solid #E0E0E0"
   },
@@ -13,9 +12,6 @@ export const useStyles = makeStyles({
     padding: "0 16px",
     fontSize: "12px",
     fontWeight: "700",
-  },
-  table: {
-    minWidth: 900
   },
   tcell: {
     height: "48px",

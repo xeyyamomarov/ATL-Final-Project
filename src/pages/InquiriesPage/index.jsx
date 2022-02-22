@@ -1,5 +1,5 @@
-export * from './DayOff';
-export * from './BusinessTrip';
+export * from './DayOffPage';
+export * from './BusinessTripPage';
 export * from './Guest';
 export * from './IT-Supply';
 export * from './Purchase';

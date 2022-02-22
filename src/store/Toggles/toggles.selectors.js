@@ -7,3 +7,6 @@ export const getPasswordHidden = store => store.toggles.PasswordHidden;
 export const getPasswordRepeatHidden = store => store.toggles.PasswordRepeatHidden;
 
 export const getDeleteRoleDialogToggle = store => store.toggles.DeleteRoleDialog;
+export const getDetailsDialogToggle = store => store.toggles.DetailsDialog;
+
+export const getDeleteNotify = store => store.toggles.DeleteNotify;

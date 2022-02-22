@@ -39,11 +39,14 @@ const MainLayout = ({ children }) => {
       direction="row"
       spacing={0}
     >
-        <SideBar open={open} setOpen={setOpen} />
-      <Box sx={{ flexGrow: 1 }}>
+      <SideBar open={open} setOpen={setOpen} />
+      <Box sx={{
+        flexGrow: 1,
+        overflow: "hidden"
+      }}>
         <ThemeProvider theme={theme}>
           <NavBar open={open} setOpen={setOpen} />
-            {children}
+          {children}
         </ThemeProvider>
       </Box>
     </Stack>
