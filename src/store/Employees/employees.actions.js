@@ -1,6 +1,6 @@
-import { EMPLOYEES_ACTION_TYPES } from "./employees.action-types";
+import { EMPLOYEES_ALL_ACTION_TYPES } from "./employees.action-types";
 
-export const setEmployees = (data) => ({type: EMPLOYEES_ACTION_TYPES.SET_EMPLOYEES, data });
-export const fetchEmployees = (data) => ({type: EMPLOYEES_ACTION_TYPES.FETCH_EMPLOYEES, data });
-export const setEmployeesLoading = () => ({type: EMPLOYEES_ACTION_TYPES.SET_EMPLOYEES_LOADING });
-export const setEmployeesError = (error) => ({type: EMPLOYEES_ACTION_TYPES.SET_EMPLOYEES_ERROR, data: error });
+export const setEmployeesAll = (data) => ({type: EMPLOYEES_ALL_ACTION_TYPES.SET_EMPLOYEES_ALL, data });
+export const fetchEmployeesAll = (data) => ({type: EMPLOYEES_ALL_ACTION_TYPES.FETCH_EMPLOYEES_ALL, data });
+export const setEmployeesAllLoading = () => ({type: EMPLOYEES_ALL_ACTION_TYPES.SET_EMPLOYEES_ALL_LOADING });
+export const setEmployeesAllError = (error) => ({type: EMPLOYEES_ALL_ACTION_TYPES.SET_EMPLOYEES_ALL_ERROR, data: error });

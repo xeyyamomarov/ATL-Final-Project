@@ -4,7 +4,7 @@ import { userRolesReducer } from './UserRoles/userRoles.reducer';
 import { usersReducer } from './Users/users.reducer';
 import { mainPageReducers } from './MainPage/mainPage.reducer';
 import { queriesReducer } from './Queries/queries.reducer';
-import { employeesReducer } from './Employees/employees.reducer';
+import { employeesAllReducer } from './Employees/employees.reducer';
 
 export default combineReducers({
   users: usersReducer,
@@ -12,5 +12,5 @@ export default combineReducers({
   mainPage:mainPageReducers,
   toggles: togglesReducer,
   queries: queriesReducer,
-  employees: employeesReducer,
+  employeesAll: employeesAllReducer,
 })

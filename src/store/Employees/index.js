@@ -1,2 +1,2 @@
-export * as EMPLOYEES_ACTIONS from './employees.actions';
-export * as EMPLOYEES_SELECTORS from './employees.selectors';
+export * as EMPLOYEES_ALL_ACTIONS from './employees.actions';
+export * as EMPLOYEES_ALL_SELECTORS from './employees.selectors';

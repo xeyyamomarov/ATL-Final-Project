@@ -3,7 +3,7 @@ import { usersSaga } from './Users/sagas';
 import { mainPageSaga } from './MainPage/sagas';
 import { userRolesSaga } from './UserRoles/sagas';
 import { queriesSaga } from './Queries/sagas';
-import { employeesSaga } from './Employees/sagas';
+import { employeesAllSaga } from './Employees/sagas';
 
 export default function* rootSaga(){
     yield all([
@@ -11,6 +11,6 @@ export default function* rootSaga(){
         fork(mainPageSaga),
         fork(userRolesSaga),
         fork(queriesSaga),
-        fork(employeesSaga),
+        fork(employeesAllSaga),
     ])
 }

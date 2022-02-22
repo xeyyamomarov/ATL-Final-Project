@@ -1,13 +1,13 @@
 import { all, fork } from "redux-saga/effects";
-import { watchFetchEmployees } from "./fetch-employess.saga"; 
-import { watchDeleteEmployees } from './delete-employees.saga';
+import { watchFetchEmployeesAll } from "./fetch-employess.saga"; 
+import { watchDeleteEmployeesAll } from './delete-employees.saga';
 
 
-function* employeesSaga(){
+function* employeesAllSaga(){
     yield all([
-        fork(watchFetchEmployees),
-        fork(watchDeleteEmployees),
+        fork(watchFetchEmployeesAll),
+        fork(watchDeleteEmployeesAll),
     ])
 }
 
-export {employeesSaga};
+export {employeesAllSaga};

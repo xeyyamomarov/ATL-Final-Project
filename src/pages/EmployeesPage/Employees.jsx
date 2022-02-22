@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Table } from "components/Table";
-import { EMPLOYEES_ACTIONS, EMPLOYEES_SELECTORS } from "store/Employees";
+import { EMPLOYEES_ALL_ACTIONS, EMPLOYEES_ALL_SELECTORS } from "store/Employees";
 //import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "./components/Dialogs";
 import { SearchBar } from "components/SearchBar";
 import { Box, Collapse } from '@mui/material';
@@ -13,12 +13,14 @@ import { thead } from "./constants";
 const EmployeesPage = () => {
 
     const dispatch = useDispatch();
-    const employees = useSelector(EMPLOYEES_SELECTORS.getEmployees);
+    const employees = useSelector(EMPLOYEES_ALL_SELECTORS.getEmployeesAll);
     const [searchOpen, setSearchOpen] = useState(false);
+
+    console.log('employees',employees )
 
 
     useEffect(() => {
-        dispatch(EMPLOYEES_ACTIONS.fetchEmployees())
+        dispatch(EMPLOYEES_ALL_ACTIONS.fetchEmployeesAll())
     }, [dispatch])
 
     return (

@@ -1,3 +1,3 @@
 import AXIOS from '../index';
 
-export const getEmployeesData = () => AXIOS.get('employeesAll').then(res=> res.data);
+export const getEmployeesAllData = () => AXIOS.get('employeesAll').then(res=> res.data);

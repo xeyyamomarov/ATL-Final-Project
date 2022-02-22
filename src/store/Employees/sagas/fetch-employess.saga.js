@@ -1,24 +1,24 @@
 import {takeLatest, put, call} from 'redux-saga/effects';
-import { EMPLOYEES_ACTION_TYPES } from '../employees.action-types';
-import { getEmployeesData } from '../../../lib/api/employees';
-import { EMPLOYEES_ACTIONS } from '..'
+import { EMPLOYEES_ALL_ACTION_TYPES } from '../employees.action-types';
+import { getEmployeesAllData } from '../../../lib/api/employees';
+import { EMPLOYEES_ALL_ACTIONS } from '..'
 
-function* fetchEmployees(){
-    yield put(EMPLOYEES_ACTIONS.setEmployeesLoading())
+function* fetchEmployeesAll(){
+    yield put(EMPLOYEES_ALL_ACTIONS.setEmployeesAllLoading())
     try{
-        const employees = yield call(getEmployeesData)
-        yield put(EMPLOYEES_ACTIONS.setEmployees(employees));
+        const employeesAll = yield call(getEmployeesAllData)
+        yield put(EMPLOYEES_ALL_ACTIONS.setEmployeesAll(employeesAll));
 
     }catch(error){
-        yield put(EMPLOYEES_ACTIONS.setEmployeesError(error.message))
+        yield put(EMPLOYEES_ALL_ACTIONS.setEmployeesAllError(error.message))
     }
 }
 
 
-function* watchFetchEmployees(){
-    yield takeLatest(EMPLOYEES_ACTION_TYPES.FETCH_EMPLOYEES, fetchEmployees)
+function* watchFetchEmployeesAll(){
+    yield takeLatest(EMPLOYEES_ALL_ACTION_TYPES.FETCH_EMPLOYEES_ALL, fetchEmployeesAll)
 }
 
 export {
-    watchFetchEmployees
+    watchFetchEmployeesAll
 }

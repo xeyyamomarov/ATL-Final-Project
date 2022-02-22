@@ -1,5 +1,3 @@
-
-
-export const getEmployees = store => store.employees.data;
-export const getEmployeesLoading = store => store.employees.loading;
-export const getEmployeesError = store => store.employees.error;
+export const getEmployeesAll = store => store.employeesALL.data;
+export const getEmployeesAllLoading = store => store.employeesALL.loading;
+export const getEmployeesAllError = store => store.employeesAll.error;
