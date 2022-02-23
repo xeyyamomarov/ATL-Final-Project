@@ -77,7 +77,7 @@ export const NotifyViewContainer = () => {
           </Typography>
         </CardContent>
       </Card>
-      <Box sx={{display:"flex", flexDirection:"column"}}>
+      <Box sx={{display:"flex", flexDirection:"column",padding:"10px"}}>
       <MuiTextField 
        id="standard-basic"
        label="Adı"
