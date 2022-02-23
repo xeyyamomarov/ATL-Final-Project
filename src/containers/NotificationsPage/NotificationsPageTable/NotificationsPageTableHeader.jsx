@@ -23,9 +23,9 @@ export const NotificationsPageTableHeader = () => {
   const editNavigate = useNavigate()
   const viewNavigate = useNavigate()
 
-  const editHandleClick = ()=> editNavigate("/notificationEdit")
+  const editHandleClick = ()=> editNavigate("/notificationView")
 
-  const viewHandleClick= () => viewNavigate("/notificationView")
+  const viewHandleClick= () => viewNavigate("/notificationEdit")
 
 
  

@@ -9,6 +9,7 @@ export const EmployeesContainer = () => {
 
   const dispatch=useDispatch()
   const employeesData=useSelector(MAINPAGE_SELECTORS.getEmployeesData)
+  const employeesLoading = useSelector(MAINPAGE_SELECTORS.getEmployeesLoading)
   const handleClick=()=>dispatch(MAINPAGE_ACTIONS.fetchEmployees())
 
   useEffect(()=>{
@@ -54,7 +55,7 @@ export const EmployeesContainer = () => {
       </Card>
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
-          <EmployeesTable data={employeesData}/>
+          <EmployeesTable data={employeesData} loading={employeesLoading}/>
         </CardContent>
       </Card>
     </Card>

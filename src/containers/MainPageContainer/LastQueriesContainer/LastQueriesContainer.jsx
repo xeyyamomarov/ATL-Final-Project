@@ -9,6 +9,7 @@ export const LastQueriesContainer=()=>{
     const dispatch=useDispatch()
 
   const lastQueriesData =useSelector(MAINPAGE_SELECTORS.getLastQueriesData)
+  const lastQueriesLoading = useSelector(MAINPAGE_SELECTORS.getLastQueriesLoading)
   const handleClick=()=> dispatch(MAINPAGE_ACTIONS.fetchLastQueries())
   
   useEffect(()=>{
@@ -53,7 +54,7 @@ export const LastQueriesContainer=()=>{
       </Card>
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
-            <LastQueriesTable data={lastQueriesData}/>
+            <LastQueriesTable data={lastQueriesData} loading={lastQueriesLoading} />
         </CardContent>
       </Card>
     </Card>
