@@ -10,6 +10,7 @@ export const VacationBalanceContainer=()=>{
 
   const dispatch=useDispatch();
   const VacationBalanceData=useSelector(MAINPAGE_SELECTORS.getVacationBalanceData)
+  const VacationBalanceLoading = useSelector(MAINPAGE_SELECTORS.getVacationBalanceLoading)
   const handleClick=()=>dispatch(MAINPAGE_ACTIONS.fetchVacationBalance())
 
   useEffect(()=>{
@@ -55,7 +56,7 @@ export const VacationBalanceContainer=()=>{
       </Card>
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
-          <VacationBalanceTable data={VacationBalanceData}/>
+          <VacationBalanceTable data={VacationBalanceData} loading={VacationBalanceLoading}/>
         </CardContent>
       </Card>
     </Card>

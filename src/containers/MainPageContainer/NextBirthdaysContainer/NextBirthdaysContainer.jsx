@@ -20,6 +20,7 @@ export const NextBirthdaysContainer=()=>{
     
       const dispatch=useDispatch()
       const birthdaysData=useSelector(MAINPAGE_SELECTORS.getNextBirthdaysData)
+      const birthdaysLoading = useSelector(MAINPAGE_SELECTORS.getNextBirthdaysLoading)
       const handleClick=()=>dispatch(MAINPAGE_ACTIONS.fetchNextBirthdays())
     
       useEffect(()=>{
@@ -64,7 +65,7 @@ export const NextBirthdaysContainer=()=>{
           </Card>
           <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
             <CardContent>
-              <Table tbody={birthdaysData} thead={thead} />
+              <Table tbody={birthdaysData} thead={thead} loading={birthdaysLoading} />
             </CardContent>
           </Card>
         </Card>

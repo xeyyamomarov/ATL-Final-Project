@@ -20,6 +20,7 @@ export const TripContainer=()=>{
     
       const dispatch=useDispatch()
       const tripData=useSelector(MAINPAGE_SELECTORS.getTripData)
+      const tripLoading = useSelector(MAINPAGE_SELECTORS.getTripLoading)
       const handleClick=()=>dispatch(MAINPAGE_ACTIONS.fetchTrip())
     
       useEffect(()=>{
@@ -65,7 +66,7 @@ export const TripContainer=()=>{
           </Card>
           <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
             <CardContent>
-              <Table tbody={tripData} thead={thead} />
+              <Table tbody={tripData} thead={thead} loading={tripLoading} />
             </CardContent>
           </Card>
         </Card>
