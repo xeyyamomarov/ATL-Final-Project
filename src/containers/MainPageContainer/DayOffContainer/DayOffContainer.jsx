@@ -10,6 +10,7 @@ export const DayOffContainer=()=>{
 
  const dispatch=useDispatch()
 const dayOffData=useSelector(MAINPAGE_SELECTORS.getDayoffData)
+const dayOffLoading = useSelector(MAINPAGE_SELECTORS.getDayOffLoading)
 const handleClick=()=>dispatch(MAINPAGE_ACTIONS.fetchDayOff())
 
 useEffect(()=>{
@@ -67,7 +68,7 @@ useEffect(()=>{
       </Card>
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
-          <Table tbody={dayOffData} thead={thead} />
+          <Table tbody={dayOffData} thead={thead} loading={dayOffLoading} />
         </CardContent>
       </Card>
     </Card>

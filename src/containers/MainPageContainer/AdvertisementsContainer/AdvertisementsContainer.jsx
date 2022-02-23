@@ -9,6 +9,8 @@ export const AdvertisementsContainer=()=>{
 
     const dispatch= useDispatch();
     const advertisementsData=useSelector(MAINPAGE_SELECTORS.getAdvertisementsData)
+    const advertisementsLoading = useSelector(MAINPAGE_SELECTORS.getAdvertisementsLoading)
+    console.log(advertisementsLoading);
     const handleClick=()=>dispatch(MAINPAGE_ACTIONS.fetchAdvertisements())
   
     useEffect(()=>{
@@ -53,7 +55,7 @@ export const AdvertisementsContainer=()=>{
         </Card>
         <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
           <CardContent>
-            <AdvertisementsTable data={advertisementsData}/>
+            <AdvertisementsTable data={advertisementsData} loading={advertisementsLoading}/>
           </CardContent>
         </Card>
       </Card>

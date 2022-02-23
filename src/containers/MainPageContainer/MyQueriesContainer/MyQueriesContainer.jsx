@@ -23,6 +23,7 @@ export const MyQueriesContainer = () => {
 
   const dispatch =useDispatch()
   const myQueriesData=useSelector(MAINPAGE_SELECTORS.getMyQueiresData)
+  const myQueriesLoading = useSelector(MAINPAGE_SELECTORS.getMyQueiresLoading)
   const handleClick=()=> dispatch(MAINPAGE_ACTIONS.fetchMyQueries())
 
   useEffect(()=>{
@@ -70,7 +71,7 @@ export const MyQueriesContainer = () => {
       </Card>
       <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
         <CardContent>
-          <Table tbody={myQueriesData} thead={thead} />
+          <Table tbody={myQueriesData} thead={thead} loading={myQueriesLoading} />
         </CardContent>
       </Card>
     </Card>

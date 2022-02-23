@@ -10,6 +10,7 @@ export const AnniversaryContainer=()=>{
 
         const dispatch=useDispatch()
         const anniversaryData=useSelector(MAINPAGE_SELECTORS.getAnniversaryData)
+        const anniversaryLoading = useSelector(MAINPAGE_SELECTORS.getAnniversaryLoading)
         const handleClick=()=>dispatch(MAINPAGE_ACTIONS.fetchAnniversary())
       
         useEffect(()=>{
@@ -56,7 +57,7 @@ export const AnniversaryContainer=()=>{
             </Card>
             <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
               <CardContent>
-                <AnniversaryTable data={anniversaryData}/>
+                <AnniversaryTable data={anniversaryData} loading={anniversaryLoading} />
               </CardContent>
             </Card>
           </Card>
