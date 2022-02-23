@@ -7,7 +7,7 @@ function* deleteEmployeesAll(){
 
 
 function* watchDeleteEmployeesAll(){
-    yield takeEvery(EMPLOYEES_ALL_ACTION_TYPES.DELETE_EMPLOYEES, deleteEmployeesAll)
+    yield takeEvery(EMPLOYEES_ALL_ACTION_TYPES.DELETE_EMPLOYEES_ALL, deleteEmployeesAll)
 }
 
 export {watchDeleteEmployeesAll}

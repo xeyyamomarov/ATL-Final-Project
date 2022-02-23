@@ -16,8 +16,6 @@ const EmployeesPage = () => {
     const employees = useSelector(EMPLOYEES_ALL_SELECTORS.getEmployeesAll);
     const [searchOpen, setSearchOpen] = useState(false);
 
-    console.log('employees',employees )
-
 
     useEffect(() => {
         dispatch(EMPLOYEES_ALL_ACTIONS.fetchEmployeesAll())

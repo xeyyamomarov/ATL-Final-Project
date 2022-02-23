@@ -1,5 +1,5 @@
 import { all, fork } from "redux-saga/effects";
-import { watchFetchEmployeesAll } from "./fetch-employess.saga"; 
+import { watchFetchEmployeesAll } from "./fetch-employees.saga"; 
 import { watchDeleteEmployeesAll } from './delete-employees.saga';
 
 
