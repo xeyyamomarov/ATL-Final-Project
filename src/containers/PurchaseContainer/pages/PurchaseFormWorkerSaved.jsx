@@ -7,17 +7,17 @@ import { useStyles } from "containers/Styles/Styles";
 const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },
   { value: "two", label: "Departament rəhbərin göndərməsi" },
-  { value: "three", label: "HR göndərməsi" },
+  { value: "three", label: "Satınalma göndərməsi" },
 ]
 
 export const PurchaseFormWorkerSaved = () => {
   const classes = useStyles();
 
   const rows = [
-    { name: "Day Off tarixi", value: "25/05/2021" },
-    { name: "Növü", value: "Tam iş günü" },
+    { name: "Problemin təsviri", value: "Sadə bir qeyd" },
     { name: "Nəticə", value: "Departament rəhbərin göndərməsi" },
   ]
+
   return (
     <Box>
       <Box className={classes.breadcrumbBar}>

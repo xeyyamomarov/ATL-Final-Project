@@ -19,6 +19,7 @@ import { TOGGLES_ACTIONS } from "store/Toggles";
 import { GuestDetailsModal } from "./GuestDetailsModal";
 import { useStyles } from "../../Styles/Styles";
 import { InputFile } from "containers/components/InputFile/InputFile";
+import { InfoSection } from "containers/components/InfoSection";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },
@@ -68,6 +69,7 @@ export const GuestFormHrEdit = () => {
           <QueryTabs tabs={tabs} value="three" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
+            <InfoSection name="Lamiə Səyidova Əliağa" />
               <Box className={classes.formBox}>
                 <FormHead header="HR göndərməsı" />
                 <Grid container spacing={2} padding="16px">

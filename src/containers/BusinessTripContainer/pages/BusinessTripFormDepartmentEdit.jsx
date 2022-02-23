@@ -16,6 +16,8 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "../../Styles/Styles";
 import { InputFile } from "containers/components/InputFile";
+import { InfoSection } from "containers/components/InfoSection";
+import { InfoIcon } from "containers/components/InfoIcon/InfoIcon";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },
@@ -62,8 +64,15 @@ export const BusinessTripFormDepartmentEdit = () => {
           <QueryTabs tabs={tabs} value="two" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
+              <InfoSection name="Lamiə Səyidova Əliağa" />
               <Box className={classes.formBox}>
-                <FormHead header="Departament rəhbərin göndərməsi" />
+                <FormHead header="Departament rəhbərin göndərməsi"
+                  actions={
+                    <>
+                      <InfoIcon />
+                    </>
+                  }
+                />
                 <Grid container spacing={2} padding="16px">
 
                   <LocalizationProvider dateAdapter={AdapterDateFns}>

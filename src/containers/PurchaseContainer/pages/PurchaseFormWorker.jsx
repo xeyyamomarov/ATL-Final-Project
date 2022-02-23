@@ -10,12 +10,7 @@ import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
 import { makeStyles } from "@mui/styles";
 import { TextField } from "formik-mui";
-import {
-  LocalizationProvider,
-  // DatePicker as MuiDatePicker
-} from "@mui/lab";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import { DatePicker } from "formik-mui-lab";
+
 
 const useStyles = makeStyles({
   breadcrumbBar: {
@@ -39,22 +34,16 @@ const useStyles = makeStyles({
   }
 })
 
-const PurchaseTypes = [
-  { value: "Tam", label: "Tam gün" },
-  { value: "Yarım", label: "Yarım gün" },
-  { value: "2 saat", label: "2 saat" }
-]
-
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
-  { value: "HR", label: "HR göndərməsi" },
+  { value: "Purchase", label: "Satınalma göndərməsi" },
   { value: "Confirmed", label: "Təsdiqləndi" }
 ]
 
 const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },
   { value: "two", label: "Departament rəhbərin göndərməsi" },
-  { value: "three", label: "HR göndərməsi" },
+  { value: "three", label: "Satınalma göndərməsi" },
 ]
 
 const initialValues = {
@@ -84,7 +73,7 @@ export const PurchaseFormWorker = () => {
           <Box className={classes.breadcrumbBar}>
             <Breadcrumbs />
           </Box>
-          <QueryTabs tabs={tabs} value="one"/>
+          <QueryTabs tabs={tabs} value="one" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
               <Box className={classes.formBox}>
@@ -92,52 +81,12 @@ export const PurchaseFormWorker = () => {
                 <Grid container spacing={2} padding="16px">
 
                   <Grid item sm={12}>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      {/* <Field
-                        fullWidth
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        name="date"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      {/* <Field
-                        name="date"
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        renderInput={props => {
-                          return <MuiTextField fullWidth {...props} />
-                        }}
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      <Field
-                        name="date"
-                        fullWidth
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
-                    </LocalizationProvider>
-                  </Grid>
-
-                  <Grid item sm={12}>
                     <Field
                       fullWidth
-                      name="type"
-                      select
+                      name="problem"
                       component={TextField}
-                      label="Növü"
-                    >
-                      {PurchaseTypes.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Field>
+                      label="Problemin təsviri"
+                    />
                   </Grid>
 
                   <Grid item sm={12}>
@@ -160,7 +109,7 @@ export const PurchaseFormWorker = () => {
               </Box>
 
               <Box className={classes.button}>
-                <SubmitButton text="Yadda saxla və yönləndir" />
+                <SubmitButton text="Göndər" />
               </Box>
 
             </Box>

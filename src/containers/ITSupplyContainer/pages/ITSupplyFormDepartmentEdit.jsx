@@ -8,35 +8,26 @@ import { Breadcrumbs } from "components/Breadcrumbs";
 import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-mui";
-import {
-  LocalizationProvider,
-  // DatePicker as MuiDatePicker
-} from "@mui/lab";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "containers/Styles/Styles";
+import { InfoIcon } from "containers/components/InfoIcon";
+import { InfoSection } from "containers/components/InfoSection";
 
-const ITSupplyTypes = [
-  { value: "Tam", label: "Tam gün" },
-  { value: "Yarım", label: "Yarım gün" },
-  { value: "2 saat", label: "2 saat" }
-]
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
-  { value: "HR", label: "HR göndərməsi" },
+  { value: "HR", label: "IT göndərməsi" },
   { value: "Confirmed", label: "Təsdiqləndi" }
 ]
 
 const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },
   { value: "two", label: "Departament rəhbərin göndərməsi" },
-  { value: "three", label: "HR göndərməsi" },
+  { value: "three", label: "IT göndərməsi" },
 ]
 
 const initialValues = {
-  date: "",
-  type: "",
+  note: "",
+  resultText: "",
   result: "",
 }
 
@@ -61,54 +52,24 @@ export const ITSupplyFormDepartmentEdit = () => {
           <QueryTabs tabs={tabs} value="two" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
+              <InfoSection name="Lamiə Səyidova Əliağa" />
               <Box className={classes.formBox}>
-                <FormHead header="Departament rəhbərin göndərməsi" />
+                <FormHead header="Departament rəhbərin göndərməsi"
+                  actions={
+                    <>
+                      <InfoIcon />
+                    </>
+                  }
+                />
                 <Grid container spacing={2} padding="16px">
 
                   <Grid item sm={12}>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      {/* <Field
-                        fullWidth
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        name="date"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      {/* <Field
-                        name="date"
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        renderInput={props => {
-                          return <MuiTextField fullWidth {...props} />
-                        }}
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      <Field
-                        disabled
-                        sx={{
-                          width: "100%",
-                          "& .MuiOutlinedInput-root": {
-                            "& > fieldset": {
-                              border: "2px dotted"
-                            }
-                          }
-                        }}
-                        name="date"
-                        fullWidth
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
-                    </LocalizationProvider>
-                  </Grid>
-
-                  <Grid item sm={12}>
                     <Field
+                      fullWidth
+                      disabled
+                      name="note"
+                      component={TextField}
+                      label="Qeyd"
                       sx={{
                         "& .MuiOutlinedInput-root": {
                           "& > fieldset": {
@@ -116,26 +77,31 @@ export const ITSupplyFormDepartmentEdit = () => {
                           }
                         }
                       }}
+                    />
+                  </Grid>
+
+                  <Grid item sm={12}>
+                    <Field
                       fullWidth
                       disabled
-                      name="type"
+                      name="resultText"
                       select
                       component={TextField}
-                      label="Növü"
-                    >
-                      {ITSupplyTypes.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Field>
+                      label="Nəticə mətni"
+                      sx={{
+                        "& .MuiOutlinedInput-root": {
+                          "& > fieldset": {
+                            border: "2px dotted"
+                          }
+                        }
+                      }}
+                    />
                   </Grid>
 
                   <Grid item sm={12}>
                     <Field
                       fullWidth
                       name="result"
-                      select
                       component={TextField}
                       label="Nəticə"
                     >

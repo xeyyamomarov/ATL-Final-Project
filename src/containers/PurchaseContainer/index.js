@@ -1,1 +1,2 @@
-export * from "./PurchaseContainer";
+import { PurchaseContainer } from "./PurchaseContainer"
+export { PurchaseContainer };

@@ -90,13 +90,13 @@ export const AddNewUserDialog = () => {
                 <Grid item xs={12} sm={12}>
                   <Field
                     fullWidth
+                    multiple
                     name="position"
                     component={Autocomplete}
                     label="position"
                     options={positions}
                     filterSelectedOptions
                     getOptionLabel={option => option}
-                    multiple
                     renderInput={(params) => {
                       return <MuiTextField {...params} label="Rollar*" />;
                     }}

@@ -4,4 +4,3 @@ export * from "./VacationFormDepartment";
 export * from "./VacationFormDepartmentEdit";
 export * from "./VacationFormHr";
 export * from "./VacationFormHrEdit";
-export * from "./VacationDetailsModal";

@@ -17,11 +17,6 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "../../Styles/Styles";
 
-const dayOffTypes = [
-  { value: "Tam", label: "Tam gün" },
-  { value: "Yarım", label: "Yarım gün" },
-  { value: "2 saat", label: "2 saat" }
-]
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
@@ -38,7 +33,6 @@ const tabs = [
 const initialValues = {
   start: "",
   end: "",
-  note: "",
   result: "",
 }
 
@@ -69,28 +63,8 @@ export const VacationFormWorker = () => {
                 <FormHead header="Sorğunun formalaşdırılması" />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={6}>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      {/* <Field
-                        fullWidth
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        name="date"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      {/* <Field
-                        name="date"
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        renderInput={props => {
-                          return <MuiTextField fullWidth {...props} />
-                        }}
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Grid item sm={6}>
                       <Field
                         name="start"
                         fullWidth
@@ -99,11 +73,9 @@ export const VacationFormWorker = () => {
                         inputFormat="dd/MM/yyyy"
                         InputAdornmentProps={{ position: "start" }}
                       />
-                    </LocalizationProvider>
-                  </Grid>
+                    </Grid>
 
-                  <Grid item sm={6}>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Grid item sm={6}>
                       <Field
                         name="end"
                         fullWidth
@@ -112,24 +84,8 @@ export const VacationFormWorker = () => {
                         inputFormat="dd/MM/yyyy"
                         InputAdornmentProps={{ position: "start" }}
                       />
-                    </LocalizationProvider>
-                  </Grid>
-
-                  <Grid item sm={12}>
-                    <Field
-                      fullWidth
-                      name="note"
-                      select
-                      component={TextField}
-                      label="Qeyd"
-                    >
-                      {dayOffTypes.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Field>
-                  </Grid>
+                    </Grid>
+                  </LocalizationProvider>
 
                   <Grid item sm={12}>
                     <Field

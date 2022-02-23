@@ -19,6 +19,8 @@ import { TOGGLES_ACTIONS } from "store/Toggles";
 import { BusinessTripDetailsModal } from "./BusinessTripDetailsModal";
 import { useStyles } from "../../Styles/Styles";
 import { InputFile } from "containers/components/InputFile/InputFile";
+import { InfoSection } from "containers/components/InfoSection";
+import { InfoIcon } from "containers/components/InfoIcon/InfoIcon";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },
@@ -68,8 +70,15 @@ export const BusinessTripFormHrEdit = () => {
           <QueryTabs tabs={tabs} value="three" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
+              <InfoSection name="Lamiə Səyidova Əliağa" />
               <Box className={classes.formBox}>
-                <FormHead header="HR göndərməsı" />
+                <FormHead header="HR göndərməsı"
+                  actions={
+                    <>
+                      <InfoIcon />
+                    </>
+                  }
+                />
                 <Grid container spacing={2} padding="16px">
 
                   <LocalizationProvider dateAdapter={AdapterDateFns}>

@@ -19,12 +19,9 @@ import { TOGGLES_ACTIONS } from "store/Toggles";
 import { VacationDetailsModal } from "./VacationDetailsModal";
 import { useStyles } from "../../Styles/Styles";
 import { InputFile } from "containers/components/InputFile/InputFile";
-
-const dayOffTypes = [
-  { value: "Tam", label: "Tam gün" },
-  { value: "Yarım", label: "Yarım gün" },
-  { value: "2 saat", label: "2 saat" }
-]
+import { InfoIcon } from "containers/components/InfoIcon";
+import { DownloadIcon } from "containers/components/DownloadIcon";
+import { InfoSection } from "containers/components/InfoSection";
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
@@ -68,32 +65,21 @@ export const VacationFormHrEdit = () => {
           <QueryTabs tabs={tabs} value="three" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
+              <InfoSection name="Lamiə Səyidova Əliağa" />
               <Box className={classes.formBox}>
-                <FormHead header="HR göndərməsı" />
+                <FormHead
+                  header="HR göndərməsı"
+                  actions={
+                    <>
+                      <InfoIcon />
+                      <DownloadIcon />
+                    </>
+                  }
+                />
                 <Grid container spacing={2} padding="16px">
 
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <Grid item sm={6}>
-                      {/* <Field
-                        fullWidth
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        name="date"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      {/* <Field
-                        name="date"
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        renderInput={props => {
-                          return <MuiTextField fullWidth {...props} />
-                        }}
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
                       <Field
                         disabled
                         sx={{
@@ -111,7 +97,6 @@ export const VacationFormHrEdit = () => {
                         inputFormat="dd/MM/yyyy"
                         InputAdornmentProps={{ position: "start" }}
                       />
-
                     </Grid>
 
                     <Grid item sm={6}>
@@ -137,30 +122,6 @@ export const VacationFormHrEdit = () => {
 
                   <Grid item sm={12}>
                     <InputFile />
-                  </Grid>
-
-                  <Grid item sm={12}>
-                    <Field
-                      sx={{
-                        "& .MuiOutlinedInput-root": {
-                          "& > fieldset": {
-                            border: "2px dotted"
-                          }
-                        }
-                      }}
-                      fullWidth
-                      disabled
-                      name="note"
-                      select
-                      component={TextField}
-                      label="Qeyd"
-                    >
-                      {dayOffTypes.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Field>
                   </Grid>
 
                   <Grid item sm={12}>

@@ -18,6 +18,8 @@ import { useDispatch } from "react-redux";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { DayOffDetailsModal } from "./DayOffDetailsModal";
 import { useStyles } from "containers/Styles/Styles";
+import { InfoSection } from "containers/components/InfoSection";
+import { InfoIcon } from "containers/components/InfoIcon/InfoIcon";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },
@@ -47,7 +49,7 @@ const initialValues = {
 export const DayOffFormHrEdit = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  
+
   const toggle = () => dispatch(TOGGLES_ACTIONS.setDetailsDialog())
 
   const onSubmit = (values, { resetForm }) => {
@@ -70,8 +72,15 @@ export const DayOffFormHrEdit = () => {
           <QueryTabs tabs={tabs} value="three" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
+              <InfoSection name="Lamiə Səyidova Əliağa" />
               <Box className={classes.formBox}>
-                <FormHead header="HR göndərməsi" />
+                <FormHead header="HR göndərməsi"
+                  actions={
+                    <>
+                      <InfoIcon />
+                    </>
+                  }
+                />
                 <Grid container spacing={2} padding="16px">
 
                   <Grid item sm={12}>

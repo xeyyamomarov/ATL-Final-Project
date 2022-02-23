@@ -10,17 +10,17 @@ import { useStyles } from "containers/Styles/Styles";
 const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },
   { value: "two", label: "Departament rəhbərin göndərməsi" },
-  { value: "three", label: "HR göndərməsi" },
+  { value: "three", label: "Satınalma göndərməsi" },
 ]
 
-export const ITSupplyFormHr = () => {
+export const PurchaseFormHr = () => {
   const navigate = useNavigate();
   const classes = useStyles();
 
   const rows = [
-    { name: "Day Off tarixi", value: "25/05/2021" },
-    { name: "Növü", value: "Tam iş günü" },
-    { name: "Nəticə", value: "Departament rəhbərin göndərməsi" },
+    { name: "Qeyd", value: "-" },
+    { name: "Nəticə mətni", value: "-" },
+    { name: "Nəticə", value: "Satınalma göndərməsi" },
   ]
   return (
     <Box>
@@ -31,11 +31,11 @@ export const ITSupplyFormHr = () => {
       <Box className={classes.container}>
         <ShowDetails
           name="Lamiə Səyidova Əliağa"
-          header="HR göndərməsi"
+          header="Satınalma göndərməsi"
           data={rows}
           actions={
             <>
-              <EditIcon onClick={() => navigate("/it-supply/hr/edit")} />
+              <EditIcon onClick={() => navigate("/purchase/hr/edit")} />
               <InfoIcon />
             </>
           }

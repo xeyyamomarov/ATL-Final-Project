@@ -14,10 +14,10 @@ export const ITSupplyFormWorkerSaved = () => {
   const classes = useStyles();
 
   const rows = [
-    { name: "Day Off tarixi", value: "25/05/2021" },
-    { name: "Növü", value: "Tam iş günü" },
+    { name: "Problemin təsviri", value: "Mouse işləmir" },
     { name: "Nəticə", value: "Departament rəhbərin göndərməsi" },
   ]
+  
   return (
     <Box>
       <Box className={classes.breadcrumbBar}>

@@ -18,10 +18,11 @@ export const ITSupplyFormDepartment = () => {
   const classes = useStyles();
 
   const rows = [
-    { name: "Day Off tarixi", value: "25/05/2021" },
-    { name: "Növü", value: "Tam iş günü" },
-    { name: "Nəticə", value: "Departament rəhbərin göndərməsi" },
+    { name: "Qeyd", value: "-" },
+    { name: "Nəticə mətni", value: "-" },
+    { name: "Nəticə", value: "IT göndərməsi" },
   ]
+  
   return (
     <Box>
       <Box className={classes.breadcrumbBar}>

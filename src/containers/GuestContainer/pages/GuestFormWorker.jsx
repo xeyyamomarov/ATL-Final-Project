@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import {
-  Box, Grid, MenuItem,
-  // TextField as MuiTextField
+  Box, Grid, MenuItem, Autocomplete, Chip,
+  TextField as MuiTextField
 } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
@@ -16,40 +16,40 @@ import {
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "../../Styles/Styles";
-
-const dayOffTypes = [
-  { value: "Tam", label: "Tam gün" },
-  { value: "Yarım", label: "Yarım gün" },
-  { value: "2 saat", label: "2 saat" }
-]
+import { useState } from "react";
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
-  { value: "HR", label: "HR göndərməsi" },
+  { value: "NBM", label: "NBM rəisin göndərməsi" },
   { value: "Confirmed", label: "Təsdiqləndi" }
 ]
 
 const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },
   { value: "two", label: "Departament rəhbərin göndərməsi" },
-  { value: "three", label: "HR göndərməsi" },
+  { value: "three", label: "NBM rəisin göndərməsi" },
 ]
 
 const initialValues = {
-  start: "",
-  end: "",
+  visitors: [],
+  date: "",
+  meetingPerson: "",
+  visitPurpose: "",
   note: "",
-  result: "",
+  result: ""
 }
 
+const options = ["dsds"];
+
 export const GuestFormWorker = () => {
+  // const [receivers, setReceivers] = useState([]);
   const classes = useStyles();
   const navigate = useNavigate();
 
   const onSubmit = (values, { resetForm }) => {
     console.log(values);
-    resetForm()
-    navigate("/guest/worker/saved")
+    // resetForm()
+    // navigate("/guest/worker/saved")
   }
 
   return (
@@ -70,32 +70,39 @@ export const GuestFormWorker = () => {
                 <Grid container spacing={2} padding="16px">
 
                   <Grid item sm={6}>
+                    <Field
+                      fullWidth
+                      multiple
+                      name="visitors"
+                      component={Autocomplete}
+                      label="visitors"
+                      options={options}
+                      // freeSolo
+                      getOptionLabel={option => option}
+                      // onChange={(e, value) => setReceivers((state) => value)}
+                      // renderTags={(value, getTagProps) =>
+                      //   value.map((option, index) => (
+                      //     <Chip label={option} {...getTagProps({ index })} />
+                      //   ))
+                      // }
+                      renderInput={(params) => {
+                        return <MuiTextField
+                          {...params}
+                          label="Gələcək şəxs"
+                        // placeholder="Gələcək şəxs"
+                        />
+                      }}
+                    />
+                  </Grid>
+
+
+                  <Grid item sm={6}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      {/* <Field
-                        fullWidth
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        name="date"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      {/* <Field
-                        name="date"
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        renderInput={props => {
-                          return <MuiTextField fullWidth {...props} />
-                        }}
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
                       <Field
-                        name="start"
+                        name="date"
                         fullWidth
                         component={DatePicker}
-                        label="Başlama tarixi"
+                        label="Gəlmə tarixi"
                         inputFormat="dd/MM/yyyy"
                         InputAdornmentProps={{ position: "start" }}
                       />
@@ -103,32 +110,30 @@ export const GuestFormWorker = () => {
                   </Grid>
 
                   <Grid item sm={6}>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      <Field
-                        name="end"
-                        fullWidth
-                        component={DatePicker}
-                        label="Bitmə tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
-                    </LocalizationProvider>
+                    <Field
+                      fullWidth
+                      name="meetingPerson"
+                      component={TextField}
+                      label="Görüşəcək şəxs"
+                    />
+                  </Grid>
+
+                  <Grid item sm={12}>
+                    <Field
+                      fullWidth
+                      name="visitPurpose"
+                      component={TextField}
+                      label="Gəlmə səbəbi"
+                    />
                   </Grid>
 
                   <Grid item sm={12}>
                     <Field
                       fullWidth
                       name="note"
-                      select
                       component={TextField}
-                      label="Qeyd"
-                    >
-                      {dayOffTypes.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Field>
+                      label="Sorğu ilə bağlı qeyd"
+                    />
                   </Grid>
 
                   <Grid item sm={12}>

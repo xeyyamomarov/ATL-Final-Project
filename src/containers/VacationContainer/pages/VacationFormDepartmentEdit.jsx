@@ -16,12 +16,9 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "../../Styles/Styles";
 import { InputFile } from "containers/components/InputFile";
-
-const dayOffTypes = [
-  { value: "Tam", label: "Tam gün" },
-  { value: "Yarım", label: "Yarım gün" },
-  { value: "2 saat", label: "2 saat" }
-]
+import { InfoIcon } from "containers/components/InfoIcon/InfoIcon";
+import { DownloadIcon } from "containers/components/DownloadIcon/DownloadIcon";
+import { InfoSection } from "containers/components/InfoSection";
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
@@ -62,32 +59,22 @@ export const VacationFormDepartmentEdit = () => {
           <QueryTabs tabs={tabs} value="two" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
+              <InfoSection name="Lamiə Səyidova Əliağa" />
               <Box className={classes.formBox}>
-                <FormHead header="Departament rəhbərin göndərməsi" />
+                <FormHead
+                  header="Departament rəhbərin göndərməsi"
+                  actions={
+                    <>
+                      <InfoIcon />
+                      <DownloadIcon />
+                    </>
+                  }
+
+                />
                 <Grid container spacing={2} padding="16px">
 
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <Grid item sm={6}>
-                      {/* <Field
-                        fullWidth
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        name="date"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      {/* <Field
-                        name="date"
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        renderInput={props => {
-                          return <MuiTextField fullWidth {...props} />
-                        }}
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
                       <Field
                         disabled
                         sx={{
@@ -105,7 +92,6 @@ export const VacationFormDepartmentEdit = () => {
                         inputFormat="dd/MM/yyyy"
                         InputAdornmentProps={{ position: "start" }}
                       />
-
                     </Grid>
 
                     <Grid item sm={6}>
@@ -131,30 +117,6 @@ export const VacationFormDepartmentEdit = () => {
 
                   <Grid item sm={12}>
                     <InputFile />
-                  </Grid>
-
-                  <Grid item sm={12}>
-                    <Field
-                      sx={{
-                        "& .MuiOutlinedInput-root": {
-                          "& > fieldset": {
-                            border: "2px dotted"
-                          }
-                        }
-                      }}
-                      fullWidth
-                      disabled
-                      name="note"
-                      select
-                      component={TextField}
-                      label="Qeyd"
-                    >
-                      {dayOffTypes.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Field>
                   </Grid>
 
                   <Grid item sm={12}>
