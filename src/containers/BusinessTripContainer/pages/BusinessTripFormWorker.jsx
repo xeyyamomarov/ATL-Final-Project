@@ -15,7 +15,7 @@ import {
 } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
-import { useStyles } from "../../Styles/Styles";
+import { useStyles } from "containers/Styles/Styles";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },
