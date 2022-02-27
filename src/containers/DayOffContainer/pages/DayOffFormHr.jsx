@@ -31,7 +31,7 @@ export const DayOffFormHr = () => {
       <Box className={classes.container}>
         <ShowDetails
           name="Lamiə Səyidova Əliağa"
-          header="Sorğunun formalaşdırılması"
+          header="HR göndərməsi"
           data={rows}
           actions={
             <>

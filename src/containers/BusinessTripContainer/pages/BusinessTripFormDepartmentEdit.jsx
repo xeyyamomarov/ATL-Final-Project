@@ -15,6 +15,9 @@ import {
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "../../Styles/Styles";
+import { InputFile } from "containers/components/InputFile";
+import { InfoSection } from "containers/components/InfoSection";
+import { InfoIcon } from "containers/components/InfoIcon/InfoIcon";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },
@@ -61,12 +64,19 @@ export const BusinessTripFormDepartmentEdit = () => {
           <QueryTabs tabs={tabs} value="two" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
+              <InfoSection name="Lamiə Səyidova Əliağa" />
               <Box className={classes.formBox}>
-                <FormHead header="Sorğunun formalaşdırılması" />
+                <FormHead header="Departament rəhbərin göndərməsi"
+                  actions={
+                    <>
+                      <InfoIcon />
+                    </>
+                  }
+                />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={12}>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Grid item sm={6}>
                       {/* <Field
                         fullWidth
                         component={DatePicker}
@@ -97,14 +107,39 @@ export const BusinessTripFormDepartmentEdit = () => {
                             }
                           }
                         }}
-                        name="date"
+                        name="start"
                         fullWidth
                         component={DatePicker}
-                        label="Day Off tarixi"
+                        label="Başlama tarixi"
                         inputFormat="dd/MM/yyyy"
                         InputAdornmentProps={{ position: "start" }}
                       />
-                    </LocalizationProvider>
+
+                    </Grid>
+
+                    <Grid item sm={6}>
+                      <Field
+                        disabled
+                        sx={{
+                          width: "100%",
+                          "& .MuiOutlinedInput-root": {
+                            "& > fieldset": {
+                              border: "2px dotted"
+                            }
+                          }
+                        }}
+                        name="start"
+                        fullWidth
+                        component={DatePicker}
+                        label="Başlama tarixi"
+                        inputFormat="dd/MM/yyyy"
+                        InputAdornmentProps={{ position: "start" }}
+                      />
+                    </Grid>
+                  </LocalizationProvider>
+
+                  <Grid item sm={12}>
+                    <InputFile disabled />
                   </Grid>
 
                   <Grid item sm={12}>
@@ -118,10 +153,10 @@ export const BusinessTripFormDepartmentEdit = () => {
                       }}
                       fullWidth
                       disabled
-                      name="type"
+                      name="note"
                       select
                       component={TextField}
-                      label="Növü"
+                      label="Qeyd"
                     >
                       {dayOffTypes.map(option => (
                         <MenuItem key={option.value} value={option.value}>

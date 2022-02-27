@@ -26,7 +26,7 @@ const useStyle = makeStyles({
   dialogContent: {
     padding: "16px",
   },
-  
+
 })
 
 const positions = [
@@ -72,13 +72,15 @@ export const EditRoleDialog = () => {
             <Box>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
-                <FormLabel id="isStatic">Rol statikdir?</FormLabel>
+                  <FormLabel id="isStatic">Rol statikdir?</FormLabel>
                   <Field as={RadioGroup}
+
                     row
                     name="isStatic"
+                    value="Yox"
                   >
-                    <FormControlLabel value="Hə" control={<Radio />} label="Hə" />
-                    <FormControlLabel value="Yox" control={<Radio />} label="Yox" />
+                    <FormControlLabel disabled value="Hə" control={<Radio />} label="Hə" />
+                    <FormControlLabel disabled value="Yox" control={<Radio />} label="Yox" />
                   </Field>
                 </Grid>
 
@@ -92,10 +94,11 @@ export const EditRoleDialog = () => {
                 </Grid>
                 <Grid item xs={12}>
                   <Field
+                    disabled
                     fullWidth
                     as={MuiTextField}
                     label="Fərqləndirici ad"
-                    name="power"
+                    value="admin"
                   />
                 </Grid>
 

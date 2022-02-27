@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Chip } from "@mui/material";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { EditIcon } from "containers/components/EditIcon";
@@ -19,9 +19,11 @@ export const BusinessTripFormHr = () => {
   ]
 
   const rows = [
-    { name: "Day Off tarixi", value: "25/05/2021" },
-    { name: "Növü", value: "Tam iş günü" },
-    { name: "Nəticə", value: "Departament rəhbərin göndərməsi" },
+    { name: "Başlama tarixi", value: "25/05/2021" },
+    { name: "Bitmə tarixi", value: "21/06/2021" },
+    { name: "Skan edilmiş sənədlər", value: <Chip label="Skan edilmiş sənəd.pdf"/> },
+    { name: "Qeyd", value: "Sadə qeyd" },
+    { name: "Nəticə", value: "HR göndərməsi" },
   ]
 
   return (
@@ -33,7 +35,7 @@ export const BusinessTripFormHr = () => {
       <Box className={classes.container}>
         <ShowDetails
           name="Lamiə Səyidova Əliağa"
-          header="Sorğunun formalaşdırılması"
+          header="HR göndərməsı"
           data={rows}
           actions={
             <>

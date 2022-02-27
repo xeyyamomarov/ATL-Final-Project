@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     borderRadius: "4px"
   },
   tableBox: {
-    padding: "0 16px",
+    padding: "0 16px"
   }
 });
 

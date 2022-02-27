@@ -14,8 +14,9 @@ export const BusinessTripFormWorkerSaved = () => {
   const classes = useStyles();
 
   const rows = [
-    { name: "Day Off tarixi", value: "25/05/2021" },
-    { name: "Növü", value: "Tam iş günü" },
+    { name: "Başlama tarixi", value: "25/05/2021" },
+    { name: "Bitmə tarixi", value: "21/06/2021" },
+    { name: "Qeyd", value: "Sadə qeyd" },
     { name: "Nəticə", value: "Departament rəhbərin göndərməsi" },
   ]
 
