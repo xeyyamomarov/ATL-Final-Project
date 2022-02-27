@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import {
-  Box, Grid, MenuItem,
-  // TextField as MuiTextField
+  Box, FormControl, Grid, MenuItem,
 } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
@@ -11,7 +10,6 @@ import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-mui";
 import {
   LocalizationProvider,
-  // DatePicker as MuiDatePicker
 } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
@@ -36,8 +34,8 @@ const tabs = [
 ]
 
 const initialValues = {
-  start: "",
-  end: "",
+  start: new Date(),
+  end: new Date(),
   note: "",
   result: "",
 }
@@ -69,84 +67,63 @@ export const BusinessTripFormWorker = () => {
                 <FormHead header="Sorğunun formalaşdırılması" />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={6}>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      {/* <Field
-                        fullWidth
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        name="date"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Grid item sm={12} md={6}>
+                      <FormControl fullWidth>
+                        <Field
+                          name="start"
+                          component={DatePicker}
+                          label="Başlama tarixi"
+                          inputFormat="dd/MM/yyyy"
+                          InputAdornmentProps={{ position: "start" }}
+                        />
+                      </FormControl>
+                    </Grid>
 
-                      {/* <Field
-                        name="date"
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        renderInput={props => {
-                          return <MuiTextField fullWidth {...props} />
-                        }}
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
+                    <Grid item sm={12} md={6}>
+                      <FormControl fullWidth>
+                        <Field
+                          name="end"
+                          component={DatePicker}
+                          label="Bitmə tarixi"
+                          inputFormat="dd/MM/yyyy"
+                          InputAdornmentProps={{ position: "start" }}
+                        />
+                      </FormControl>
+                    </Grid>
 
+                    <Grid item sm={12}>
                       <Field
-                        name="start"
                         fullWidth
-                        component={DatePicker}
-                        label="Başlama tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
-                    </LocalizationProvider>
-                  </Grid>
+                        name="note"
+                        select
+                        component={TextField}
+                        label="Qeyd"
+                      >
+                        {dayOffTypes.map(option => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </Field>
+                    </Grid>
 
-                  <Grid item sm={6}>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Grid item sm={12}>
                       <Field
-                        name="end"
                         fullWidth
-                        component={DatePicker}
-                        label="Bitmə tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
-                    </LocalizationProvider>
-                  </Grid>
-
-                  <Grid item sm={12}>
-                    <Field
-                      fullWidth
-                      name="note"
-                      select
-                      component={TextField}
-                      label="Qeyd"
-                    >
-                      {dayOffTypes.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Field>
-                  </Grid>
-
-                  <Grid item sm={12}>
-                    <Field
-                      fullWidth
-                      name="result"
-                      select
-                      component={TextField}
-                      label="Nəticə"
-                    >
-                      {resultDatas.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Field>
-                  </Grid>
-
+                        name="result"
+                        select
+                        component={TextField}
+                        label="Nəticə"
+                      >
+                        {resultDatas.map(option => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </Field>
+                    </Grid>
+                  </LocalizationProvider>
                 </Grid>
               </Box>
 

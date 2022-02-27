@@ -1,17 +1,11 @@
-import {
-  Box, Grid, MenuItem,
-  // TextField as MuiTextField
-} from "@mui/material";
+import { Box, FormControl, Grid, MenuItem } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-mui";
-import {
-  LocalizationProvider,
-  // DatePicker as MuiDatePicker
-} from "@mui/lab";
+import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useDispatch } from "react-redux";
@@ -19,7 +13,7 @@ import { TOGGLES_ACTIONS } from "store/Toggles";
 import { DayOffDetailsModal } from "./DayOffDetailsModal";
 import { useStyles } from "containers/Styles/Styles";
 import { InfoSection } from "containers/components/InfoSection";
-import { InfoIcon } from "containers/components/InfoIcon/InfoIcon";
+import { InfoIcon } from "containers/components/InfoIcon";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },
@@ -85,35 +79,24 @@ export const DayOffFormHrEdit = () => {
 
                   <Grid item sm={12}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      {/* <Field
-                        fullWidth
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        name="date"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      {/* <Field
-                        name="date"
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        renderInput={props => {
-                          return <MuiTextField fullWidth {...props} />
+                      <FormControl fullWidth
+                        sx={{
+                          "& .MuiOutlinedInput-root": {
+                            "& > fieldset": {
+                              border: "2px dotted"
+                            }
+                          }
                         }}
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      <Field
-                        name="date"
-                        disabled
-                        fullWidth
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
+                      >
+                        <Field
+                          disabled
+                          name="date"
+                          component={DatePicker}
+                          label="Day Off tarixi"
+                          inputFormat="dd/MM/yyyy"
+                          InputAdornmentProps={{ position: "start" }}
+                        />
+                      </FormControl>
                     </LocalizationProvider>
                   </Grid>
 

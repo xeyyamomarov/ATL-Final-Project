@@ -1,37 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import {
-  Box, Grid, MenuItem,
-  // TextField as MuiTextField
-} from "@mui/material";
+import { Box, Grid, MenuItem } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
-import { makeStyles } from "@mui/styles";
 import { TextField } from "formik-mui";
-
-const useStyles = makeStyles({
-  breadcrumbBar: {
-    borderBottom: "1px solid #E0E0E0",
-    padding: "12px 16px"
-  },
-  container: {
-    padding: "16px 93px",
-  },
-  dataContainer: {
-    display: "flex",
-    gap: "16px",
-    flexDirection: "column"
-  },
-  formBox: {
-    border: "1px solid #E0E0E0",
-    borderRadius: "4px",
-  },
-  button: {
-    textAlign: "end"
-  }
-})
+import { useStyles } from "containers/Styles/Styles";
 
 
 const resultDatas = [
@@ -91,9 +66,9 @@ export const ITSupplyFormWorker = () => {
                   <Grid item sm={12}>
                     <Field
                       fullWidth
-                      name="result"
                       select
                       component={TextField}
+                      name="result"
                       label="Nəticə"
                     >
                       {resultDatas.map(option => (

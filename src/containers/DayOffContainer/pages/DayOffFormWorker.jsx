@@ -1,19 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import { Box, Grid, MenuItem, TextField as MuiTextField } from "@mui/material";
+import { Box, FormControl, Grid, MenuItem } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-mui";
-import {
-  LocalizationProvider,
-  // DatePicker as MuiDatePicker
-} from "@mui/lab";
+import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "containers/Styles/Styles";
-// import { useState } from "react";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },
@@ -34,7 +30,7 @@ const tabs = [
 ];
 
 const initialValues = {
-  date: "",
+  date: new Date(),
   type: "",
   result: "",
 };
@@ -65,55 +61,15 @@ export const DayOffFormWorker = () => {
                 <Grid container spacing={2} padding="16px">
                   <Grid item sm={12}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      {/* <Field
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        name="date"
-                        inputFormat="dd/mm/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                        renderInput={(props) => {
-                          console.log(props);
-                          return (
-                            <MuiTextField
-                              fullWidth
-                              label="Day Off tarixi"
-                              {...props}
-                              // value={props.value}
-                              // onChange={props.handleChange}
-
-                              // defaultValue={new Date()}
-                            />
-                          );
-                        }}
-                      /> */}
-
-                      {/* <Field
-                        name="date"
-                        component={MuiDatePicker}
-                        label="Day Off tarixi"
-                        // value={date}
-                        onChange={e => console.log(e)}
-                        renderInput={props => {
-                          return <MuiTextField
-                          fullWidth
-                          {...props}
-                          // defaultValue={new Date()}
-                          />
-                        }}
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      <Field
-                        name="date"
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        renderInput={(params) => (
-                          <MuiTextField fullWidth {...params} />
-                        )}
-                        InputAdornmentProps={{ position: "start" }}
-                      />
+                      <FormControl fullWidth>
+                        <Field
+                          name="date"
+                          component={DatePicker}
+                          label="Day Off tarixi"
+                          inputFormat="dd/MM/yyyy"
+                          InputAdornmentProps={{ position: "start" }}
+                        />
+                      </FormControl>
                     </LocalizationProvider>
                   </Grid>
 

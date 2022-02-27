@@ -1,24 +1,15 @@
-import {
-  Autocomplete,
-  Box, Grid, MenuItem,
-  TextField as MuiTextField
-} from "@mui/material";
+import { Box, FormControl, Grid, MenuItem, TextField as MuiTextField } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
-import { TextField } from "formik-mui";
-import {
-  LocalizationProvider,
-  // DatePicker as MuiDatePicker
-} from "@mui/lab";
+import { Autocomplete, TextField } from "formik-mui";
+import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "../../Styles/Styles";
-// import { InputFile } from "containers/components/InputFile";
 import { InfoSection } from "containers/components/InfoSection";
-// import TagsInput from "containers/components/TagsInput/TagsInput";
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
@@ -34,9 +25,12 @@ const tabs = [
 ]
 
 const initialValues = {
-  date: "",
-  type: "",
-  result: "",
+  visitors: [],
+  carPlate: [],
+  visitDate: "",
+  visitPurpose: "",
+  note: "",
+  result: ""
 }
 
 const onSubmit = (values, { resetForm }) => {
@@ -68,20 +62,17 @@ export const GuestFormDepartmentEdit = () => {
                   <Grid item sm={12}>
                     <Field
                       disabled
-                      fullWidth
                       multiple
-                      component={Autocomplete}
-                      name="visitors"
-                      options={[]}
                       freeSolo
-                      // onChange={(e, value) => setReceivers((state) => value)}
-
-                      renderInput={params => {
+                      name="visitors"
+                      component={Autocomplete}
+                      filterSelectedOptions
+                      options={[]}
+                      renderInput={(params) => {
                         return <MuiTextField
                           {...params}
                           label="Gələcək şəxs"
-                        // placeholder="Gələcək şəxs"
-                        />
+                        />;
                       }}
                     />
                   </Grid>
@@ -89,46 +80,42 @@ export const GuestFormDepartmentEdit = () => {
                   <Grid item sm={12}>
                     <Field
                       disabled
-                      fullWidth
                       multiple
+                      freeSolo
                       name="carPlate"
                       component={Autocomplete}
+                      filterSelectedOptions
                       options={[]}
-                      freeSolo
-                      // onChange={(e, value) => setReceivers((state) => value)}
-
-                      renderInput={params => {
+                      renderInput={(params) => {
                         return <MuiTextField
                           {...params}
                           label="Nəqliyyat ilə bağlı qeyd"
-                        // placeholder="Gələcək şəxs"
-                        />
+                        />;
                       }}
                     />
                   </Grid>
 
-                  <Grid item sm={6}>
+                  <Grid item sm={12}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                      <Field
-                        disabled
-                        name="date"
-                        fullWidth
-                        component={DatePicker}
-                        label="Gəlmə tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
+                      <FormControl fullWidth
+                        sx={{
+                          "& .MuiOutlinedInput-root": {
+                            "& > fieldset": {
+                              border: "2px dotted"
+                            }
+                          }
+                        }}
+                      >
+                        <Field
+                          disabled
+                          name="visitDate"
+                          component={DatePicker}
+                          label="Gəlmə tarixi"
+                          inputFormat="dd/MM/yyyy"
+                          InputAdornmentProps={{ position: "start" }}
+                        />
+                      </FormControl>
                     </LocalizationProvider>
-                  </Grid>
-
-                  <Grid item sm={6}>
-                    <Field
-                      disabled
-                      fullWidth
-                      name="meetingPerson"
-                      component={TextField}
-                      label="Görüşəcək şəxs"
-                    />
                   </Grid>
 
                   <Grid item sm={12}>
