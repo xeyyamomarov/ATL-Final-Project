@@ -139,7 +139,7 @@ export const BusinessTripFormDepartmentEdit = () => {
                   </LocalizationProvider>
 
                   <Grid item sm={12}>
-                    <InputFile />
+                    <InputFile disabled />
                   </Grid>
 
                   <Grid item sm={12}>

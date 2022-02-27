@@ -10,7 +10,7 @@ import { useStyles } from "containers/Styles/Styles";
 const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },
   { value: "two", label: "Departament rəhbərin göndərməsi" },
-  { value: "three", label: "HR göndərməsi" },
+  { value: "three", label: "IT göndərməsi" },
 ]
 
 export const ITSupplyFormIT = () => {
@@ -35,7 +35,7 @@ export const ITSupplyFormIT = () => {
           data={rows}
           actions={
             <>
-              <EditIcon onClick={() => navigate("/it-supply/hr/edit")} />
+              <EditIcon onClick={() => navigate("/it-supply/it/edit")} />
               <InfoIcon />
             </>
           }

@@ -1,4 +1,4 @@
-import { Box, Chip } from "@mui/material";
+import { Box } from "@mui/material";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { EditIcon } from "containers/components/EditIcon";
@@ -8,22 +8,24 @@ import { useStyles } from "../../Styles/Styles";
 import { ShowDetails } from "containers/components/ShowDetails/ShowDetails";
 
 
-export const GuestFormHr = () => {
+export const GuestFormNBMChief = () => {
   const navigate = useNavigate();
   const classes = useStyles();
 
   const tabs = [
     { value: "one", label: "Sorğunun formalaşdırılması" },
     { value: "two", label: "Departament rəhbərin göndərməsi" },
-    { value: "three", label: "HR göndərməsi" },
+    { value: "three", label: "NBM rəisin göndərməsi" },
+    { value: "four", label: "NBM əməkdaşın göndərməsi" },
   ]
 
   const rows = [
-    { name: "Başlama tarixi", value: "25/05/2021" },
-    { name: "Bitmə tarixi", value: "21/06/2021" },
-    { name: "Skan edilmiş sənədlər", value: <Chip label="Skan edilmiş sənəd.pdf"/> },
-    { name: "Qeyd", value: "Sadə qeyd" },
-    { name: "Nəticə", value: "HR göndərməsi" },
+    { name: "Gələcək şəxslər", value: "İlqar Abbasov, Orxan Axnazarov, Zümrüd Hüseynova, Ceyhun Əhmədli" },
+    { name: "Nəqliyyat ilə bağlı qeyd", value: "00-AS-000, 00-AS-000" },
+    { name: "Gəlmə tarixi", value: "22/06/2021" },
+    { name: "Gəlmə səbəbi", value: "Marketinq şöbə rəisi ilə görüş" },
+    { name: "Qeyd", value: "Sadə bir qeyd" },
+    { name: "Nəticə", value: "NBM rəisin göndərməsi" },
   ]
 
   return (
@@ -35,11 +37,11 @@ export const GuestFormHr = () => {
       <Box className={classes.container}>
         <ShowDetails
           name="Lamiə Səyidova Əliağa"
-          header="HR göndərməsı"
+          header="NBM rəisin göndərməsi"
           data={rows}
           actions={
             <>
-              <EditIcon onClick={() => navigate("/guest/hr/edit")} />
+              <EditIcon onClick={() => navigate("/guest/nbm/edit")} />
               <InfoIcon />
             </>
           }

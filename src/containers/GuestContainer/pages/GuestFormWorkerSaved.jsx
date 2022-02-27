@@ -8,15 +8,19 @@ const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },
   { value: "two", label: "Departament rəhbərin göndərməsi" },
   { value: "three", label: "HR göndərməsi" },
+  { value: "four", label: "NBM əməkdaşın göndərməsi" },
 ]
 
 export const GuestFormWorkerSaved = () => {
   const classes = useStyles();
 
   const rows = [
-    { name: "Başlama tarixi", value: "25/05/2021" },
-    { name: "Bitmə tarixi", value: "21/06/2021" },
-    { name: "Qeyd", value: "Sadə qeyd" },
+    { name: "Gələcək şəxslər", value: "İlqar Abbasov, Orxan Axnazarov, Zümrüd Hüseynova, Ceyhun Əhmədli" },
+    { name: "Nəqliyyat ilə bağlı qeyd", value: "00-AS-000, 00-AS-000" },
+    { name: "Gəlmə tarixi", value: "22/06/2021" },
+    { name: "Görüşəcək şəxs", value: "Ələkbərov Samir" },
+    { name: "Gəlmə səbəbi", value: "Marketinq şöbə rəisi ilə görüş" },
+    { name: "Sorğu ilə bağlı qeyd", value: "Sadə bir qeyd" },
     { name: "Nəticə", value: "Departament rəhbərin göndərməsi" },
   ]
 

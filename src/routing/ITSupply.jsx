@@ -17,7 +17,7 @@ export const ITSupply = () => {
     <Route path="/it-supply/worker/saved" element={<ITSupplyFormWorkerSaved />} />
     <Route path="/it-supply/department/edit" element={<ITSupplyFormDepartmentEdit />} />
     <Route path="/it-supply/department" element={<ITSupplyFormDepartment />} />
-    <Route path="/it-supply/hr/edit" element={<ITSupplyFormITEdit />} />
-    <Route path="/it-supply/hr" element={<ITSupplyFormIT />} />
+    <Route path="/it-supply/it/edit" element={<ITSupplyFormITEdit />} />
+    <Route path="/it-supply/it" element={<ITSupplyFormIT />} />
   </>
 };

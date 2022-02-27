@@ -35,7 +35,7 @@ const initialValues = {
 }
 
 
-export const PurchaseFormHrEdit = () => {
+export const PurchaseFormPurchaseEdit = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 

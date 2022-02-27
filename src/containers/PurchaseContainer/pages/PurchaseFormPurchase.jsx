@@ -13,7 +13,7 @@ const tabs = [
   { value: "three", label: "Satınalma göndərməsi" },
 ]
 
-export const PurchaseFormHr = () => {
+export const PurchaseFormPurchase = () => {
   const navigate = useNavigate();
   const classes = useStyles();
 
@@ -35,7 +35,7 @@ export const PurchaseFormHr = () => {
           data={rows}
           actions={
             <>
-              <EditIcon onClick={() => navigate("/purchase/hr/edit")} />
+              <EditIcon onClick={() => navigate("/purchase/purchase/edit")} />
               <InfoIcon />
             </>
           }

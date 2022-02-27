@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import {
-  Box, Grid, MenuItem, Autocomplete, Chip,
-  TextField as MuiTextField
+  Box, Grid, MenuItem,
+  // Autocomplete, 
+  // Chip,
+  // TextField as MuiTextField
 } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
@@ -17,6 +19,8 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "../../Styles/Styles";
 import { useState } from "react";
+// import { values } from "lodash";
+import TagsInput from "containers/components/TagsInput/TagsInput";
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
@@ -28,6 +32,7 @@ const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },
   { value: "two", label: "Departament rəhbərin göndərməsi" },
   { value: "three", label: "NBM rəisin göndərməsi" },
+  { value: "four", label: "NBM əməkdaşın göndərməsi" },
 ]
 
 const initialValues = {
@@ -39,17 +44,21 @@ const initialValues = {
   result: ""
 }
 
-const options = ["dsds"];
 
 export const GuestFormWorker = () => {
-  // const [receivers, setReceivers] = useState([]);
+  const [chips, setChips] = useState([])
   const classes = useStyles();
   const navigate = useNavigate();
 
   const onSubmit = (values, { resetForm }) => {
     console.log(values);
-    // resetForm()
-    // navigate("/guest/worker/saved")
+    console.log(chips)
+    resetForm()
+    navigate("/guest/worker/saved")
+  }
+
+  function handleSelecetedTags(items) {
+    setChips(items)
   }
 
   return (
@@ -58,7 +67,7 @@ export const GuestFormWorker = () => {
         initialValues={initialValues}
         onSubmit={onSubmit}
       >
-        <Form>
+        {props => (<Form>
           <Box className={classes.breadcrumbBar}>
             <Breadcrumbs />
           </Box>
@@ -69,32 +78,57 @@ export const GuestFormWorker = () => {
                 <FormHead header="Sorğunun formalaşdırılması" />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={6}>
-                    <Field
+                  <Grid item sm={12}>
+                    {/* <Field
                       fullWidth
                       multiple
                       name="visitors"
                       component={Autocomplete}
                       label="visitors"
-                      options={options}
-                      // freeSolo
-                      getOptionLabel={option => option}
+                      options={[]}
+                      freeSolo
                       // onChange={(e, value) => setReceivers((state) => value)}
-                      // renderTags={(value, getTagProps) =>
-                      //   value.map((option, index) => (
-                      //     <Chip label={option} {...getTagProps({ index })} />
-                      //   ))
-                      // }
-                      renderInput={(params) => {
+                      onChange={(e) => {
+                        // let name = {id: e.target.value, value: e.target.value}
+                        let name = e.target.value;
+                        let arr = [];
+                        if(name) {
+                          setChips(prev => [...prev, name])
+                        }
+                        else {
+                          console.log(chips)
+                          // let names = chips.filter(x => x)
+                          // setChips(names)
+                        }
+                      }}
+
+                      renderInput={params => {
                         return <MuiTextField
                           {...params}
                           label="Gələcək şəxs"
                         // placeholder="Gələcək şəxs"
                         />
                       }}
+                    /> */}
+
+                    <TagsInput
+                      selectedTags={handleSelecetedTags}
+                      fullWidth
+                      name="visitors"
+                      label="Gələcək şəxs"
+                      value={props.values.visitors}
                     />
                   </Grid>
 
+                  <Grid item sm={12}>
+                    <TagsInput
+                      selectedTags={handleSelecetedTags}
+                      fullWidth
+                      name="carNumber"
+                      label="Nəqliyyat ilə bağlı qeyd"
+                      value={props.values.visitors}
+                    />
+                  </Grid>
 
                   <Grid item sm={6}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -161,7 +195,7 @@ export const GuestFormWorker = () => {
 
             </Box>
           </Box>
-        </Form>
+        </Form>)}
       </Formik>
     </Box >
   );

@@ -1,6 +1,7 @@
 import {
+  Autocomplete,
   Box, Grid, MenuItem,
-  // TextField as MuiTextField
+  TextField as MuiTextField
 } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
@@ -18,25 +19,19 @@ import { useDispatch } from "react-redux";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { GuestDetailsModal } from "./GuestDetailsModal";
 import { useStyles } from "../../Styles/Styles";
-import { InputFile } from "containers/components/InputFile/InputFile";
 import { InfoSection } from "containers/components/InfoSection";
-
-const dayOffTypes = [
-  { value: "Tam", label: "Tam gün" },
-  { value: "Yarım", label: "Yarım gün" },
-  { value: "2 saat", label: "2 saat" }
-]
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
-  { value: "HR", label: "HR göndərməsi" },
+  { value: "NBM rəisin", label: "NBM rəisin göndərməsi" },
   { value: "Confirmed", label: "Təsdiqləndi" }
 ]
 
 const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },
   { value: "two", label: "Departament rəhbərin göndərməsi" },
-  { value: "three", label: "HR göndərməsi" },
+  { value: "three", label: "NBM rəisin göndərməsi" },
+  { value: "four", label: "NBM əməkdaşın göndərməsi" },
 ]
 
 const initialValues = {
@@ -50,7 +45,7 @@ const onSubmit = (values, { resetForm }) => {
   resetForm()
 }
 
-export const GuestFormHrEdit = () => {
+export const GuestFormNBMChiefEdit = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -71,98 +66,93 @@ export const GuestFormHrEdit = () => {
             <Box className={classes.dataContainer}>
             <InfoSection name="Lamiə Səyidova Əliağa" />
               <Box className={classes.formBox}>
-                <FormHead header="HR göndərməsı" />
+                <FormHead header="NBM rəisin göndərməsi" />
                 <Grid container spacing={2} padding="16px">
 
-                  <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <Grid item sm={6}>
-                      {/* <Field
-                        fullWidth
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        name="date"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      {/* <Field
-                        name="date"
-                        component={DatePicker}
-                        label="Day Off tarixi"
-                        renderInput={props => {
-                          return <MuiTextField fullWidth {...props} />
-                        }}
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      /> */}
-
-                      <Field
-                        disabled
-                        sx={{
-                          width: "100%",
-                          "& .MuiOutlinedInput-root": {
-                            "& > fieldset": {
-                              border: "2px dotted"
-                            }
-                          }
-                        }}
-                        name="start"
-                        fullWidth
-                        component={DatePicker}
-                        label="Başlama tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
-
-                    </Grid>
-
-                    <Grid item sm={6}>
-                      <Field
-                        disabled
-                        sx={{
-                          width: "100%",
-                          "& .MuiOutlinedInput-root": {
-                            "& > fieldset": {
-                              border: "2px dotted"
-                            }
-                          }
-                        }}
-                        name="start"
-                        fullWidth
-                        component={DatePicker}
-                        label="Başlama tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
-                    </Grid>
-                  </LocalizationProvider>
-
                   <Grid item sm={12}>
-                    <InputFile />
+                    <Field
+                      disabled
+                      fullWidth
+                      multiple
+                      component={Autocomplete}
+                      name="visitors"
+                      options={[]}
+                      freeSolo
+                      // onChange={(e, value) => setReceivers((state) => value)}
+
+                      renderInput={params => {
+                        return <MuiTextField
+                          {...params}
+                          label="Gələcək şəxs"
+                        // placeholder="Gələcək şəxs"
+                        />
+                      }}
+                    />
                   </Grid>
 
                   <Grid item sm={12}>
                     <Field
-                      sx={{
-                        "& .MuiOutlinedInput-root": {
-                          "& > fieldset": {
-                            border: "2px dotted"
-                          }
-                        }
-                      }}
-                      fullWidth
                       disabled
-                      name="note"
-                      select
+                      fullWidth
+                      multiple
+                      name="carPlate"
+                      component={Autocomplete}
+                      options={[]}
+                      freeSolo
+                      // onChange={(e, value) => setReceivers((state) => value)}
+
+                      renderInput={params => {
+                        return <MuiTextField
+                          {...params}
+                          label="Nəqliyyat ilə bağlı qeyd"
+                        // placeholder="Gələcək şəxs"
+                        />
+                      }}
+                    />
+                  </Grid>
+
+                  <Grid item sm={6}>
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                      <Field
+                        disabled
+                        name="date"
+                        fullWidth
+                        component={DatePicker}
+                        label="Gəlmə tarixi"
+                        inputFormat="dd/MM/yyyy"
+                        InputAdornmentProps={{ position: "start" }}
+                      />
+                    </LocalizationProvider>
+                  </Grid>
+
+                  <Grid item sm={6}>
+                    <Field
+                      disabled
+                      fullWidth
+                      name="meetingPerson"
                       component={TextField}
-                      label="Qeyd"
-                    >
-                      {dayOffTypes.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Field>
+                      label="Görüşəcək şəxs"
+                    />
+                  </Grid>
+
+                  <Grid item sm={12}>
+                    <Field
+                      disabled
+                      fullWidth
+                      name="visitPurpose"
+                      component={TextField}
+                      label="Gəlmə səbəbi"
+                    />
+                  </Grid>
+
+                  <Grid item sm={12}>
+                    <Field
+                      disabled
+                      fullWidth
+                      name="note"
+                      component={TextField}
+                      label="Sorğu ilə bağlı qeyd"
+                    />
                   </Grid>
 
                   <Grid item sm={12}>

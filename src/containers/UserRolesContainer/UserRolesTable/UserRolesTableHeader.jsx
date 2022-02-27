@@ -1,5 +1,5 @@
-import { Box, MenuItem } from "@mui/material";
-import { MoreOptions } from "components/MoreOptions";
+import { Box } from "@mui/material";
+import { DeleteIcon } from "components/DeleteIcon/DeleteIcon";
 import { useDispatch } from "react-redux";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { EditUserRoles } from "../components/EditUserRoles";
@@ -34,9 +34,7 @@ export const UserRolesTableHeader = () => {
         return (
           <Box display='flex' width='100%' justifyContent='flex-end' alignItems='center'>
             <EditUserRoles userId={row.id} />
-            <MoreOptions>
-              <MenuItem onClick={handleOpenClick}>Sil</MenuItem>
-            </MoreOptions>
+            <DeleteIcon onClick={handleOpenClick} />
           </Box>
         )
       }

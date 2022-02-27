@@ -10,7 +10,7 @@ import { ShowDetails } from "containers/components/ShowDetails/ShowDetails";
 const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },
   { value: "two", label: "Departament rəhbərin göndərməsi" },
-  { value: "three", label: "HR göndərməsi" },
+  { value: "three", label: "IT göndərməsi" },
 ]
 
 export const ITSupplyFormDepartment = () => {
