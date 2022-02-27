@@ -46,19 +46,18 @@ const initialValues = {
 
 
 export const GuestFormWorker = () => {
-  const [chips, setChips] = useState([])
+  // const [chips, setChips] = useState([])
   const classes = useStyles();
   const navigate = useNavigate();
 
   const onSubmit = (values, { resetForm }) => {
     console.log(values);
-    console.log(chips)
     resetForm()
     navigate("/guest/worker/saved")
   }
 
   function handleSelecetedTags(items) {
-    setChips(items)
+    // setChips(items)
   }
 
   return (

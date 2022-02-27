@@ -7,7 +7,6 @@ export const QueryTabs = ({ tabs, value }) => {
   const mainPath = pathname.split("/").filter(x => x);
   const navigate = useNavigate();
   const handleChange = (event, newValue) => {
-    console.log(mainPath)
     switch (newValue) {
       case "one":
         navigate(`/${mainPath[0]}/worker/new`)
