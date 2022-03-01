@@ -1,2 +1,1 @@
-import EmployeesPage from './Employees';
-export default EmployeesPage;
+export * from './Employees';

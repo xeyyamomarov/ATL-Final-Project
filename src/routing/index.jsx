@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import EmployeesPage from "pages/EmployeesPage";
+import {EmployeesPage} from "pages/EmployeesPage";
 import { Users } from "./Users";
 import { MainPage } from "./MainPage";
 import { DayOff } from "./DayOff";

@@ -1,47 +1,10 @@
-//<section key="employees-page">
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { Table } from "components/Table";
-import { EMPLOYEES_ALL_ACTIONS, EMPLOYEES_ALL_SELECTORS } from "store/Employees";
-//import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "./components/Dialogs";
-import { SearchBar } from "components/SearchBar";
-import { Box, Collapse } from '@mui/material';
-import { SearchForm } from "containers/UsersContainer/components/SearchForm";
-import { AddButton, SearchButton } from "components/Buttons";
-import { thead } from "./constants";
+import { EmployeesContainer } from "containers/EmployeesContainer";
 
-const EmployeesPage = () => {
-
-    const dispatch = useDispatch();
-    const employees = useSelector(EMPLOYEES_ALL_SELECTORS.getEmployeesAll);
-    const [searchOpen, setSearchOpen] = useState(false);
-
-
-    useEffect(() => {
-        dispatch(EMPLOYEES_ALL_ACTIONS.fetchEmployeesAll())
-    }, [dispatch])
+export const EmployeesPage = () => {
 
     return (
         <>
-            {/* <SearchBar buttons={
-                <>
-                    <SearchButton onClick={() => {
-                        setSearchOpen(!searchOpen);
-                    }} />
-                    <AddButton onClick={() => {
-
-                    }} />
-                </>
-            } /> */}
-            <Box padding="16px">
-                <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
-                <Table thead={thead} tbody={employees} pagination />
-            </Box>
-            {/* <AddNewUserDialog />
-            <EditUserDialog />
-            <PasswordUpdateDialog /> */}
+            <EmployeesContainer />
         </>
-    );
+    )
 }
-
-export default EmployeesPage;
