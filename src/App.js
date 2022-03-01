@@ -1,10 +1,11 @@
 import MainLayout from "containers/mainLayout";
 import { Routing } from "routing";
+import { LoginPage } from "pages/LoginPage";
 
 function App() {
   return (
     <div className="App">
-      {/* <Login/> */}
+      <LoginPage/>
       <MainLayout>
         <Routing />
       </MainLayout>

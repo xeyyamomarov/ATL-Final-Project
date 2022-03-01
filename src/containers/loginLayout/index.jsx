@@ -1,2 +1,1 @@
-import LoginLayout from "./LoginLayout";
-export default LoginLayout;
+export * from "./LoginLayout";

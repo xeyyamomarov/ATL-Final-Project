@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import EmployeesPage from "pages/EmployeesPage";
+import {EmployeesPage} from "pages/EmployeesPage";
 import {
     Guest,
     ITSupply,
