@@ -9,22 +9,22 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from "react";
 import { useStyles } from './Styles';
-import { loginUser } from 'lib/api/login';
-import {LS} from 'utils';
+import { LS } from 'utils';
+import { useNavigate } from "react-router-dom";
+import { appConfig } from "configs";
 
 
 export const LoginLayout = () => {
 
     const classes = useStyles();
     const [loading, setLoading] = useState(false);
-   // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const [values, setValues] = useState({
         username: '',
         password: '',
         showPassword: false,
     });
-
 
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
@@ -59,15 +59,13 @@ export const LoginLayout = () => {
                             event.preventDefault();
                             console.log(values);
                             setLoading(true);
-                            // loginUser({ username: values.username, password: values.password })
-                            //     .then((data) => {
-                            //         LS.setItemLocalStorage(appConfig.userData, JSON.stringify(data));
-                            //         navigate("/", { replace: true });
-                            //     })
-                            //     .catch((err) => alert("Xeta bas verdi"))
-                            //     .finally(() => {
-                            //         setLoading(false);
-                            //     });
+                            if (values.username === "admin" && values.password === "admin") {
+                                LS.setItemLocalStorage(appConfig.userData, JSON.stringify(values));
+                                navigate("/", { replace: true });
+                            } else {
+                                console.log("error")
+                            }
+                            setLoading(false);
                         }
                         }
                         noValidate

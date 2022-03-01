@@ -3,6 +3,7 @@ import SideBar from "components/SideBar";
 import NavBar from "components/NavBar";
 import { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Outlet } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -46,7 +47,7 @@ const MainLayout = ({ children }) => {
       }}>
         <ThemeProvider theme={theme}>
           <NavBar open={open} setOpen={setOpen} />
-          {children}
+          <Outlet/>
         </ThemeProvider>
       </Box>
     </Stack>
