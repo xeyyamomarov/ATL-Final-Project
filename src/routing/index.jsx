@@ -4,7 +4,7 @@ import { Users } from "./Users";
 import { MainPage } from "./MainPage";
 import { DayOff } from "./DayOff";
 import { Notifications } from "./Notifications"
-import { ProfileRoute } from "./ProfileRoute"
+import {Profile }from "pages/Profile/Profile"
 import { UserRoles } from "./UserRoles";
 import { BusinessTrip } from "./BusinessTrip";
 import { Vacation } from "./Vacation";
@@ -25,7 +25,7 @@ export const Routing = () => {
             {Purchase()}
             {Users()}
             {Notifications()}
-            {ProfileRoute()}
+            <Route path = "/profile/*" element={<Profile/>}/>
             {UserRoles()}
         </Routes>
     )

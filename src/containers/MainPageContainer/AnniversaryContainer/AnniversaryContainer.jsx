@@ -26,7 +26,7 @@ export const AnniversaryContainer=()=>{
                   display: "flex",
                   justifyContent: "space-between",
                   padding: 0,
-                  height: "50px",
+                  height: "60px",
                 }}
               >
                 <Typography
