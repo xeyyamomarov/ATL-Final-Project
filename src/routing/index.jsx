@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { EmployeesPage } from "pages/EmployeesPage";
 import { Users } from "./Users";
 import { MainPage } from "./MainPage";
@@ -13,8 +13,21 @@ import { Guest } from "./Guest";
 import { Purchase } from "./Purchase";
 import MainLayout from "containers/mainLayout";
 import { LoginPage } from "pages/LoginPage";
+import { LS } from 'utils';
+import { appConfig } from "configs";
+import { useEffect } from "react";
 
 export const Routing = () => {
+
+    const navigate= useNavigate();
+
+    useEffect(()=>{
+      const login = LS.getItemLocalStorage(appConfig.userData)
+      console.log(login)
+        if(!login){
+            navigate("/login")
+        }
+    },[])
 
     return (
         <Routes>
