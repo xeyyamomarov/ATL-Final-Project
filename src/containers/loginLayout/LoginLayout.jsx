@@ -68,78 +68,73 @@ export const LoginLayout = () => {
                 anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                 open={snackBar}
                 onClose={handleClose}
-                key='error'
+                key='error-alert'
                 action={action}
             >
                 <Alert onClose={handleClose} icon={<Warning fontSize="inherit" />} variant="filled" severity="error" sx={{}} >
                     İstifadəçi adı və ya şifrə yanlış daxil edilib
                 </Alert>
             </Snackbar>
-
-            <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} >
-                    <Box sx={{ backgroundColor: "#9B5AE1", height: '100vh', display: 'flex', justifyContent: 'center', alignItems: "center" }}>
-                        <Box>
-                            <Logo />
-                        </Box>
-                    </Box>
-                </Grid>
-                <Grid item xs={12} sm={6} >
-                    <Box className={classes.formWrapper}>
-                        <Box
-                            component="form"
-                            onSubmit={event => {
-                                event.preventDefault();
-                                setLoading(true);
-                                if (values.username === "admin" && values.password === "admin") {
-                                    LS.setItemLocalStorage(appConfig.userData, JSON.stringify(values));
-                                    navigate("/", { replace: true });
-                                } else {
-                                    setError(true);
-                                    setSnackBar(true);
+            <Box className={classes.loginContainer}>
+                <Box className={classes.logoWrapper}>
+                        <Logo />
+                </Box>
+                <Box className={classes.formWrapper}>
+                    <Box
+                        component="form"
+                        onSubmit={event => {
+                            event.preventDefault();
+                            setLoading(true);
+                            if (values.username === "admin" && values.password === "admin") {
+                                LS.setItemLocalStorage(appConfig.userData, JSON.stringify(values));
+                                navigate("/", { replace: true });
+                            } else {
+                                setError(true);
+                                setSnackBar(true);
+                            }
+                            setLoading(false);
+                        }
+                        }
+                        noValidate
+                        autoComplete="off"
+                        className={classes.form}>
+                        <FormControl className={classes.formItem} error={error} variant="filled">
+                            <InputLabel htmlFor="filled-adornment-password">İstifadəçi adı</InputLabel>
+                            <OutlinedInput
+                                id="filled-adornment-text"
+                                type='text'
+                                value={values.username}
+                                onChange={handleChange('username')}
+                                sx={error && { backgroundColor: '#FFEEEF' }}
+                            />
+                        </FormControl>
+                        <FormControl className={classes.formItem} error={error} variant="filled">
+                            <InputLabel htmlFor="filled-adornment-password">Şifrə</InputLabel>
+                            <OutlinedInput
+                                id="filled-adornment-password"
+                                type={values.showPassword ? 'text' : 'password'}
+                                value={values.password}
+                                sx={error && { backgroundColor: '#FFEEEF' }}
+                                onChange={handleChange('password')}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                            sx={error && { color: '#D32F2F' }}
+                                        >
+                                            {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>
                                 }
-                                setLoading(false);
-                            }
-                            }
-                            noValidate
-                            autoComplete="off"
-                            className={classes.form}>
-                            <FormControl className={classes.formItem} error={error} variant="filled">
-                                <InputLabel htmlFor="filled-adornment-password">İstifadəçi adı</InputLabel>
-                                <OutlinedInput
-                                    id="filled-adornment-text"
-                                    type='text'
-                                    value={values.username}
-                                    onChange={handleChange('username')}
-                                />
-                            </FormControl>
-                            <FormControl className={classes.formItem} error={error} variant="filled">
-                                <InputLabel htmlFor="filled-adornment-password">Şifrə</InputLabel>
-                                <OutlinedInput
-                                    id="filled-adornment-password"
-                                    type={values.showPassword ? 'text' : 'password'}
-                                    value={values.password}
-
-                                    onChange={handleChange('password')}
-                                    endAdornment={
-                                        <InputAdornment position="end">
-                                            <IconButton
-                                                aria-label="toggle password visibility"
-                                                onClick={handleClickShowPassword}
-                                                onMouseDown={handleMouseDownPassword}
-                                                edge="end"
-                                            >
-                                                {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                            </IconButton>
-                                        </InputAdornment>
-                                    }
-                                />
-                            </FormControl>
-                            <Button variant="contained" type='submit' className={classes.loginButton}>Daxil ol</Button>
-                        </Box>
+                            />
+                        </FormControl>
+                        <Button variant="contained" type='submit' className={classes.loginButton}>Daxil ol</Button>
                     </Box>
-                </Grid>
-            </Grid>
+                </Box>
+            </Box>
         </>
     )
 }

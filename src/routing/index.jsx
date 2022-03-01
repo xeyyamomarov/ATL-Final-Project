@@ -1,5 +1,5 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { EmployeesPage } from "pages/EmployeesPage";
+import { Employees } from "./Employees";
 import { Users } from "./Users";
 import { MainPage } from "./MainPage";
 import { DayOff } from "./DayOff";
@@ -34,7 +34,7 @@ export const Routing = () => {
             <Route path='/login' element={< LoginPage />} />
             <Route path="/" element={<MainLayout />}>
                 {MainPage()}
-                <Route path="/employees" element={<EmployeesPage />} />
+                {Employees()} 
                 {DayOff()}
                 {BusinessTrip()}
                 {Vacation()}
@@ -46,9 +46,6 @@ export const Routing = () => {
                 <Route path="/profile/*" element={<Profile />} />
                 {UserRoles()}
             </Route>
-
-
-
         </Routes>
     )
 }       
