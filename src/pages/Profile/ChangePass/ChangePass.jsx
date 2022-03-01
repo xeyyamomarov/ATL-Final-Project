@@ -137,11 +137,11 @@ export const ChangePass = () => {
       </Box>
       <Box className={classes.form}>
         <FormControl fullWidth variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">
+          <InputLabel htmlFor="outlined-password1">
             Cari şifrə
           </InputLabel>
           <OutlinedInput
-            id="outlined-adornment-password"
+            id="outlined-password1"
             type={passValue.showPassword ? "text" : "password"}
             value={passValue.password}
             onChange={handleChange("password")}
@@ -157,11 +157,11 @@ export const ChangePass = () => {
         </FormControl>
 
         <FormControl fullWidth variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">
+          <InputLabel htmlFor="outlined-password2">
             Yeni şifrə
           </InputLabel>
           <OutlinedInput
-            id="outlined-adornment-password"
+            id="outlined-password2"
             type={newPassValue.showPassword ? "text" : "password"}
             value={newPassValue.password}
             onChange={handleChangeNew("password")}
@@ -180,11 +180,11 @@ export const ChangePass = () => {
           />
         </FormControl>
         <FormControl fullWidth variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">
+          <InputLabel htmlFor="outlined-password3">
             Yeni şifrənin təkrarı
           </InputLabel>
           <OutlinedInput
-            id="outlined-adornment-password"
+            id="outlined-password3"
             type={newPassRepeat.showPassword ? "text" : "password"}
             value={newPassRepeat.password}
             onChange={handleChangeRepeat("password")}
