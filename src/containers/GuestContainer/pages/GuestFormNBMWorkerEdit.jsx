@@ -24,6 +24,8 @@ import { GuestDetailsModal } from "./GuestDetailsModal";
 import { useStyles } from "../../Styles/Styles";
 import { InfoSection } from "containers/components/InfoSection";
 import AccordionForm from "containers/components/AccordionForm/AccordionForm";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
@@ -45,20 +47,63 @@ const initialValues = {
 }
 
 const onSubmit = (values, { resetForm }) => {
-  console.log(values);
+  // console.log(values);
+  let formData = {};
+  let guests = [];
+  for (const key in values) {
+    if((typeof values[key]) === "object"){
+      let guest = {
+        id: key,
+        ...values[key],
+      }
+      guests.push(guest);
+    }else {
+      formData = {...formData, [key]: values[key]}
+    }
+  }
+  formData = {...formData, guests};
+  console.log(formData)
+
   resetForm()
 }
+
+// Dummy Data, remove after be linked
+let guests = [{ id: "hbsdfg-34-76346hbu-874hdhb", name: "Orxan Axnazarov" },
+{ id: "hbsdsd-78-76346hbu-874hdhb", name: "Ilqar Abbasov" },
+{ id: "hbsdfh-34-768736hbu-874hdhb", name: "Zümrüd Hüseynova" }]
+// 
 
 export const GuestFormNBMWorkerEdit = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
   const toggle = () => dispatch(TOGGLES_ACTIONS.setDetailsDialog())
+  const [initValues, setInitValues] = useState({
+    date: "",
+    type: "",
+    result: "",
+  })
+
+  useEffect(() => {
+    guests.map(guest => {
+
+      setInitValues(old => ({
+        ...old,
+        [guest.id]: {
+          "isStatic": "",
+          "visitDate": "",
+          "leaveDate": "",
+          "note": "",
+        }
+      }))
+    })
+  }, [])
 
   return (
     <Box>
       <Formik
-        initialValues={initialValues}
+        initialValues={initValues}
+        enableReinitialize={true}
         onSubmit={onSubmit}
       >
         <Form>
@@ -165,162 +210,64 @@ export const GuestFormNBMWorkerEdit = () => {
                           borderRadius: "4px"
                         }}
                       >
-                        <AccordionForm header="Orxan Axnazarov">
-                          <Grid container spacing={2}>
+                        {
+                          guests.map(guest => {
+                            return (
+                              <AccordionForm key={guest.id} header={guest.name}>
+                                <Grid container spacing={2}>
 
-                            <Grid item xs={12}>
-                              <FormLabel id="isStatic">Status</FormLabel>
-                              <Field as={RadioGroup}
-                                row
-                                name="isStatic"
-                                value="Yox"
-                              >
-                                <FormControlLabel value="Gəldi" control={<Radio />} label="Gəldi" />
-                                <FormControlLabel value="Gəlmədi" control={<Radio />} label="Gəlmədi" />
-                                <FormControlLabel value="Buraxılmadı" control={<Radio />} label="Buraxılmadı" />
-                              </Field>
-                            </Grid>
+                                  <Grid item xs={12}>
+                                    <FormLabel id="isStatic">Status</FormLabel>
+                                    <Field as={RadioGroup}
+                                      row
+                                      name={`${guest.id}.isStatic`}
+                                    >
+                                      <FormControlLabel value="Gəldi" control={<Radio />} label="Gəldi" />
+                                      <FormControlLabel value="Gəlmədi" control={<Radio />} label="Gəlmədi" />
+                                      <FormControlLabel value="Buraxılmadı" control={<Radio />} label="Buraxılmadı" />
+                                    </Field>
+                                  </Grid>
 
-                            <Grid item sm={6}>
-                              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                <Field
-                                  name="visitDate"
-                                  fullWidth
-                                  component={DatePicker}
-                                  label="Gəlmə tarixi"
-                                  inputFormat="dd/MM/yyyy"
-                                  InputAdornmentProps={{ position: "start" }}
-                                />
-                              </LocalizationProvider>
-                            </Grid>
+                                  <Grid item sm={6}>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                      <Field
+                                        name={`${guest.id}.visitDate`}
+                                        fullWidth
+                                        component={DatePicker}
+                                        label="Gəlmə tarixi"
+                                        inputFormat="dd/MM/yyyy"
+                                        InputAdornmentProps={{ position: "start" }}
+                                      />
+                                    </LocalizationProvider>
+                                  </Grid>
 
-                            <Grid item sm={6}>
-                              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                <Field
-                                  name="leaveDate"
-                                  fullWidth
-                                  component={DatePicker}
-                                  label="Getmə tarixi"
-                                  inputFormat="dd/MM/yyyy"
-                                  InputAdornmentProps={{ position: "start" }}
-                                />
-                              </LocalizationProvider>
-                            </Grid>
+                                  <Grid item sm={6}>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                      <Field
+                                        name={`${guest.id}.leaveDate`}
+                                        fullWidth
+                                        component={DatePicker}
+                                        label="Getmə tarixi"
+                                        inputFormat="dd/MM/yyyy"
+                                        InputAdornmentProps={{ position: "start" }}
+                                      />
+                                    </LocalizationProvider>
+                                  </Grid>
 
-                            <Grid item sm={12}>
-                              <Field
-                                fullWidth
-                                name="note"
-                                component={TextField}
-                                label="Qeyd"
-                              />
-                            </Grid>
-                          </Grid>
-                        </AccordionForm>
-                        <AccordionForm header="Ilqar Abbasov">
-                          <Grid container spacing={2}>
+                                  <Grid item sm={12}>
+                                    <Field
+                                      fullWidth
+                                      name={`${guest.id}.note`}
+                                      component={TextField}
+                                      label="Qeyd"
+                                    />
+                                  </Grid>
+                                </Grid>
+                              </AccordionForm>
+                            )
+                          })
+                        }
 
-                            <Grid item xs={12}>
-                              <FormLabel id="isStatic">Status</FormLabel>
-                              <Field as={RadioGroup}
-                                row
-                                name="isStatic"
-                                value="Yox"
-                              >
-                                <FormControlLabel value="Gəldi" control={<Radio />} label="Gəldi" />
-                                <FormControlLabel value="Gəlmədi" control={<Radio />} label="Gəlmədi" />
-                                <FormControlLabel value="Buraxılmadı" control={<Radio />} label="Buraxılmadı" />
-                              </Field>
-                            </Grid>
-
-                            <Grid item sm={6}>
-                              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                <Field
-                                  name="visitDate"
-                                  fullWidth
-                                  component={DatePicker}
-                                  label="Gəlmə tarixi"
-                                  inputFormat="dd/MM/yyyy"
-                                  InputAdornmentProps={{ position: "start" }}
-                                />
-                              </LocalizationProvider>
-                            </Grid>
-
-                            <Grid item sm={6}>
-                              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                <Field
-                                  name="leaveDate"
-                                  fullWidth
-                                  component={DatePicker}
-                                  label="Getmə tarixi"
-                                  inputFormat="dd/MM/yyyy"
-                                  InputAdornmentProps={{ position: "start" }}
-                                />
-                              </LocalizationProvider>
-                            </Grid>
-
-                            <Grid item sm={12}>
-                              <Field
-                                fullWidth
-                                name="note"
-                                component={TextField}
-                                label="Qeyd"
-                              />
-                            </Grid>
-                          </Grid>
-                        </AccordionForm>
-                        <AccordionForm header="Zümrüd Hüseynova">
-                          <Grid container spacing={2}>
-
-                            <Grid item xs={12}>
-                              <FormLabel id="isStatic">Status</FormLabel>
-                              <Field as={RadioGroup}
-                                row
-                                name="isStatic"
-                                value="Yox"
-                              >
-                                <FormControlLabel value="Gəldi" control={<Radio />} label="Gəldi" />
-                                <FormControlLabel value="Gəlmədi" control={<Radio />} label="Gəlmədi" />
-                                <FormControlLabel value="Buraxılmadı" control={<Radio />} label="Buraxılmadı" />
-                              </Field>
-                            </Grid>
-
-                            <Grid item sm={6}>
-                              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                <Field
-                                  name="visitDate"
-                                  fullWidth
-                                  component={DatePicker}
-                                  label="Gəlmə tarixi"
-                                  inputFormat="dd/MM/yyyy"
-                                  InputAdornmentProps={{ position: "start" }}
-                                />
-                              </LocalizationProvider>
-                            </Grid>
-
-                            <Grid item sm={6}>
-                              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                <Field
-                                  name="leaveDate"
-                                  fullWidth
-                                  component={DatePicker}
-                                  label="Getmə tarixi"
-                                  inputFormat="dd/MM/yyyy"
-                                  InputAdornmentProps={{ position: "start" }}
-                                />
-                              </LocalizationProvider>
-                            </Grid>
-
-                            <Grid item sm={12}>
-                              <Field
-                                fullWidth
-                                name="note"
-                                component={TextField}
-                                label="Qeyd"
-                              />
-                            </Grid>
-                          </Grid>
-                        </AccordionForm>
                       </Box>
                     </Box>
                   </Grid>
