@@ -1,16 +1,16 @@
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Avatar,
+  Typography,
+  IconButton,
+  MenuItem,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
-import { MoreOptions } from "components/MoreOptions";
 import { ProfileOptions } from "pages/Profile/ProfileOptions";
 import { useState } from "react";
-import {
-  MenuItem,
-  IconButton,
-  Typography,
-  Toolbar,
-  Box,
-  AppBar,
-} from "@mui/material";
 
 export default function ButtonAppBar({ open, setOpen }) {
   const navigate = useNavigate();
@@ -41,11 +41,14 @@ export default function ButtonAppBar({ open, setOpen }) {
             </IconButton>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <IconButton sx={{ p: 0, marginRight: 1 }}>
+            <Box>
               <ProfileOptions>
-                
+                <MenuItem onClick={() => navigate("/profile/settings")}>
+                  Profil
+                </MenuItem>
+                <MenuItem onClick={() => navigate("/login")}>Çıxış</MenuItem>
               </ProfileOptions>
-            </IconButton>
+            </Box>
             <Typography component="div" sx={{ fontSize: 14 }}>
               Aydin Abbasov
             </Typography>
