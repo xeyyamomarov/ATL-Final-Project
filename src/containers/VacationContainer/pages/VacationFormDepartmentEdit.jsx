@@ -1,23 +1,17 @@
-import {
-  Box, Grid, MenuItem,
-  // TextField as MuiTextField
-} from "@mui/material";
+import { Box, FormControl, Grid, MenuItem } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-mui";
-import {
-  LocalizationProvider,
-  // DatePicker as MuiDatePicker
-} from "@mui/lab";
+import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "../../Styles/Styles";
 import { InputFile } from "containers/components/InputFile";
-import { InfoIcon } from "containers/components/InfoIcon/InfoIcon";
-import { DownloadIcon } from "containers/components/DownloadIcon/DownloadIcon";
+import { InfoIcon } from "containers/components/InfoIcon";
+import { DownloadIcon } from "containers/components/DownloadIcon";
 import { InfoSection } from "containers/components/InfoSection";
 
 const resultDatas = [
@@ -33,8 +27,8 @@ const tabs = [
 ]
 
 const initialValues = {
-  date: "",
-  type: "",
+  start: new Date(),
+  end: new Date(),
   result: "",
 }
 
@@ -74,49 +68,51 @@ export const VacationFormDepartmentEdit = () => {
                 <Grid container spacing={2} padding="16px">
 
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <Grid item sm={6}>
-                      <Field
-                        disabled
+                    <Grid item sm={12} md={6}>
+                      <FormControl fullWidth
                         sx={{
-                          width: "100%",
                           "& .MuiOutlinedInput-root": {
                             "& > fieldset": {
                               border: "2px dotted"
                             }
                           }
                         }}
-                        name="start"
-                        fullWidth
-                        component={DatePicker}
-                        label="Başlama tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
+                      >
+                        <Field
+                          disabled
+                          name="start"
+                          component={DatePicker}
+                          label="Başlama tarixi"
+                          inputFormat="dd/MM/yyyy"
+                          InputAdornmentProps={{ position: "start" }}
+                        />
+                      </FormControl>
                     </Grid>
 
-                    <Grid item sm={6}>
-                      <Field
-                        disabled
+                    <Grid item sm={12} md={6}>
+                      <FormControl fullWidth
                         sx={{
-                          width: "100%",
                           "& .MuiOutlinedInput-root": {
                             "& > fieldset": {
                               border: "2px dotted"
                             }
                           }
                         }}
-                        name="start"
-                        fullWidth
-                        component={DatePicker}
-                        label="Başlama tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
+                      >
+                        <Field
+                          disabled
+                          name="end"
+                          component={DatePicker}
+                          label="Bitmə tarixi"
+                          inputFormat="dd/MM/yyyy"
+                          InputAdornmentProps={{ position: "start" }}
+                        />
+                      </FormControl>
                     </Grid>
                   </LocalizationProvider>
 
                   <Grid item sm={12}>
-                    <InputFile disabled/>
+                    <InputFile disabled />
                   </Grid>
 
                   <Grid item sm={12}>

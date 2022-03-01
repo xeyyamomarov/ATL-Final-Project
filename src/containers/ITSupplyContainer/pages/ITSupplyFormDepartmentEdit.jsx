@@ -1,7 +1,4 @@
-import {
-  Box, Grid, MenuItem,
-  // TextField as MuiTextField
-} from "@mui/material";
+import { Box, Grid, MenuItem } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
@@ -62,7 +59,6 @@ export const ITSupplyFormDepartmentEdit = () => {
                   }
                 />
                 <Grid container spacing={2} padding="16px">
-
                   <Grid item sm={12}>
                     <Field
                       fullWidth
@@ -82,12 +78,11 @@ export const ITSupplyFormDepartmentEdit = () => {
 
                   <Grid item sm={12}>
                     <Field
-                      fullWidth
                       disabled
-                      name="resultText"
-                      select
+                      fullWidth
                       component={TextField}
                       label="Nəticə mətni"
+                      name="resultText"
                       sx={{
                         "& .MuiOutlinedInput-root": {
                           "& > fieldset": {

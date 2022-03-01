@@ -1,6 +1,5 @@
 import {
-  Autocomplete,
-  Box, FormControlLabel, FormLabel, Grid, MenuItem,
+  Box, FormControl, FormControlLabel, FormLabel, Grid, MenuItem,
   Radio,
   RadioGroup,
   TextField as MuiTextField,
@@ -11,11 +10,8 @@ import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
-import { TextField } from "formik-mui";
-import {
-  LocalizationProvider,
-  // DatePicker as MuiDatePicker
-} from "@mui/lab";
+import { Autocomplete, TextField } from "formik-mui";
+import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useDispatch } from "react-redux";
@@ -41,9 +37,12 @@ const tabs = [
 ]
 
 const initialValues = {
-  date: "",
-  type: "",
-  result: "",
+  visitors: [],
+  carPlate: [],
+  visitDate: "",
+  visitPurpose: "",
+  note: "",
+  result: ""
 }
 
 const onSubmit = (values, { resetForm }) => {
@@ -107,104 +106,111 @@ export const GuestFormNBMWorkerEdit = () => {
         onSubmit={onSubmit}
       >
         <Form>
-          <Box className={classes.breadcrumbBar}>
-            <Breadcrumbs />
-          </Box>
-          <QueryTabs tabs={tabs} value="four" />
-          <Box className={classes.container}>
-            <Box className={classes.dataContainer}>
-              <InfoSection name="Lamiə Səyidova Əliağa" />
-              <Box className={classes.formBox}>
-                <FormHead header="NBM əməkdaşın göndərməsi" />
-                <Grid container spacing={2} padding="16px">
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <Box className={classes.breadcrumbBar}>
+              <Breadcrumbs />
+            </Box>
+            <QueryTabs tabs={tabs} value="four" />
+            <Box className={classes.container}>
+              <Box className={classes.dataContainer}>
+                <InfoSection name="Lamiə Səyidova Əliağa" />
+                <Box className={classes.formBox}>
+                  <FormHead header="NBM əməkdaşın göndərməsi" />
+                  <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={12}>
-                    <Field
-                      fullWidth
-                      multiple
-                      component={Autocomplete}
-                      name="visitors"
-                      options={[]}
-                      freeSolo
-                      // onChange={(e, value) => setReceivers((state) => value)}
-
-                      renderInput={params => {
-                        return <MuiTextField
-                          {...params}
-                          label="Gələcək şəxs"
-                        // placeholder="Gələcək şəxs"
-                        />
-                      }}
-                    />
-                  </Grid>
-
-                  <Grid item sm={12}>
-                    <Field
-                      fullWidth
-                      multiple
-                      name="carPlate"
-                      component={Autocomplete}
-                      options={[]}
-                      freeSolo
-                      // onChange={(e, value) => setReceivers((state) => value)}
-
-                      renderInput={params => {
-                        return <MuiTextField
-                          {...params}
-                          label="Nəqliyyat ilə bağlı qeyd"
-                        // placeholder="Gələcək şəxs"
-                        />
-                      }}
-                    />
-                  </Grid>
-
-                  <Grid item sm={6}>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <Grid item sm={12}>
                       <Field
                         disabled
-                        name="date"
-                        fullWidth
-                        component={DatePicker}
-                        label="Gəlmə tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
+                        multiple
+                        freeSolo
+                        name="visitors"
+                        component={Autocomplete}
+                        filterSelectedOptions
+                        options={[]}
+                        renderInput={(params) => {
+                          return <MuiTextField
+                            {...params}
+                            label="Gələcək şəxs"
+                          />;
+                        }}
                       />
-                    </LocalizationProvider>
-                  </Grid>
+                    </Grid>
 
-                  <Grid item sm={12}>
-                    <Field
-                      disabled
-                      fullWidth
-                      name="visitPurpose"
-                      component={TextField}
-                      label="Gəlmə səbəbi"
-                    />
-                  </Grid>
+                    <Grid item sm={12}>
+                      <Field
+                        disabled
+                        multiple
+                        freeSolo
+                        name="carPlate"
+                        component={Autocomplete}
+                        filterSelectedOptions
+                        options={[]}
+                        renderInput={(params) => {
+                          return <MuiTextField
+                            {...params}
+                            label="Nəqliyyat ilə bağlı qeyd"
+                          />;
+                        }}
+                      />
+                    </Grid>
 
-                  <Grid item sm={12}>
-                    <Field
-                      disabled
-                      fullWidth
-                      name="note"
-                      component={TextField}
-                      label="Sorğu ilə bağlı qeyd"
-                    />
-                  </Grid>
-
-                  <Grid item sm={12}>
-                    <Box>
-                      <Typography
+                    <Grid item sm={12}>
+                      <FormControl fullWidth
                         sx={{
-                          marginBottom: "16px",
-                          fontWeight: 500,
-                          fontSize: "18px"
+                          "& .MuiOutlinedInput-root": {
+                            "& > fieldset": {
+                              border: "2px dotted"
+                            }
+                          }
                         }}
                       >
-                        Qonaqlar
-                      </Typography>
+                        <Field
+                          disabled
+                          name="visitDate"
+                          fullWidth
+                          component={DatePicker}
+                          label="Gəlmə tarixi"
+                          inputFormat="dd/MM/yyyy"
+                          InputAdornmentProps={{ position: "start" }}
+                        />
+                      </FormControl>
+                    </Grid>
 
-                      <Box
+                    <Grid item sm={12}>
+                      <Field
+                        sx={{
+                          "& .MuiOutlinedInput-root": {
+                            "& > fieldset": {
+                              border: "2px dotted"
+                            }
+                          }
+                        }}
+                        disabled
+                        fullWidth
+                        name="visitPurpose"
+                        component={TextField}
+                        label="Gəlmə səbəbi"
+                      />
+                    </Grid>
+
+                    <Grid item sm={12}>
+                      <Field
+                        sx={{
+                          "& .MuiOutlinedInput-root": {
+                            "& > fieldset": {
+                              border: "2px dotted"
+                            }
+                          }
+                        }}
+                        disabled
+                        fullWidth
+                        name="note"
+                        component={TextField}
+                        label="Sorğu ilə bağlı qeyd"
+                      />
+                    </Grid>
+
+                      {/* <Box
                         sx={{
                           border: "1px solid #E0E0E0",
                           borderRadius: "4px"
@@ -267,36 +273,207 @@ export const GuestFormNBMWorkerEdit = () => {
                             )
                           })
                         }
+                        </Box> */}
 
+                    <Grid item sm={12}>
+                      <Box>
+                        <Typography
+                          sx={{
+                            marginBottom: "16px",
+                            fontWeight: 500,
+                            fontSize: "18px"
+                          }}
+                        >
+                          Qonaqlar
+                        </Typography>
+
+                        <Box
+                          sx={{
+                            border: "1px solid #E0E0E0",
+                            borderRadius: "4px"
+                          }}
+                        >
+                          <AccordionForm header="Orxan Axnazarov">
+                            <Grid container spacing={2}>
+
+                              <Grid item xs={12}>
+                                <FormLabel id="isStatic">Status</FormLabel>
+                                <Field as={RadioGroup}
+                                  row
+                                  name="isStatic"
+                                  value="Yox"
+                                >
+                                  <FormControlLabel value="Gəldi" control={<Radio />} label="Gəldi" />
+                                  <FormControlLabel value="Gəlmədi" control={<Radio />} label="Gəlmədi" />
+                                  <FormControlLabel value="Buraxılmadı" control={<Radio />} label="Buraxılmadı" />
+                                </Field>
+                              </Grid>
+
+                              <Grid item sm={6}>
+                                <FormControl fullWidth >
+                                  <Field
+                                    name="visitDate"
+                                    component={DatePicker}
+                                    label="Gəlmə tarixi"
+                                    inputFormat="dd/MM/yyyy"
+                                    InputAdornmentProps={{ position: "start" }}
+                                  />
+                                </FormControl>
+                              </Grid>
+
+                              <Grid item sm={6}>
+                                <FormControl fullWidth >
+                                  <Field
+                                    name="leaveDate"
+                                    component={DatePicker}
+                                    label="Getmə tarixi"
+                                    inputFormat="dd/MM/yyyy"
+                                    InputAdornmentProps={{ position: "start" }}
+                                  />
+                                </FormControl>
+                              </Grid>
+
+                              <Grid item sm={12}>
+                                <Field
+                                  fullWidth
+                                  name="note"
+                                  component={TextField}
+                                  label="Qeyd"
+                                />
+                              </Grid>
+                            </Grid>
+                          </AccordionForm>
+                          <AccordionForm header="Ilqar Abbasov">
+                            <Grid container spacing={2}>
+
+                              <Grid item xs={12}>
+                                <FormLabel id="isStatic">Status</FormLabel>
+                                <Field as={RadioGroup}
+                                  row
+                                  name="isStatic"
+                                  value="Yox"
+                                >
+                                  <FormControlLabel value="Gəldi" control={<Radio />} label="Gəldi" />
+                                  <FormControlLabel value="Gəlmədi" control={<Radio />} label="Gəlmədi" />
+                                  <FormControlLabel value="Buraxılmadı" control={<Radio />} label="Buraxılmadı" />
+                                </Field>
+                              </Grid>
+
+                              <Grid item sm={6}>
+                                <FormControl fullWidth >
+                                  <Field
+                                    name="visitDate"
+                                    component={DatePicker}
+                                    label="Gəlmə tarixi"
+                                    inputFormat="dd/MM/yyyy"
+                                    InputAdornmentProps={{ position: "start" }}
+                                  />
+                                </FormControl>
+                              </Grid>
+
+                              <Grid item sm={6}>
+
+                                <FormControl fullWidth >
+                                  <Field
+                                    name="leaveDate"
+                                    component={DatePicker}
+                                    label="Getmə tarixi"
+                                    inputFormat="dd/MM/yyyy"
+                                    InputAdornmentProps={{ position: "start" }}
+                                  />
+                                </FormControl>
+                              </Grid>
+
+                              <Grid item sm={12}>
+                                <Field
+                                  fullWidth
+                                  name="note"
+                                  component={TextField}
+                                  label="Qeyd"
+                                />
+                              </Grid>
+                            </Grid>
+                          </AccordionForm>
+                          <AccordionForm header="Zümrüd Hüseynova">
+                            <Grid container spacing={2}>
+
+                              <Grid item xs={12}>
+                                <FormLabel id="isStatic">Status</FormLabel>
+                                <Field as={RadioGroup}
+                                  row
+                                  name="isStatic"
+                                  value="Yox"
+                                >
+                                  <FormControlLabel value="Gəldi" control={<Radio />} label="Gəldi" />
+                                  <FormControlLabel value="Gəlmədi" control={<Radio />} label="Gəlmədi" />
+                                  <FormControlLabel value="Buraxılmadı" control={<Radio />} label="Buraxılmadı" />
+                                </Field>
+                              </Grid>
+
+                              <Grid item sm={6}>
+                                <FormControl fullWidth >
+                                  <Field
+                                    name="visitDate"
+                                    component={DatePicker}
+                                    label="Gəlmə tarixi"
+                                    inputFormat="dd/MM/yyyy"
+                                    InputAdornmentProps={{ position: "start" }}
+                                  />
+                                </FormControl>
+                              </Grid>
+
+                              <Grid item sm={6}>
+                                <FormControl fullWidth >
+                                  <Field
+                                    name="leaveDate"
+                                    component={DatePicker}
+                                    label="Getmə tarixi"
+                                    inputFormat="dd/MM/yyyy"
+                                    InputAdornmentProps={{ position: "start" }}
+                                  />
+                                </FormControl>
+                              </Grid>
+
+                              <Grid item sm={12}>
+                                <Field
+                                  fullWidth
+                                  name="note"
+                                  component={TextField}
+                                  label="Qeyd"
+                                />
+                              </Grid>
+                            </Grid>
+                          </AccordionForm>
+                        </Box>
                       </Box>
-                    </Box>
+                    </Grid>
+
+                    <Grid item sm={12}>
+                      <Field
+                        fullWidth
+                        name="result"
+                        select
+                        component={TextField}
+                        label="Nəticə"
+                      >
+                        {resultDatas.map(option => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </Field>
+                    </Grid>
+
                   </Grid>
+                </Box>
 
-                  <Grid item sm={12}>
-                    <Field
-                      fullWidth
-                      name="result"
-                      select
-                      component={TextField}
-                      label="Nəticə"
-                    >
-                      {resultDatas.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Field>
-                  </Grid>
-
-                </Grid>
+                <Box className={classes.button}>
+                  <SubmitButton onClick={toggle} text="Yadda saxla və bitir" />
+                </Box>
+                <GuestDetailsModal />
               </Box>
-
-              <Box className={classes.button}>
-                <SubmitButton onClick={toggle} text="Yadda saxla və bitir" />
-              </Box>
-              <GuestDetailsModal />
             </Box>
-          </Box>
+          </LocalizationProvider>
         </Form>
       </Formik>
     </Box >

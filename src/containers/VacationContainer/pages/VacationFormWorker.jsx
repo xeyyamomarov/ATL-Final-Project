@@ -1,18 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import {
-  Box, Grid, MenuItem,
-  // TextField as MuiTextField
-} from "@mui/material";
+import { Box, FormControl, Grid, MenuItem } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-mui";
-import {
-  LocalizationProvider,
-  // DatePicker as MuiDatePicker
-} from "@mui/lab";
+import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "../../Styles/Styles";
@@ -31,8 +25,8 @@ const tabs = [
 ]
 
 const initialValues = {
-  start: "",
-  end: "",
+  start: new Date(),
+  end: new Date(),
   result: "",
 }
 
@@ -64,26 +58,29 @@ export const VacationFormWorker = () => {
                 <Grid container spacing={2} padding="16px">
 
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <Grid item sm={6}>
-                      <Field
-                        name="start"
-                        fullWidth
-                        component={DatePicker}
-                        label="Başlama tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
+                    <Grid item sm={12} md={6}>
+                      <FormControl fullWidth>
+                        <Field
+                          name="start"
+                          component={DatePicker}
+                          label="Başlama tarixi"
+                          inputFormat="dd/MM/yyyy"
+                          InputAdornmentProps={{ position: "start" }}
+                        />
+                      </FormControl>
                     </Grid>
 
-                    <Grid item sm={6}>
-                      <Field
-                        name="end"
-                        fullWidth
-                        component={DatePicker}
-                        label="Bitmə tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
+                    <Grid item sm={12} md={6}>
+                      <FormControl fullWidth>
+                        <Field
+                          name="end"
+                          fullWidth
+                          component={DatePicker}
+                          label="Bitmə tarixi"
+                          inputFormat="dd/MM/yyyy"
+                          InputAdornmentProps={{ position: "start" }}
+                        />
+                      </FormControl>
                     </Grid>
                   </LocalizationProvider>
 

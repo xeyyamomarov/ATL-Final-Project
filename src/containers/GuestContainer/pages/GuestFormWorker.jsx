@@ -1,26 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import {
-  Box, Grid, MenuItem,
-  // Autocomplete, 
-  // Chip,
-  // TextField as MuiTextField
-} from "@mui/material";
+import { Box, FormControl, Grid, MenuItem, TextField as MuiTextField } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
-import { TextField } from "formik-mui";
-import {
-  LocalizationProvider,
-  // DatePicker as MuiDatePicker
-} from "@mui/lab";
+import { Autocomplete, TextField } from "formik-mui";
+import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "../../Styles/Styles";
-// import { useState } from "react";
-// import { values } from "lodash";
-import TagsInput from "containers/components/TagsInput/TagsInput";
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
@@ -37,6 +26,7 @@ const tabs = [
 
 const initialValues = {
   visitors: [],
+  carPlate: [],
   date: "",
   meetingPerson: "",
   visitPurpose: "",
@@ -46,7 +36,6 @@ const initialValues = {
 
 
 export const GuestFormWorker = () => {
-  // const [chips, setChips] = useState([])
   const classes = useStyles();
   const navigate = useNavigate();
 
@@ -54,10 +43,6 @@ export const GuestFormWorker = () => {
     console.log(values);
     resetForm()
     navigate("/guest/worker/saved")
-  }
-
-  function handleSelecetedTags(items) {
-    // setChips(items)
   }
 
   return (
@@ -78,71 +63,54 @@ export const GuestFormWorker = () => {
                 <Grid container spacing={2} padding="16px">
 
                   <Grid item sm={12}>
-                    {/* <Field
-                      fullWidth
+                    <Field
                       multiple
+                      freeSolo
                       name="visitors"
                       component={Autocomplete}
-                      label="visitors"
+                      filterSelectedOptions
                       options={[]}
-                      freeSolo
-                      // onChange={(e, value) => setReceivers((state) => value)}
-                      onChange={(e) => {
-                        // let name = {id: e.target.value, value: e.target.value}
-                        let name = e.target.value;
-                        let arr = [];
-                        if(name) {
-                          setChips(prev => [...prev, name])
-                        }
-                        else {
-                          console.log(chips)
-                          // let names = chips.filter(x => x)
-                          // setChips(names)
-                        }
-                      }}
-
-                      renderInput={params => {
+                      renderInput={(params) => {
                         return <MuiTextField
                           {...params}
                           label="Gələcək şəxs"
-                        // placeholder="Gələcək şəxs"
-                        />
+                        />;
                       }}
-                    /> */}
-
-                    <TagsInput
-                      selectedTags={handleSelecetedTags}
-                      fullWidth
-                      name="visitors"
-                      label="Gələcək şəxs"
-                      value={props.values.visitors}
                     />
                   </Grid>
 
                   <Grid item sm={12}>
-                    <TagsInput
-                      selectedTags={handleSelecetedTags}
-                      fullWidth
-                      name="carNumber"
-                      label="Nəqliyyat ilə bağlı qeyd"
-                      value={props.values.visitors}
+                    <Field
+                      multiple
+                      freeSolo
+                      name="carPlate"
+                      component={Autocomplete}
+                      filterSelectedOptions
+                      options={[]}
+                      renderInput={(params) => {
+                        return <MuiTextField
+                          {...params}
+                          label="Nəqliyyat ilə bağlı qeyd"
+                        />;
+                      }}
                     />
                   </Grid>
 
-                  <Grid item sm={6}>
+                  <Grid item sm={12} md={6}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <FormControl fullWidth >
                       <Field
                         name="date"
-                        fullWidth
                         component={DatePicker}
                         label="Gəlmə tarixi"
                         inputFormat="dd/MM/yyyy"
                         InputAdornmentProps={{ position: "start" }}
                       />
+                      </FormControl>
                     </LocalizationProvider>
                   </Grid>
 
-                  <Grid item sm={6}>
+                  <Grid item sm={12} md={6}>
                     <Field
                       fullWidth
                       name="meetingPerson"
