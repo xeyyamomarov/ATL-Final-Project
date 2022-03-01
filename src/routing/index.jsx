@@ -13,7 +13,7 @@ import { MainPage } from "./MainPage";
 import {DayOff} from "./DayOff";
 import {BusinessTrip} from "./BusinessTrip"
 import {Notifications} from "./Notifications"
-import {ProfileRoute} from "./ProfileRoute"
+import { Profile } from "pages/Profile/Profile";
 
 export const Routing = () => {
     return (
@@ -30,7 +30,7 @@ export const Routing = () => {
             <Route path="/purchase" element={<Purchase />} />
             { Users() }
             { Notifications() }
-            { ProfileRoute() }
+            <Route path="/profile/*" element={<Profile />} />
             <Route path="/user-roles" element={<UserRolesContainer />} />
            
         </Routes>

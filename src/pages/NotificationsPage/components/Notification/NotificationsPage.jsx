@@ -6,8 +6,8 @@ export const NotificationsPage = () => {
 
     return (
         <>
-          {/* <NotificationsPageContainer/> */}
-          <Profile/>
+          <NotificationsPageContainer/>
+          {/* <Profile/> */}
         </>
       );
     }

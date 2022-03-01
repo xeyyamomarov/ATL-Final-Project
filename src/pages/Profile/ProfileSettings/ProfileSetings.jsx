@@ -1,4 +1,4 @@
-import {CardContent,Typography,Tooltip,Box } from "@mui/material";
+import {CardContent,Typography,Box } from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
 import { makeStyles } from "@mui/styles";
 import SecurityIcon from '@mui/icons-material/Security';
@@ -9,13 +9,16 @@ const useStyles = makeStyles({
         cursor:"pointer",
         "&:hover":{
             background:"#F3EBFB",
+            borderRadius:"4px"
         }
 
     },
     box:{
-      height:"400px",
+      height:"100%",
       width:"300px",
       borderRight:"1px solid gray",
+      padding:"16px",
+      
     },
     icon:{
         position:'relative',
@@ -23,6 +26,7 @@ const useStyles = makeStyles({
         },
       typography:{
           color:"black",
+          fontSize:"14px",
           "&:hover":{
               color:"#9B5AE1"
           }
@@ -37,9 +41,9 @@ const userNavigate = useNavigate()
 const securityNavigate = useNavigate()
 
 
-const userHandleClick = ()=> userNavigate("/user-settings")
+const userHandleClick = ()=> userNavigate("/profile/settings")
 
-const securityHandleClick = () => securityNavigate("/profile-security")
+const securityHandleClick = () => securityNavigate("/profile/security")
 
   return (
     <Box  className={classes.box}>
@@ -49,9 +53,7 @@ const securityHandleClick = () => securityNavigate("/profile-security")
         <Typography className={classes.typography}
           variant="h6"
         >
-            <Tooltip title="Hesab parametrləri" >
           <SettingsIcon className={classes.icon}/>
-          </Tooltip>
            Hesab parametrləri
         </Typography>
       </CardContent>
@@ -62,10 +64,8 @@ const securityHandleClick = () => securityNavigate("/profile-security")
         <Typography
         className={classes.typography}
           variant="h6"
-        >
-            <Tooltip title="Təhlükəsizlik və Giriş" >
+        >       
            < SecurityIcon className={classes.icon}/>
-          </Tooltip>
            Təhlükəsizlik və Giriş
         </Typography>
       </CardContent>
