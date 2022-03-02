@@ -39,7 +39,9 @@ const useStyles = makeStyles({
     alignItems: "center",
     padding: " 0 100px",
     gap: 5,
+    minWidth:"500px"
   },
+
   btn: {
     margin: "5px",
     display: "flex",
@@ -137,9 +139,7 @@ export const ChangePass = () => {
       </Box>
       <Box className={classes.form}>
         <FormControl fullWidth variant="outlined">
-          <InputLabel htmlFor="outlined-password1">
-            Cari şifrə
-          </InputLabel>
+          <InputLabel htmlFor="outlined-password1">Cari şifrə</InputLabel>
           <OutlinedInput
             id="outlined-password1"
             type={passValue.showPassword ? "text" : "password"}
@@ -157,9 +157,7 @@ export const ChangePass = () => {
         </FormControl>
 
         <FormControl fullWidth variant="outlined">
-          <InputLabel htmlFor="outlined-password2">
-            Yeni şifrə
-          </InputLabel>
+          <InputLabel htmlFor="outlined-password2">Yeni şifrə</InputLabel>
           <OutlinedInput
             id="outlined-password2"
             type={newPassValue.showPassword ? "text" : "password"}
