@@ -7,6 +7,7 @@ import { AddButton, SearchButton } from "components/Buttons";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { Box, Collapse } from '@mui/material';
 import { SearchForm } from "containers/EmployeesContainer/components/SearchForm";
+import { useNavigate } from "react-router-dom";
 
 export const EmployeesContainer = () => {
 
@@ -14,7 +15,7 @@ export const EmployeesContainer = () => {
     const employees = useSelector(EMPLOYEES_ALL_SELECTORS.getEmployeesAll);
     const [searchOpen, setSearchOpen] = useState(false);
     //const addNewHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const addNewHandleClick = () => navigate("/employees/new")
 
 
