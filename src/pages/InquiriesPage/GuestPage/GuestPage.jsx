@@ -1,5 +1,5 @@
 import { ContentContainer } from "components/ContentContainer";
-import { GuestContainer } from "containers/GuestContainer";
+import { GuestContainer } from "containers/Inquiries/GuestContainer";
 
 export const GuestPage = () => {
   return ( 

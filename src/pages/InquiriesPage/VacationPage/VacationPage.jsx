@@ -1,5 +1,5 @@
 import { ContentContainer } from "components/ContentContainer";
-import { VacationContainer } from "containers/VacationContainer";
+import { VacationContainer } from "containers/Inquiries/VacationContainer";
 
 export const VacationPage = () => {
   return ( 

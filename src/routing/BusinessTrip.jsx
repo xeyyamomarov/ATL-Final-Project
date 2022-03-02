@@ -5,7 +5,7 @@ import {
   BusinessTripFormHr,
   BusinessTripFormHrEdit,
   BusinessTripFormWorkerSaved,
-} from "containers/BusinessTripContainer/pages";
+} from "containers/Inquiries/BusinessTripContainer/pages";
 import { BusinessTripPage } from "pages/InquiriesPage/BusinessTripPage";
 import { Route } from "react-router-dom";
 

@@ -5,7 +5,7 @@ import {
   ITSupplyFormDepartmentEdit,
   ITSupplyFormITEdit,
   ITSupplyFormIT
-} from "containers/ITSupplyContainer/pages";
+} from "containers/Inquiries/ITSupplyContainer/pages";
 import { ITSupplyPage } from "pages/InquiriesPage/ITSupplyPage";
 import { Route } from "react-router-dom";
 

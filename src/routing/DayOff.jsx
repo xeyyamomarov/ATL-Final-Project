@@ -5,7 +5,7 @@ import {
   DayOffFormDepartmentEdit,
   DayOffFormHrEdit,
   DayOffFormHr,
-} from "containers/DayOffContainer/pages";
+} from "containers/Inquiries/DayOffContainer/pages";
 import { DayOffPage } from "pages/InquiriesPage/DayOffPage";
 import { Route } from "react-router-dom";
 

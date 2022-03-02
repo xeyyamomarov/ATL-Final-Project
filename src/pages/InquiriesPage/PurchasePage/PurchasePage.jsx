@@ -1,5 +1,5 @@
 import { ContentContainer } from "components/ContentContainer";
-import { PurchaseContainer } from "containers/PurchaseContainer";
+import { PurchaseContainer } from "containers/Inquiries/PurchaseContainer";
 
 export const PurchasePage = () => {
   return ( 

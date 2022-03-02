@@ -1,5 +1,5 @@
 import { ContentContainer } from "components/ContentContainer";
-import { DayOffContainer } from "containers/DayOffContainer";
+import { DayOffContainer } from "containers/Inquiries/DayOffContainer";
 
 export const DayOffPage = () => {
   return ( 

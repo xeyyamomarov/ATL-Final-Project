@@ -5,7 +5,7 @@ import {
   PurchaseFormDepartmentEdit,
   PurchaseFormPurchase,
   PurchaseFormPurchaseEdit
-} from "containers/PurchaseContainer/pages";
+} from "containers/Inquiries/PurchaseContainer/pages";
 import { PurchasePage } from "pages/InquiriesPage/PurchasePage";
 import { Route } from "react-router-dom";
 

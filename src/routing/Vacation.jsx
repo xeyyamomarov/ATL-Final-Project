@@ -5,7 +5,7 @@ import {
   VacationFormDepartmentEdit,
   VacationFormHrEdit,
   VacationFormHr
-} from "containers/VacationContainer/pages";
+} from "containers/Inquiries/VacationContainer/pages";
 import { VacationPage } from "pages/InquiriesPage/VacationPage";
 import { Route } from "react-router-dom";
 

@@ -7,7 +7,7 @@ import {
   GuestFormNBMChiefEdit,
   GuestFormNBMWorker,
   GuestFormNBMWorkerEdit
-} from "containers/GuestContainer/pages";
+} from "containers/Inquiries/GuestContainer/pages";
 import { GuestPage } from "pages/InquiriesPage/GuestPage";
 import { Route } from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import { ContentContainer } from "components/ContentContainer";
-import { UserRolesContainer } from "containers/UserRolesContainer";
+import { UserRolesContainer } from "containers/Settings/UserRolesContainer";
 
 export const UserRolesPage = () => {
   return ( 
