@@ -7,7 +7,7 @@ import {
   TextField as MuiTextField,
 } from "@mui/material";
 import { SubmitButton, CloseButton } from "components/Buttons";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Autocomplete } from 'formik-mui'
 import { useSelector, useDispatch } from 'react-redux';
 import * as Yup from "yup";
@@ -22,15 +22,13 @@ const positions = [
 ];
 
 const initialValues = {
-  fullName: "",
   username: "",
   position: [],
 }
 
 const validationSchema = Yup.object({
-  fullName: Yup.string().required("Mütləq doldurulmalıdır!"),
   username: Yup.string().required("Mütləq doldurulmalıdır!"),
-  position: Yup.array().required("Mütləq doldurulmalıdır!"),
+  position: Yup.array().required("Mütləq doldurulmalıdır!")
 });
 
 const onSubmit = (values, { resetForm }) => {
@@ -64,7 +62,7 @@ export const EditUserDialog = () => {
                   fullWidth
                   as={MuiTextField}
                   label="Əməkdaş*"
-                  name="fullName"
+                  value="Aslanova Xəyalə Rüfət"
                   disabled
                   sx={{
                     minWidth: "263px",
@@ -98,9 +96,13 @@ export const EditUserDialog = () => {
                   getOptionLabel={option => option}
                   multiple
                   renderInput={(params) => {
-                    return <MuiTextField {...params} label="Rollar*" />;
+                    return (<>
+                      <MuiTextField {...params} label="Rollar*" />
+                    </>
+                    );
                   }}
                 />
+                  <ErrorMessage name="position" />
               </Grid>
 
             </Grid>

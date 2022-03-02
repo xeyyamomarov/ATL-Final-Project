@@ -74,7 +74,6 @@ export const EditRoleDialog = () => {
                 <Grid item xs={12}>
                   <FormLabel id="isStatic">Rol statikdir?</FormLabel>
                   <Field as={RadioGroup}
-
                     row
                     name="isStatic"
                     value="Yox"
@@ -99,6 +98,13 @@ export const EditRoleDialog = () => {
                     as={MuiTextField}
                     label="Fərqləndirici ad"
                     value="admin"
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        "& > fieldset": {
+                          border: "2px dotted"
+                        }
+                      }
+                    }}
                   />
                 </Grid>
 
