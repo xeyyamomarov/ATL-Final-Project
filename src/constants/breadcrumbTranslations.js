@@ -1,6 +1,7 @@
 export const breadcrumbTranslations = [
   { "/": "Əsas səhifə" },
   { "employees": "Əməkdaşlar" },
+  { "new": "Yeni əməkdaş"},
   { "inquiries": "Sorğular" },
   { "day-off": "Day off" },
   { "business-trip": "Ezamiyyət" },

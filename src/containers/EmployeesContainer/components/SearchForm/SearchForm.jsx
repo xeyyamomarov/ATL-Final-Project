@@ -1,9 +1,19 @@
-import { Box, Divider, Grid, TextField as MuiTextField } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Grid,
+  TextField as MuiTextField,
+  RadioGroup,
+  Radio,
+  FormLabel,
+  FormControlLabel
+} from "@mui/material";
 import { Button, CloseButton } from "components/Buttons";
 import { Formik, Form, Field } from "formik";
 import { Autocomplete } from 'formik-mui'
 import { makeStyles } from '@mui/styles';
-
+import { useRef } from "react";
+import { times, departments, disabilities } from '../../constants';
 
 const useStyles = makeStyles({
   container: {
@@ -23,34 +33,14 @@ const useStyles = makeStyles({
   },
 })
 
-const times = [
-  '09:00 - 18:00',
-  '18:00 - 00:00',
-  '00:00 - 09:00'
-];
-
-const departments = [
-  'Rəqəmsal idarə etmə',
-  'HR',
-  'Təhlükəsizlik',
-  'İT',
-  'Satınalma'
-]
-
-const disabilities = [
-  'Yoxdur',
-  '1 ci dərəcəli',
-  '2 ci dərəcəli',
-  '3 ci dərəcəli',
-  '4 ci dərəcəli'
-]
-
 const initialValues = {
   fullName: "",
   username: "",
   position: "",
   roles: [],
 }
+
+
 
 const onSubmit = (values, { resetForm }) => {
   console.log(values);
@@ -60,6 +50,12 @@ const onSubmit = (values, { resetForm }) => {
 export const SearchForm = () => {
 
   const classes = useStyles();
+  const inputRef = useRef(null);
+
+  const handleClick = () => {
+    // resets the input value
+    inputRef.current.value = '';
+  };
 
   return (
     <Box className={classes.container}>
@@ -88,7 +84,7 @@ export const SearchForm = () => {
                   options={departments}
                   filterSelectedOptions
                   getOptionLabel={option => option}
-                  multiple
+                  ref={inputRef}
                   renderInput={(params) => {
                     return <MuiTextField {...params} label="Şöbə" />;
                   }}
@@ -100,6 +96,7 @@ export const SearchForm = () => {
                   as={MuiTextField}
                   label="Yaş(dan)"
                   name="ageFrom"
+                  type="number"
                 />
               </Grid>
               <Grid item sm={6} lg={2}>
@@ -108,6 +105,7 @@ export const SearchForm = () => {
                   as={MuiTextField}
                   label="Yaş(a)"
                   name="ageTo"
+                  type="number"
                 />
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
@@ -120,7 +118,6 @@ export const SearchForm = () => {
                   options={times}
                   filterSelectedOptions
                   getOptionLabel={option => option}
-                  multiple
                   renderInput={(params) => {
                     return <MuiTextField {...params} label="İş vaxtı" />;
                   }}
@@ -136,27 +133,78 @@ export const SearchForm = () => {
                   options={disabilities}
                   filterSelectedOptions
                   getOptionLabel={option => option}
-                  multiple
                   renderInput={(params) => {
                     return <MuiTextField {...params} label="Əlilliyi" />;
                   }}
                 />
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
-  
-                <div role="group" aria-labelledby="my-radio-group">
-                  <label>
-                    <Field type="radio" name="picked" value="One" />
-                    One
-                  </label>
-                  <label>
-                    <Field type="radio" name="picked" value="Two" />
-                    Two
-                  </label>
-                </div>
+                <FormLabel id="position">Vəzifə təsnifatı</FormLabel>
+                <Field
+                  fullWidth
+                  name="position"
+                  as={RadioGroup}
+                  row
+                >
+                  <FormControlLabel value="Qulluqcu" control={<Radio />} label="Qulluqcu" sx={{ color: '#666666' }} />
+                  <FormControlLabel value="Fəhlə" control={<Radio />} label="Fəhlə" sx={{ color: '#666666' }} />
+                  <FormControlLabel value="Hamısı" control={<Radio />} label="Hamısı" sx={{ color: '#666666' }} />
+                </Field>
               </Grid>
-
+              <Grid item sm={12} md={6} lg={4}>
+                <FormLabel id="staff-capacity">Ştat tutumu</FormLabel>
+                <Field
+                  fullWidth
+                  name="staffCapacity"
+                  as={RadioGroup}
+                  row
+                >
+                  <FormControlLabel value="Tam" control={<Radio />} label="Tam" sx={{ color: '#666666' }} />
+                  <FormControlLabel value="Yarım" control={<Radio />} label="Yarım" sx={{ color: '#666666' }} />
+                  <FormControlLabel value="Hamısı" control={<Radio />} label="Hamısı" sx={{ color: '#666666' }} />
+                </Field>
+              </Grid>
+              <Grid item sm={12} md={6} lg={4}>
+                <FormLabel id="status">Statusu</FormLabel>
+                <Field
+                  fullWidth
+                  name="status"
+                  as={RadioGroup}
+                  row
+                >
+                  <FormControlLabel value="Aktiv" control={<Radio />} label="Aktiv" sx={{ color: '#666666' }} />
+                  <FormControlLabel value="Arxiv" control={<Radio />} label="Arxiv" sx={{ color: '#666666' }} />
+                  <FormControlLabel value="Hamısı" control={<Radio />} label="Hamısı" sx={{ color: '#666666' }} />
+                </Field>
+              </Grid>
+              <Grid item sm={12} md={6} lg={4}>
+                <FormLabel id="workplace">İş yeri</FormLabel>
+                <Field
+                  fullWidth
+                  name="workplace"
+                  as={RadioGroup}
+                  row
+                >
+                  <FormControlLabel value="Əsas" control={<Radio />} label="Əsas" sx={{ color: '#666666' }} />
+                  <FormControlLabel value="Əlavə" control={<Radio />} label="Əlavə" sx={{ color: '#666666' }} />
+                  <FormControlLabel value="Hamısı" control={<Radio />} label="Hamısı" sx={{ color: '#666666' }} />
+                </Field>
+              </Grid>
+              <Grid item sm={12} md={6} lg={4}>
+                <FormLabel id="gender">Cinsiyyət</FormLabel>
+                <Field
+                  fullWidth
+                  name="gender"
+                  as={RadioGroup}
+                  row
+                >
+                  <FormControlLabel value="Kişi" control={<Radio />} label="Kişi" sx={{ color: '#666666' }} />
+                  <FormControlLabel value="Qadın" control={<Radio />} label="Qadın" sx={{ color: '#666666' }} />
+                  <FormControlLabel value="Hamısı" control={<Radio />} label="Hamısı" sx={{ color: '#666666' }} />
+                </Field>
+              </Grid>
             </Grid>
+
           </Box>
           <Divider />
           <Box className={classes.btnBox}>
