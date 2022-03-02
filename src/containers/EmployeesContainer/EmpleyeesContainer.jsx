@@ -14,6 +14,7 @@ export const EmployeesContainer = () => {
     const employees = useSelector(EMPLOYEES_ALL_SELECTORS.getEmployeesAll);
     const [searchOpen, setSearchOpen] = useState(false);
     //const addNewHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
+    const navigate = useNavigate();
     const addNewHandleClick = () => navigate("/employees/new")
 
 
