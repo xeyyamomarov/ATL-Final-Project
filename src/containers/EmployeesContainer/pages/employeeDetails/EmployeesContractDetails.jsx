@@ -1,10 +1,10 @@
 import { Table } from "components/Table";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import { Box, IconButton, Tooltip} from "@mui/material";
+import { Box, IconButton, Tooltip } from "@mui/material";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { detailsTabs } from "containers/EmployeesContainer/constants";
-import { useStyles } from "containers/loginLayout/Styles";
+import { useStyles } from "Styles/Styles";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 
 
@@ -87,11 +87,10 @@ export const EmployeesContractDetails = () => {
     const classes = useStyles();
     return (
         <>
-        
-              <Box className={classes.breadcrumbBar}>
-        <Breadcrumbs />
-      </Box>
-      <QueryTabs tabs={detailsTabs} value="contractDetails" />
+            <Box className={classes.breadcrumbBar} sx={{}}>
+                <Breadcrumbs />
+            </Box>
+            <QueryTabs tabs={detailsTabs} value="contractDetails" />
             <Box sx={{ margin: 2 }}>
                 <Table thead={thead} tbody={data} pagination />
             </Box>

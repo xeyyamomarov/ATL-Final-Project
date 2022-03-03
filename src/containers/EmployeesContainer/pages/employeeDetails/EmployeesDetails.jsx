@@ -2,7 +2,7 @@ import { Avatar, Box} from "@mui/material";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { detailsTabs } from "containers/EmployeesContainer/constants";
-import { useStyles } from "containers/loginLayout/Styles";
+import { useStyles } from "Styles/Styles";
 // import { useNavigate } from "react-router-dom";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';

@@ -2,7 +2,7 @@ import { Table } from "components/Table";
 import { Box } from "@mui/material";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { detailsTabs } from "containers/EmployeesContainer/constants";
-import { useStyles } from "containers/loginLayout/Styles";
+import { useStyles } from "Styles/Styles";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 
 const thead = [
