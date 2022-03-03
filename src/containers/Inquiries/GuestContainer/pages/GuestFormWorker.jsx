@@ -42,7 +42,7 @@ export const GuestFormWorker = () => {
   const onSubmit = (values, { resetForm }) => {
     console.log(values);
     resetForm()
-    navigate("/guest/worker/saved")
+    navigate("/guest/worker/view")
   }
 
   return (

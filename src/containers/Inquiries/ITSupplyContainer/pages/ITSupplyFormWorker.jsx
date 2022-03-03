@@ -34,7 +34,7 @@ export const ITSupplyFormWorker = () => {
   const onSubmit = (values, { resetForm }) => {
     console.log(values);
     resetForm()
-    navigate("/it-supply/worker/saved")
+    navigate("/it-supply/worker/view")
   }
 
   return (

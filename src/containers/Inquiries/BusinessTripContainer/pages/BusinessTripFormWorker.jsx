@@ -47,7 +47,7 @@ export const BusinessTripFormWorker = () => {
   const onSubmit = (values, { resetForm }) => {
     console.log(values);
     resetForm()
-    navigate("/business-trip/worker/saved")
+    navigate("/business-trip/worker/view")
   }
 
   return (

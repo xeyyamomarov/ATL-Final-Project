@@ -14,10 +14,10 @@ export const ITSupply = () => {
   return <>
     <Route path="/it-supply" element={<ITSupplyPage />} />
     <Route path="/it-supply/worker/new" element={<ITSupplyFormWorker />} />
-    <Route path="/it-supply/worker/saved" element={<ITSupplyFormWorkerSaved />} />
+    <Route path="/it-supply/worker/view" element={<ITSupplyFormWorkerSaved />} />
     <Route path="/it-supply/department/edit" element={<ITSupplyFormDepartmentEdit />} />
-    <Route path="/it-supply/department" element={<ITSupplyFormDepartment />} />
+    <Route path="/it-supply/department/view" element={<ITSupplyFormDepartment />} />
     <Route path="/it-supply/it/edit" element={<ITSupplyFormITEdit />} />
-    <Route path="/it-supply/it" element={<ITSupplyFormIT />} />
+    <Route path="/it-supply/it/view" element={<ITSupplyFormIT />} />
   </>
 };

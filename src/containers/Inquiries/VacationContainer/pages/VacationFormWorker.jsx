@@ -37,7 +37,7 @@ export const VacationFormWorker = () => {
   const onSubmit = (values, { resetForm }) => {
     console.log(values);
     resetForm()
-    navigate("/vacation/worker/saved")
+    navigate("/vacation/worker/view")
   }
 
   return (

@@ -18,7 +18,7 @@ export const BusinessTrip = () => {
         element={<BusinessTripFormWorker />}
       />
       <Route
-        path="/business-trip/worker/saved"
+        path="/business-trip/worker/view"
         element={<BusinessTripFormWorkerSaved />}
       />
       <Route
@@ -26,14 +26,14 @@ export const BusinessTrip = () => {
         element={<BusinessTripFormDepartmentEdit />}
       />
       <Route
-        path="/business-trip/department"
+        path="/business-trip/department/view"
         element={<BusinessTripFormDepartment />}
       />
       <Route
         path="/business-trip/hr/edit"
         element={<BusinessTripFormHrEdit />}
       />
-      <Route path="/business-trip/hr" element={<BusinessTripFormHr />} />
+      <Route path="/business-trip/hr/view" element={<BusinessTripFormHr />} />
     </>
   );
 };

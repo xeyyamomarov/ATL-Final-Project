@@ -34,7 +34,7 @@ export const PurchaseFormWorker = () => {
   const onSubmit = (values, { resetForm }) => {
     console.log(values);
     resetForm()
-    navigate("/purchase/worker/saved")
+    navigate("/purchase/worker/view")
   }
 
   return (

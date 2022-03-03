@@ -35,7 +35,7 @@ export const PurchaseFormPurchase = () => {
           data={rows}
           actions={
             <>
-              <EditIcon onClick={() => navigate("/purchase/purchase/edit")} />
+              <EditIcon onClick={() => navigate("/purchase/purchases/edit")} />
               <InfoIcon />
             </>
           }

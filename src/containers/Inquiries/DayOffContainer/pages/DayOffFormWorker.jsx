@@ -10,6 +10,7 @@ import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "Styles/Styles";
+import { format } from "date-fns";
 
 const dayOffTypes = [
   { value: "Tam", label: "Tam gün" },
@@ -38,12 +39,15 @@ const initialValues = {
 export const DayOffFormWorker = () => {
   const classes = useStyles();
   const navigate = useNavigate();
-  // const [date, setDate] = useState("");
 
   const onSubmit = (values, { resetForm }) => {
-    console.log(values);
+    const updatedValues = {
+      ...values,
+      date: format(values.date, "dd/MM/yyyy")
+    };
+    console.log(updatedValues)
     resetForm();
-    navigate("/day-off/worker/saved");
+    navigate("/day-off/worker/view");
   };
 
   return (

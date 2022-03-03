@@ -14,10 +14,10 @@ export const Purchase = () => {
   return <>
     <Route path="/purchase" element={<PurchasePage />} />
     <Route path="/purchase/worker/new" element={<PurchaseFormWorker />} />
-    <Route path="/purchase/worker/saved" element={<PurchaseFormWorkerSaved />} />
+    <Route path="/purchase/worker/view" element={<PurchaseFormWorkerSaved />} />
     <Route path="/purchase/department/edit" element={<PurchaseFormDepartmentEdit />} />
-    <Route path="/purchase/department" element={<PurchaseFormDepartment />} />
-    <Route path="/purchase/purchase/edit" element={<PurchaseFormPurchaseEdit />} />
-    <Route path="/purchase/purchase" element={< PurchaseFormPurchase/>} />
+    <Route path="/purchase/department/view" element={<PurchaseFormDepartment />} />
+    <Route path="/purchase/purchases/edit" element={<PurchaseFormPurchaseEdit />} />
+    <Route path="/purchase/purchases/view" element={< PurchaseFormPurchase/>} />
   </>
 };

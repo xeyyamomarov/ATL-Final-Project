@@ -14,14 +14,14 @@ export const DayOff = () => {
     <>
       <Route path="/day-off" element={<DayOffPage />} />
       <Route path="/day-off/worker/new" element={<DayOffFormWorker />} />
-      <Route path="/day-off/worker/saved" element={<DayOffFormWorkerSaved />} />
+      <Route path="/day-off/worker/view" element={<DayOffFormWorkerSaved />} />
       <Route
         path="/day-off/department/edit"
         element={<DayOffFormDepartmentEdit />}
       />
-      <Route path="/day-off/department" element={<DayOffFormDepartment />} />
+      <Route path="/day-off/department/view" element={<DayOffFormDepartment />} />
       <Route path="/day-off/hr/edit" element={<DayOffFormHrEdit />} />
-      <Route path="/day-off/hr" element={<DayOffFormHr />} />
+      <Route path="/day-off/hr/view" element={<DayOffFormHr />} />
     </>
   );
 };
