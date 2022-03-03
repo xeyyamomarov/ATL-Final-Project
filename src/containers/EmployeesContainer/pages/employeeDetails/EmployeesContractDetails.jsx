@@ -3,7 +3,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { Box, IconButton, Tooltip} from "@mui/material";
 import { QueryTabs } from "containers/components/QueryTabs";
-import { detailsTabs } from "../constants";
+import { detailsTabs } from "containers/EmployeesContainer/constants";
 import { useStyles } from "containers/Styles/Styles";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 

@@ -1,7 +1,7 @@
 import { Table } from "components/Table";
 import { Box } from "@mui/material";
 import { QueryTabs } from "containers/components/QueryTabs";
-import { detailsTabs } from "../constants";
+import { detailsTabs } from "containers/EmployeesContainer/constants";
 import { useStyles } from "containers/Styles/Styles";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 

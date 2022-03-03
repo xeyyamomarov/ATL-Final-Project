@@ -3,8 +3,10 @@ import { Table as MuiTable, Typography, TableBody, TableCell, TableContainer, Ta
 import { Description } from '@mui/icons-material'
 import _ from "lodash";
 import { useStyles } from "./TableStyle";
+import { TableHeaderExtra } from './TableHeaderExtra';
 
-export function Table({ tbody = [], thead = [], tfoot = [], pagination, loading }) {
+
+export function Table({ tbody = [], thead = [], tfoot = [], title=null, pagination, loading }) {
   const classes = useStyles();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(4);
@@ -23,9 +25,11 @@ export function Table({ tbody = [], thead = [], tfoot = [], pagination, loading 
       component={Paper}
       className={classes.tcontainer}
     >
+      {title && <TableHeaderExtra title={title}/>}
 
       <MuiTable stickyHeader aria-label="sticky table">
         <TableHead>
+        
           <TableRow>
             {thead.map((column) => (
               <TableCell
@@ -79,6 +83,7 @@ export function Table({ tbody = [], thead = [], tfoot = [], pagination, loading 
             {tfoot.map((column) => (
               <TableCell
                 className={classes.tfoot}
+                sx={{backgroundColor: title ? "#fff" : "#F5F5F5"}}
                 key={column.key}
               >
                 {column.value}

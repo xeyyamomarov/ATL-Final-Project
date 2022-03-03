@@ -1,7 +1,7 @@
 import { Table } from "components/Table";
 import { Box} from "@mui/material";
 import { QueryTabs } from "containers/components/QueryTabs";
-import { detailsTabs } from "../constants";
+import { tabs } from "containers/EmployeesContainer/constants";
 import { useStyles } from "containers/Styles/Styles";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 
@@ -82,16 +82,16 @@ const data = [
     }
 ]
 
-export const EmployeesVacationDetails = () => {
+export const NewEmployeesVacation = () => {
     const classes = useStyles();
     return (
         <>
             <Box className={classes.breadcrumbBar}>
                 <Breadcrumbs />
             </Box>
-            <QueryTabs tabs={detailsTabs} value="vacationDetails" />
+            <QueryTabs tabs={tabs} value="vacation" />
             <Box sx={{ margin: 2 }}>
-                <Table thead={thead} tfoot={tfoot} tbody={data} pagination />
+                <Table thead={thead} tfoot={tfoot} title="Əmək məzuniyyətləri" tbody={data} pagination />
             </Box>
         </>
     );

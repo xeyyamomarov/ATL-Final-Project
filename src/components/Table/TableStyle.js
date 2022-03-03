@@ -6,6 +6,17 @@ export const useStyles = makeStyles({
     boxShadow: "none",
     border: "1px solid #E0E0E0"
   },
+  extraHeadContainer: {
+    display: 'flex', 
+    justifyContent: 'space-between', 
+    backgroundColor:'#F5F5F5', 
+    borderBottom: "1px solid #E0E0E0", 
+    padding: "16px"
+  },
+  extraHeadTitle:{
+    fontSize: 20, 
+    fontWeight:'500'
+  },
   thead: {
     backgroundColor: '#F5F5F5',
     height: "48px",
@@ -14,7 +25,6 @@ export const useStyles = makeStyles({
     fontWeight: "700",
   },
   tfoot: {
-    backgroundColor: '#F5F5F5',
     height: "48px",
     padding: "0 16px",
     fontSize: "12px",

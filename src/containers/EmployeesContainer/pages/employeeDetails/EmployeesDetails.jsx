@@ -1,7 +1,7 @@
 import { Avatar, Box, Grid } from "@mui/material";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 import { QueryTabs } from "containers/components/QueryTabs";
-import { detailsTabs } from "../constants";
+import { detailsTabs } from "containers/EmployeesContainer/constants";
 import { useStyles } from "containers/Styles/Styles";
 import { useNavigate } from "react-router-dom";
 import Table from '@mui/material/Table';

@@ -2,7 +2,7 @@ import { Table } from "components/Table";
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { Box, IconButton, Tooltip } from "@mui/material";
 import { QueryTabs } from "containers/components/QueryTabs";
-import { detailsTabs } from "../constants";
+import { detailsTabs } from "containers/EmployeesContainer/constants";
 import { useStyles } from "containers/Styles/Styles";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 
@@ -19,7 +19,7 @@ const thead = [
         minWidth: { minWidth: 170 },
         render(row) {
             return (
-                <Box sx={{backgroundColor:"#E0E0E0", padding:"3px 16px", borderRadius:5}}>{row.document}</Box>
+                <Box sx={{ backgroundColor: "#E0E0E0", padding: "3px 16px", borderRadius: 5 }}>{row.document}</Box>
             )
         }
     },

@@ -3,7 +3,6 @@ import {
   Box,
   FormControl,
   Grid,
-  MenuItem,
   TextField as MuiTextField,
   RadioGroup,
   Radio,
@@ -15,7 +14,6 @@ import { Autocomplete } from 'formik-mui'
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
-import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
 import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
@@ -26,11 +24,10 @@ import {
   times,
   departments,
   disabilities,
-  duration,
   relatives,
   education,
   positions
-} from '../constants';
+} from "containers/EmployeesContainer/constants";
 
 const initialValues = {
   firstName: "",
@@ -46,19 +43,19 @@ const initialValues = {
   department: "",
   positionStatus: "",
   position: "",
-  citizenship:"",
-  nationality:"",
-  education:"",
-  email:"",
-  staff:"",
-  workplace:"",
-  mobile:"",
-  corporateNumber:"",
-  internalNumber:"",
-  homeNumber:"",
-  relatives:"",
-  relativesPhoneNumber:"",
-  workingTime:"",
+  citizenship: "",
+  nationality: "",
+  education: "",
+  email: "",
+  staff: "",
+  workplace: "",
+  mobile: "",
+  corporateNumber: "",
+  internalNumber: "",
+  homeNumber: "",
+  relatives: "",
+  relativesPhoneNumber: "",
+  workingTime: "",
   weeklyWorkingHours: "",
   disabilities: "",
   insurance: "",
@@ -67,7 +64,6 @@ const initialValues = {
 export const NewEmployeesForm = () => {
   const classes = useStyles();
   const navigate = useNavigate();
-  // const [date, setDate] = useState("");
 
   const onSubmit = (values, { resetForm }) => {
     console.log(values);
@@ -83,7 +79,7 @@ export const NewEmployeesForm = () => {
             <Breadcrumbs />
           </Box>
           <QueryTabs tabs={tabs} value="main" />
-          <Box sx={{ padding: 2, margin:2, border: "1px solid #C4C4C4", borderRadius: 1 }}>
+          <Box sx={{ padding: 2, margin: 2, border: "1px solid #C4C4C4", borderRadius: 1 }}>
             <Grid container spacing={2}>
               <Grid item sm={12} md={6} lg={4}>
                 <Field
@@ -135,7 +131,7 @@ export const NewEmployeesForm = () => {
                 </LocalizationProvider>
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
-              <Field
+                <Field
                   fullWidth
                   as={MuiTextField}
                   label="Yaş"
@@ -156,7 +152,7 @@ export const NewEmployeesForm = () => {
                 </Field>
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
-              <Field
+                <Field
                   fullWidth
                   as={MuiTextField}
                   label="FIN"
@@ -164,7 +160,7 @@ export const NewEmployeesForm = () => {
                 />
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
-              <Field
+                <Field
                   fullWidth
                   as={MuiTextField}
                   label="Şəxsiyyət vəsiqənin seriya nömrəsi"
@@ -172,7 +168,7 @@ export const NewEmployeesForm = () => {
                 />
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
-              <Field
+                <Field
                   fullWidth
                   as={MuiTextField}
                   label="Şirkət"
@@ -180,7 +176,7 @@ export const NewEmployeesForm = () => {
                 />
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
-              <Field
+                <Field
                   fullWidth
                   as={MuiTextField}
                   label="department"
@@ -207,7 +203,7 @@ export const NewEmployeesForm = () => {
                 </Field>
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
-              <Field
+                <Field
                   fullWidth
                   as={MuiTextField}
                   label="position"
@@ -238,7 +234,7 @@ export const NewEmployeesForm = () => {
                 />
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
-              <Field
+                <Field
                   fullWidth
                   as={MuiTextField}
                   label="education"
@@ -291,7 +287,7 @@ export const NewEmployeesForm = () => {
                   label="Mobil nömrə"
                   name="mobile"
                 />
-                 <FormHelperText id="outlined-weight-helper-text">+994 00 000 00 00</FormHelperText>
+                <FormHelperText id="outlined-weight-helper-text">+994 00 000 00 00</FormHelperText>
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
                 <Field
@@ -300,7 +296,7 @@ export const NewEmployeesForm = () => {
                   label="Korporativ nömrə"
                   name="corporateNumber"
                 />
-                 <FormHelperText id="outlined-weight-helper-text">+994 00 000 00 00</FormHelperText>
+                <FormHelperText id="outlined-weight-helper-text">+994 00 000 00 00</FormHelperText>
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
                 <Field
@@ -309,7 +305,7 @@ export const NewEmployeesForm = () => {
                   label="Daxili nömrə"
                   name="internalNumber"
                 />
-                 <FormHelperText id="outlined-weight-helper-text">00 00</FormHelperText>
+                <FormHelperText id="outlined-weight-helper-text">00 00</FormHelperText>
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
                 <Field
@@ -318,10 +314,10 @@ export const NewEmployeesForm = () => {
                   label="Ev telefonu"
                   name="homeNumber"
                 />
-                 <FormHelperText id="outlined-weight-helper-text">012 000 00 00</FormHelperText>
+                <FormHelperText id="outlined-weight-helper-text">012 000 00 00</FormHelperText>
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
-              <Field
+                <Field
                   fullWidth
                   as={MuiTextField}
                   label="relatives"
@@ -342,10 +338,10 @@ export const NewEmployeesForm = () => {
                   label="Yaxın qohum(mob)"
                   name="relativesPhoneNumber"
                 />
-                 <FormHelperText id="outlined-weight-helper-text">+994 00 000 00 00</FormHelperText>
+                <FormHelperText id="outlined-weight-helper-text">+994 00 000 00 00</FormHelperText>
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
-              <Field
+                <Field
                   fullWidth
                   as={MuiTextField}
                   label="workingTime"
@@ -368,7 +364,7 @@ export const NewEmployeesForm = () => {
                 />
               </Grid>
               <Grid item sm={12} md={6} lg={4}>
-              <Field
+                <Field
                   fullWidth
                   as={MuiTextField}
                   label="disabilities"
@@ -393,9 +389,9 @@ export const NewEmployeesForm = () => {
             </Grid>
 
           </Box>
-          <Box className={classes.button} sx={{margin:2}}>
-                <SubmitButton text="Yadda saxla" />
-              </Box>
+          <Box className={classes.button} sx={{ margin: 2 }}>
+            <SubmitButton text="Yadda saxla" />
+          </Box>
         </Form>
       </Formik>
     </Box>

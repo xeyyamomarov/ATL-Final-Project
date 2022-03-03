@@ -1,4 +1,4 @@
-import { detailsTabs } from "../constants";
+import { detailsTabs } from "containers/EmployeesContainer/constants";
 import { useStyles } from "containers/Styles/Styles";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
