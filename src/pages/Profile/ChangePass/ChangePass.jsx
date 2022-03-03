@@ -17,17 +17,18 @@ import { useState } from "react";
 
 const useStyles = makeStyles({
   typography: {
-    fontSize: "12px",
+    fontSize: "14px",
+    color:"#757575"
   },
   icon: {
     cursor: "pointer",
+    color:"#9E9E9E",
   },
   cardContent: {
     background: "#FAFAFA",
     margin: "10px",
     border: "1px solid #BDBDBD",
     boxShadow: "none",
-    height: "400px",
     display: "flex",
     flexDirection: "column",
   },
@@ -39,7 +40,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     padding: " 0 100px",
     gap: 5,
-    minWidth:"500px"
+    minWidth: "500px",
   },
 
   btn: {
@@ -130,7 +131,7 @@ export const ChangePass = () => {
           <KeyIcon className={classes.icon} />
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography variant="h6">Şifrəni dəyişdir</Typography>
+          <Typography sx={{color:"#424242",fontSize:"16px"}}>Şifrəni dəyişdir</Typography>
           <Typography className={classes.typography}>
             Başqa bir yerdə istifadə etmədiyin güclü bir şifrədən istifadə
             etməyin yaxşı fikirdir.

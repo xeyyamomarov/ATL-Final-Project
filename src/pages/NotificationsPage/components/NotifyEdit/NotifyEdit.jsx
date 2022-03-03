@@ -1,4 +1,4 @@
-import { NotifyEditContainer } from "containers/NotifyEditContainer"
+import { NotifyEditContainer } from "containers/NotificationContainer/NotifyEditContainer"
 export const NotifyEdit=()=>{
     return(
         <>

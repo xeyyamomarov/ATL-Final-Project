@@ -7,7 +7,6 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
   container: {
     borderRadius: '4px',
-    marginTop: "16px",
     border:"none"
   },
   upBox: {
@@ -18,18 +17,14 @@ const useStyles = makeStyles({
     justifyContent: "flex-end",
     padding: "12px 16px"
   },
-  header:{
-    variant:"h6",
-    fontSize:"15px",
-    color:"#9B5AE1",
-    backgroundColor:"#F5F5F5",
-    height:"40px",
-    marginBottom:"10px",
-    display:"flex",
-    alignItems:"center",
-    padding:"10px",
-    fontWeight:"bold"
-
+  header: {
+    fontSize: "14px",
+    color: "#9B5AE1",
+    backgroundColor: "#F5F5F5",
+    height: "48px",
+    marginBottom: "10px",
+    padding: "16px",
+    fontWeight: "bold",
   },
  
 })
@@ -68,23 +63,9 @@ export const NotifyEditContainer = () => {
             height: "60px",
           }}
         >
-          <Typography
-            variant="h6"
-            position="relative"
-            top="15px"
-            left="15px"
-            color="black"
-            gutterBottom
+          <Typography color="#424242" padding="16px" fontSize="16px"
           >
             Elanın formalaşdırılması
-          </Typography>
-          <Typography
-            fontSize="28px"
-            position="relative"
-            top="12px"
-            right="15px"
-            gutterBottom
-          >
           </Typography>
         </CardContent>
       </Card>

@@ -1,5 +1,4 @@
-import { NotificationsPageContainer } from "containers/NotificationsPage";
-// import { Profile } from "pages/Profile";
+import { NotificationsPageContainer } from "containers/NotificationContainer/NotificationsPage";
 
 
 export const NotificationsPage = () => {
@@ -7,7 +6,6 @@ export const NotificationsPage = () => {
     return (
         <>
           <NotificationsPageContainer/>
-          {/* <Profile/> */}
         </>
       );
     }

@@ -1,74 +1,82 @@
 import { Card, CardContent, Typography, Tooltip } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import {Table} from "components/Table";
-import { MAINPAGE_ACTIONS,MAINPAGE_SELECTORS } from "store/MainPage";
-import { useSelector,useDispatch } from "react-redux";
+import { Table } from "components/Table";
+import { MAINPAGE_ACTIONS, MAINPAGE_SELECTORS } from "store/MainPage";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { makeStyles } from "@mui/styles";
 
-export const NextBirthdaysContainer=()=>{
+const useStyles = makeStyles({
+  head: {
+    padding: "16px",
+    color: "#424242",
+  },
+  card: {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: 0,
+    height: "60px",
+  },
+  mainCard: {
+    marginBottom: "16px",
+    boxShadow: "none",
+    border: "1px solid #E0E0E0",
+    borderRadius: "8px",
+  },
 
-    const thead=[
-        {
-          key: "fullName",
-          label: "Adı"
-        },
-        {
-          key: "date",
-          label: "Tarixi"
-        }
-      ]
-    
-      const dispatch=useDispatch()
-      const birthdaysData=useSelector(MAINPAGE_SELECTORS.getNextBirthdaysData)
-      const birthdaysLoading = useSelector(MAINPAGE_SELECTORS.getNextBirthdaysLoading)
-      const handleClick=()=>dispatch(MAINPAGE_ACTIONS.fetchNextBirthdays())
-    
-      useEffect(()=>{
-        dispatch(MAINPAGE_ACTIONS.fetchNextBirthdays());
-       }, [dispatch]);
-      return (
-        <Card sx={{marginBottom:2}}>
-          <Card sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}>
-            <CardContent
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                padding: 0,
-                height: "60px",
-              }}
-            >
-              <Typography
-                variant="h6"
-                position="relative"
-                top="10px"
-                left="15px"
-                color="black"
-                gutterBottom
-              >
-                Növbəti ad günləri
-              </Typography>
-              <Typography
-                fontSize="18px"
-                position="relative"
-                top="12px"
-                right="15px"
-                gutterBottom
-              >
-                <Tooltip title="Refresh">
-                  <RefreshIcon
-                    sx={{ cursor: "pointer" }}
-                    onClick={handleClick}
-                  />
-                </Tooltip>
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
-            <CardContent>
-              <Table tbody={birthdaysData} thead={thead} loading={birthdaysLoading} />
-            </CardContent>
-          </Card>
-        </Card>
-      );
-    
-}
+});
+
+export const NextBirthdaysContainer = () => {
+  const classes = useStyles();
+
+  const thead = [
+    {
+      key: "fullName",
+      label: "Adı",
+    },
+    {
+      key: "date",
+      label: "Tarixi",
+    },
+  ];
+
+  const dispatch = useDispatch();
+  const birthdaysData = useSelector(MAINPAGE_SELECTORS.getNextBirthdaysData);
+  const birthdaysLoading = useSelector(
+    MAINPAGE_SELECTORS.getNextBirthdaysLoading
+  );
+  const handleClick = () => dispatch(MAINPAGE_ACTIONS.fetchNextBirthdays());
+
+  useEffect(() => {
+    dispatch(MAINPAGE_ACTIONS.fetchNextBirthdays());
+  }, [dispatch]);
+  return (
+    <Card className={classes.mainCard}>
+      <Card
+        sx={{
+          backgroundColor: "#F5F5F5",
+          borderBottom: "1px solid #E0E0E0",
+          boxShadow: "none",
+        }}
+      >
+        <CardContent className={classes.card}>
+          <Typography className={classes.head}>Növbəti ad günləri</Typography>
+          <Typography fontSize="18px" padding="16px" color="#616161">
+            <Tooltip title="Refresh">
+              <RefreshIcon sx={{ cursor: "pointer" }} onClick={handleClick} />
+            </Tooltip>
+          </Typography>
+        </CardContent>
+      </Card>
+      <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
+        <CardContent>
+          <Table
+            tbody={birthdaysData}
+            thead={thead}
+            loading={birthdaysLoading}
+          />
+        </CardContent>
+      </Card>
+    </Card>
+  );
+};

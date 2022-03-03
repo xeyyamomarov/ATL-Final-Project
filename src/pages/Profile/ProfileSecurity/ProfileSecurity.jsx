@@ -6,24 +6,29 @@ import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles({
   typography: {
-    fontSize: "12px",
+    fontSize: "14px",
+    color:"#757575"
   },
   icon: {
     cursor: "pointer",
+    color:'#424242'
   },
   boxContent: {
-    border: "1px solid black",
+    border: "1px solid #E0E0E0",
+    borderRadius:"4px",
     gap: 2,
     padding: "10px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    height:"60px"
   },
 });
 export const ProfileSecurity = () => {
   const passNavigate = useNavigate();
 
   const passHandleClick = () => passNavigate("/profile/change-password");
+
 
   const classes = useStyles();
   return (
@@ -37,10 +42,10 @@ export const ProfileSecurity = () => {
             gap:10
           }}
         >
-          <KeyIcon />
+          <KeyIcon sx={{color:'#424242'}} />
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography variant="h6">Şifrəni dəyişdir</Typography>
+          <Typography sx={{fontSize:"16px",color:"#424242"}}>Şifrəni dəyişdir</Typography>
           <Typography className={classes.typography}>
             Başqa bir yerdə istifadə etmədiyin güclü bir şifrədən istifadə
             etməyin yaxşı fikirdir.
