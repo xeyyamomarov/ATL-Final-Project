@@ -6,9 +6,7 @@ import EditIcon from '@mui/icons-material/Edit';
 
 const useStyles = makeStyles({
   container: {
-    // display: "flex",
     gap: "16px",
-    // flexDirection: "column",
     border:"1px solid #BDBDBD"
   },
   formBox: {
@@ -39,8 +37,8 @@ export const NotifyViewContainer = () => {
     <Box sx={{padding:"16px 93px"}}>
     <Box className={classes.container}>
         <FormHead
-          header="Elanların təsviri"
-          actions={<EditIcon/>}
+          header="Elanın təsviri"
+          actions={<EditIcon sx={{color:"#0000008A"}}/>}
         />
         <Box className={classes.tableBox}>
           <ResultTable data={data} />

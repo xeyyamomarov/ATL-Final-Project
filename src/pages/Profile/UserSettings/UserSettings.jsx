@@ -1,19 +1,16 @@
 import {
-  Card,
-  CardContent,
-  Grid,
-  TextField,
   Typography,
   Box,
 } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { ResultTable } from "containers/components/ResultTable/ResultTable";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   box: {
     display: "flex",
-    marginTop: "10px",
-    width: "100%",
+    gap:"16px",
+    width:"100%"
   },
   boxContent: {
     display: "flex",
@@ -22,54 +19,53 @@ const useStyles = makeStyles({
     justifyContent: "center",
     border: "1px solid #BDBDBD",
     minWidth: "250px",
-    margin: "10px",
     borderRadius: "4px",
 
   },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    padding: "5px",
-    border: "1px solid #BDBDBD",
-    margin: "10px",
-  },
+  tableBox: {
+    padding: "4px 16px",
+    width:"550px",
+    gap: "16px",
+    border:"1px solid #BDBDBD",
+    borderRadius:"4px",
+  }
 });
+
+
+const data=[
+  {
+    name:"İstifadəçi adı",
+    value:"xeyalea"
+  },
+  {
+    name:"Elektron poçt",
+    value:"xeyalea@xezertv.az"
+  },
+  {
+  name:"Əlaqə nömrəsi",
+  value:"994505005050"
+  },
+  {
+    name:"İstifadəçi rolları",
+    value:"Admin, Reporter"
+  }
+]
 export const UserSettings = () => {
   const classes = useStyles();
   return (
     <Box className={classes.box}>
       <Box className={classes.boxContent}>
         <AccountCircleIcon sx={{ fontSize: "80px", color: "gray" }} />
-        <Typography fontSize="16px" variant="h6" color="black">
+        <Typography fontSize="16px"  color="#424242">
           Xəyalə Aslanova Əliağa
         </Typography>
-        <Typography variant="h6" color="#BDBDBD">
+        <Typography  color="#BDBDBD">
           Aparıcı
         </Typography>
       </Box>
-      <Card className={classes.form}>
-        <CardContent>
-          <Grid container>
-            <Grid xs={12} item>
-              <TextField label="İstifadəçi adı" variant="standard" fullWidth />
-            </Grid>
-            <Grid xs={12} item>
-              <TextField label="Elektron poçt" variant="standard" fullWidth />
-            </Grid>
-            <Grid xs={12} item>
-              <TextField label="Əlaqə nömrəsi" variant="standard" fullWidth />
-            </Grid>
-            <Grid xs={12} item>
-              <TextField
-                label="İstifadəçi rolları"
-                variant="standard"
-                fullWidth
-              />
-            </Grid>
-          </Grid>
-        </CardContent>
-      </Card>
+        <Box className={classes.tableBox}>
+          <ResultTable data={data} />
+        </Box>
     </Box>
-    //   </Card>
   );
 };
