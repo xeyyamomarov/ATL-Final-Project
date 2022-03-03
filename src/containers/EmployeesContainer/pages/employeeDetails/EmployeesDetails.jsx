@@ -1,10 +1,9 @@
-import { Avatar, Box, Grid } from "@mui/material";
+import { Avatar, Box} from "@mui/material";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { detailsTabs } from "containers/EmployeesContainer/constants";
-// import { useStyles } from "containers/Styles/Styles";
 import { useStyles } from "containers/loginLayout/Styles";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -71,7 +70,7 @@ const rows = [
 export const EmployeesDetails = () => {
 
   const classes = useStyles();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <Box>

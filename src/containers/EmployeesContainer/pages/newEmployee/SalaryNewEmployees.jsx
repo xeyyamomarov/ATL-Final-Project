@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import {
   Box,
   FormControl,
@@ -13,7 +13,6 @@ import { Field, Form, Formik } from "formik";
 import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
-// import { useStyles } from "containers/Styles/Styles";
 import { useStyles } from "containers/loginLayout/Styles";
 import { tabs } from "containers/EmployeesContainer/constants";
 
@@ -27,7 +26,7 @@ const initialValues = {
 
 export const NewEmployeesSalary = () => {
   const classes = useStyles();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const onSubmit = (values, { resetForm }) => {
     console.log(values);
