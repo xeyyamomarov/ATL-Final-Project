@@ -4,7 +4,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import { Box, IconButton, Tooltip, Typography } from "@mui/material";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { tabs } from "containers/EmployeesContainer/constants";
-import { useStyles } from "containers/Styles/Styles";
+// import { useStyles } from "containers/Styles/Styles";
+import { useStyles } from "containers/loginLayout/Styles";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 
 

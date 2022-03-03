@@ -18,7 +18,8 @@ import { Field, Form, Formik } from "formik";
 import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
-import { useStyles } from "containers/Styles/Styles";
+// import { useStyles } from "containers/Styles/Styles";
+import { useStyles } from "containers/loginLayout/Styles";
 import {
   tabs,
   times,
