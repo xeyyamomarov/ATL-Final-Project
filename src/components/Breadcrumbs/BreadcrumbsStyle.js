@@ -12,6 +12,10 @@ export const useStyles = makeStyles({
     textDecoration: 'none',
     color: '#424242',
     cursor: "pointer",
+    "&:hover" : {
+      backgroundColor: "#FCD0FF",
+      color: "#9B5AE1"
+    }
   },
   text: {
     fontSize: "14px",
