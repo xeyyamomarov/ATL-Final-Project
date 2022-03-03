@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Table as MuiTable, Typography, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Box, Paper, CircularProgress } from '@mui/material';
+import { Table as MuiTable, Typography, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Box, Paper, CircularProgress, TableFooter } from '@mui/material';
 import { Description } from '@mui/icons-material'
 import _ from "lodash";
 import { useStyles } from "./TableStyle";
 
-export function Table({ tbody = [], thead = [], pagination, loading }) {
+export function Table({ tbody = [], thead = [], tfoot = [], pagination, loading }) {
   const classes = useStyles();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(4);
@@ -74,6 +74,18 @@ export function Table({ tbody = [], thead = [], pagination, loading }) {
               );
             })}
         </TableBody>
+        <TableFooter>
+          <TableRow>
+            {tfoot.map((column) => (
+              <TableCell
+                className={classes.tfoot}
+                key={column.key}
+              >
+                {column.value}
+              </TableCell>
+            ))}
+          </TableRow>
+        </TableFooter>
       </MuiTable>
 
       {loading &&

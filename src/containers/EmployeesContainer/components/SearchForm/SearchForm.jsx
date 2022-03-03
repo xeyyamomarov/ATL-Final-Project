@@ -35,9 +35,16 @@ const useStyles = makeStyles({
 
 const initialValues = {
   fullName: "",
-  username: "",
+  departments: "",
+  ageFrom: "",
+  ageTo: "",
+  times: "",
+  disabilities: "",
   position: "",
-  roles: [],
+  staffCapacity: "",
+  status: "",
+  workplace: "",
+  gender: "",
 }
 
 
