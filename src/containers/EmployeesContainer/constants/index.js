@@ -51,3 +51,11 @@ export const tabs = [
     { value: "vacation", label: "Əmək məzuniyyəti" },
     { value: "documents", label: "Sənədlər" },
   ];
+  export const detailsTabs = [
+    { value: "mainDetails", label: "Ümumi" },
+    { value: "contractDetails", label: "Müqavilə" },
+    { value: "orderDetails", label: "Əmr" },
+    { value: "salaryDetails", label: "Staj/Əmək haqqı" },
+    { value: "vacationDetails", label: "Əmək məzuniyyəti" },
+    { value: "documentsDetails", label: "Sənədlər" },
+  ];

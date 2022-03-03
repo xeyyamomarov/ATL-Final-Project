@@ -4,27 +4,44 @@ import { EmployeesTable } from "./EmpleyeesTable";
 import { EMPLOYEES_ALL_ACTIONS, EMPLOYEES_ALL_SELECTORS } from "store/Employees";
 import { SearchBar } from "components/SearchBar";
 import { AddButton, SearchButton } from "components/Buttons";
-import { TOGGLES_ACTIONS } from "store/Toggles";
-import { Box, Collapse } from '@mui/material';
+import { Box, Collapse, Snackbar, Alert, IconButton } from '@mui/material';
 import { SearchForm } from "containers/EmployeesContainer/components/SearchForm";
 import { useNavigate } from "react-router-dom";
+import { Warning } from "@mui/icons-material";
+import CloseIcon from '@mui/icons-material/Close';
 
 export const EmployeesContainer = () => {
 
-    const dispatch = useDispatch();
-    const employees = useSelector(EMPLOYEES_ALL_SELECTORS.getEmployeesAll);
-    const [searchOpen, setSearchOpen] = useState(false);
-    //const addNewHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
-    const navigate = useNavigate()
-    const addNewHandleClick = () => navigate("/employees/new")
+  const dispatch = useDispatch();
+  const employees = useSelector(EMPLOYEES_ALL_SELECTORS.getEmployeesAll);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [snackBar, setSnackBar] = useState(false);
 
+  const navigate = useNavigate();
+  const addNewHandleClick = () => navigate("/employees/new");
+  const empleyeesFullName = "Xəyalə Aslanova"
+  const snackBarText = `"${empleyeesFullName}" haqqında məlumatlar arxivləndi`;
 
-    useEffect(() => {
-        dispatch(EMPLOYEES_ALL_ACTIONS.fetchEmployeesAll())
-    }, [dispatch])
+  const handleClose = () => {
+    setSnackBar(false);
+  };
+  const action = (
+    <IconButton
+      size="small"
+      aria-label="close"
+      color="inherit"
+      onClick={handleClose}
+    >
+      <CloseIcon fontSize="small" />
+    </IconButton>
+  );
 
-    return (
-        <>
+  useEffect(() => {
+    dispatch(EMPLOYEES_ALL_ACTIONS.fetchEmployeesAll())
+  }, [dispatch])
+
+  return (
+    <>
       <SearchBar buttons={
         <>
           <SearchButton onClick={() => {
@@ -33,13 +50,20 @@ export const EmployeesContainer = () => {
           <AddButton onClick={addNewHandleClick} />
         </>
       } />
-            <Box padding="16px">
-                <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
-                <EmployeesTable  data={employees} pagination/>
-            </Box>
-            {/* <AddNewUserDialog />
-            <EditUserDialog />
-            <PasswordUpdateDialog /> */}
-        </>
-    );
+      <Box padding="16px">
+        <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
+        <EmployeesTable data={employees} pagination />
+      </Box>
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        open={snackBar}
+        onClose={handleClose}
+        key='error-alert'
+        action={action}
+      >
+        <Alert onClose={handleClose} icon={<Warning fontSize="inherit" />} variant="filled" severity="success" >{snackBarText}</Alert>
+      </Snackbar>
+
+    </>
+  );
 }

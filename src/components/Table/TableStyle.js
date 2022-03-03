@@ -13,6 +13,14 @@ export const useStyles = makeStyles({
     fontSize: "12px",
     fontWeight: "700",
   },
+  tfoot: {
+    backgroundColor: '#F5F5F5',
+    height: "48px",
+    padding: "0 16px",
+    fontSize: "12px",
+    fontWeight: "700",
+    color: "#212121"
+  },
   tcell: {
     height: "48px",
     padding: "0 16px",

@@ -1,10 +1,9 @@
-import { Typography, Avatar, Box, MenuItem } from "@mui/material";
+import { Typography, Avatar, Box, MenuItem, IconButton, Tooltip } from "@mui/material";
 import { makeStyles } from '@mui/styles';
-import { EditUser } from 'containers/UsersContainer/components/EditUser';
 import { MoreOptions } from 'components/MoreOptions';
 import { useDispatch } from "react-redux";
-import { TOGGLES_ACTIONS } from "store/Toggles";
-import { ShowHide } from "./components/ShowHide";
+import { useNavigate } from "react-router-dom";
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 const useStyles = makeStyles({
   avatar: {
@@ -25,6 +24,8 @@ export const EmployeesTableHeader = () => {
 
   const dispatch = useDispatch();
   const classes = useStyles();
+  const navigate = useNavigate();
+  const addNewHandleClick = () => navigate("/employees/details");
 
   return [
     {
@@ -80,17 +81,17 @@ export const EmployeesTableHeader = () => {
       render(row) {
         return (
           <Box display='flex' width='100%' justifyContent='flex-end' alignItems='center'>
-            <ShowHide userId={row.id} />
+            <Tooltip title="detallar">
+              <IconButton onClick={addNewHandleClick}>
+                <RemoveRedEyeIcon sx={{ color: 'gray' }} />
+              </IconButton>
+            </Tooltip>
+
             <MoreOptions>
               <MenuItem onClick={() => console.log('download')}>Sənədi yüklə</MenuItem>
               <MenuItem onClick={() => console.log('edit')}>Redaktə et</MenuItem>
               <MenuItem onClick={() => console.log('delete')}>Sil</MenuItem>
             </MoreOptions>
-            {/* <EditUser userId={row.id} />
-            <MoreOptions>
-              <MenuItem onClick={() => dispatch(TOGGLES_ACTIONS.setDeactivateUser())}>Deaktivləşdirin</MenuItem>
-              <MenuItem onClick={() => dispatch(TOGGLES_ACTIONS.setPasswordUpdateDialog())}>Şifrəni yenilə</MenuItem>
-            </MoreOptions> */}
           </Box>
         )
       }
