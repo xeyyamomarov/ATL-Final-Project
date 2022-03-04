@@ -18,10 +18,6 @@ const useStyles = makeStyles({
     borderRight: "1px solid gray",
     padding: "16px",
   },
-  icon: {
-    position: "relative",
-    top: "5px",
-  },
   typography: {
     color: "#424242",
     fontSize: "14px",
@@ -44,16 +40,20 @@ export const ProfileSettings = () => {
   return (
     <Box className={classes.box}>
       <CardContent onClick={userHandleClick} className={classes.content}>
+        <Box sx={{display:"flex",alignItems:"center"}}>
+      <SettingsIcon className={classes.icon} />
         <Typography className={classes.typography}>
-          <SettingsIcon className={classes.icon} />
           Hesab parametrləri
         </Typography>
+        </Box>
       </CardContent>
       <CardContent onClick={securityHandleClick} className={classes.content}>
+        <Box sx={{display:"flex",alignItems:"center"}}>
+      <SecurityIcon className={classes.icon} />
         <Typography className={classes.typography}>
-          <SecurityIcon className={classes.icon} />
           Təhlükəsizlik və Giriş
         </Typography>
+        </Box>
       </CardContent>
     </Box>
   );

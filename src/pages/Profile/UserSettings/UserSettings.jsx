@@ -10,7 +10,10 @@ const useStyles = makeStyles({
   box: {
     display: "flex",
     gap:"16px",
-    width:"100%"
+    "@media (max-width: 920px)": {
+     flexDirection:"column",
+     alignItems:"center"
+    }
   },
   boxContent: {
     display: "flex",
@@ -18,16 +21,21 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
     border: "1px solid #BDBDBD",
-    minWidth: "250px",
     borderRadius: "4px",
+    width:"30%",
+    "@media (max-width:920px)": {
+      width:"50%"
+     }
 
   },
   tableBox: {
     padding: "4px 16px",
-    width:"550px",
-    gap: "16px",
     border:"1px solid #BDBDBD",
     borderRadius:"4px",
+    width:"70%",
+    "@media (max-width: 920px)": {
+      width:"100%"
+     }
   }
 });
 
@@ -56,10 +64,10 @@ export const UserSettings = () => {
     <Box className={classes.box}>
       <Box className={classes.boxContent}>
         <AccountCircleIcon sx={{ fontSize: "80px", color: "gray" }} />
-        <Typography fontSize="16px"  color="#424242">
+        <Typography fontSize="16px"  color="#424242" textAlign="center">
           Xəyalə Aslanova Əliağa
         </Typography>
-        <Typography  color="#BDBDBD">
+        <Typography  color="#9E9E9E">
           Aparıcı
         </Typography>
       </Box>
