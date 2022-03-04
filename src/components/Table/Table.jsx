@@ -6,7 +6,7 @@ import { useStyles } from "./TableStyle";
 import { TableHeaderExtra } from './TableHeaderExtra';
 
 
-export function Table({ tbody = [], thead = [], tfoot = [], title=null, pagination, loading }) {
+export function Table({ tbody = [], thead = [], tfoot = [], title=null, add, pagination, loading }) {
   const classes = useStyles();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(4);
@@ -25,7 +25,7 @@ export function Table({ tbody = [], thead = [], tfoot = [], title=null, paginati
       component={Paper}
       className={classes.tcontainer}
     >
-      {title && <TableHeaderExtra title={title}/>}
+      {title && <TableHeaderExtra title={title} add={add}/>}
 
       <MuiTable stickyHeader aria-label="sticky table">
         <TableHead>

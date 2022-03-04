@@ -88,9 +88,8 @@ export const EmployeesTableHeader = () => {
             </Tooltip>
 
             <MoreOptions>
-              <MenuItem onClick={() => console.log('download')}>Sənədi yüklə</MenuItem>
               <MenuItem onClick={() => console.log('edit')}>Redaktə et</MenuItem>
-              <MenuItem onClick={() => console.log('delete')}>Sil</MenuItem>
+              <MenuItem onClick={() => console.log('delete')}>Arxiv</MenuItem>
             </MoreOptions>
           </Box>
         )

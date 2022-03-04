@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { useStyles } from "./TableStyle";
 import { AddButton } from 'components/Buttons';
 
-export const TableHeaderExtra = ({ title }) => {
+export const TableHeaderExtra = ({ title, add }) => {
   const classes = useStyles();
   return (
     <Box className={classes.extraHeadContainer}>
@@ -12,7 +12,7 @@ export const TableHeaderExtra = ({ title }) => {
         </Typography>
       </Box>
       <Box>
-        <AddButton/>
+        <AddButton onClick={add}/>
       </Box>
     </Box>
   );

@@ -17,8 +17,9 @@ export const EmployeesContainer = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [snackBar, setSnackBar] = useState(false);
 
+
   const navigate = useNavigate();
-  const addNewHandleClick = () => navigate("/employees/new");
+  const addNewHandleClick = () => navigate("/employees/new-employee");
   const empleyeesFullName = "Xəyalə Aslanova"
   const snackBarText = `"${empleyeesFullName}" haqqında məlumatlar arxivləndi`;
 
