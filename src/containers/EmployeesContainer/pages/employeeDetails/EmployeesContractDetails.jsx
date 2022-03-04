@@ -6,70 +6,8 @@ import { QueryTabs } from "containers/components/QueryTabs";
 import { detailsTabs } from "containers/EmployeesContainer/constants";
 import { useStyles } from "Styles/Styles";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
-
-
-const editHandleClick = () => console.log('edit')
-const deleteHandleClick = () => console.log('delete')
-const thead = [
-    {
-        key: "beginingDate",
-        label: "Bağlanma tarixi",
-        style: { minWidth: 170 },
-    },
-    {
-        key: "endDate",
-        label: "Bitmə tarixi",
-        minWidth: { minWidth: 170 }
-    },
-    {
-        key: "type",
-        label: "Növü",
-        minWidth: { minWidth: 170 }
-    },
-    {
-        key: "number",
-        label: "Nömrəsi",
-        minWidth: { minWidth: 170 }
-    },
-    {
-        key: "contractNo",
-        label: "Əmək kitabçasının №",
-        minWidth: { minWidth: 170 }
-    },
-    {
-        key: "duration",
-        label: "Müddəti",
-        minWidth: { minWidth: 170 }
-    },
-    {
-        key: "icons",
-        label: "",
-        minWidth: { minWidth: 12 }
-    },
-    {
-        key: "actions",
-        label: "",
-        style: { minWidth: 12 },
-        render(row) {
-            return (
-
-                <Box display='flex' width='100%' justifyContent='flex-end' alignItems='center'>
-                    <Tooltip title="dəyiş">
-                        <IconButton userİD={row.id} onClick={editHandleClick}>
-                            <EditIcon sx={{ color: 'gray' }} />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="sil">
-                        <IconButton userİD={row.id} onClick={deleteHandleClick}>
-                            <DeleteIcon sx={{ color: 'gray' }} />
-                        </IconButton>
-                    </Tooltip>
-                </Box>
-
-            )
-        }
-    }
-]
+import {EditContractDialog,DeleteContractDialog} from "containers/EmployeesContainer/components/Dialogs";
+import { useState } from "react";
 
 const data = [
     {
@@ -85,6 +23,70 @@ const data = [
 
 export const EmployeesContractDetails = () => {
     const classes = useStyles();
+    const [editModalhOpen, setEditModalhOpen] = useState(false);
+    const [deleteOpen, setDeleteOpen] = useState(false);
+    const editHandleClick = () => setEditModalhOpen(true)
+    const deleteHandleClick = () => setDeleteOpen(true)
+    const thead = [
+        {
+            key: "beginingDate",
+            label: "Bağlanma tarixi",
+            style: { minWidth: 170 },
+        },
+        {
+            key: "endDate",
+            label: "Bitmə tarixi",
+            minWidth: { minWidth: 170 }
+        },
+        {
+            key: "type",
+            label: "Növü",
+            minWidth: { minWidth: 170 }
+        },
+        {
+            key: "number",
+            label: "Nömrəsi",
+            minWidth: { minWidth: 170 }
+        },
+        {
+            key: "contractNo",
+            label: "Əmək kitabçasının №",
+            minWidth: { minWidth: 170 }
+        },
+        {
+            key: "duration",
+            label: "Müddəti",
+            minWidth: { minWidth: 170 }
+        },
+        {
+            key: "icons",
+            label: "",
+            minWidth: { minWidth: 12 }
+        },
+        {
+            key: "actions",
+            label: "",
+            style: { minWidth: 12 },
+            render(row) {
+                return (
+    
+                    <Box display='flex' width='100%' justifyContent='flex-end' alignItems='center'>
+                        <Tooltip title="dəyiş">
+                            <IconButton contractId={row.id} onClick={editHandleClick}>
+                                <EditIcon sx={{ color: 'gray' }} />
+                            </IconButton>
+                        </Tooltip>
+                        <Tooltip title="sil">
+                            <IconButton contractId={row.id} onClick={deleteHandleClick}>
+                                <DeleteIcon sx={{ color: 'gray' }} />
+                            </IconButton>
+                        </Tooltip>
+                    </Box>
+    
+                )
+            }
+        }
+    ]
     return (
         <>
             <Box className={classes.breadcrumbBar} sx={{}}>
@@ -94,6 +96,8 @@ export const EmployeesContractDetails = () => {
             <Box sx={{ margin: 2 }}>
                 <Table thead={thead} tbody={data} pagination />
             </Box>
+            <EditContractDialog edit={editModalhOpen} setEdit={setEditModalhOpen} />
+            <DeleteContractDialog del={deleteOpen} setDelete={setDeleteOpen} />
         </>
     );
 }
