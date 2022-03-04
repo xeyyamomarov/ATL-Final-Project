@@ -17,6 +17,7 @@ export const EmployeesContainer = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [snackBar, setSnackBar] = useState(false);
 
+
   const navigate = useNavigate();
   const addNewHandleClick = () => navigate("/employees/new");
   const empleyeesFullName = "Xəyalə Aslanova"
