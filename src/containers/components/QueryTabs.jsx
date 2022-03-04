@@ -24,22 +24,22 @@ export const QueryTabs = ({ tabs, value }) => {
         navigate(`/${mainPath[0]}/nbmworker/view`)
         break;
         case "main":
-          navigate(`/${mainPath[0]}/new`)
+          navigate(`/${mainPath[0]}/new-employee`)
           break;
         case "contract":
-          navigate(`/${mainPath[0]}/new/contract`)
+          navigate(`/${mainPath[0]}/new-employee/contract`)
           break;
         case "order":
-          navigate(`/${mainPath[0]}/new/order`)
+          navigate(`/${mainPath[0]}/new-employee/order`)
           break;
         case "salary":
-          navigate(`/${mainPath[0]}/new/salary`)
+          navigate(`/${mainPath[0]}/new-employee/salary`)
           break;
         case "vacation":
-          navigate(`/${mainPath[0]}/new/vacations`)
+          navigate(`/${mainPath[0]}/new-employee/vacations`)
           break;
         case "documents":
-          navigate(`/${mainPath[0]}/new/documents`)
+          navigate(`/${mainPath[0]}/new-employee/documents`)
           break;
       case "mainDetails":
         navigate(`/${mainPath[0]}/details`)

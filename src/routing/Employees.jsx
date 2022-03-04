@@ -20,12 +20,12 @@ export const Employees = () => {
   return (
     <>
       <Route path="/employees" element={<EmployeesPage />} />
-      <Route path="/employees/new" element={<NewEmployeesForm />} />
-      <Route path="/employees/new/contract" element={<NewEmployeesContract />} />
-      <Route path="/employees/new/order" element={<NewEmployeesOrder />} />
-      <Route path="/employees/new/salary" element={<NewEmployeesSalary />} />
-      <Route path="/employees/new/vacations" element={<NewEmployeesVacation />} />
-      <Route path="/employees/new/documents" element={<NewEmployeesDocuments />} />
+      <Route path="/employees/new-employee" element={<NewEmployeesForm />} />
+      <Route path="/employees/new-employee/contract" element={<NewEmployeesContract />} />
+      <Route path="/employees/new-employee/order" element={<NewEmployeesOrder />} />
+      <Route path="/employees/new-employee/salary" element={<NewEmployeesSalary />} />
+      <Route path="/employees/new-employee/vacations" element={<NewEmployeesVacation />} />
+      <Route path="/employees/new-employee/documents" element={<NewEmployeesDocuments />} />
       <Route path="/employees/details" element={<EmployeesDetails />} />
       <Route path="/employees/details/contract" element={<EmployeesContractDetails />} />
       <Route path="/employees/details/order" element={<EmployeesOrderDetails />} />
