@@ -54,7 +54,7 @@ export const EditVacationDialog = ({ vacationId, edit, setEdit }) => {
           <DialogContent dividers sx={{ padding: "16px" }}>
             <Box>
               <Grid container spacing={2}>
-              <Grid item sm={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <FormControl fullWidth>
                       <Field

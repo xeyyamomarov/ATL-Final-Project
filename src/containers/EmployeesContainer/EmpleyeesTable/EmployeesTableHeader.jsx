@@ -1,7 +1,6 @@
 import { Typography, Avatar, Box, MenuItem, IconButton, Tooltip } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import { MoreOptions } from 'components/MoreOptions';
-// import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
@@ -22,7 +21,6 @@ const useStyles = makeStyles({
 
 export const EmployeesTableHeader = () => {
 
-  // const dispatch = useDispatch();
   const classes = useStyles();
   const navigate = useNavigate();
   const addNewHandleClick = () => navigate("/employees/details");

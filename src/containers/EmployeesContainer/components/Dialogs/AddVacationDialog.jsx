@@ -54,7 +54,7 @@ export const AddVacationDialog = ({ add, setAdd }) => {
           <DialogContent dividers sx={{ padding: "16px" }}>
             <Box>
               <Grid container spacing={2}>
-              <Grid item sm={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <FormControl fullWidth>
                       <Field
@@ -96,7 +96,7 @@ export const AddVacationDialog = ({ add, setAdd }) => {
           </DialogContent>
           <DialogActions sx={{ padding: "16px" }}>
             <CloseButton onClick={handleClose} />
-            <SubmitButton text="Yenilə" />
+            <SubmitButton text="Yarat" />
           </DialogActions>
         </Form>
       </Formik>

@@ -120,7 +120,7 @@ export const AddContractDialog = ({add, setAdd}) => {
 
           <DialogActions sx={{ padding: "16px" }}>
             <CloseButton onClick={handleClose} />
-            <SubmitButton text="Yenilə" />
+            <SubmitButton text="Yarat" />
           </DialogActions>
         </Form>
 

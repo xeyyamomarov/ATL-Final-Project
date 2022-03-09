@@ -87,7 +87,7 @@ export const AddOrderDialog = ({ add, setAdd }) => {
                     name="number"
                   />
                 </Grid>
-                <Grid item sm={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <FormControl fullWidth>
                       <Field
@@ -105,7 +105,7 @@ export const AddOrderDialog = ({ add, setAdd }) => {
           </DialogContent>
           <DialogActions sx={{ padding: "16px" }}>
             <CloseButton onClick={handleClose} />
-            <SubmitButton text="Yenilə" />
+            <SubmitButton text="Yarat" />
           </DialogActions>
         </Form>
       </Formik>
