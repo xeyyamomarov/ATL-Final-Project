@@ -14,7 +14,7 @@ import { SearchForm } from "containers/Settings/UserRolesContainer/components/Se
 export const UserRolesContainer = () => {
   const dispatch = useDispatch();
   const [searchOpen, setSearchOpen] = useState(false);
-  const { userroles } = useSelector(USER_ROLES_SELECTORS.getUserRoles);
+  const userroles = useSelector(USER_ROLES_SELECTORS.getUserRoles);
   const loading = useSelector(USER_ROLES_SELECTORS.getUserRolesLoading);
   const addNewHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
 

@@ -13,7 +13,7 @@ export const BusinessTripContainer = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [searchOpen, setSearchOpen] = useState(false);
-  const { queries } = useSelector(QUERIES_SELECTORS.getQueries);
+  const queries = useSelector(QUERIES_SELECTORS.getQueries);
   const loading = useSelector(QUERIES_SELECTORS.getQueriesLoading);
   const addNewHandleClick = () => navigate("/business-trip/worker/new")
 

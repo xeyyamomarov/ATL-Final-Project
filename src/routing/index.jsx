@@ -23,7 +23,6 @@ export const Routing = () => {
 
     useEffect(()=>{
       const login = LS.getItemLocalStorage(appConfig.userData)
-      console.log(login)
         if(!login){
             navigate("/login")
         }

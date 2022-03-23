@@ -15,10 +15,11 @@ import { UsersTable } from "./UsersTable/UsersTable";
 export const UsersContainer = () => {
 
   const dispatch = useDispatch();
-  const { users } = useSelector(USERS_SELECTORS.getUsers);
+  const users = useSelector(USERS_SELECTORS.getUsers);
   const loading = useSelector(USERS_SELECTORS.getUsersLoading);
   const [searchOpen, setSearchOpen] = useState(false);
   const addNewHandleClick = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
+
 
   useEffect(() => {
     dispatch(USERS_ACTIONS.fetchUsers())
