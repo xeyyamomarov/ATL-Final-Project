@@ -9,14 +9,16 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 
 
 const SideBar = ({ open, setOpen }) => {
+
   const classes = useStyles();
   const [collapse, setCollapse] = useState({});
   const collapseHandler = (item) => item.items?.length > 0 && setCollapse(old => ({ ...old, [item.key]: !old[item.key] }));
+
   return (
     <Box className={classes.sidebarContainer}>
       <Collapse orientation="horizontal" in={open} collapsedSize={70}>
         <Toolbar className={classes.logoWrapper}>
-          {open && <Logo /> }
+          {open && <Logo />}
           {/* <img alt="logo" src={require('assets/xezer.png')} sx={{innerHeight: 10, innerWidth:10}} /> */}
         </Toolbar>
         <List>

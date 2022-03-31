@@ -1,27 +1,33 @@
 import { Box, Stack } from "@mui/material";
 import SideBar from "components/SideBar";
 import NavBar from "components/NavBar";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet } from "react-router-dom";
 
 
+const MainLayout = () => {
 
+  let mediaQuery = window.matchMedia('(min-width: 800px)');
+  const [open, setOpen] = useState(mediaQuery.matches || false);
 
-const MainLayout = ({ children }) => {
-  const [open, setOpen] = useState(true);
+  useEffect(() => {
+    mediaQuery.addEventListener('change', (e) => {
+      setOpen(e.matches)
+    })
+  }, [mediaQuery])
 
   return (
     <Stack
       direction="row"
       spacing={0}
     >
-      <SideBar open={open} setOpen={setOpen} />
+      <SideBar open={open} setOpen={setOpen}/>
       <Box sx={{
         flexGrow: 1,
         overflow: "hidden"
       }}>
-          <NavBar open={open} setOpen={setOpen} />
-          <Outlet/>
+        <NavBar open={open} setOpen={setOpen} />
+        <Outlet />
       </Box>
     </Stack>
   );
