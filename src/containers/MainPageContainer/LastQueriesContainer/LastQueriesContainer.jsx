@@ -47,6 +47,7 @@ export const LastQueriesContainer = () => {
           backgroundColor: "#F5F5F5",
           boxShadow: "none",
           borderBottom: "1px solid #E0E0E0",
+          borderRadius:"8px 8px 0 0"
         }}
       >
         <CardContent className={classes.card}>
@@ -58,7 +59,7 @@ export const LastQueriesContainer = () => {
           </Typography>
         </CardContent>
       </Card>
-      <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
+      <Card sx={{ minWidth: 275, boxShadow: "none" }}>
         <CardContent>
           <LastQueriesTable
             data={lastQueriesData}

@@ -619,7 +619,7 @@
   "advertisements":[
       {
         "id": 1,
-        "bname": "Bayram",
+        "name": "Bayram",
         "describe": "Qurban bayramı dövlət qaydasına əsasən 2 gün sonraya çəkildi.",
         "creater": "Rüfət Məmmədov",
         "date": "06/25/2021,13:34",
@@ -627,18 +627,18 @@
       },
       {
         "id": 2,
-        "bname": "Bayram",
-        "describe": "Qurban bayramı dövlət qaydasına əsasən 2 gün sonraya çəkildi.",
+        "name": "Bayram",
+        "describe": "Novruz bayramı dövlət qaydasına əsasən 7 gün sonraya çəkildi.",
         "creater": "Rüfət Məmmədov",
-        "date": "06/25/2021,13:34",
+        "date": "03/16/2021,13:34",
         "notification":"Qurban bayramı"
       },
       {
         "id": 3,
-        "bname": "Bayram",
-        "describe": "Qurban bayramı dövlət qaydasına əsasən 2 gün sonraya çəkildi.",
+        "name": "Bayram",
+        "describe": "Yeni il bayramı dövlət qaydasına əsasən 7 gün sonraya çəkildi.",
         "creater": "Rüfət Məmmədov",
-        "date": "06/25/2021,13:34",
+        "date": "12/25/2021,13:34",
         "notification":"Paylaş"
       }
     ],

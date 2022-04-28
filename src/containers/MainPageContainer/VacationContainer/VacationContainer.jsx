@@ -44,6 +44,7 @@ export const VacationContainer = () => {
           backgroundColor: "#F5F5F5",
           borderBottom: "1px solid #E0E0E0",
           boxShadow: "none",
+          borderRadius:"8px 8px 0 0"
         }}
       >
         <CardContent className={classes.card}>
@@ -55,7 +56,7 @@ export const VacationContainer = () => {
           </Typography>
         </CardContent>
       </Card>
-      <Card sx={{ minWidth: 275, marginBottom: 2, boxShadow: "none" }}>
+      <Card sx={{ minWidth: 275, boxShadow: "none" }}>
         <CardContent>
           <VacationTable data={vacationData} loading={vacationLoading} />
         </CardContent>

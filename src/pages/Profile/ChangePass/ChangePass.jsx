@@ -14,15 +14,16 @@ import { makeStyles } from "@mui/styles";
 import { SubmitButton, CloseButton } from "components/Buttons";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles({
   typography: {
     fontSize: "14px",
-    color:"#757575"
+    color: "#757575",
   },
   icon: {
     cursor: "pointer",
-    color:"#9E9E9E",
+    color: "#9E9E9E",
   },
   cardContent: {
     background: "#FAFAFA",
@@ -53,26 +54,7 @@ const useStyles = makeStyles({
 });
 export const ChangePass = () => {
   const [passValue, setPassValue] = useState({
-    amount: "",
     password: "",
-    weight: "",
-    weightRange: "",
-    showPassword: false,
-  });
-
-  const [newPassValue, setNewPassValue] = useState({
-    amount: "",
-    password: "",
-    weight: "",
-    weightRange: "",
-    showPassword: false,
-  });
-
-  const [newPassRepeat, setNewPassRepeat] = useState({
-    amount: "",
-    password: "",
-    weight: "",
-    weightRange: "",
     showPassword: false,
   });
 
@@ -87,6 +69,11 @@ export const ChangePass = () => {
     });
   };
 
+  const [newPassValue, setNewPassValue] = useState({
+    password: "",
+    showPassword: false,
+  });
+
   const handleChangeNew = (prop) => (event) => {
     setNewPassValue({ ...newPassValue, [prop]: event.target.value });
   };
@@ -97,6 +84,11 @@ export const ChangePass = () => {
       showPassword: !newPassValue.showPassword,
     });
   };
+
+  const [newPassRepeat, setNewPassRepeat] = useState({
+    password: "",
+    showPassword: false,
+  });
 
   const handleChangeRepeat = (prop) => (event) => {
     setNewPassRepeat({ ...newPassRepeat, [prop]: event.target.value });
@@ -110,6 +102,7 @@ export const ChangePass = () => {
   };
 
   const classes = useStyles();
+  const navigate = useNavigate();
   return (
     <Card className={classes.cardContent}>
       <Box
@@ -131,7 +124,9 @@ export const ChangePass = () => {
           <KeyIcon className={classes.icon} />
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography sx={{color:"#424242",fontSize:"16px"}}>Şifrəni dəyişdir</Typography>
+          <Typography sx={{ color: "#424242", fontSize: "16px" }}>
+            Şifrəni dəyişdir
+          </Typography>
           <Typography className={classes.typography}>
             Başqa bir yerdə istifadə etmədiyin güclü bir şifrədən istifadə
             etməyin yaxşı fikirdir.
@@ -202,8 +197,17 @@ export const ChangePass = () => {
           />
         </FormControl>
         <Box className={classes.btn}>
-          <SubmitButton />
-          <CloseButton />
+          <SubmitButton
+            onClick={() => {
+              navigate("/profile/settings");
+              console.log(newPassRepeat)
+            }}
+          />
+          <CloseButton
+            onClick={() => {
+              navigate("/profile/security");
+            }}
+          />
         </Box>
       </Box>
     </Card>
