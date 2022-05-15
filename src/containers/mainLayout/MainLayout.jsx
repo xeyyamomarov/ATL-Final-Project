@@ -1,6 +1,6 @@
 import { Box, Stack } from "@mui/material";
-import { SideBar } from "components/SideBar";
-import { NavBar } from "components/NavBar";
+import { Sidebar } from "components/Sidebar";
+import { Navbar } from "components/Navbar";
 import { useState } from 'react';
 import { Outlet } from "react-router-dom";
 
@@ -15,12 +15,12 @@ const MainLayout = () => {
       direction="row"
       spacing={0}
     >
-      <SideBar open={open} setOpen={setOpen} />
+      <Sidebar open={open} setOpen={setOpen} />
       <Box sx={{
         flexGrow: 1,
         overflow: "hidden"
       }}>
-        <NavBar open={open} setOpen={setOpen} />
+        <Navbar open={open} setOpen={setOpen} />
         <Outlet />
       </Box>
     </Stack>

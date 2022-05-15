@@ -4,7 +4,7 @@ import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutli
 import CampaignIcon from '@mui/icons-material/Campaign';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-const sideBarMenuİtems = [
+const SidebarMenuİtems = [
   {
     key: "home",
     label: "Əsas səhifə",
@@ -49,4 +49,4 @@ const sideBarMenuİtems = [
   },
 ];
 
-export default sideBarMenuİtems;
+export default SidebarMenuİtems;

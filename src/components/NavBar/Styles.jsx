@@ -1,7 +1,7 @@
 import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles({
-  navBar: { flexGrow: 1 },
+  Navbar: { flexGrow: 1 },
   appBar: {
     backgroundColor: "#fff",
     color: "#424242",
