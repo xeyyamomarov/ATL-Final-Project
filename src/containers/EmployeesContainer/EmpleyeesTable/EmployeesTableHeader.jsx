@@ -1,22 +1,9 @@
 import { Typography, Avatar, Box, MenuItem, IconButton, Tooltip } from "@mui/material";
-import { makeStyles } from '@mui/styles';
 import { MoreOptions } from 'components/MoreOptions';
 import { useNavigate } from "react-router-dom";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import { useStyles } from "../Styles";
 
-const useStyles = makeStyles({
-  avatar: {
-    width: 28,
-    height: 28,
-    display: 'flex',
-    marginRight: '10px',
-  },
-  data: {
-    fontSize: "14px",
-    fontWeight: "400"
-  },
-
-})
 
 
 export const EmployeesTableHeader = () => {
@@ -50,27 +37,27 @@ export const EmployeesTableHeader = () => {
     {
       key: "email",
       label: "Elektron poçt",
-      minWidth: { minWidth: 170 }
+      style: { minWidth: 170 }
     },
     {
       key: "position",
       label: "Vəzifə",
-      minWidth: { minWidth: 170 }
+      style: { minWidth: 170 }
     },
     {
       key: "department",
       label: "Şöbə",
-      minWidth: { minWidth: 170 }
+      style: { minWidth: 170 }
     },
     {
       key: "phone",
       label: "Əlaqə nömrəsi",
-      minWidth: { minWidth: 170 }
+      style: { minWidth: 170 }
     },
     {
       key: "icons",
       label: "",
-      minWidth: { minWidth: 12 }
+      style: { minWidth: 12 }
     },
     {
       key: "actions",

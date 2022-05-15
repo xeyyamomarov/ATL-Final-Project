@@ -1,9 +1,8 @@
 import { Box, Stack } from "@mui/material";
-import SideBar from "components/SideBar";
-import NavBar from "components/NavBar";
+import { SideBar } from "components/SideBar";
+import { NavBar } from "components/NavBar";
 import { useState } from 'react';
 import { Outlet } from "react-router-dom";
-
 
 const MainLayout = () => {
 

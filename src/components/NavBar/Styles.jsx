@@ -10,7 +10,11 @@ export const useStyles = makeStyles({
     boxShadow: "none",
     borderBottom: "1px solid #E0E0E0",
   },
-  toolBar: { justifyContent: "space-between" },
+  toolBar: { 
+    justifyContent: "space-between",
+    // borderBottom: "1px solid #E0E0E0",
+    // color: "#424242",
+   },
   profileContainer: { display: "flex", alignItems: "center" },
   userName: { fontSize: 14 },
 })

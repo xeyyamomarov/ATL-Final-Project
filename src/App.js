@@ -10,6 +10,12 @@ const theme = createTheme({
     secondary: {
       main: '#EEEEEE'
     },
+    black: {
+      main: '#424242'
+    },
+    white: {
+      main: '#fff'
+    },
     transparent: {
       main: "transparent"
     },
@@ -23,6 +29,15 @@ const theme = createTheme({
   typography: {
     button: {
       textTransform: 'none'
+    }
+  },
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          padding: '25px 12px 8px'
+        }
+      }
     }
   }
 })

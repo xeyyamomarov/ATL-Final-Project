@@ -49,7 +49,6 @@ export const AddContractDialog = ({add, setAdd}) => {
 
   return (
     <Dialog open={add} onClose={handleClose}>
-
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -59,7 +58,6 @@ export const AddContractDialog = ({add, setAdd}) => {
           <DialogTitle sx={{ padding: "16px" }}>
           Yeni müqavilə
           </DialogTitle>
-
           <DialogContent dividers sx={{ padding: "16px" }}>
             <Box>
               <Grid container spacing={2}>
@@ -117,15 +115,12 @@ export const AddContractDialog = ({add, setAdd}) => {
               </Grid>
             </Box>
           </DialogContent>
-
           <DialogActions sx={{ padding: "16px" }}>
             <CloseButton onClick={handleClose} />
             <SubmitButton text="Yarat" />
           </DialogActions>
         </Form>
-
       </Formik>
-
     </Dialog>
   );
 };

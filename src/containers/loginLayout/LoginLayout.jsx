@@ -1,4 +1,4 @@
-import { Alert, Box, Button, Grid, Snackbar } from "@mui/material";
+import { Alert, Box, Button, Snackbar } from "@mui/material";
 import { ReactComponent as Logo } from "assets/logo.svg";
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -19,21 +19,19 @@ import { Warning } from "@mui/icons-material";
 export const LoginLayout = () => {
 
     const classes = useStyles();
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const [error, setError] = useState(false);
     const [snackBar, setSnackBar] = useState(false);
-
-
-    const handleClose = () => {
-        setSnackBar(false);
-    };
-
+   
     const [values, setValues] = useState({
         username: '',
         password: '',
         showPassword: false,
     });
+
+    const handleCloseSnackbar = () => {
+        setSnackBar(false);
+    };
 
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
@@ -49,13 +47,25 @@ export const LoginLayout = () => {
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+
+    const loginFormOnSubmit = event => {
+        event.preventDefault();
+        if (values.username === "admin" && values.password === "admin") {
+            LS.setItemLocalStorage(appConfig.userData, JSON.stringify(values));
+            navigate("/", { replace: true });
+        } else {
+            setError(true);
+            setSnackBar(true);
+        }
+    }
+
     const action = (
 
         <IconButton
             size="small"
             aria-label="close"
             color="inherit"
-            onClick={handleClose}
+            onClick={handleCloseSnackbar}
         >
             <CloseIcon fontSize="small" />
         </IconButton>
@@ -67,12 +77,12 @@ export const LoginLayout = () => {
             <Snackbar
                 anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                 open={snackBar}
-                onClose={handleClose}
+                onClose={handleCloseSnackbar}
                 key='error-alert'
                 action={action}
             >
                 <Alert
-                    onClose={handleClose}
+                    onClose={handleCloseSnackbar}
                     icon={<Warning fontSize="inherit" />}
                     variant="filled"
                     severity="error">
@@ -86,19 +96,7 @@ export const LoginLayout = () => {
                 <Box className={classes.formWrapper}>
                     <Box
                         component="form"
-                        onSubmit={event => {
-                            event.preventDefault();
-                            setLoading(true);
-                            if (values.username === "admin" && values.password === "admin") {
-                                LS.setItemLocalStorage(appConfig.userData, JSON.stringify(values));
-                                navigate("/", { replace: true });
-                            } else {
-                                setError(true);
-                                setSnackBar(true);
-                            }
-                            setLoading(false);
-                        }
-                        }
+                        onSubmit={loginFormOnSubmit}
                         noValidate
                         autoComplete="off"
                         className={classes.form}>

@@ -1,33 +1,24 @@
-import { AppBar, Box, Toolbar, Typography, IconButton, MenuItem, } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
+import { AppBar, Box, Toolbar, Typography, MenuItem, } from "@mui/material";
 import { useStyles } from './Styles';
 import { useNavigate } from "react-router-dom";
 import { ProfileOptions } from "pages/Profile/ProfileOptions";
-import { useState } from "react";
+import { MenuButton } from "components/Buttons";
 
-export default function ButtonAppBar({ open, setOpen }) {
+export const NavBar = ({open, setOpen}) => {
 
   const navigate = useNavigate();
   const classes = useStyles();
-  const mediaQuery = window.matchMedia('(min-width: 600px)');
+  const mediaQuery = window.matchMedia('(min-width: 800px)');
   const [userName, setUserName] = useState(mediaQuery.matches || false);
   mediaQuery.addEventListener('change', e => setUserName(e.matches));
 
   return (
     <Box className={classes.navBar}>
-      <AppBar position="static" className={classes.appBar} >
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar className={classes.toolBar}>
           <Box>
-            <IconButton
-              onClick={() => setOpen(!open)}
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              className={classes.iconButton}
-            >
-              <MenuIcon />
-            </IconButton>
+            {open && <MenuButton open={open} setOpen={setOpen} color='black' />}
           </Box>
           <Box className={classes.profileContainer}>
             <Box>
@@ -38,7 +29,7 @@ export default function ButtonAppBar({ open, setOpen }) {
                 <MenuItem onClick={() => navigate("/login")}>Çıxış</MenuItem>
               </ProfileOptions>
             </Box>
-            { userName &&<Typography component="div" className={classes.userName}>Aydin Abbasov</Typography>}
+            {userName && <Typography component="div" className={classes.userName}>Aydin Abbasov</Typography>}
           </Box>
         </Toolbar>
       </AppBar>

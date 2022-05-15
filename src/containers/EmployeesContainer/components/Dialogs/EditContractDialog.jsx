@@ -23,10 +23,10 @@ import { TextFieldWrapper } from "./TextFieldWrapper";
 
 
 const initialValues = {
-  date: "06/25/2020 ~ 06/25/2021",
+  date: "25/05/2028",
   type: "Əmək",
-  number: "1242345353",
-  bookNo: "3423124312",
+  number: "1305202006",
+  bookNo: "0533366",
   duration: "Müddətli",
 }
 const type = ['Əmək']

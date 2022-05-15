@@ -59,11 +59,6 @@ export const SearchForm = () => {
   const classes = useStyles();
   const inputRef = useRef(null);
 
-  // const handleClick = () => {
-  //   // resets the input value
-  //   inputRef.current.value = '';
-  // };
-
   return (
     <Box className={classes.container}>
       <Formik

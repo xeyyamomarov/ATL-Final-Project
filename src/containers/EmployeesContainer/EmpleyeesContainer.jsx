@@ -64,7 +64,6 @@ export const EmployeesContainer = () => {
       >
         <Alert onClose={handleClose} icon={<Warning fontSize="inherit" />} variant="filled" severity="success" >{snackBarText}</Alert>
       </Snackbar>
-
     </>
   );
 }

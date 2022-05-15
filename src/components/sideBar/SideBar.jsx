@@ -2,13 +2,13 @@ import { ReactComponent as Logo } from "assets/logo.svg";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useStyles } from './Styles';
-import sideBarMenuİtems from "./sideBarMenuİtems";
+import sideBarMenuİtems from "./sideBarMenuItems";
 import { Collapse, Box, Toolbar, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import { MenuButton } from "components/Buttons";
 
-
-const SideBar = ({ open, setOpen }) => {
+export const SideBar = ({ open, setOpen }) => {
 
   const classes = useStyles();
   const [collapse, setCollapse] = useState({});
@@ -18,8 +18,7 @@ const SideBar = ({ open, setOpen }) => {
     <Box className={classes.sidebarContainer}>
       <Collapse orientation="horizontal" in={open} collapsedSize={70}>
         <Toolbar className={classes.logoWrapper}>
-          {open && <Logo />}
-          {/* <img alt="logo" src={require('assets/xezer.png')} sx={{innerHeight: 10, innerWidth:10}} /> */}
+          {open ? <Logo /> : <MenuButton open={open} setOpen={setOpen} color='white' />}
         </Toolbar>
         <List>
           {sideBarMenuİtems.map((item, index) => {
@@ -55,6 +54,3 @@ const SideBar = ({ open, setOpen }) => {
     </Box>
   );
 };
-
-export default SideBar;
-
