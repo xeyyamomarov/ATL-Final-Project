@@ -1,7 +1,7 @@
 import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles({
-  SidebarContainer: {
+  sidebarContainer: {
     minHeight: "100vh",
     padding: 10,
     backgroundColor: "#9B5AE1"
