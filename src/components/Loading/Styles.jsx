@@ -2,10 +2,13 @@ import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles({
     loading:{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
+    display:'flex', 
+    justifyContent:'center', 
+    alignItems:'center', 
+    width:'100vw', 
+    height:'100vh'
+    },
+    circularProgress:{
+        color: '#9B5AE1'
     }
 })

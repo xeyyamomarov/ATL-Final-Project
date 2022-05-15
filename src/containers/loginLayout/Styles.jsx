@@ -40,6 +40,9 @@ export const useStyles = makeStyles({
     formItem: {
         height: 70,
     },
+    loginInput:{
+        marginTop: 5,
+    },
     loginButton: {
         width: 322,
         height: 53,

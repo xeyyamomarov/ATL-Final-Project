@@ -1,14 +1,12 @@
-import ReactLoading from 'react-loading'
 import { useStyles } from './Styles';
+import { Box, CircularProgress } from '@mui/material';
 
-const Loading = () => {
-    const classes = useStyles();
+export const Loading = () => {
+  const classes = useStyles();
 
   return (
-    <div className={classes.loading}>
-      <ReactLoading type='spin' color="#9B5AE1" />
-    </div>
+    <Box className={classes.loading}>
+      <CircularProgress className={classes.circularProgress} />
+    </Box>
   );
-}
-
-export default Loading;
+};

@@ -19,8 +19,8 @@ import { Warning } from "@mui/icons-material";
 export const LoginLayout = () => {
 
     const classes = useStyles();
-    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const [snackBar, setSnackBar] = useState(false);
 
@@ -71,13 +71,17 @@ export const LoginLayout = () => {
                 key='error-alert'
                 action={action}
             >
-                <Alert onClose={handleClose} icon={<Warning fontSize="inherit" />} variant="filled" severity="error" sx={{}} >
+                <Alert
+                    onClose={handleClose}
+                    icon={<Warning fontSize="inherit" />}
+                    variant="filled"
+                    severity="error">
                     İstifadəçi adı və ya şifrə yanlış daxil edilib
                 </Alert>
             </Snackbar>
             <Box className={classes.loginContainer}>
                 <Box className={classes.logoWrapper}>
-                        <Logo />
+                    <Logo />
                 </Box>
                 <Box className={classes.formWrapper}>
                     <Box

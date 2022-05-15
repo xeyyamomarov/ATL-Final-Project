@@ -1,9 +1,9 @@
-import {LoginLayout} from "containers/loginLayout";
+import { LoginLayout } from "containers/loginLayout";
 
 export const LoginPage = () => {
-  return(
+  return (
     <section id="login-page">
-      <LoginLayout/>
+      <LoginLayout />
     </section>
   )
 }
