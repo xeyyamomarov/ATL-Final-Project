@@ -8,7 +8,7 @@ const SubmitButton = ({ text = 'Yadda saxla', onClick }) => {
       color='formSubmit'
       disableElevation
       sx={{
-        color: 'white',
+        color: '#fff',
         marginLeft: '12px'
       }}
       onClick={onClick}

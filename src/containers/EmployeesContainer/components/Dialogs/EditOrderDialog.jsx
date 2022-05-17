@@ -87,7 +87,7 @@ export const EditOrderDialog = ({orderId, edit, setEdit }) => {
                     name="number"
                   />
                 </Grid>
-                <Grid item sm={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <FormControl fullWidth>
                       <Field

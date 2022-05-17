@@ -88,12 +88,6 @@ export const NewEmployeesDocuments = () => {
                         </Tooltip>
                     </Box>
 
-
-
-
-
-
-
                 )
             }
         }
