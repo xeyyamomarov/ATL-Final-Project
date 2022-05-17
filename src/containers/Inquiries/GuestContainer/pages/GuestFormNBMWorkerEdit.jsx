@@ -17,7 +17,7 @@ import { DatePicker } from "formik-mui-lab";
 import { useDispatch } from "react-redux";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { GuestDetailsModal } from "./GuestDetailsModal";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 import { InfoSection } from "containers/components/InfoSection";
 import AccordionForm from "containers/components/AccordionForm/AccordionForm";
 import { useState } from "react";

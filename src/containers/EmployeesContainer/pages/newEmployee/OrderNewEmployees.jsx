@@ -2,7 +2,7 @@ import { Table } from "components/Table";
 import { Box, IconButton, Tooltip} from "@mui/material";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { tabs } from "containers/EmployeesContainer/constants";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 import {AddOrderDialog,EditOrderDialog,DeleteOrderDialog} from "containers/EmployeesContainer/components/Dialogs";
 import { useState } from "react";

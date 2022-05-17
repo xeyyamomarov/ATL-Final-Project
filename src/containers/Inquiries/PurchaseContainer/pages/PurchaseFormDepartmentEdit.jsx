@@ -5,7 +5,7 @@ import { Breadcrumbs } from "components/Breadcrumbs";
 import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-mui";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 import { InfoIcon } from "containers/components/InfoIcon";
 import { InfoSection } from "containers/components/InfoSection";
 

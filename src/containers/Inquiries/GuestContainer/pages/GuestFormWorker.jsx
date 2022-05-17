@@ -9,7 +9,7 @@ import { Autocomplete, TextField } from "formik-mui";
 import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },

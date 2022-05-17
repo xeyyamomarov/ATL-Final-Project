@@ -3,7 +3,7 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { Box, IconButton, Tooltip } from "@mui/material";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { detailsTabs } from "containers/EmployeesContainer/constants";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 
 

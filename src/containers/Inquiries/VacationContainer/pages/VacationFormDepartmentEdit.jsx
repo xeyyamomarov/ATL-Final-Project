@@ -8,7 +8,7 @@ import { TextField } from "formik-mui";
 import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 import { InputFile } from "containers/components/InputFile";
 import { InfoIcon } from "containers/components/InfoIcon";
 import { DownloadIcon } from "containers/components/DownloadIcon";

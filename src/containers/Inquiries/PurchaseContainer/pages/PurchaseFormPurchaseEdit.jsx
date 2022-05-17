@@ -8,7 +8,7 @@ import { TextField } from "formik-mui";
 import { useDispatch } from "react-redux";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { PurchaseDetailsModal } from "./PurchaseDetailsModal";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 import { InfoIcon } from "containers/components/InfoIcon";
 import { InfoSection } from "containers/components/InfoSection";
 

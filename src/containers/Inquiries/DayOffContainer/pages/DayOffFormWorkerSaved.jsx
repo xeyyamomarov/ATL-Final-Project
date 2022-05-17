@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
 import { ShowDetails } from "containers/components/ShowDetails/ShowDetails";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 
 const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },

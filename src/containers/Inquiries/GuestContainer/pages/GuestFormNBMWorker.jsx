@@ -4,7 +4,7 @@ import { Breadcrumbs } from "components/Breadcrumbs";
 import { EditIcon } from "containers/components/EditIcon";
 import { InfoIcon } from "containers/components/InfoIcon";
 import { useNavigate } from "react-router-dom";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 import { InfoSection } from "containers/components/InfoSection";
 import { FormHead } from "containers/components/FormHead";
 import { ResultTable } from "containers/components/ResultTable/ResultTable";

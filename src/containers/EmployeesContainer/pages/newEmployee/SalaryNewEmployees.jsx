@@ -13,7 +13,7 @@ import { Field, Form, Formik } from "formik";
 import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 import { tabs } from "containers/EmployeesContainer/constants";
 
 const initialValues = {

@@ -1,5 +1,5 @@
 import { detailsTabs } from "containers/EmployeesContainer/constants";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';

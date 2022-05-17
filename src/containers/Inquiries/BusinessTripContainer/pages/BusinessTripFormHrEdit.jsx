@@ -11,7 +11,7 @@ import { DatePicker } from "formik-mui-lab";
 import { useDispatch } from "react-redux";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { BusinessTripDetailsModal } from "./BusinessTripDetailsModal";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 import { InputFile } from "containers/components/InputFile/InputFile";
 import { InfoSection } from "containers/components/InfoSection";
 import { InfoIcon } from "containers/components/InfoIcon/InfoIcon";

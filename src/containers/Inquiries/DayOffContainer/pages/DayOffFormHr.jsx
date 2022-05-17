@@ -5,7 +5,7 @@ import { EditIcon } from "containers/components/EditIcon";
 import { InfoIcon } from "containers/components/InfoIcon";
 import { useNavigate } from "react-router-dom";
 import { ShowDetails } from "containers/components/ShowDetails/ShowDetails";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 
 const tabs = [
   { value: "one", label: "Sorğunun formalaşdırılması" },

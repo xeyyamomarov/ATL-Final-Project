@@ -8,7 +8,7 @@ import { Autocomplete, TextField } from "formik-mui";
 import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
-import { useStyles } from "Styles/Styles";
+import { useStyles } from "styles/Styles";
 import { InfoSection } from "containers/components/InfoSection";
 
 const resultDatas = [
