@@ -49,7 +49,7 @@ const useStyles = makeStyles({
     margin: "5px",
     display: "flex",
     justifyContent: "flex-start",
-    width: "80%",
+    width: "100%",
     gap: 10,
   },
 });
@@ -76,17 +76,17 @@ export const ChangePass = () => {
       passValue.newPassRepeat === ""
     ) {
       setMyError(true);
-      setMessage("Cari şifrəni daxil edin")
+      setMessage(prev=>({...prev,password:"Cari şifrəni daxil edin"}))
     } else if (
       passValue.password === passValue.newPass &&
       passValue.password === passValue.newPassRepeat
     ) {
       setMyError(true);
-      setMessage("Bu şifrə istifadə olunub")
+      setMessage(prev=>({...prev,newPass:"Bu şifrə istifadə olunub."}))
       
     } else if (passValue.newPass !== passValue.newPassRepeat) {
       setMyError(true);
-      setMessage("Daxil etdiyiniz şifrələr fərqlidir.")
+      setMessage(prev=>({...prev,newPassRepeat:"Daxil etdiyiniz şifrələr fərqlidir."}))
     } else {
       navigate("/profile/settings");
     }
@@ -196,7 +196,7 @@ export const ChangePass = () => {
           />
           {myError && (
             <FormHelperText id="outlined-password2-error">
-              {message}
+              {message.newPass}
               
             </FormHelperText>
           )}
@@ -229,13 +229,13 @@ export const ChangePass = () => {
           />
           {myError && (
             <FormHelperText  id="outlined-password3-error">
-              {message}
+              {message.newPassRepeat}
             </FormHelperText>
           )}
         </FormControl>
         </Box>
         <Box className={classes.btn}>
-          <SubmitButton onClick={checkValue} />
+          <SubmitButton ml="0" onClick={checkValue} />
           <CloseButton
             onClick={() => {
               navigate("/profile/security");
