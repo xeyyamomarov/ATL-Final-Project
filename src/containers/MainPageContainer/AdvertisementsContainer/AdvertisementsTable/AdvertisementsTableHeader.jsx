@@ -4,7 +4,7 @@
   
     return [
       {
-        key: "bname",
+        key: "name",
         label: "Adı",
        
       },
