@@ -8,6 +8,12 @@ const useStyles = makeStyles({
     display: "flex",
     gap: "16px",
     width: "100%",
+    justifyContent:"center",
+    '@media (max-width: 960px)' : {
+      flexDirection: 'column',
+      overflowX:"auto"
+
+    }
   },
   boxContent: {
     display: "flex",
@@ -20,7 +26,6 @@ const useStyles = makeStyles({
   },
   tableBox: {
     padding: "4px 16px",
-    width: "550px",
     gap: "16px",
     border: "1px solid #BDBDBD",
     borderRadius: "4px",

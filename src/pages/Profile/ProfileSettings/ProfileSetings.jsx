@@ -25,9 +25,13 @@ const useStyles = makeStyles({
   typography: {
     color: "#424242",
     fontSize: "14px",
+    '@media (max-width: 900px)' : {
+      display:"flex",
+    },
     "&:hover": {
       color: "#9B5AE1",
     },
+    
   },
 });
 

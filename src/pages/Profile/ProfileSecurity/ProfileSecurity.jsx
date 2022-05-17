@@ -21,13 +21,14 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    height: "60px",
+    minWidth:"200px",
   },
   box: {
     display: "flex",
     alignItems: "center",
     transform: "rotate(45deg)",
     gap: 10,
+   
   },
 });
 export const ProfileSecurity = () => {
@@ -38,7 +39,7 @@ export const ProfileSecurity = () => {
   const classes = useStyles();
   return (
     <Box className={classes.boxContent}>
-      <Box sx={{ display: "flex" }}>
+      <Box display="flex">
         <Box className={classes.box}>
           <KeyIcon sx={{ color: "#424242" }} />
         </Box>
