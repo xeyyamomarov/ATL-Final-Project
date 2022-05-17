@@ -17,7 +17,7 @@ export const DeleteModify=()=> {
         left:"15px"}}
           onClick={handleClick}
         >
-          <Delete sx={{color:"black"}}/>
+          <Delete sx={{color:"#616161"}}/>
         </IconButton>
       </Tooltip>
     

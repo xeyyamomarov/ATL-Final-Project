@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     padding: "16px",
   },
   btnBox: {
-    width:"95%",
+    width: "95%",
     display: "flex",
     justifyContent: "flex-end",
     padding: "12px 16px",
@@ -48,6 +48,18 @@ const useStyles = makeStyles({
     boxShadow: "none",
     border: "1px solid #E0E0E0 ",
     borderRadius: "4px",
+  },
+  card2: {
+    backgroundColor: "#F5F5F5",
+    boxShadow: "none",
+    borderRadius: "4px 4px 0 0",
+  },
+  CardContent: {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: 0,
+    height: "60px",
+    borderBottom: "1px solid #E0E0E0",
   },
 });
 
@@ -77,16 +89,8 @@ export const NotificationFormContainer = () => {
           Elanın formalaşdırılması
         </Typography>
         <Card className={classes.card}>
-          <Card sx={{ backgroundColor: "#F5F5F5", boxShadow: "none" }}>
-            <CardContent
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                padding: 0,
-                height: "60px",
-                borderBottom: "1px solid #E0E0E0",
-              }}
-            >
+          <Card className={classes.card2}>
+            <CardContent className={classes.CardContent}>
               <Typography color="#424242" padding="16px" fontSize="16px">
                 Elanın formalaşdırılması
               </Typography>
@@ -128,16 +132,16 @@ export const NotificationFormContainer = () => {
           </Formik>
         </Card>
         <Box className={classes.btnBox}>
-        <AButton onClick={saveClick} className={classes.btn}>
-          Yadda Saxla
-        </AButton>
-        <Button
-          onClick={handleClick}
-          color="success"
-          type="submit"
-          text="Sonlandır"
-        />
-      </Box>
+          <AButton onClick={saveClick} className={classes.btn}>
+            Yadda Saxla
+          </AButton>
+          <Button
+            onClick={handleClick}
+            color="success"
+            type="submit"
+            text="Sonlandır"
+          />
+        </Box>
       </Card>
     </Box>
   );
