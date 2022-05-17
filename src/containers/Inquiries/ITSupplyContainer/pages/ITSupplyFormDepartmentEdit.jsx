@@ -59,7 +59,7 @@ export const ITSupplyFormDepartmentEdit = () => {
                   }
                 />
                 <Grid container spacing={2} padding="16px">
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       disabled
@@ -76,7 +76,7 @@ export const ITSupplyFormDepartmentEdit = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       disabled
                       fullWidth
@@ -93,7 +93,7 @@ export const ITSupplyFormDepartmentEdit = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="result"

@@ -77,7 +77,7 @@ export const DayOffFormHrEdit = () => {
                 />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                       <FormControl fullWidth
                         sx={{
@@ -100,7 +100,7 @@ export const DayOffFormHrEdit = () => {
                     </LocalizationProvider>
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       disabled
                       fullWidth
@@ -124,7 +124,7 @@ export const DayOffFormHrEdit = () => {
                     </Field>
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="result"

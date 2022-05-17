@@ -77,7 +77,7 @@ export const BusinessTripFormHrEdit = () => {
                 <Grid container spacing={2} padding="16px">
 
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <Grid item sm={12} md={6}>
+                    <Grid item xs={12} md={6}>
                       <FormControl fullWidth
                         sx={{
                           "& .MuiOutlinedInput-root": {
@@ -98,7 +98,7 @@ export const BusinessTripFormHrEdit = () => {
                       </FormControl>
                     </Grid>
 
-                    <Grid item sm={12} md={6}>
+                    <Grid item xs={12} md={6}>
                       <FormControl fullWidth
                         sx={{
                           "& .MuiOutlinedInput-root": {
@@ -120,11 +120,11 @@ export const BusinessTripFormHrEdit = () => {
                     </Grid>
                   </LocalizationProvider>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <InputFile />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       sx={{
                         "& .MuiOutlinedInput-root": {
@@ -148,7 +148,7 @@ export const BusinessTripFormHrEdit = () => {
                     </Field>
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="result"

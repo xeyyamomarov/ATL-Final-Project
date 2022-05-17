@@ -62,7 +62,7 @@ export const GuestFormWorker = () => {
                 <FormHead header="Sorğunun formalaşdırılması" />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       multiple
                       freeSolo
@@ -79,7 +79,7 @@ export const GuestFormWorker = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       multiple
                       freeSolo
@@ -96,7 +96,7 @@ export const GuestFormWorker = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12} md={6}>
+                  <Grid item xs={12} md={6}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <FormControl fullWidth >
                       <Field
@@ -110,7 +110,7 @@ export const GuestFormWorker = () => {
                     </LocalizationProvider>
                   </Grid>
 
-                  <Grid item sm={12} md={6}>
+                  <Grid item xs={12} md={6}>
                     <Field
                       fullWidth
                       name="meetingPerson"
@@ -119,7 +119,7 @@ export const GuestFormWorker = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="visitPurpose"
@@ -128,7 +128,7 @@ export const GuestFormWorker = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="note"
@@ -137,7 +137,7 @@ export const GuestFormWorker = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="result"

@@ -55,7 +55,7 @@ export const SearchForm = () => {
         <Form>
           <Box className={classes.upBox}>
             <Grid container spacing={2}>
-              <Grid item sm={12} md={6} lg={3}>
+              <Grid item xs={12} md={6} lg={3}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -63,7 +63,7 @@ export const SearchForm = () => {
                   name="nameSurname"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={3}>
+              <Grid item xs={12} md={6} lg={3}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -71,7 +71,7 @@ export const SearchForm = () => {
                   name="username"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={3}>
+              <Grid item xs={12} md={6} lg={3}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -79,7 +79,7 @@ export const SearchForm = () => {
                   name="position"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={3}>
+              <Grid item xs={12} md={6} lg={3}>
                 <Field
                   fullWidth
                   name="roles"

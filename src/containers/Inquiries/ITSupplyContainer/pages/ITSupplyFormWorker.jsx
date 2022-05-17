@@ -54,7 +54,7 @@ export const ITSupplyFormWorker = () => {
                 <FormHead header="Sorğunun formalaşdırılması" />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="problem"
@@ -63,7 +63,7 @@ export const ITSupplyFormWorker = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       select

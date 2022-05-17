@@ -63,7 +63,7 @@ export const DayOffFormWorker = () => {
               <Box className={classes.formBox}>
                 <FormHead header="Sorğunun formalaşdırılması" />
                 <Grid container spacing={2} padding="16px">
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                       <FormControl fullWidth>
                         <Field
@@ -77,7 +77,7 @@ export const DayOffFormWorker = () => {
                     </LocalizationProvider>
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="type"
@@ -93,7 +93,7 @@ export const DayOffFormWorker = () => {
                     </Field>
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="result"

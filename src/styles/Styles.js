@@ -6,7 +6,7 @@ export const useStyles = makeStyles({
     padding: "12px 16px"
   },
   container: {
-    padding: "16px 93px",
+    padding: "16px 8%",
   },
   dataContainer: {
     display: "flex",

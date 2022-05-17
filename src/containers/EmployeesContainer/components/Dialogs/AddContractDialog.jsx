@@ -61,7 +61,7 @@ export const AddContractDialog = ({add, setAdd}) => {
           <DialogContent dividers sx={{ padding: "16px" }}>
             <Box>
               <Grid container spacing={2}>
-              <Grid item sm={12}>
+              <Grid item xs={12}>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <FormControl fullWidth>
                     <Field
@@ -100,7 +100,7 @@ export const AddContractDialog = ({add, setAdd}) => {
                     name="bookNo"
                   />
                 </Grid>
-                <Grid item sm={12} md={6}>
+                <Grid item xs={12} md={6}>
                 <FormLabel id="duration">Müddəti*</FormLabel>
                 <Field
                   fullWidth

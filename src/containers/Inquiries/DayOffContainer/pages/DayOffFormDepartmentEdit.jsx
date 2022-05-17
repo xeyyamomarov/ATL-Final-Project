@@ -72,7 +72,7 @@ export const DayOffFormDepartmentEdit = () => {
                 />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                       <FormControl fullWidth
                         sx={{
@@ -95,7 +95,7 @@ export const DayOffFormDepartmentEdit = () => {
                     </LocalizationProvider>
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       sx={{
                         "& .MuiOutlinedInput-root": {
@@ -119,7 +119,7 @@ export const DayOffFormDepartmentEdit = () => {
                     </Field>
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="result"

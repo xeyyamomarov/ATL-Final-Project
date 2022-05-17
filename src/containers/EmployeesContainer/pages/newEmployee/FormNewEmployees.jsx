@@ -81,7 +81,7 @@ export const NewEmployeesForm = () => {
           <QueryTabs tabs={tabs} value="main" />
           <Box sx={{ padding: 2, margin: 2, border: "1px solid #C4C4C4", borderRadius: 1 }}>
             <Grid container spacing={2}>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -89,7 +89,7 @@ export const NewEmployeesForm = () => {
                   name="firstName"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -97,7 +97,7 @@ export const NewEmployeesForm = () => {
                   name="lasrstName"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -105,7 +105,7 @@ export const NewEmployeesForm = () => {
                   name="patronymic"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <FormLabel id="gender">Cinsi*</FormLabel>
                 <Field
                   fullWidth
@@ -117,7 +117,7 @@ export const NewEmployeesForm = () => {
                   <FormControlLabel value="Qadın" control={<Radio />} label="Qadın" sx={{ color: '#666666' }} />
                 </Field>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <FormControl fullWidth>
                     <Field
@@ -130,7 +130,7 @@ export const NewEmployeesForm = () => {
                   </FormControl>
                 </LocalizationProvider>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -139,7 +139,7 @@ export const NewEmployeesForm = () => {
                   type="number"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <FormLabel id="marital-status">Ailə vəziyyəti</FormLabel>
                 <Field
                   fullWidth
@@ -151,7 +151,7 @@ export const NewEmployeesForm = () => {
                   <FormControlLabel value="Qadın" control={<Radio />} label="Qadın" sx={{ color: '#666666' }} />
                 </Field>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -159,7 +159,7 @@ export const NewEmployeesForm = () => {
                   name="fin"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -167,7 +167,7 @@ export const NewEmployeesForm = () => {
                   name="IDNumber"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -175,7 +175,7 @@ export const NewEmployeesForm = () => {
                   name="company"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -190,7 +190,7 @@ export const NewEmployeesForm = () => {
                   }}
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <FormLabel id="position-status">Vəzifə təsnifatı</FormLabel>
                 <Field
                   fullWidth
@@ -202,7 +202,7 @@ export const NewEmployeesForm = () => {
                   <FormControlLabel value="Qulluqçu" control={<Radio />} label="Qulluqçu" sx={{ color: '#666666' }} />
                 </Field>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -217,7 +217,7 @@ export const NewEmployeesForm = () => {
                   }}
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -225,7 +225,7 @@ export const NewEmployeesForm = () => {
                   name="citizenship"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -233,7 +233,7 @@ export const NewEmployeesForm = () => {
                   name="nationality"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -248,7 +248,7 @@ export const NewEmployeesForm = () => {
                   }}
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -256,7 +256,7 @@ export const NewEmployeesForm = () => {
                   name="email"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <FormLabel id="staff">Ştat tutumu</FormLabel>
                 <Field
                   fullWidth
@@ -268,7 +268,7 @@ export const NewEmployeesForm = () => {
                   <FormControlLabel value="Natamam" control={<Radio />} label="Natamam" sx={{ color: '#666666' }} />
                 </Field>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <FormLabel id="workplace">Iş yeri</FormLabel>
                 <Field
                   fullWidth
@@ -280,7 +280,7 @@ export const NewEmployeesForm = () => {
                   <FormControlLabel value="Əlavə" control={<Radio />} label="Əlavə" sx={{ color: '#666666' }} />
                 </Field>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -289,7 +289,7 @@ export const NewEmployeesForm = () => {
                 />
                 <FormHelperText id="outlined-weight-helper-text">+994 00 000 00 00</FormHelperText>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -298,7 +298,7 @@ export const NewEmployeesForm = () => {
                 />
                 <FormHelperText id="outlined-weight-helper-text">+994 00 000 00 00</FormHelperText>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -307,7 +307,7 @@ export const NewEmployeesForm = () => {
                 />
                 <FormHelperText id="outlined-weight-helper-text">00 00</FormHelperText>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -316,7 +316,7 @@ export const NewEmployeesForm = () => {
                 />
                 <FormHelperText id="outlined-weight-helper-text">012 000 00 00</FormHelperText>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -331,7 +331,7 @@ export const NewEmployeesForm = () => {
                   }}
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -340,7 +340,7 @@ export const NewEmployeesForm = () => {
                 />
                 <FormHelperText id="outlined-weight-helper-text">+994 00 000 00 00</FormHelperText>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -355,7 +355,7 @@ export const NewEmployeesForm = () => {
                   }}
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -363,7 +363,7 @@ export const NewEmployeesForm = () => {
                   name="weeklyWorkingHours"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -378,7 +378,7 @@ export const NewEmployeesForm = () => {
                   }}
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}

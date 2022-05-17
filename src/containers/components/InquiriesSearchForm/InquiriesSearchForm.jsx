@@ -60,7 +60,7 @@ export const InquiriesSearchForm = () => {
         <Form>
           <Box className={classes.upBox}>
             <Grid container spacing={2}>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -68,7 +68,7 @@ export const InquiriesSearchForm = () => {
                   name="nameSurname"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -76,7 +76,7 @@ export const InquiriesSearchForm = () => {
                   name="department"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   name="position"
@@ -91,7 +91,7 @@ export const InquiriesSearchForm = () => {
                   ))}
                 </Field>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   name="queryStatus"
