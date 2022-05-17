@@ -121,7 +121,7 @@ export const GuestFormNBMWorkerEdit = () => {
                   <FormHead header="NBM əməkdaşın göndərməsi" />
                   <Grid container spacing={2} padding="16px">
 
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                       <Field
                         disabled
                         multiple
@@ -139,7 +139,7 @@ export const GuestFormNBMWorkerEdit = () => {
                       />
                     </Grid>
 
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                       <Field
                         disabled
                         multiple
@@ -157,7 +157,7 @@ export const GuestFormNBMWorkerEdit = () => {
                       />
                     </Grid>
 
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                       <FormControl fullWidth
                         sx={{
                           "& .MuiOutlinedInput-root": {
@@ -179,7 +179,7 @@ export const GuestFormNBMWorkerEdit = () => {
                       </FormControl>
                     </Grid>
 
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                       <Field
                         sx={{
                           "& .MuiOutlinedInput-root": {
@@ -196,7 +196,7 @@ export const GuestFormNBMWorkerEdit = () => {
                       />
                     </Grid>
 
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                       <Field
                         sx={{
                           "& .MuiOutlinedInput-root": {
@@ -213,7 +213,7 @@ export const GuestFormNBMWorkerEdit = () => {
                       />
                     </Grid>
 
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                       <Box>
                         <Typography
                           sx={{
@@ -275,7 +275,7 @@ export const GuestFormNBMWorkerEdit = () => {
                                       </LocalizationProvider>
                                     </Grid>
 
-                                    <Grid item sm={12}>
+                                    <Grid item xs={12}>
                                       <Field
                                         fullWidth
                                         name={`${guest.id}.note`}
@@ -293,7 +293,7 @@ export const GuestFormNBMWorkerEdit = () => {
                       </Box>
                     </Grid>
 
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                       <Field
                         fullWidth
                         name="result"

@@ -44,7 +44,7 @@ export const NewEmployeesSalary = () => {
           <QueryTabs tabs={tabs} value="salary" />
           <Box sx={{ padding: 2, margin: 2, border: "1px solid #C4C4C4", borderRadius: 1 }}>
             <Grid container spacing={2}>
-            <Grid item sm={12} md={6} lg={4}>
+            <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -53,7 +53,7 @@ export const NewEmployeesSalary = () => {
                 />
                 <FormHelperText id="outlined-weight-helper-text">gün/ay/il</FormHelperText>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <FormControl fullWidth>
                     <Field
@@ -66,7 +66,7 @@ export const NewEmployeesSalary = () => {
                   </FormControl>
                 </LocalizationProvider>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -74,7 +74,7 @@ export const NewEmployeesSalary = () => {
                   name="experience"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -82,7 +82,7 @@ export const NewEmployeesSalary = () => {
                   name="grossSalary"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}

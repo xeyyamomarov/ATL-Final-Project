@@ -68,7 +68,7 @@ export const SearchForm = () => {
         <Form>
           <Box className={classes.upBox}>
             <Grid container spacing={2}>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -76,7 +76,7 @@ export const SearchForm = () => {
                   name="fullName"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -110,7 +110,7 @@ export const SearchForm = () => {
                   type="number"
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -125,7 +125,7 @@ export const SearchForm = () => {
                   }}
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Field
                   fullWidth
                   as={MuiTextField}
@@ -140,7 +140,7 @@ export const SearchForm = () => {
                   }}
                 />
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <FormLabel id="position">Vəzifə təsnifatı</FormLabel>
                 <Field
                   fullWidth
@@ -153,7 +153,7 @@ export const SearchForm = () => {
                   <FormControlLabel value="Hamısı" control={<Radio />} label="Hamısı" sx={{ color: '#666666' }} />
                 </Field>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <FormLabel id="staff-capacity">Ştat tutumu</FormLabel>
                 <Field
                   fullWidth
@@ -166,7 +166,7 @@ export const SearchForm = () => {
                   <FormControlLabel value="Hamısı" control={<Radio />} label="Hamısı" sx={{ color: '#666666' }} />
                 </Field>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <FormLabel id="status">Statusu</FormLabel>
                 <Field
                   fullWidth
@@ -179,7 +179,7 @@ export const SearchForm = () => {
                   <FormControlLabel value="Hamısı" control={<Radio />} label="Hamısı" sx={{ color: '#666666' }} />
                 </Field>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <FormLabel id="workplace">İş yeri</FormLabel>
                 <Field
                   fullWidth
@@ -192,7 +192,7 @@ export const SearchForm = () => {
                   <FormControlLabel value="Hamısı" control={<Radio />} label="Hamısı" sx={{ color: '#666666' }} />
                 </Field>
               </Grid>
-              <Grid item sm={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <FormLabel id="gender">Cinsiyyət</FormLabel>
                 <Field
                   fullWidth

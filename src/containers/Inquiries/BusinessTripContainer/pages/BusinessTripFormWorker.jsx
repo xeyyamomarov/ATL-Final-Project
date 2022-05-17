@@ -68,7 +68,7 @@ export const BusinessTripFormWorker = () => {
                 <Grid container spacing={2} padding="16px">
 
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <Grid item sm={12} md={6}>
+                    <Grid item xs={12} md={6}>
                       <FormControl fullWidth>
                         <Field
                           name="start"
@@ -80,7 +80,7 @@ export const BusinessTripFormWorker = () => {
                       </FormControl>
                     </Grid>
 
-                    <Grid item sm={12} md={6}>
+                    <Grid item xs={12} md={6}>
                       <FormControl fullWidth>
                         <Field
                           name="end"
@@ -92,7 +92,7 @@ export const BusinessTripFormWorker = () => {
                       </FormControl>
                     </Grid>
 
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                       <Field
                         fullWidth
                         name="note"
@@ -108,7 +108,7 @@ export const BusinessTripFormWorker = () => {
                       </Field>
                     </Grid>
 
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                       <Field
                         fullWidth
                         name="result"

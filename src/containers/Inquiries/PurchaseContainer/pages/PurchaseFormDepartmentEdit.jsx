@@ -60,7 +60,7 @@ export const PurchaseFormDepartmentEdit = () => {
                 />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       disabled
@@ -77,7 +77,7 @@ export const PurchaseFormDepartmentEdit = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       disabled
@@ -94,7 +94,7 @@ export const PurchaseFormDepartmentEdit = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="result"

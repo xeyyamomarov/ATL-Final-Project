@@ -65,7 +65,7 @@ export const GuestFormNBMChiefEdit = () => {
                 <FormHead header="NBM rəisin göndərməsi" />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       disabled
                       multiple
@@ -83,7 +83,7 @@ export const GuestFormNBMChiefEdit = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       disabled
                       multiple
@@ -101,7 +101,7 @@ export const GuestFormNBMChiefEdit = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                       <FormControl fullWidth
                         sx={{
@@ -124,7 +124,7 @@ export const GuestFormNBMChiefEdit = () => {
                     </LocalizationProvider>
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       sx={{
                         "& .MuiOutlinedInput-root": {
@@ -141,7 +141,7 @@ export const GuestFormNBMChiefEdit = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       sx={{
                         "& .MuiOutlinedInput-root": {
@@ -158,7 +158,7 @@ export const GuestFormNBMChiefEdit = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="result"

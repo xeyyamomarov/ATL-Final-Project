@@ -59,7 +59,7 @@ export const GuestFormDepartmentEdit = () => {
                 <FormHead header="Departament rəhbərin göndərməsi" />
                 <Grid container spacing={2} padding="16px">
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       disabled
                       multiple
@@ -77,7 +77,7 @@ export const GuestFormDepartmentEdit = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       disabled
                       multiple
@@ -95,7 +95,7 @@ export const GuestFormDepartmentEdit = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                       <FormControl fullWidth
                         sx={{
@@ -118,7 +118,7 @@ export const GuestFormDepartmentEdit = () => {
                     </LocalizationProvider>
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       disabled
                       fullWidth
@@ -128,7 +128,7 @@ export const GuestFormDepartmentEdit = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       disabled
                       fullWidth
@@ -138,7 +138,7 @@ export const GuestFormDepartmentEdit = () => {
                     />
                   </Grid>
 
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                     <Field
                       fullWidth
                       name="result"
