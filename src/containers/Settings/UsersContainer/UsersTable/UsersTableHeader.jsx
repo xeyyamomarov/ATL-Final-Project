@@ -16,7 +16,6 @@ const useStyles = makeStyles({
     fontSize: "14px",
     fontWeight: "400"
   },
-
 })
 
 
@@ -74,10 +73,11 @@ export const UsersTableHeader = () => {
       render(row) {
         return (
           <Box display='flex' width='100%' justifyContent='flex-end' alignItems='center'>
-            <EditUser userId={row.id} />
-            <MoreOptions>
+            <EditUser userId={row._id} />
+            <MoreOptions userId={row._id}>
               <MenuItem onClick={() => dispatch(TOGGLES_ACTIONS.setDeactivateUser())}>Deaktivləşdirin</MenuItem>
               <MenuItem onClick={() => dispatch(TOGGLES_ACTIONS.setPasswordUpdateDialog())}>Şifrəni yenilə</MenuItem>
+              <MenuItem onClick={() => dispatch(TOGGLES_ACTIONS.setDeleteRoleDialog())}>Sil</MenuItem>
             </MoreOptions>
           </Box>
         )

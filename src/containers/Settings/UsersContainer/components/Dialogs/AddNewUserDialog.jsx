@@ -7,7 +7,7 @@ import {
   IconButton,
   InputAdornment,
   Grid,
-  TextField as MuiTextField,
+  Chip,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { SubmitButton, CloseButton } from "components/Buttons";
@@ -17,6 +17,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLES_SELECTORS, TOGGLES_ACTIONS } from "store/Toggles";
 import * as Yup from "yup";
 import { TextFieldWrapper } from "./TextFieldWrapper";
+import { USERS_ACTIONS } from "store/Users";
+import { postNewUser } from "lib/api/users";
+import { InputAutocomplete } from "components/Input/InputAutocomplete";
 
 const positions = [
   "User",
@@ -33,11 +36,6 @@ const initialValues = {
   passwordRepeat: "",
 }
 
-const onSubmit = (values, { resetForm }) => {
-  console.log(values);
-  resetForm()
-}
-
 const validationSchema = Yup.object({
   fullName: Yup.string().required("Mütləq doldurulmalıdır!"),
   username: Yup.string().required("Mütləq doldurulmalıdır!"),
@@ -48,7 +46,7 @@ const validationSchema = Yup.object({
 
 
 export const AddNewUserDialog = () => {
-  
+
   const dispatch = useDispatch();
   const passwordHidden = useSelector(TOGGLES_SELECTORS.getPasswordHidden);
   const handlePasswordHidden = () => dispatch(TOGGLES_ACTIONS.setPasswordHidden());
@@ -57,6 +55,14 @@ export const AddNewUserDialog = () => {
 
   const open = useSelector(TOGGLES_SELECTORS.getAddNewToggle)
   const close = () => dispatch(TOGGLES_ACTIONS.setAddNewDialog())
+
+  const onSubmit = (values, { resetForm }) => {
+    console.log(values);
+    close()
+    postNewUser(values).then(res => {
+      dispatch(USERS_ACTIONS.fetchUsers());
+    })
+  }
 
   return (
     <Dialog open={open} onClose={close}>
@@ -76,37 +82,51 @@ export const AddNewUserDialog = () => {
 
                 <Grid item xs={12} sm={6}>
                   <TextFieldWrapper
-                    label="Əməkdaş*"
+                    required
+                    label="Əməkdaş"
                     name="fullName"
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextFieldWrapper
-                    label="İstifadəçi adı*"
+                    required
+                    label="İstifadəçi adı"
                     name="username"
                   />
                 </Grid>
 
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={12}>
                   <Field
-                    fullWidth
                     multiple
                     name="position"
                     component={Autocomplete}
-                    label="position"
                     options={positions}
                     filterSelectedOptions
                     getOptionLabel={option => option}
-                    renderInput={(params) => {
-                      return <MuiTextField {...params} label="Rollar*" />;
-                    }}
+                    renderTags={(value, getTagProps) =>
+                      value.map((option, index) => (
+                        <Chip
+                          size="small"
+                          variant="filled"
+                          label={option}
+                          {...getTagProps({ index })}
+                        />
+                      ))
+                    }
+                    renderInput={(params) => (
+                      <InputAutocomplete
+                        {...params}
+                        label="Rollar*"
+                      />
+                    )}
                   />
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
                   <TextFieldWrapper
                     type={passwordHidden ? 'password' : 'text'}
-                    label="Şifrə*"
+                    label="Şifrə"
+                    required
                     name="password"
                     InputProps={{
                       endAdornment: (
@@ -127,7 +147,8 @@ export const AddNewUserDialog = () => {
                 <Grid item xs={12} sm={6}>
                   <TextFieldWrapper
                     type={passwordRepeatHidden ? 'password' : 'text'}
-                    label="Şifrənin təkrarı*"
+                    label="Şifrənin təkrarı"
+                    required
                     name="passwordRepeat"
                     InputProps={{
                       endAdornment: (
