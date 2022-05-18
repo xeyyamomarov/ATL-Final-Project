@@ -19,8 +19,8 @@ const salary = {
 }
 
 const rows = [
-    { name: '"Xəzər TV" MMC-yə qədərki iş stajı', value: salary.experienceBefore },
-    { name: '"Xəzər TV" MMC-də olan iş stajı', value: salary.experienceAfter },
+    { name: '"Xəzan TV" MMC-yə qədərki iş stajı', value: salary.experienceBefore },
+    { name: '"Xəzan TV" MMC-də olan iş stajı', value: salary.experienceAfter },
     { name: "Ümumi iş stajı", value: salary.experience },
     { name: "Əmək haqqı gross(AZN)", value: salary.grossSalary },
     { name: "Əmək Haqqı net(AZN)", value: salary.netSalary },

@@ -47,7 +47,7 @@ const data=[
   },
   {
     name:"Elektron poçt",
-    value:"xeyalea@xezertv.az"
+    value:"xeyalea@xezantv.az"
   },
   {
   name:"Əlaqə nömrəsi",
