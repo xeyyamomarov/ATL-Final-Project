@@ -1,31 +1,17 @@
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import CreateIcon from "@mui/icons-material/Create";
-import { makeStyles } from "@mui/styles";
-import { Tooltip } from "@mui/material";
+import { Tooltip, Box, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { DeleteModify } from "pages/NotificationsPage/components/DeleteModify";
 
-const useStyles = makeStyles({
-  icon: {
-    fontWeight: "normal",
-    fontSize: 18,
-    cursor: "pointer",
-    marginLeft: 5,
-    position: "relative",
-    left: "20px",
-    color: "#616161",
-  },
-});
-
 export const NotificationsPageTableHeader = () => {
-  const classes = useStyles();
 
   const editNavigate = useNavigate();
   const viewNavigate = useNavigate();
 
   const editHandleClick = () => editNavigate("/notificationEdit");
 
-  const viewHandleClick = () => viewNavigate("/notificationView" );
+  const viewHandleClick = () => viewNavigate("/notificationView");
 
   return [
     {
@@ -49,18 +35,24 @@ export const NotificationsPageTableHeader = () => {
       label: "",
       render: () => {
         return (
-          <>
+          <Box
+            width="100%"
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="center"
+          >
             <Tooltip title="Elanın təsviri">
-              <VisibilityIcon
-                onClick={viewHandleClick}
-                className={classes.icon}
-              />
+              <IconButton onClick={viewHandleClick}>
+                <VisibilityIcon fontSize="small" />
+              </IconButton>
             </Tooltip>
             <Tooltip title="Redaktə et">
-              <CreateIcon onClick={ editHandleClick} className={classes.icon} />
+              <IconButton onClick={editHandleClick}>
+                <CreateIcon fontSize="small" />
+              </IconButton>
             </Tooltip>
             <DeleteModify />
-          </>
+          </Box>
         );
       },
     },

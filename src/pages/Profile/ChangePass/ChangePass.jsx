@@ -39,10 +39,9 @@ const useStyles = makeStyles({
     flexDirection: "column",
     margin: "10px",
     background: "#FAFAFA",
-    gap: 5,
     padding: "0 50px",
     justifyContent: "center",
-    alignItems:"center"
+    alignItems: "center",
   },
 
   btn: {
@@ -63,11 +62,11 @@ export const ChangePass = () => {
     showNewPasswordRepeat: false,
   });
 
-  const[message,setMessage]=useState({
-    password:"",
-    newPass:"",
-    newPassRepeat:""
-  })
+  const [message, setMessage] = useState({
+    passwordMessage: "",
+    newPasswordMessage: "",
+    newPasswordRepeatMessage: "",
+  });
 
   const checkValue = () => {
     if (
@@ -76,25 +75,28 @@ export const ChangePass = () => {
       passValue.newPassRepeat === ""
     ) {
       setMyError(true);
-      setMessage(prev=>({...prev,password:"Cari şifrəni daxil edin"}))
+      setMessage((prev) => ({ ...prev, passwordMessage: "Cari şifrəni daxil edin" }));
     } else if (
       passValue.password === passValue.newPass &&
       passValue.password === passValue.newPassRepeat
     ) {
       setMyError(true);
-      setMessage(prev=>({...prev,newPass:"Bu şifrə istifadə olunub."}))
-      
+      setMessage((prev) => ({ ...prev, newPasswordMessage: "Bu şifrə istifadə olunub." }));
     } else if (passValue.newPass !== passValue.newPassRepeat) {
       setMyError(true);
-      setMessage(prev=>({...prev,newPassRepeat:"Daxil etdiyiniz şifrələr fərqlidir."}))
+      setMessage((prev) => ({
+        ...prev,
+        newPasswordRepeatMessage: "Daxil etdiyiniz şifrələr fərqlidir.",
+      }));
     } else {
       navigate("/profile/settings");
     }
   };
   const [myError, setMyError] = useState(false);
 
-  const handleChange = (prop) => (event) => {
-    setPassValue({ ...passValue, [prop]: event.target.value });
+  const handleChange = (event) => {
+    setPassValue({ ...passValue, [event.target.name]: event.target.value });
+    setMyError(false);
   };
 
   const handleClickShowPassword = () => {
@@ -150,92 +152,112 @@ export const ChangePass = () => {
       </Box>
 
       <Box className={classes.form}>
-        <Box sx={{maxWidth:"542px"}}>
-        <FormControl sx={{margin:"5px"}} fullWidth error={myError} variant="outlined">
-          <InputLabel htmlFor="outlined-password1">Cari şifrə</InputLabel>
-          <OutlinedInput
-            aria-describedby="outlined-password1-error"
-            type={passValue.showPassword ? "text" : "password"}
-            value={passValue.password}
-            onChange={handleChange("password")}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton onClick={handleClickShowPassword} edge="end">
-                  {passValue.showPassword ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Cari şifrə"
-          />
-          {myError && (
-            <FormHelperText  id="outlined-password1-error">
-              {message.password}
-             
-            </FormHelperText>
-          )}
-        </FormControl>
-        <FormControl sx={{margin:"5px"}} fullWidth error={myError} variant="outlined">
-          <InputLabel htmlFor="outlined-password2">Yeni şifrə</InputLabel>
-          <OutlinedInput
-            aria-describedby="outlined-password2-error"
-            type={passValue.showNewPassword ? "text" : "password"}
-            value={passValue.newPass}
-            onChange={handleChange("newPass")}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton onClick={handleClickShowNewPassword} edge="end">
-                  {passValue.showNewPassword ? (
-                    <Visibility />
-                  ) : (
-                    <VisibilityOff />
-                  )}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Yeni şifrə"
-          />
-          {myError && (
-            <FormHelperText id="outlined-password2-error">
-              {message.newPass}
-              
-            </FormHelperText>
-          )}
-        </FormControl>
+        <Box>
+          <FormControl
+            sx={{ margin: "5px" }}
+            fullWidth
+            error={myError}
+            variant="outlined"
+          >
+            <InputLabel htmlFor="outlined-password1">Cari şifrə</InputLabel>
+            <OutlinedInput
+              aria-describedby="outlined-password1-error"
+              type={passValue.showPassword ? "text" : "password"}
+              value={passValue.password}
+              onChange={handleChange}
+              name="password"
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton onClick={handleClickShowPassword} edge="end">
+                    {passValue.showPassword ? (
+                      <Visibility />
+                    ) : (
+                      <VisibilityOff />
+                    )}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Cari şifrə"
+            />
+            {myError && (
+              <FormHelperText id="outlined-password1-error">
+                {message.passwordMessage}
+              </FormHelperText>
+            )}
+          </FormControl>
+          <FormControl
+            sx={{ margin: "5px" }}
+            fullWidth
+            error={myError}
+            variant="outlined"
+          >
+            <InputLabel htmlFor="outlined-password2">Yeni şifrə</InputLabel>
+            <OutlinedInput
+              aria-describedby="outlined-password2-error"
+              type={passValue.showNewPassword ? "text" : "password"}
+              value={passValue.newPasswordMessage}
+              onChange={handleChange}
+              name="newPass"
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton onClick={handleClickShowNewPassword} edge="end">
+                    {passValue.showNewPassword ? (
+                      <Visibility />
+                    ) : (
+                      <VisibilityOff />
+                    )}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Yeni şifrə"
+            />
+            {myError && (
+              <FormHelperText id="outlined-password2-error">
+                {message.newPasswordRepeatMessage}
+              </FormHelperText>
+            )}
+          </FormControl>
 
-        <FormControl sx={{margin:"5px"}} fullWidth error={myError} variant="outlined">
-          <InputLabel htmlFor="outlined-password3">
-            Yeni şifrənin təkrarı
-          </InputLabel>
-          <OutlinedInput
-            aria-describedby="outlined-password3-error"
-            type={passValue.showNewPasswordRepeat ? "text" : "password"}
-            value={passValue.newPassRepeat}
-            onChange={handleChange("newPassRepeat")}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  onClick={handleClickShowNewPasswordRepeat}
-                  edge="end"
-                >
-                  {passValue.showNewPasswordRepeat ? (
-                    <Visibility />
-                  ) : (
-                    <VisibilityOff />
-                  )}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Yeni şifrənin təkrarı"
-          />
-          {myError && (
-            <FormHelperText  id="outlined-password3-error">
-              {message.newPassRepeat}
-            </FormHelperText>
-          )}
-        </FormControl>
+          <FormControl
+            sx={{ margin: "5px" }}
+            fullWidth
+            error={myError}
+            variant="outlined"
+          >
+            <InputLabel htmlFor="outlined-password3">
+              Yeni şifrənin təkrarı
+            </InputLabel>
+            <OutlinedInput
+              aria-describedby="outlined-password3-error"
+              type={passValue.showNewPasswordRepeat ? "text" : "password"}
+              value={passValue.newPassRepeat}
+              onChange={handleChange}
+              name="newPassRepeat"
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={handleClickShowNewPasswordRepeat}
+                    edge="end"
+                  >
+                    {passValue.showNewPasswordRepeat ? (
+                      <Visibility />
+                    ) : (
+                      <VisibilityOff />
+                    )}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Yeni şifrənin təkrarı"
+            />
+            {myError && (
+              <FormHelperText id="outlined-password3-error">
+                {message.newPassRepeat}
+              </FormHelperText>
+            )}
+          </FormControl>
         </Box>
         <Box className={classes.btn}>
-          <SubmitButton ml="0" onClick={checkValue} />
+          <SubmitButton onClick={checkValue} />
           <CloseButton
             onClick={() => {
               navigate("/profile/security");
