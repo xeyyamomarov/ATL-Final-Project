@@ -46,8 +46,8 @@ const data = [
     value: "xeyalea",
   },
   {
-    name: "Elektron poçt",
-    value: "xeyalea@xezertv.az",
+    name:"Elektron poçt",
+    value:"xeyalea@xezantv.az"
   },
   {
     name: "Əlaqə nömrəsi",
