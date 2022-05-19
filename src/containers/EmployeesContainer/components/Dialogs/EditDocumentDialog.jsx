@@ -36,18 +36,18 @@ const validationSchema = Yup.object({
     note: Yup.string().required("Mütləq doldurulmalıdır!")
 });
 
-const CustomFileInput = ({onClick, fileName}) => <AttachFileIcon onClick={onClick} />
+const CustomFileInput = ({onClick, fileName}) => <AttachFileIcon onClick={onClick} />;
 
-export const AddDocumentDialog = ({ add, setAdd }) => {
+export const EditDocumentDialog = ({ edit, setEdit }) => {
 
-  const handleClose = () => setAdd(false)
+  const handleClose = () => setEdit(false)
   const onSubmit = (values, { resetForm }) => {
     resetForm();
     handleClose();
   }
 
   return (
-    <Dialog open={add} onClose={handleClose}>
+    <Dialog open={edit} onClose={handleClose}>
 
       <Formik
         initialValues={initialValues}
@@ -56,12 +56,11 @@ export const AddDocumentDialog = ({ add, setAdd }) => {
       >
         <Form>
           <DialogTitle sx={{ padding: "16px" }}>
-            Yeni sənəd
+            Sənədin redaktəsi
           </DialogTitle>
           <DialogContent dividers sx={{ padding: "16px" }}>
             <Box>
               <Grid container spacing={2}>
-
                 <Grid item xs={12} sm={6}>
                   <Field
                     fullWidth

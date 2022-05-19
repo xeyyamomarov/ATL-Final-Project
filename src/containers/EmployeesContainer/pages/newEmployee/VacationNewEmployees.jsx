@@ -15,19 +15,19 @@ const tfoot = [
     },
     {
         key: "mainTotal",
-        value: "33",
+        value: "90",
     },
     {
         key: "extraTotal",
-        value: "33",
+        value: "15",
     },
     {
         key: "usedTotal",
-        value: "33",
+        value: "6",
     },
     {
         key: "rest",
-        value: "Qalıq",
+        value: "99",
     }
 ]
 

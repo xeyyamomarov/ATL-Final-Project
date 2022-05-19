@@ -16,7 +16,7 @@ export const EmployeesTableHeader = () => {
     {
       key: "fullName",
       label: "A.S.A.",
-      style: { minWidth: 220 },
+      style: { minWidth: 200 },
       render: (row) => {
         return (
           <>
@@ -42,17 +42,17 @@ export const EmployeesTableHeader = () => {
     {
       key: "position",
       label: "Vəzifə",
-      style: { minWidth: 170 }
+      style: { minWidth: 150 }
     },
     {
       key: "department",
       label: "Şöbə",
-      style: { minWidth: 170 }
+      style: { minWidth: 150 }
     },
     {
       key: "phone",
       label: "Əlaqə nömrəsi",
-      style: { minWidth: 170 }
+      style: { minWidth: 150 }
     },
     {
       key: "icons",

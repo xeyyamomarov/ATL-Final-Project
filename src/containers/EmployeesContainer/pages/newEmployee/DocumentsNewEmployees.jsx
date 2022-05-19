@@ -8,8 +8,7 @@ import { tabs } from "containers/EmployeesContainer/constants";
 import { useStyles } from "styles/Styles";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 import { useState } from "react";
-import { AddDocumentDialog } from "containers/EmployeesContainer/components/Dialogs";
-
+import { AddDocumentDialog, EditDocumentDialog, DeleteDocumentDialog } from "containers/EmployeesContainer/components/Dialogs";
 
 
 const data = [
@@ -87,13 +86,10 @@ export const NewEmployeesDocuments = () => {
                             </IconButton>
                         </Tooltip>
                     </Box>
-
                 )
             }
         }
     ]
-
-
 
     return (
         <>
@@ -106,7 +102,9 @@ export const NewEmployeesDocuments = () => {
             </Box>
 
             <AddDocumentDialog add={addModalOpen} setAdd={setAddModalOpen} />
-            {/* <EditContractDialog edit={editModalhOpen} setEdit={setEditModalhOpen} /> */}
+            <EditDocumentDialog edit={editModalhOpen} setEdit={setEditModalhOpen} />
+            <DeleteDocumentDialog del={deleteOpen} setDelete={setDeleteOpen} />
+            
         </>
     );
 }
