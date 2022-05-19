@@ -2,7 +2,6 @@ import {
   Box, FormControl, FormControlLabel, FormLabel, Grid, MenuItem,
   Radio,
   RadioGroup,
-  TextField as MuiTextField,
   Typography
 } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
@@ -22,6 +21,8 @@ import { InfoSection } from "containers/components/InfoSection";
 import AccordionForm from "containers/components/AccordionForm/AccordionForm";
 import { useState } from "react";
 import { useEffect } from "react";
+import { InputAutocomplete } from "components/Input/InputAutocomplete";
+import { CustomInput } from "components/Input/CustomInput";
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
@@ -130,8 +131,11 @@ export const GuestFormNBMWorkerEdit = () => {
                         component={Autocomplete}
                         filterSelectedOptions
                         options={[]}
+                        ChipProps={{
+                          size: 'small',
+                        }}
                         renderInput={(params) => {
-                          return <MuiTextField
+                          return <InputAutocomplete
                             {...params}
                             label="Gələcək şəxs"
                           />;
@@ -148,8 +152,11 @@ export const GuestFormNBMWorkerEdit = () => {
                         component={Autocomplete}
                         filterSelectedOptions
                         options={[]}
+                        ChipProps={{
+                          size: 'small'
+                        }}
                         renderInput={(params) => {
-                          return <MuiTextField
+                          return <InputAutocomplete
                             {...params}
                             label="Nəqliyyat ilə bağlı qeyd"
                           />;
@@ -180,35 +187,27 @@ export const GuestFormNBMWorkerEdit = () => {
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Field
+                      <CustomInput
                         sx={{
-                          "& .MuiOutlinedInput-root": {
-                            "& > fieldset": {
-                              border: "2px dotted"
-                            }
+                          "& .MuiOutlinedInput-notchedOutline": {
+                            border: "2px dotted"
                           }
                         }}
                         disabled
-                        fullWidth
                         name="visitPurpose"
-                        component={TextField}
                         label="Gəlmə səbəbi"
                       />
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Field
+                      <CustomInput
                         sx={{
-                          "& .MuiOutlinedInput-root": {
-                            "& > fieldset": {
-                              border: "2px dotted"
-                            }
+                          "& .MuiOutlinedInput-notchedOutline": {
+                            border: "2px dotted"
                           }
                         }}
                         disabled
-                        fullWidth
                         name="note"
-                        component={TextField}
                         label="Sorğu ilə bağlı qeyd"
                       />
                     </Grid>
@@ -249,8 +248,8 @@ export const GuestFormNBMWorkerEdit = () => {
                                       </Field>
                                     </Grid>
 
-                                    <Grid item sm={6}>
-                                      <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                      <Grid item sm={6}>
                                         <Field
                                           name={`${guest.id}.visitDate`}
                                           fullWidth
@@ -259,11 +258,9 @@ export const GuestFormNBMWorkerEdit = () => {
                                           inputFormat="dd/MM/yyyy"
                                           InputAdornmentProps={{ position: "start" }}
                                         />
-                                      </LocalizationProvider>
-                                    </Grid>
+                                      </Grid>
 
-                                    <Grid item sm={6}>
-                                      <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                      <Grid item sm={6}>
                                         <Field
                                           name={`${guest.id}.leaveDate`}
                                           fullWidth
@@ -272,14 +269,12 @@ export const GuestFormNBMWorkerEdit = () => {
                                           inputFormat="dd/MM/yyyy"
                                           InputAdornmentProps={{ position: "start" }}
                                         />
-                                      </LocalizationProvider>
-                                    </Grid>
+                                      </Grid>
+                                    </LocalizationProvider>
 
                                     <Grid item xs={12}>
-                                      <Field
-                                        fullWidth
+                                      <CustomInput
                                         name={`${guest.id}.note`}
-                                        component={TextField}
                                         label="Qeyd"
                                       />
                                     </Grid>
@@ -298,6 +293,12 @@ export const GuestFormNBMWorkerEdit = () => {
                         fullWidth
                         name="result"
                         select
+                        InputLabelProps={{
+                          variant: 'filled'
+                        }}
+                        InputProps={{
+                          notched: false
+                        }}
                         component={TextField}
                         label="Nəticə"
                       >

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Box, FormControl, Grid, MenuItem, TextField as MuiTextField } from "@mui/material";
+import { Box, FormControl, Grid, MenuItem } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
@@ -10,6 +10,8 @@ import { LocalizationProvider } from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "styles/Styles";
+import { InputAutocomplete } from "components/Input/InputAutocomplete";
+import { CustomInput } from "components/Input/CustomInput";
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
@@ -70,8 +72,11 @@ export const GuestFormWorker = () => {
                       component={Autocomplete}
                       filterSelectedOptions
                       options={[]}
+                      ChipProps={{
+                        size: 'small'
+                      }}
                       renderInput={(params) => {
-                        return <MuiTextField
+                        return <InputAutocomplete
                           {...params}
                           label="Gələcək şəxs"
                         />;
@@ -87,8 +92,11 @@ export const GuestFormWorker = () => {
                       component={Autocomplete}
                       filterSelectedOptions
                       options={[]}
+                      ChipProps={{
+                        size: 'small'
+                      }}
                       renderInput={(params) => {
-                        return <MuiTextField
+                        return <InputAutocomplete
                           {...params}
                           label="Nəqliyyat ilə bağlı qeyd"
                         />;
@@ -98,41 +106,35 @@ export const GuestFormWorker = () => {
 
                   <Grid item xs={12} md={6}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <FormControl fullWidth >
-                      <Field
-                        name="date"
-                        component={DatePicker}
-                        label="Gəlmə tarixi"
-                        inputFormat="dd/MM/yyyy"
-                        InputAdornmentProps={{ position: "start" }}
-                      />
+                      <FormControl fullWidth >
+                        <Field
+                          name="date"
+                          component={DatePicker}
+                          label="Gəlmə tarixi"
+                          inputFormat="dd/MM/yyyy"
+                          InputAdornmentProps={{ position: "start" }}
+                        />
                       </FormControl>
                     </LocalizationProvider>
                   </Grid>
 
                   <Grid item xs={12} md={6}>
-                    <Field
-                      fullWidth
+                    <CustomInput
                       name="meetingPerson"
-                      component={TextField}
                       label="Görüşəcək şəxs"
                     />
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Field
-                      fullWidth
+                    <CustomInput
                       name="visitPurpose"
-                      component={TextField}
                       label="Gəlmə səbəbi"
                     />
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Field
-                      fullWidth
+                    <CustomInput
                       name="note"
-                      component={TextField}
                       label="Sorğu ilə bağlı qeyd"
                     />
                   </Grid>
@@ -142,6 +144,12 @@ export const GuestFormWorker = () => {
                       fullWidth
                       name="result"
                       select
+                      InputLabelProps={{
+                        variant: 'filled'
+                      }}
+                      InputProps={{
+                        notched: false
+                      }}
                       component={TextField}
                       label="Nəticə"
                     >

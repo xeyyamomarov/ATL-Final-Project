@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Collapse } from "@mui/material";
 import { USERS_ACTIONS, USERS_SELECTORS } from "store/Users";
-import { AddNewUserDialog, EditUserDialog, PasswordUpdateDialog } from "containers/Settings/UsersContainer/components/Dialogs"
+import { AddNewUserDialog, DeActivateUserDialog, DeleteUserDialog, EditUserDialog, PasswordUpdateDialog } from "containers/Settings/UsersContainer/components/Dialogs"
 import { SearchBar } from "components/SearchBar";
-import { SearchForm } from "containers/Settings/UsersContainer/components/SearchForm";
+import { SearchForm } from "containers/Settings/components/SearchForm";
 import { AddButton, SearchButton } from "components/Buttons";
 import { TOGGLES_ACTIONS } from "store/Toggles";
-import { DeleteUserDialog } from "containers/Settings/UsersContainer/components/Dialogs/DeleteUserDialog";
 import { UsersTable } from "./UsersTable/UsersTable";
 
 
@@ -42,6 +41,7 @@ export const UsersContainer = () => {
         <AddNewUserDialog />
         <EditUserDialog />
         <DeleteUserDialog />
+        <DeActivateUserDialog />
         <PasswordUpdateDialog />
       </Box>
     </>

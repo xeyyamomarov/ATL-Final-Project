@@ -12,7 +12,9 @@ import { Route } from "react-router-dom";
 
 export const ITSupply = () => {
   return <>
-    <Route path="/it-supply" element={<ITSupplyPage />} />
+    <Route path="/it-supply" element={<ITSupplyPage />}>
+      <Route path=":id" element={<></>} />
+    </Route>
     <Route path="/it-supply/worker/new" element={<ITSupplyFormWorker />} />
     <Route path="/it-supply/worker/view" element={<ITSupplyFormWorkerSaved />} />
     <Route path="/it-supply/department/edit" element={<ITSupplyFormDepartmentEdit />} />

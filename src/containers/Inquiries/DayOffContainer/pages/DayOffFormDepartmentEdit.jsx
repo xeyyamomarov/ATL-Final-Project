@@ -108,6 +108,12 @@ export const DayOffFormDepartmentEdit = () => {
                       disabled
                       name="type"
                       select
+                      InputLabelProps={{
+                        variant: 'filled'
+                      }}
+                      InputProps={{
+                        notched: false
+                      }}
                       component={TextField}
                       label="Növü"
                     >
@@ -124,6 +130,12 @@ export const DayOffFormDepartmentEdit = () => {
                       fullWidth
                       name="result"
                       select
+                      InputLabelProps={{
+                        variant: 'filled'
+                      }}
+                      InputProps={{
+                        notched: false
+                      }}
                       component={TextField}
                       label="Nəticə"
                     >

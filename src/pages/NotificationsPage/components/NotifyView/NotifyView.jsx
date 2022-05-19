@@ -1,10 +1,5 @@
-import { NotifyViewContainer } from "containers/NotificationContainer/NotifyViewContainer"
+import { NotifyViewContainer } from "containers/NotificationContainer/NotifyViewContainer";
 
-export const NotifyView =()=>{
-
-    return(
-        <>
-        <NotifyViewContainer/>
-        </>
-    )
-}
+export const NotifyView = () => {
+  return <NotifyViewContainer />;
+};

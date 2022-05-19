@@ -3,12 +3,17 @@ import { DeleteIcon } from "components/DeleteIcon/DeleteIcon";
 import { useDispatch } from "react-redux";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { EditUserRoles } from "../components/EditUserRoles";
+import { useNavigate } from "react-router-dom";
 
 
 
 export const UserRolesTableHeader = () => {
   const dispatch = useDispatch();
-  const handleOpenClick = () => dispatch(TOGGLES_ACTIONS.setDeleteRoleDialog())
+  const navigate = useNavigate();
+  const handleOpenClick = (id) => {
+    navigate(id)
+    dispatch(TOGGLES_ACTIONS.setDeleteRoleDialog())
+  }
 
   return [
     {
@@ -33,8 +38,8 @@ export const UserRolesTableHeader = () => {
       render(row) {
         return (
           <Box display='flex' width='100%' justifyContent='flex-end' alignItems='center'>
-            <EditUserRoles userId={row.id} />
-            <DeleteIcon onClick={handleOpenClick} />
+            <EditUserRoles userRoleId={row._id} />
+            <DeleteIcon onClick={() => handleOpenClick(row._id)} />
           </Box>
         )
       }

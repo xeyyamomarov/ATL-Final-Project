@@ -12,7 +12,9 @@ import { Route } from "react-router-dom";
 export const DayOff = () => {
   return (
     <>
-      <Route path="/day-off" element={<DayOffPage />} />
+      <Route path="/day-off" element={<DayOffPage />} >
+        <Route path=":id" element={<></>} />
+      </Route>
       <Route path="/day-off/worker/new" element={<DayOffFormWorker />} />
       <Route path="/day-off/worker/view" element={<DayOffFormWorkerSaved />} />
       <Route

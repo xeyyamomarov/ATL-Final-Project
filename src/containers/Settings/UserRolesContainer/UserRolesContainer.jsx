@@ -8,7 +8,7 @@ import { AddButton } from "components/Buttons";
 import { TOGGLES_ACTIONS } from "store/Toggles";
 import { Box, Collapse } from "@mui/material";
 import { UserRolesTable } from "./UserRolesTable";
-import { SearchForm } from "containers/Settings/UserRolesContainer/components/SearchForm";
+import { SearchForm } from "../components/SearchForm";
 
 
 export const UserRolesContainer = () => {
