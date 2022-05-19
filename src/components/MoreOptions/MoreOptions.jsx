@@ -1,13 +1,18 @@
 import { IconButton, Menu, Tooltip } from '@mui/material';
 import { useState } from 'react';
 import { MoreHoriz } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 
-export const MoreOptions = ({ tooltip="Daha çox", children}) => {
+export const MoreOptions = ({ tooltip="Daha çox", children, userId}) => {
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = e => setAnchorEl(e.currentTarget);
+  const handleClick = e => {
+    navigate(`${userId}`)
+    setAnchorEl(e.currentTarget)
+  };
   const handleClose = () => setAnchorEl(null);
 
   return (

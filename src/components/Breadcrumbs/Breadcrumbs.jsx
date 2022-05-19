@@ -1,52 +1,24 @@
 import { Breadcrumbs as MuiBreadcrumbs, MenuItem, Typography } from '@mui/material';
 import { useStyles } from 'components/Breadcrumbs/BreadcrumbsStyle';
 import { useLocation, useNavigate } from "react-router-dom";
-import { breadcrumbTranslations, inquiries, settings, inquiriesTranslated, settingsTranslated, notificationsTranslated } from 'constants';
+import { inquiriesTranslated, settingsTranslated, notificationsTranslated } from 'constants';
 import { KeyboardArrowDown } from '@mui/icons-material';
 import { DropdownButton } from './Dropdown/DropdownButton';
+import { breadcrumbTranslation } from 'utils/functions';
 
 
-export const Breadcrumbs = props => {
+export const Breadcrumbs = () => {
   const classes = useStyles();
-  const { pathname } = useLocation();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const pathnames = pathname.split("/").filter(x => x)
-
-  const breadcrumbTranslation = arr => {
-    const array = [];
-    arr.map(item => {
-      return breadcrumbTranslations.forEach(obj => {
-        if (obj[item]) {
-          array.push(obj[item])
-        }
-      })
-    })
-
-    inquiries.forEach(item => {
-      if (arr[0] === item) {
-        return array.unshift("Sorğular")
-      }
-    })
-    settings.forEach(item => {
-      if (arr[0] === item) {
-        return array.unshift("Parametrlər")
-      }
-    })
-
-    if (arr[0] === "notification") {
-      array.unshift("Elanlar")
-    }
-
-    return array;
-  }
 
   const translatedPathNames = breadcrumbTranslation(pathnames)
 
   return (
     <MuiBreadcrumbs aria-label="breadcrumb" className={classes.breadcrumbs}>
 
-      {pathname === "/" ? (<Typography className={classes.text}> Əsas səhifə </Typography>) :
-
+      {pathname === "/" ? <Typography className={classes.text}> Əsas səhifə </Typography> :
         translatedPathNames.map((name, index) => {
           if (name === "Sorğular" || name === "Parametrlər" || name === "Elanlar") {
             return (
@@ -56,17 +28,17 @@ export const Breadcrumbs = props => {
                 className={classes.links}
                 endIcon={<KeyboardArrowDown />}
               >
-                {name === "Sorğular" ?
-                  inquiriesTranslated.map(menu => {
-                    return <MenuItem key={menu.name} onClick={() => navigate(menu.link)}>{menu.name}</MenuItem>
-                  }) : name === "Parametrlər" ?
-                    settingsTranslated.map(menu => {
-                      return <MenuItem key={menu.name} onClick={() => navigate(menu.link)}>{menu.name}</MenuItem>
-                    }) : name === "Elanlar" ?
-                      notificationsTranslated.map(menu => {
-                        return <MenuItem key={menu.name} onClick={() => navigate(menu.link)}>{menu.name}</MenuItem>
-                      }) : null
-                }
+                {{
+                  "Sorğular": inquiriesTranslated.map(menu => (
+                    <MenuItem key={menu.name} onClick={() => navigate(menu.link)}>{menu.name}</MenuItem>
+                  )),
+                  "Parametrlər": settingsTranslated.map(menu => (
+                    <MenuItem key={menu.name} onClick={() => navigate(menu.link)}>{menu.name}</MenuItem>
+                  )),
+                  "Elanlar": notificationsTranslated.map(menu => (
+                    <MenuItem key={menu.name} onClick={() => navigate(menu.link)}>{menu.name}</MenuItem>
+                  ))
+                }[name]}
               </DropdownButton>
             )
           }

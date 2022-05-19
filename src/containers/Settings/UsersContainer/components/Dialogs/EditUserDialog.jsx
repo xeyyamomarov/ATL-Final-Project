@@ -4,7 +4,7 @@ import {
   Dialog,
   DialogActions,
   Grid,
-  TextField as MuiTextField,
+  Chip,
 } from "@mui/material";
 import { SubmitButton, CloseButton } from "components/Buttons";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -13,6 +13,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as Yup from "yup";
 import { TOGGLES_ACTIONS, TOGGLES_SELECTORS } from "store/Toggles";
 import { TextFieldWrapper } from "./TextFieldWrapper";
+import { useNavigate, useParams } from "react-router-dom";
+import { getUsers } from "store/Users/users.selectors";
+import { updateUser } from "lib/api/users";
+import { USERS_ACTIONS } from "store/Users";
+import { useEffect, useState } from "react";
+import { CustomInput } from "components/Input/CustomInput";
+import { InputAutocomplete } from "components/Input/InputAutocomplete";
 
 const positions = [
   "User",
@@ -21,26 +28,44 @@ const positions = [
   "Manager",
 ];
 
-const initialValues = {
-  username: "",
-  position: [],
-}
-
 const validationSchema = Yup.object({
   username: Yup.string().required("Mütləq doldurulmalıdır!"),
   position: Yup.array().required("Mütləq doldurulmalıdır!")
 });
 
-const onSubmit = (values, { resetForm }) => {
-  console.log(values);
-  resetForm()
-}
 
 export const EditUserDialog = () => {
-
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [selectedUser, setSelectedUser] = useState({})
+
+  const users = useSelector(getUsers);
   const open = useSelector(TOGGLES_SELECTORS.getEditDialogToggle)
+
+  const findUser = (id, data) => data.find(user => user._id === id);
   const handleClose = () => dispatch(TOGGLES_ACTIONS.setEditDialog())
+
+  const initialValues = {
+    username: selectedUser.username,
+    position: selectedUser.position,
+  }
+
+  const onSubmit = (values, { resetForm }) => {
+    console.log(values);
+    updateUser(id, values)
+      .then(res => {
+        navigate('/users')
+        dispatch(USERS_ACTIONS.fetchUsers());
+      })
+    handleClose();
+  }
+
+  useEffect(() => {
+    if (id) {
+      setSelectedUser(findUser(id, users))
+    }
+  }, [id, users])
 
   return (
     <Dialog open={open} onClose={handleClose}>
@@ -58,11 +83,9 @@ export const EditUserDialog = () => {
 
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <Field
-                  fullWidth
-                  as={MuiTextField}
+                <CustomInput
                   label="Əməkdaş*"
-                  value="Aslanova Xəyalə Rüfət"
+                  value={selectedUser.fullName}
                   disabled
                   sx={{
                     minWidth: "263px",
@@ -76,6 +99,7 @@ export const EditUserDialog = () => {
               </Grid>
 
               <Grid item xs={12} sm={6}>
+
                 <TextFieldWrapper
                   label="İstifadəçi adı*"
                   name="username"
@@ -87,22 +111,32 @@ export const EditUserDialog = () => {
 
               <Grid item xs={12}>
                 <Field
-                  fullWidth
+                  multiple
                   name="position"
                   component={Autocomplete}
-                  label="position"
                   options={positions}
                   filterSelectedOptions
                   getOptionLabel={option => option}
-                  multiple
-                  renderInput={(params) => {
-                    return (<>
-                      <MuiTextField {...params} label="Rollar*" />
-                    </>
-                    );
-                  }}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => (
+                      <Chip
+                        size="small"
+                        variant="filled"
+                        label={option}
+                        {...getTagProps({ index })}
+                      />
+                    ))
+                  }
+                  renderInput={(params) => (
+                    <InputAutocomplete
+                      {...params}
+                      label="Rollar*"
+                    />
+
+                  )
+                  }
                 />
-                  <ErrorMessage name="position" />
+                <ErrorMessage name="position" />
               </Grid>
 
             </Grid>

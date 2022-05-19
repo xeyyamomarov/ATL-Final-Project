@@ -1,4 +1,4 @@
-import { Box, FormControl, Grid, MenuItem, TextField as MuiTextField } from "@mui/material";
+import { Box, FormControl, Grid, MenuItem } from "@mui/material";
 import { SubmitButton } from "components/Buttons";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { Breadcrumbs } from "components/Breadcrumbs";
@@ -10,6 +10,8 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { DatePicker } from "formik-mui-lab";
 import { useStyles } from "styles/Styles";
 import { InfoSection } from "containers/components/InfoSection";
+import { InputAutocomplete } from "components/Input/InputAutocomplete";
+import { CustomInput } from "components/Input/CustomInput";
 
 const resultDatas = [
   { value: "DepartmentHead", label: "Departament rəhbərin göndərməsi" },
@@ -68,8 +70,11 @@ export const GuestFormDepartmentEdit = () => {
                       component={Autocomplete}
                       filterSelectedOptions
                       options={[]}
+                      ChipProps={{
+                        size: 'small'
+                      }}
                       renderInput={(params) => {
-                        return <MuiTextField
+                        return <InputAutocomplete
                           {...params}
                           label="Gələcək şəxs"
                         />;
@@ -86,8 +91,11 @@ export const GuestFormDepartmentEdit = () => {
                       component={Autocomplete}
                       filterSelectedOptions
                       options={[]}
+                      ChipProps={{
+                        size: 'small'
+                      }}
                       renderInput={(params) => {
-                        return <MuiTextField
+                        return <InputAutocomplete
                           {...params}
                           label="Nəqliyyat ilə bağlı qeyd"
                         />;
@@ -119,21 +127,17 @@ export const GuestFormDepartmentEdit = () => {
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Field
+                    <CustomInput
                       disabled
-                      fullWidth
                       name="visitPurpose"
-                      component={TextField}
                       label="Gəlmə səbəbi"
                     />
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Field
+                    <CustomInput
                       disabled
-                      fullWidth
                       name="note"
-                      component={TextField}
                       label="Sorğu ilə bağlı qeyd"
                     />
                   </Grid>
@@ -143,6 +147,12 @@ export const GuestFormDepartmentEdit = () => {
                       fullWidth
                       name="result"
                       select
+                      InputLabelProps={{
+                        variant: 'filled'
+                      }}
+                      InputProps={{
+                        notched: false
+                      }}
                       component={TextField}
                       label="Nəticə"
                     >

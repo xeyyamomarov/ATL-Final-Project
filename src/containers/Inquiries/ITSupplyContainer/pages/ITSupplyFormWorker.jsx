@@ -7,6 +7,7 @@ import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-mui";
 import { useStyles } from "styles/Styles";
+import { CustomInput } from "components/Input/CustomInput";
 
 
 const resultDatas = [
@@ -47,7 +48,7 @@ export const ITSupplyFormWorker = () => {
           <Box className={classes.breadcrumbBar}>
             <Breadcrumbs />
           </Box>
-          <QueryTabs tabs={tabs} value="one"/>
+          <QueryTabs tabs={tabs} value="one" />
           <Box className={classes.container}>
             <Box className={classes.dataContainer}>
               <Box className={classes.formBox}>
@@ -55,10 +56,8 @@ export const ITSupplyFormWorker = () => {
                 <Grid container spacing={2} padding="16px">
 
                   <Grid item xs={12}>
-                    <Field
-                      fullWidth
+                    <CustomInput
                       name="problem"
-                      component={TextField}
                       label="Problemin təsviri"
                     />
                   </Grid>
@@ -67,6 +66,12 @@ export const ITSupplyFormWorker = () => {
                     <Field
                       fullWidth
                       select
+                      InputLabelProps={{
+                        variant: 'filled'
+                      }}
+                      InputProps={{
+                        notched: false
+                      }}
                       component={TextField}
                       name="result"
                       label="Nəticə"

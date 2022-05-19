@@ -97,6 +97,12 @@ export const BusinessTripFormWorker = () => {
                         fullWidth
                         name="note"
                         select
+                        InputLabelProps={{
+                          variant: 'filled'
+                        }}
+                        InputProps={{
+                          notched: false
+                        }}
                         component={TextField}
                         label="Qeyd"
                       >
@@ -113,6 +119,12 @@ export const BusinessTripFormWorker = () => {
                         fullWidth
                         name="result"
                         select
+                        InputLabelProps={{
+                          variant: 'filled'
+                        }}
+                        InputProps={{
+                          notched: false
+                        }}
                         component={TextField}
                         label="Nəticə"
                       >

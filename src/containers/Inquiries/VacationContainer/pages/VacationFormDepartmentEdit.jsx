@@ -120,6 +120,12 @@ export const VacationFormDepartmentEdit = () => {
                       fullWidth
                       name="result"
                       select
+InputLabelProps={{
+                      variant: 'filled'
+                    }}
+                    InputProps={{
+                      notched: false
+                    }}
                       component={TextField}
                       label="Nəticə"
                     >

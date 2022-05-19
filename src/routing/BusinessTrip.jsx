@@ -12,7 +12,9 @@ import { Route } from "react-router-dom";
 export const BusinessTrip = () => {
   return (
     <>
-      <Route path="/business-trip" element={<BusinessTripPage />} />
+      <Route path="/business-trip" element={<BusinessTripPage />}>
+        <Route path=":id" element={<></>} />
+      </Route>
       <Route
         path="/business-trip/worker/new"
         element={<BusinessTripFormWorker />}

@@ -13,67 +13,38 @@ export const breadcrumbTranslations = [
   { "notification": "Elan" },
   { "settings": "Parametrlər" },
   { "users": "İstifadəçilər" },
-  { "user-roles": "İstifadəçi rolları" },
+  { "userroles": "İstifadəçi rolları" },
   { "new": "Yeni sorğu" },
   { "view": "Sorğunun təsviri" },
   { "edit": "Sorğunun redaktəsi" },
 ]
 
-export const inquiries = [
-  "day-off",
-  "business-trip",
-  "vacation",
-  "guest",
-  "it-supply",
-  "purchase"
-]
+export const subMenusBelongTo = {
+  "day-off": "Sorğular",
+  "business-trip": "Sorğular",
+  "vacation": "Sorğular",
+  "guest": "Sorğular",
+  "it-supply": "Sorğular",
+  "purchase": "Sorğular",
+  "users": "Parametrlər",
+  "userroles": "Parametrlər",
+  "notification": "Elanlar"
+}
 
 export const inquiriesTranslated = [
-  {
-    name: "Day off",
-    link: "/day-off"
-  },
-  {
-    name: "Ezamiyyət",
-    link: "/business-trip"
-  },
-  {
-    name: "Məzuniyyət",
-    link: "/vacation"
-  },
-  {
-    name: "Qonaq",
-    link: "/guest"
-  },
-  {
-    name: "IT təchizat",
-    link: "/it-supply"
-  },
-  {
-    name: "Satınalma",
-    link: "/purchase"
-  },
-]
-
-export const settings = [
-  "users",
-  "user-roles"
+  { name: "Day off", link: "/day-off" },
+  { name: "Ezamiyyət", link: "/business-trip" },
+  { name: "Məzuniyyət", link: "/vacation" },
+  { name: "Qonaq", link: "/guest" },
+  { name: "IT təchizat", link: "/it-supply" },
+  { name: "Satınalma", link: "/purchase" },
 ]
 
 export const settingsTranslated = [
-  {
-    name: "İstifadəçilər",
-    link: "/users"
-  },
-  {
-    name: "İstifadəçi rolları",
-    link: "/user-roles"
-  },
+  { name: "İstifadəçilər", link: "/users" },
+  { name: "İstifadəçi rolları", link: "/userroles" },
 ]
 
 export const notificationsTranslated = [
-  {
-    name: "Elanlar",
-    link: "/notification"
-  },
+  { name: "Elanlar", link: "/notification" },
 ]

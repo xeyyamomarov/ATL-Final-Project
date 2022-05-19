@@ -126,6 +126,12 @@ export const VacationFormHrEdit = () => {
                       fullWidth
                       name="result"
                       select
+InputLabelProps={{
+                      variant: 'filled'
+                    }}
+                    InputProps={{
+                      notched: false
+                    }}
                       component={TextField}
                       label="Nəticə"
                     >

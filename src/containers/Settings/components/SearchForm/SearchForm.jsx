@@ -1,8 +1,10 @@
-import { Box, Divider, Grid, TextField as MuiTextField } from "@mui/material";
+import { Box, Chip, Divider, Grid } from "@mui/material";
 import { Button, CloseButton } from "components/Buttons";
 import { Formik, Form, Field } from "formik";
-import { Autocomplete } from 'formik-mui';
+import { Autocomplete } from 'formik-mui'
 import { makeStyles } from '@mui/styles';
+import { CustomInput } from "components/Input/CustomInput";
+import { InputAutocomplete } from "components/Input/InputAutocomplete";
 
 
 const useStyles = makeStyles({
@@ -43,8 +45,9 @@ const onSubmit = (values, { resetForm }) => {
 }
 
 export const SearchForm = () => {
-  
+
   const classes = useStyles();
+
 
   return (
     <Box className={classes.container}>
@@ -55,54 +58,64 @@ export const SearchForm = () => {
         <Form>
           <Box className={classes.upBox}>
             <Grid container spacing={2}>
+
               <Grid item xs={12} md={6} lg={3}>
-                <Field
-                  fullWidth
-                  as={MuiTextField}
+                <CustomInput
                   label="Ad Soyad"
                   name="nameSurname"
                 />
               </Grid>
+
               <Grid item xs={12} md={6} lg={3}>
-                <Field
-                  fullWidth
-                  as={MuiTextField}
+                <CustomInput
                   label="İstifadəçi adı"
                   name="username"
                 />
               </Grid>
+
               <Grid item xs={12} md={6} lg={3}>
-                <Field
-                  fullWidth
-                  as={MuiTextField}
+                <CustomInput
                   label="Vəzifə"
                   name="position"
                 />
               </Grid>
+
               <Grid item xs={12} md={6} lg={3}>
                 <Field
-                  fullWidth
                   name="roles"
                   component={Autocomplete}
-                  options={roles}
-                  label="roles"
-                  filterSelectedOptions
-                  getOptionLabel={option => option}
                   multiple
-                  renderInput={(params) => {
-                    return <MuiTextField {...params} label="Rollar" />;
-                  }}
+                  filterSelectedOptions
+                  options={roles}
+                  getOptionLabel={option => option}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => (
+                      <Chip
+                        size="small"
+                        variant="filled"
+                        label={option}
+                        {...getTagProps({ index })}
+                      />
+                    ))
+                  }
+                  renderInput={(params) => (
+                    <InputAutocomplete
+                      {...params}
+                      label="Rollar"
+                    />
+                  )}
                 />
               </Grid>
+
             </Grid>
           </Box>
           <Divider />
           <Box className={classes.btnBox}>
-            <CloseButton type="reset" text="Təmizlə"/>
+            <CloseButton type="reset" text="Təmizlə" />
             <Button type="submit" text="Axtar" />
           </Box>
         </Form>
       </Formik>
     </Box>
   );
-}
+};

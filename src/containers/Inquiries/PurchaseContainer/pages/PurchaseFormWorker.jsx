@@ -7,6 +7,7 @@ import { FormHead } from "containers/components";
 import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-mui";
 import { useStyles } from "styles/Styles";
+import { CustomInput } from "components/Input/CustomInput";
 
 
 const resultDatas = [
@@ -55,10 +56,8 @@ export const PurchaseFormWorker = () => {
                 <Grid container spacing={2} padding="16px">
 
                   <Grid item xs={12}>
-                    <Field
-                      fullWidth
+                    <CustomInput
                       name="problem"
-                      component={TextField}
                       label="Problemin təsviri"
                     />
                   </Grid>
@@ -68,6 +67,12 @@ export const PurchaseFormWorker = () => {
                       fullWidth
                       name="result"
                       select
+                      InputLabelProps={{
+                        variant: 'filled'
+                      }}
+                      InputProps={{
+                        notched: false
+                      }}
                       component={TextField}
                       label="Nəticə"
                     >

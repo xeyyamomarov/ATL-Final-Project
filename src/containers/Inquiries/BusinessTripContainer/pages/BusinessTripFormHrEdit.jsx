@@ -137,6 +137,12 @@ export const BusinessTripFormHrEdit = () => {
                       disabled
                       name="note"
                       select
+                      InputLabelProps={{
+                        variant: 'filled'
+                      }}
+                      InputProps={{
+                        notched: false
+                      }}
                       component={TextField}
                       label="Qeyd"
                     >
@@ -153,6 +159,12 @@ export const BusinessTripFormHrEdit = () => {
                       fullWidth
                       name="result"
                       select
+                      InputLabelProps={{
+                        variant: 'filled'
+                      }}
+                      InputProps={{
+                        notched: false
+                      }}
                       component={TextField}
                       label="Nəticə"
                     >

@@ -106,6 +106,12 @@ export const DayOffFormHrEdit = () => {
                       fullWidth
                       name="type"
                       select
+                      InputLabelProps={{
+                        variant: 'filled'
+                      }}
+                      InputProps={{
+                        notched: false
+                      }}
                       component={TextField}
                       label="Növü"
                       sx={{
@@ -129,6 +135,12 @@ export const DayOffFormHrEdit = () => {
                       fullWidth
                       name="result"
                       select
+                      InputLabelProps={{
+                        variant: 'filled'
+                      }}
+                      InputProps={{
+                        notched: false
+                      }}
                       component={TextField}
                       label="Nəticə"
                     >

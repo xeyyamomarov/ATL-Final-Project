@@ -34,7 +34,7 @@ export const UsersTableHeader = () => {
           <>
             <Avatar
               className={classes.avatar}
-              alt={`${row.fullName}`}
+              alt={row.fullName}
               src={row.avatar}
             />
             <Typography

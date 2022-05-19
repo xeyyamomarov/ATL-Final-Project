@@ -2,13 +2,15 @@ import { IconButton, Tooltip } from '@mui/material';
 import { Edit } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 import { TOGGLES_ACTIONS } from 'store/Toggles';
+import { useNavigate } from 'react-router-dom';
 
 
 export function EditUserRoles({ fontSize = 'small', userRoleId }) {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
 
   const handleClick = () => {
+    navigate(userRoleId)
     dispatch(TOGGLES_ACTIONS.setEditDialog());
   };
 

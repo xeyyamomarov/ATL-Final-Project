@@ -97,6 +97,13 @@ export const ITSupplyFormDepartmentEdit = () => {
                     <Field
                       fullWidth
                       name="result"
+                      select
+                      InputLabelProps={{
+                        variant: 'filled'
+                      }}
+                      InputProps={{
+                        notched: false
+                      }}
                       component={TextField}
                       label="Nəticə"
                     >

@@ -11,6 +11,7 @@ import { PurchaseDetailsModal } from "./PurchaseDetailsModal";
 import { useStyles } from "styles/Styles";
 import { InfoIcon } from "containers/components/InfoIcon";
 import { InfoSection } from "containers/components/InfoSection";
+import { CustomInput } from "components/Input/CustomInput";
 
 
 const resultDatas = [
@@ -87,10 +88,8 @@ export const PurchaseFormPurchaseEdit = () => {
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Field
-                      fullWidth
+                    <CustomInput
                       name="resultText"
-                      component={TextField}
                       label="Nəticə mətni"
                     />
                   </Grid>
@@ -100,6 +99,12 @@ export const PurchaseFormPurchaseEdit = () => {
                       fullWidth
                       name="result"
                       select
+                      InputLabelProps={{
+                        variant: 'filled'
+                      }}
+                      InputProps={{
+                        notched: false
+                      }}
                       component={TextField}
                       label="Nəticə"
                     >
