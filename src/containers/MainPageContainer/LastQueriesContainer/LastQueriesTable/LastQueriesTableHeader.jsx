@@ -28,7 +28,7 @@ const useStyles = makeStyles({
             <>
               <Avatar
                 className={classes.avatar}
-                alt={`${record.fullName}`}
+                alt={record.fullName}
                 src={record.avatar}
               />
               <Typography
