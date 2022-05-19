@@ -44,7 +44,7 @@ const SidebarMenuİtems = [
     icon: <SettingsIcon fontSize='large' />,
     items: [
       { key: "users", label: "Istifadəçilər", path: "/users" },
-      { key: "user-roles", label: "İstifadəçi rolları", path: "/user-roles" },
+      { key: "userroles", label: "İstifadəçi rolları", path: "/userroles" },
     ],
   },
 ];
