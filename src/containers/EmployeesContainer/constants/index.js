@@ -59,3 +59,4 @@ export const tabs = [
     { value: "vacationDetails", label: "Əmək məzuniyyəti" },
     { value: "documentsDetails", label: "Sənədlər" },
   ];
+

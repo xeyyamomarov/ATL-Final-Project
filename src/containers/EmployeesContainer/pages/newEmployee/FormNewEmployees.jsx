@@ -1,4 +1,4 @@
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   FormControl,
@@ -63,12 +63,12 @@ const initialValues = {
 
 export const NewEmployeesForm = () => {
   const classes = useStyles();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onSubmit = (values, { resetForm }) => {
     console.log(values);
     resetForm();
-    // navigate("/employees/new/saved");
+    navigate('/employees/details')
   };
 
   return (

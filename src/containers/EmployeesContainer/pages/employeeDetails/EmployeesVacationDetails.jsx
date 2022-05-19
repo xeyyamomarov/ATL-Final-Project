@@ -39,19 +39,19 @@ const tfoot = [
     },
     {
         key: "mainTotal",
-        value: "33",
+        value: "90",
     },
     {
         key: "extraTotal",
-        value: "33",
+        value: "10",
     },
     {
         key: "usedTotal",
-        value: "33",
+        value: "7",
     },
     {
         key: "rest",
-        value: "Qalıq",
+        value: "93",
     }
 ]
 
@@ -60,25 +60,25 @@ const data = [
         id: '1',
         year: '25/06/2020 - 25/06/2021',
         main: '30',
-        extra: '5',
+        extra: '3',
         used: '2',
-        rest: '33',
+        rest: '31',
     },
     {
         id: '2',
         year: '25/06/2020 - 25/06/2021',
         main: '30',
         extra: '5',
-        used: '2',
-        rest: '33',
+        used: '3',
+        rest: '32',
     },
     {
         id: '3',
         year: '25/06/2020 - 25/06/2021',
         main: '30',
-        extra: '5',
+        extra: '2',
         used: '2',
-        rest: '33',
+        rest: '30',
     }
 ]
 

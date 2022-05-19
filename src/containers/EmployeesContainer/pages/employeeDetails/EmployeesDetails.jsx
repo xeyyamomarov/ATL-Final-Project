@@ -1,9 +1,8 @@
-import { Avatar, Box} from "@mui/material";
+import { Avatar, Box } from "@mui/material";
 import { Breadcrumbs } from "components/Breadcrumbs/Breadcrumbs";
 import { QueryTabs } from "containers/components/QueryTabs";
 import { detailsTabs } from "containers/EmployeesContainer/constants";
 import { useStyles } from "styles/Styles";
-// import { useNavigate } from "react-router-dom";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -70,7 +69,6 @@ const rows = [
 export const EmployeesDetails = () => {
 
   const classes = useStyles();
-  // const navigate = useNavigate();
 
   return (
     <Box>
@@ -83,29 +81,28 @@ export const EmployeesDetails = () => {
         <TableContainer >
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableBody>
-            <TableRow
-                  key="avatar"
-                  
-                >
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    variant="head"
-                    sx={{
-                      width: 244,
-                      color: "gray",
-                      padding: "0"
-                    }}>
-                    Foto şəkil
-                  </TableCell>
-                  <TableCell>
+              <TableRow
+                key="avatar"
+              >
+                <TableCell
+                  component="th"
+                  scope="row"
+                  variant="head"
+                  sx={{
+                    width: 244,
+                    color: "gray",
+                    padding: "0"
+                  }}>
+                  Foto şəkil
+                </TableCell>
+                <TableCell>
                   <Avatar
-              alt={employee.fullName}
-              src={employee.avatar}
-              sx={{width: 160, height: 160}}
-            />
-                  </TableCell>
-                </TableRow>
+                    alt={employee.fullName}
+                    src={employee.avatar}
+                    sx={{ width: 160, height: 160 }}
+                  />
+                </TableCell>
+              </TableRow>
               {rows.map((row) => (
                 <TableRow
                   key={row.name}
@@ -128,10 +125,7 @@ export const EmployeesDetails = () => {
             </TableBody>
           </Table>
         </TableContainer>
-
       </Box>
-
-
     </Box>
   )
 }
