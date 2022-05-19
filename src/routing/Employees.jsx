@@ -19,7 +19,9 @@ import {
 export const Employees = () => {
   return (
     <>
-      <Route path="/employees" element={<EmployeesPage />} />
+      <Route path="/employees" element={<EmployeesPage />} >
+        <Route path=":id" element={<></>}/>
+      </Route>
       <Route path="/employees/new-employee" element={<NewEmployeesForm />} />
       <Route path="/employees/new-employee/contract" element={<NewEmployeesContract />} />
       <Route path="/employees/new-employee/order" element={<NewEmployeesOrder />} />
