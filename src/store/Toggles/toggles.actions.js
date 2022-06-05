@@ -9,4 +9,5 @@ export const setPasswordHidden = () => ({type: TOGGLES_ACTION_TYPES.PASSWORD_HID
 export const setPasswordRepeatHidden = () => ({type: TOGGLES_ACTION_TYPES.PASSWORD_REPEAT_HIDDEN });
 export const setDeleteRoleDialog = () => ({type: TOGGLES_ACTION_TYPES.DELETE_ROLE_DIALOG });
 export const setDetailsDialog = () => ({type: TOGGLES_ACTION_TYPES.DETAILS_DIALOG });
-export const setDeleteNotify = () => ({type:TOGGLES_ACTION_TYPES.DELETE_NOTIFY})
+export const setDeleteNotify = () => ({type:TOGGLES_ACTION_TYPES.DELETE_NOTIFY});
+export const setDeleteEmployee = () => ({type:TOGGLES_ACTION_TYPES.DELETE_EMPLOYEE});

@@ -13,7 +13,8 @@ import {
   EmployeesOrderDetails, 
   EmployeesSalaryDetails, 
   EmployeesVacationDetails, 
-  EmployeesDocumentsDetails
+  EmployeesDocumentsDetails,
+  EmployeesDetailsEdit,
 } from 'containers/EmployeesContainer/pages';
 
 export const Employees = () => {
@@ -29,6 +30,7 @@ export const Employees = () => {
       <Route path="/employees/new-employee/vacations" element={<NewEmployeesVacation />} />
       <Route path="/employees/new-employee/documents" element={<NewEmployeesDocuments />} />
       <Route path="/employees/details" element={<EmployeesDetails />} />
+      <Route path="/employees/details/edit" element={<EmployeesDetailsEdit />} />
       <Route path="/employees/details/contract" element={<EmployeesContractDetails />} />
       <Route path="/employees/details/order" element={<EmployeesOrderDetails />} />
       <Route path="/employees/details/salary" element={<EmployeesSalaryDetails />} />

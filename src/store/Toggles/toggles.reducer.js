@@ -11,7 +11,8 @@ const togglesInit = {
   EditRoleDialog: false,
   DeleteRoleDialog: false,
   DetailsDialog: false,
-  DeleteNotify:false
+  DeleteNotify: false,
+  DeleteEmployee: false
 }
 
 
@@ -62,12 +63,16 @@ export const togglesReducer = (store = togglesInit, action) => {
         ...store,
         DetailsDialog: !store.DetailsDialog
       };
-      case TOGGLES_ACTION_TYPES.DELETE_NOTIFY:
-        return {
-          ...store,
-          DeleteNotify: !store.DeleteNotify
-        }
-
+    case TOGGLES_ACTION_TYPES.DELETE_NOTIFY:
+      return {
+        ...store,
+        DeleteNotify: !store.DeleteNotify
+      };
+    case TOGGLES_ACTION_TYPES.DELETE_EMPLOYEE:
+      return {
+        ...store,
+        DeleteEmployee: !store.DeleteEmployee
+      }
     default: return store;
   }
 }

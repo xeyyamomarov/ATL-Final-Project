@@ -10,3 +10,4 @@ export * from './employeeDetails/EmployeesOrderDetails';
 export * from './employeeDetails/EmployeesSalaryDetails';
 export * from './employeeDetails/EmployeesVacationDetails';
 export * from './employeeDetails/EmployeesDocumentsDetails';
+export * from './employeeEdit/EmployeeEdit';

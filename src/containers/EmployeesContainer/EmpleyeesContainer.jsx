@@ -9,6 +9,7 @@ import { SearchForm } from "containers/EmployeesContainer/components/SearchForm"
 import { useNavigate } from "react-router-dom";
 import { Warning } from "@mui/icons-material";
 import CloseIcon from '@mui/icons-material/Close';
+import { DeleteEmployeeDialog } from "./components/Dialogs";
 
 export const EmployeesContainer = () => {
 
@@ -16,6 +17,7 @@ export const EmployeesContainer = () => {
   const employees = useSelector(EMPLOYEES_ALL_SELECTORS.getEmployeesAll);
   const [searchOpen, setSearchOpen] = useState(false);
   const [snackBar, setSnackBar] = useState(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(true);
 
 
   const navigate = useNavigate();
@@ -64,6 +66,7 @@ export const EmployeesContainer = () => {
       >
         <Alert onClose={handleClose} icon={<Warning fontSize="inherit" />} variant="filled" severity="success" >{snackBarText}</Alert>
       </Snackbar>
+      <DeleteEmployeeDialog del={deleteModalOpen} setDelete={setDeleteModalOpen} />
     </>
   );
 }

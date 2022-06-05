@@ -3,14 +3,18 @@ import { MoreOptions } from 'components/MoreOptions';
 import { useNavigate } from "react-router-dom";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import { useStyles } from "../Styles";
+import { useDispatch } from "react-redux";
+import { TOGGLES_ACTIONS } from "store/Toggles";
 
 
 
 export const EmployeesTableHeader = () => {
 
   const classes = useStyles();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const addNewHandleClick = () => navigate("/employees/details");
+  const editHandleClick = () => navigate("/employees/details/edit"); 
 
   return [
     {
@@ -73,8 +77,8 @@ export const EmployeesTableHeader = () => {
             </Tooltip>
 
             <MoreOptions userId='1'>
-              <MenuItem onClick={() => console.log('edit')}>Redaktə et</MenuItem>
-              <MenuItem onClick={() => console.log('delete')}>Arxiv</MenuItem>
+              <MenuItem onClick={editHandleClick}>Redaktə et</MenuItem>
+              <MenuItem onClick={() => dispatch(TOGGLES_ACTIONS.setDeleteEmployee())}>Arxiv</MenuItem>
             </MoreOptions>
           </Box>
         )
