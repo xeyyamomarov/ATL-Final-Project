@@ -13,14 +13,12 @@ import { DeleteEmployeeDialog } from "./components/Dialogs";
 
 export const EmployeesContainer = () => {
 
-  const dispatch = useDispatch();
+
   const employees = useSelector(EMPLOYEES_ALL_SELECTORS.getEmployeesAll);
   const [searchOpen, setSearchOpen] = useState(false);
   const [snackBar, setSnackBar] = useState(false);
-  const [deleteModalOpen, setDeleteModalOpen] = useState(true);
-
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const addNewHandleClick = () => navigate("/employees/new-employee");
   const empleyeesFullName = "Xəyalə Aslanova"
   const snackBarText = `"${empleyeesFullName}" haqqında məlumatlar arxivləndi`;
@@ -66,7 +64,7 @@ export const EmployeesContainer = () => {
       >
         <Alert onClose={handleClose} icon={<Warning fontSize="inherit" />} variant="filled" severity="success" >{snackBarText}</Alert>
       </Snackbar>
-      <DeleteEmployeeDialog del={deleteModalOpen} setDelete={setDeleteModalOpen} />
+      <DeleteEmployeeDialog />
     </>
   );
 }
