@@ -15,6 +15,7 @@ export const EmployeesContainer = () => {
 
 
   const employees = useSelector(EMPLOYEES_ALL_SELECTORS.getEmployeesAll);
+  const loading = useSelector(EMPLOYEES_ALL_SELECTORS.getEmployeesAllLoading);
   const [searchOpen, setSearchOpen] = useState(false);
   const [snackBar, setSnackBar] = useState(false);
   const navigate = useNavigate();
@@ -43,6 +44,7 @@ export const EmployeesContainer = () => {
 
   return (
     <>
+    {console.log(loading)}
       <SearchBar buttons={
         <>
           <SearchButton onClick={() => {
@@ -53,7 +55,7 @@ export const EmployeesContainer = () => {
       } />
       <Box padding="16px">
         <Collapse in={searchOpen}>{<SearchForm />}</Collapse>
-        <EmployeesTable data={employees} pagination />
+        <EmployeesTable data={employees} loading={loading} pagination />
       </Box>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
