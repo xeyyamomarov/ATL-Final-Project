@@ -74,7 +74,10 @@ export const ChangePass = () => {
       passValue.newPass === "" ||
       passValue.newPassRepeat === ""
     ) {
-      setMyError(true);
+      setMyError((prev) => ({
+        ...prev,
+        passwordError: true,
+      }));
       setMessage((prev) => ({
         ...prev,
         passwordMessage: "Cari şifrəni daxil edin",
@@ -83,17 +86,22 @@ export const ChangePass = () => {
       passValue.password === passValue.newPass ||
       passValue.password === passValue.newPassRepeat
     ) {
-      setMyError1(true);
+      setMyError((prev) => ({
+        ...prev,
+        newPasswordError: true,
+      }));
       setMessage((prev) => ({
         ...prev,
         newPasswordMessage: "Bu şifrə istifadə olunub.",
       }));
-    } 
-    else if (
+    } else if (
       passValue.password !== passValue.newPassRepeat &&
       passValue.newPass !== passValue.newPassRepeat
     ) {
-      setMyError2(true);
+      setMyError((prev) => ({
+        ...prev,
+        newPasswordRepeatError: true,
+      }));
       setMessage((prev) => ({
         ...prev,
         newPasswordRepeatMessage: "Daxil etdiyiniz şifrələr fərqlidir.",
@@ -102,15 +110,19 @@ export const ChangePass = () => {
       navigate("/profile/settings");
     }
   };
-  const [myError, setMyError] = useState(false);
-  const [myError1, setMyError1] = useState(false);
-  const [myError2, setMyError2] = useState(false);
+  const [myError, setMyError] = useState({
+    passwordError: false,
+    newPasswordError: false,
+    newPasswordRepeatError: false,
+  });
 
   const handleChange = (event) => {
     setPassValue({ ...passValue, [event.target.name]: event.target.value });
-    setMyError(false);
-    setMyError1(false);
-    setMyError2(false);
+    setMyError({
+      ...myError.passwordError,
+      ...myError.newPasswordError,
+      ...myError.newPasswordRepeatError,
+    });
   };
 
   const handleClickShowPassword = () => {
@@ -170,7 +182,7 @@ export const ChangePass = () => {
           <FormControl
             sx={{ margin: "5px" }}
             fullWidth
-            error={myError}
+            error={myError.passwordError}
             variant="outlined"
           >
             <InputLabel htmlFor="outlined-password1">Cari şifrə</InputLabel>
@@ -193,7 +205,7 @@ export const ChangePass = () => {
               }
               label="Cari şifrə"
             />
-            {myError && (
+            {myError.passwordError && (
               <FormHelperText id="outlined-password1-error">
                 {message.passwordMessage}
               </FormHelperText>
@@ -202,7 +214,7 @@ export const ChangePass = () => {
           <FormControl
             sx={{ margin: "5px" }}
             fullWidth
-            error={myError1}
+            error={myError.newPasswordError}
             variant="outlined"
           >
             <InputLabel htmlFor="outlined-password2">Yeni şifrə</InputLabel>
@@ -225,7 +237,7 @@ export const ChangePass = () => {
               }
               label="Yeni şifrə"
             />
-            {myError1 && (
+            {myError.newPasswordError && (
               <FormHelperText id="outlined-password2-error">
                 {message.newPasswordMessage}
               </FormHelperText>
@@ -235,7 +247,7 @@ export const ChangePass = () => {
           <FormControl
             sx={{ margin: "5px" }}
             fullWidth
-            error={myError2}
+            error={myError.newPasswordRepeatError}
             variant="outlined"
           >
             <InputLabel htmlFor="outlined-password3">
@@ -263,7 +275,7 @@ export const ChangePass = () => {
               }
               label="Yeni şifrənin təkrarı"
             />
-            {myError2 && (
+            {myError.newPasswordRepeatError && (
               <FormHelperText id="outlined-password3-error">
                 {message.newPasswordRepeatMessage}
               </FormHelperText>
